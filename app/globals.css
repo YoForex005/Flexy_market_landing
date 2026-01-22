@@ -1,26 +1,707 @@
-@import "tailwindcss";
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --primary-color: #0f664a;
+  --secondary-color: #154941;
+  --text-color: #000;
+  --background-color: #fff;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Page Loader */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  transition: opacity 0.3s ease;
+}
+
+.page-loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+}
+
+.loader::after,
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  animation: prixClipFix 2s linear infinite;
+}
+
+.loader::after {
+  border-color: #1b4934;
+  animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+  inset: 6px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
+
+/* Animations */
+.slideup_animation {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slideup_animation.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Sticky Header Styles */
+.header {
+  transition: transform 0.4s ease-in-out, background-color 0.3s, padding 0.3s;
+  background-color: transparent !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+.header.sticky {
+  position: fixed;
+  top: 0;
+  width: 100% !important;
+  z-index: 1000;
+  background-color: #fff !important;
+  color: #000;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, .05);
+  padding: 15px 0;
+  transform: translateY(0);
+  /* Slide down when active */
+  /* Increased size as per user request */
+}
+
+.header.sticky .partner_row {
+  display: none;
+}
+
+.header.sticky .nav-link {
+  color: #000 !important;
+}
+
+.nav-link {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Mega Menu & Animations */
+/* Mega Menu & Animations */
+.mega-menu2 {
+  min-width: 1100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px) !important;
+  margin-top: 20px;
+  border-radius: 12px;
+  border: none;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  padding: 30px 50px 30px 30px;
+}
+
+/* Specific Adjustments */
+.mega-menu2.menu-trading {
+  padding-right: 70px;
+  transform: translateX(-45%) translateY(10px) !important;
+  /* Shifted slightly right */
+}
+
+/* Company Menu - Shift Left & Down + Bottom Padding */
+/* Company Menu - Shift Left & Down + Bottom Padding */
+/* Company Menu - Shift Left & Down + Bottom Padding */
+.mega-menu2.menu-company {
+  transform: translateX(-70%) translateY(20px) !important;
+  padding-bottom: 80px;
+  /* Increased to 80px for "more" padding */
+}
+
+/* Discover Menu - Match Company Padding */
+.mega-menu2.menu-discover {
+  padding-bottom: 50px;
+}
+
+@media (min-width: 992px) {
+  .dropdown:hover .mega-menu2.menu-trading {
+    animation: fadeInUpTrading 0.3s ease-out forwards;
+  }
+
+  .dropdown:hover .mega-menu2.menu-company {
+    animation: fadeInUpCompany 0.3s ease-out forwards;
+  }
+}
+
+@keyframes fadeInUpTrading {
+  from {
+    opacity: 0;
+    transform: translateX(-45%) translateY(20px) !important;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-45%) translateY(10px) !important;
+  }
+}
+
+@keyframes fadeInUpCompany {
+  from {
+    opacity: 0;
+    transform: translateX(-70%) translateY(30px) !important;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-70%) translateY(20px) !important;
+  }
+}
+
+.dropdown-header {
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.dropdown-item {
+  font-weight: 600;
+  color: #154941;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: all .2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f7f5;
+  color: #0f4941;
+  transform: translateX(5px);
+}
+
+/* Hover to Open on Desktop */
+@media (min-width: 992px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    animation: fadeInUp 0.3s ease-out forwards;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px) !important;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(10px) !important;
+  }
+}
+
+/* 3D Mesh Background Animation */
+/* Silk Flow Animation */
+/* Silk Flow Animation - Premium Silver/Grey */
+/* --- Abstract Wave Animation (CSS Replacement for Video) --- */
+/* --- Premium 3D Mesh Gradient Animation (Live Motion) --- */
+.wave-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #f8fafc;
+  z-index: 0;
+}
+
+.parallax-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Allows transform stacking */
+}
+
+.wave {
+  position: absolute;
+  filter: blur(90px);
+  /* Slightly sharper for visibility */
+  opacity: 0.85;
+  /* Much more visible */
+  border-radius: 50%;
+  animation: meshMove 12s infinite alternate ease-in-out;
+  /* Faster "Live" feel */
+}
+
+/* Layer 1: Deep Emerald (Core Brand) */
+.wave-1 {
+  background: radial-gradient(circle, rgba(15, 102, 74, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
+  width: 130%;
+  height: 130%;
+  top: -40%;
+  left: -40%;
+  animation-duration: 15s;
+}
+
+/* Layer 2: Bright Teal (Energy) */
+.wave-2 {
+  background: radial-gradient(circle, rgba(46, 204, 113, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+  width: 100%;
+  height: 100%;
+  bottom: -20%;
+  right: -20%;
+  animation-duration: 11s;
+  animation-direction: reverse;
+}
+
+/* Layer 3: Rich Gold (Premium Attraction) */
+.wave-3 {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.45) 0%, rgba(255, 255, 255, 0) 70%);
+  width: 120%;
+  height: 120%;
+  top: 20%;
+  right: 15%;
+  animation-duration: 13s;
+}
+
+/* Layer 4: Platinum/Silver (Depth) */
+.wave-4 {
+  background: radial-gradient(circle, rgba(160, 174, 192, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
+  width: 100%;
+  height: 100%;
+  bottom: 0%;
+  left: 0%;
+  animation-duration: 18s;
+  animation-direction: reverse;
+}
+
+@keyframes meshMove {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(60px, -40px) scale(1.15) rotate(15deg);
+  }
+
+  66% {
+    transform: translate(-30px, 50px) scale(0.9) rotate(-10deg);
+  }
+
+  100% {
+    transform: translate(40px, 30px) scale(1.05) rotate(5deg);
+  }
+}
+
+/* --- Premium Money Flow (Dollar Particles) --- */
+.bubble-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -50px;
+  /* Gold Coin Gradient */
+  background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.4), rgba(212, 175, 55, 0.1));
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Times New Roman', serif;
+  font-weight: bold;
+
+  animation: floatMoney infinite ease-in-out;
+}
+
+/* Insert Dollar Sign */
+.bubble::after {
+  content: '$';
+  font-size: 80%;
+  /* Relative to bubble size */
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+}
+
+/* Varied Sizes & Speeds for "Money Rain" Effect */
+.bubble:nth-child(1) {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  left: 10%;
+  animation-duration: 7s;
+  animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  left: 20%;
+  animation-duration: 9s;
+  animation-delay: 2s;
+  opacity: 0.7;
+}
+
+.bubble:nth-child(3) {
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  left: 35%;
+  animation-duration: 11s;
+  animation-delay: 4s;
+  opacity: 0.6;
+}
+
+.bubble:nth-child(4) {
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+  left: 50%;
+  animation-duration: 8s;
+  animation-delay: 1s;
+}
+
+.bubble:nth-child(5) {
+  width: 35px;
+  height: 35px;
+  font-size: 24px;
+  left: 65%;
+  animation-duration: 10s;
+  animation-delay: 5s;
+  opacity: 0.8;
+}
+
+.bubble:nth-child(6) {
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  left: 80%;
+  animation-duration: 12s;
+  animation-delay: 3s;
+}
+
+.bubble:nth-child(7) {
+  width: 50px;
+  height: 50px;
+  font-size: 32px;
+  left: 90%;
+  animation-duration: 14s;
+  animation-delay: 1s;
+  opacity: 0.5;
+}
+
+.bubble:nth-child(8) {
+  width: 28px;
+  height: 28px;
+  font-size: 18px;
+  left: 25%;
+  animation-duration: 9.5s;
+  animation-delay: 2.5s;
+}
+
+@keyframes floatMoney {
+  0% {
+    transform: translateY(0) translateX(0) rotateY(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.9;
+    transform: translateY(-10vh) translateX(5px) rotateY(45deg);
+  }
+
+  30% {
+    transform: translateY(-30vh) translateX(-10px) rotateY(180deg);
+  }
+
+  50% {
+    transform: translateY(-50vh) translateX(10px) rotateY(360deg);
+  }
+
+  70% {
+    transform: translateY(-70vh) translateX(-5px) rotateY(180deg);
+  }
+
+  100% {
+    transform: translateY(-120vh) translateX(0) rotateY(0deg);
+    opacity: 0;
+  }
+}
+
+/* Ensure content stays on top */
+.index-banner .container {
+  position: relative;
+  z-index: 10;
+}
+
+/* Silk Flow BG Removed */
+
+.silk-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes silkFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Enhancing the effect with multiple layered waves if needed, but keeping it performant first */
+
+/* Index Banner (Hero) Styles */
+.index-banner {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+  /* Account for fixed header */
+}
+
+.index-banner-video,
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.index-banner-content h1 {
+  font-size: 80px;
+  /* Increased from 75px */
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 25px;
+  color: #154941;
+}
+
+.index-banner-content p {
+  line-height: 1.6;
+  font-size: 19px;
+  margin-top: 25px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #444;
+}
+
+.index-banner-button {
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 15px 40px;
+  background: #0f664a;
+  color: #fff;
+  border: 1px solid #0f664a;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all .3s ease;
+  box-shadow: 0 10px 30px rgba(15, 102, 74, .25);
+}
+
+.index-banner-button:hover {
+  box-shadow: 0 0 60px rgba(15, 102, 74, .5) !important;
+}
+
+@media (max-width: 1640px) {
+  .index-banner-content h1 {
+    font-size: 65px;
+  }
+}
+
+@media (max-width: 992px) {
+  .index-banner {
+    min-height: 90vh;
+  }
+
+  .index-banner-content h1 {
+    font-size: 55px !important;
+  }
+
+  .index-banner-content p {
+    font-size: 16px;
+  }
+
+  .index-banner-button {
+    font-size: 14px;
+    padding: 10px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .index-banner {
+    min-height: 80vh;
+  }
+
+  .index-banner-content h1 {
+    font-size: 35px !important;
+  }
+}
+
+/* Floating Buttons */
+.floating-actions {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+  z-index: 1001;
+}
+
+.chat-bubble {
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  border: 1px solid #14ae5c;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.chat-bubble:hover {
+  transform: scale(1.05);
+}
+
+.whatsapp-btn {
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+}
+
+.close-chat {
+  width: 20px;
+  height: 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  margin-left: -10px;
+}
+
+/* Hide on Scroll Navbar Styles */
+.nav-hidden {
+  transform: translateY(-100%);
+}
+
+.nav-visible {
+  transform: translateY(0);
 }
