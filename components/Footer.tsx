@@ -6,15 +6,15 @@ export default function Footer() {
     return (
         <>
             <footer className="footer" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #17423c 0%, #2a6b5f 50%, #17423c 100%)' }}></div>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #0f4941 0%, #0f664a 50%, #0f4941 100%)' }}></div>
 
                 <div className="container">
                     {/* Header Section with Social Icons */}
-                    <div className="foorer_1 py-5" style={{ borderBottom: '1px solid rgba(23, 66, 60, 0.1)' }}>
+                    <div className="foorer_1 py-5" style={{ borderBottom: '1px solid rgba(15, 73, 65, 0.1)' }}>
                         <div className="row align-items-center">
                             <div className="col-lg-5">
                                 <div className="footer_heading">
-                                    <h3 className="display-6 fw-bold" style={{ color: '#17423c' }}>Feel connected anytime, anywhere.</h3>
+                                    <h3 className="display-6 fw-bold" style={{ color: '#0f4941' }}>Feel connected anytime, anywhere.</h3>
                                 </div>
                             </div>
                             <div className="col-lg-4 offset-lg-3">
@@ -51,24 +51,24 @@ export default function Footer() {
                     <div className="footer_2 py-5">
                         <div className="row">
                             <div className="col-md-2 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#17423c', fontSize: '0.875rem', letterSpacing: '1px' }}>ACCOUNTS</h6>
+                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>ACCOUNTS</h6>
                                 <Link href="/account" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Account Types</Link>
                             </div>
 
                             <div className="col-md-2 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#17423c', fontSize: '0.875rem', letterSpacing: '1px' }}>OUR OFFERING</h6>
+                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>OUR OFFERING</h6>
                                 <Link href="/flexy-copy-trading" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Flexy Copy Trading</Link>
                                 <Link href="/execution-policy" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Execution Policy</Link>
                                 <Link href="/margin-leverage" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Margin and Leverage</Link>
                             </div>
 
                             <div className="col-md-2 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#17423c', fontSize: '0.875rem', letterSpacing: '1px' }}>PLATFORMS</h6>
+                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>PLATFORMS</h6>
                                 <Link href="/mt5" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>MT5 Platform</Link>
                             </div>
 
                             <div className="col-md-2 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#17423c', fontSize: '0.875rem', letterSpacing: '1px' }}>COMPANY</h6>
+                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>COMPANY</h6>
                                 <Link href="/about" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Who is Flexy Markets?</Link>
                                 <Link href="/legal-document" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Legal Documents</Link>
                                 <Link href="/flexy-csr" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>CSR</Link>
@@ -76,7 +76,7 @@ export default function Footer() {
                             </div>
 
                             <div className="col-md-2 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#17423c', fontSize: '0.875rem', letterSpacing: '1px' }}>REGISTERED ADDRESS</h6>
+                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>REGISTERED ADDRESS</h6>
                                 <p className="text-muted small">Flexy Markets Limited (Reg No. - 2024-00752)</p>
                                 <p className="text-muted small">Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia</p>
                                 <p className="text-muted small"><strong>Email:</strong> support@flexymarkets.com</p>
@@ -84,7 +84,7 @@ export default function Footer() {
                             </div>
 
                             <div className="col-md-2 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#17423c', fontSize: '0.875rem', letterSpacing: '1px' }}>CORRESPONDENCE ADDRESS</h6>
+                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>CORRESPONDENCE ADDRESS</h6>
                                 <p className="text-muted small">Middle East Office:</p>
                                 <p className="text-muted small">B2007-127, 33rd floor, Latifa Tower, Trade Center first, Seikh Zayad Road, Dubai-UAE</p>
                             </div>
@@ -92,7 +92,7 @@ export default function Footer() {
                     </div>
 
                     {/* Legal Footer Section */}
-                    <div className="legal-footer bg-white rounded-4 p-4 mb-4" style={{ border: '1px solid rgba(23, 66, 60, 0.1)' }}>
+                    <div className="legal-footer bg-white rounded-4 p-4 mb-4" style={{ border: '1px solid rgba(15, 73, 65, 0.1)' }}>
                         <div className="row">
                             <div className="col-12 text-center mb-3">
                                 <a href="https://flexymarkets.com/legal_documents/VPS-Service-Terms-and-Conditions-special.pdf" className="text-muted small px-2">VPS Terms and Conditions</a> |
@@ -103,15 +103,15 @@ export default function Footer() {
                         <div className="row">
                             <div className="col-12">
                                 <p className="text-muted small mb-2">
-                                    <strong style={{ color: '#17423c' }}>Legal:</strong> This website is operated by Flexy Markets Limited with registered address at Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia.
+                                    <strong style={{ color: '#0f4941' }}>Legal:</strong> This website is operated by Flexy Markets Limited with registered address at Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia.
                                 </p>
 
                                 <p className="text-muted small mb-2">
-                                    <strong style={{ color: '#17423c' }}>Risk Warning:</strong> Our services involve a significant risk and can result in the loss of your invested capital. Please read and ensure you fully understand our Risk Disclosure.
+                                    <strong style={{ color: '#0f4941' }}>Risk Warning:</strong> Our services involve a significant risk and can result in the loss of your invested capital. Please read and ensure you fully understand our Risk Disclosure.
                                 </p>
 
                                 <p className="text-muted small mb-2">
-                                    <strong style={{ color: '#17423c' }}>Restricted Regions:</strong> Flexy Markets Ltd does not provide services for the residents of certain countries, such as the United States of America, Canada, Argentina, UAE, Israel and the Islamic Republic of Iran.
+                                    <strong style={{ color: '#0f4941' }}>Restricted Regions:</strong> Flexy Markets Ltd does not provide services for the residents of certain countries, such as the United States of America, Canada, Argentina, UAE, Israel and the Islamic Republic of Iran.
                                 </p>
 
                                 <p className="text-muted small mb-0">
@@ -124,7 +124,7 @@ export default function Footer() {
             </footer>
 
             {/* Copyright Footer */}
-            <footer className="copyright-footer text-center text-white py-3" style={{ background: '#17423c' }}>
+            <footer className="copyright-footer text-center text-white py-3" style={{ background: '#0f4941' }}>
                 &copy; {new Date().getFullYear()} Flexy Markets Ltd. All rights reserved.
             </footer>
         </>

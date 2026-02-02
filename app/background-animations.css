@@ -1,0 +1,529 @@
+/* ========================================
+   ADVANCED TRADING BACKGROUND ANIMATIONS
+   Extended candlestick charts, price tickers, & market indicators
+   ======================================== */
+
+/* ========== Animated Candlestick Charts ========== */
+.candlestick-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.candlestick-group {
+    position: absolute;
+    display: flex;
+    gap: 8px;
+    animation: slideCandles 15s linear infinite;
+    will-change: transform;
+}
+
+/* Bullish candlestick (green) */
+.candle {
+    position: relative;
+    width: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.candle-wick {
+    width: 2px;
+    background: rgba(46, 204, 113, 0.6);
+    margin: 0 auto;
+}
+
+.candle-body {
+    width: 12px;
+    background: linear-gradient(180deg, rgba(46, 204, 113, 0.8) 0%, rgba(22, 160, 133, 0.9) 100%);
+    border: 1px solid rgba(46, 204, 113, 1);
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
+    border-radius: 2px;
+}
+
+/* Bearish candlestick (red) */
+.candle.bearish .candle-wick {
+    background: rgba(231, 76, 60, 0.6);
+}
+
+.candle.bearish .candle-body {
+    background: linear-gradient(180deg, rgba(231, 76, 60, 0.8) 0%, rgba(192, 57, 43, 0.9) 100%);
+    border: 1px solid rgba(231, 76, 60, 1);
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.4);
+}
+
+.candlestick-group-1 {
+    top: 20%;
+    left: -300px;
+    height: 150px;
+    animation-duration: 18s;
+}
+
+.candlestick-group-2 {
+    top: 50%;
+    left: -300px;
+    height: 120px;
+    animation-duration: 16s;
+    animation-delay: -5s;
+}
+
+.candlestick-group-3 {
+    bottom: 20%;
+    left: -300px;
+    height: 180px;
+    animation-duration: 20s;
+    animation-delay: -10s;
+}
+
+@keyframes slideCandles {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 0.8;
+    }
+
+    95% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateX(calc(100vw + 400px));
+        opacity: 0;
+    }
+}
+
+/* ========== Price Tickers (Scrolling Numbers) ========== */
+.price-ticker-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.price-ticker {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 18px;
+    white-space: nowrap;
+    animation: tickerScroll 12s linear infinite;
+    will-change: transform;
+}
+
+.price-ticker.bullish {
+    color: rgba(46, 204, 113, 0.9);
+    text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+}
+
+.price-ticker.bearish {
+    color: rgba(231, 76, 60, 0.9);
+    text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+}
+
+.ticker-1 {
+    top: 15%;
+    animation-duration: 14s;
+}
+
+.ticker-2 {
+    top: 35%;
+    animation-duration: 11s;
+    animation-delay: -3s;
+}
+
+.ticker-3 {
+    top: 55%;
+    animation-duration: 13s;
+    animation-delay: -6s;
+}
+
+.ticker-4 {
+    top: 75%;
+    animation-duration: 15s;
+    animation-delay: -2s;
+}
+
+.ticker-5 {
+    top: 90%;
+    animation-duration: 12s;
+    animation-delay: -8s;
+}
+
+@keyframes tickerScroll {
+    0% {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(calc(100vw + 200px));
+        opacity: 0;
+    }
+}
+
+/* ========== Dollar Bubble Animations ========== */
+.bubble-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -50px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.4), rgba(212, 175, 55, 0.1));
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    animation: floatMoney infinite ease-in-out;
+}
+
+.bubble::after {
+    content: '$';
+    font-size: 80%;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+}
+
+.bubble:nth-child(1) {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    left: 10%;
+    animation-duration: 7s;
+}
+
+.bubble:nth-child(2) {
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    left: 20%;
+    animation-duration: 9s;
+    animation-delay: 2s;
+    opacity: 0.7;
+}
+
+.bubble:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    left: 35%;
+    animation-duration: 11s;
+    animation-delay: 4s;
+    opacity: 0.6;
+}
+
+.bubble:nth-child(4) {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+    left: 50%;
+    animation-duration: 8s;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(5) {
+    width: 35px;
+    height: 35px;
+    font-size: 24px;
+    left: 65%;
+    animation-duration: 10s;
+    animation-delay: 5s;
+    opacity: 0.8;
+}
+
+.bubble:nth-child(6) {
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    left: 80%;
+    animation-duration: 12s;
+    animation-delay: 3s;
+}
+
+.bubble:nth-child(7) {
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+    left: 90%;
+    animation-duration: 14s;
+    animation-delay: 1s;
+    opacity: 0.5;
+}
+
+.bubble:nth-child(8) {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    left: 25%;
+    animation-duration: 9.5s;
+    animation-delay: 2.5s;
+}
+
+@keyframes floatMoney {
+    0% {
+        transform: translateY(0) translateX(0) rotateY(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+        transform: translateY(-10vh) translateX(5px) rotateY(45deg);
+    }
+
+    30% {
+        transform: translateY(-30vh) translateX(-10px) rotateY(180deg);
+    }
+
+    50% {
+        transform: translateY(-50vh) translateX(10px) rotateY(360deg);
+    }
+
+    70% {
+        transform: translateY(-70vh) translateX(-5px) rotateY(180deg);
+    }
+
+    100% {
+        transform: translateY(-120vh) translateX(0) rotateY(0deg);
+        opacity: 0;
+    }
+}
+
+/* ========== Chart Lines (Trend Lines) ========== */
+.chart-line-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.chart-line {
+    position: absolute;
+    height: 3px;
+    width: 400%;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(212, 175, 55, 0.3) 25%,
+            rgba(255, 215, 0, 0.6) 50%,
+            rgba(212, 175, 55, 0.3) 75%,
+            transparent 100%);
+    animation: slideChartLine 10s linear infinite;
+    will-change: transform;
+    filter: blur(1px);
+}
+
+.chart-line.bullish {
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(46, 204, 113, 0.3) 25%,
+            rgba(22, 160, 133, 0.6) 50%,
+            rgba(46, 204, 113, 0.3) 75%,
+            transparent 100%);
+}
+
+.chart-line.bearish {
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(231, 76, 60, 0.3) 25%,
+            rgba(192, 57, 43, 0.6) 50%,
+            rgba(231, 76, 60, 0.3) 75%,
+            transparent 100%);
+}
+
+.line-1 {
+    top: 25%;
+    animation-duration: 12s;
+}
+
+.line-2 {
+    top: 50%;
+    animation-duration: 9s;
+    animation-delay: -4s;
+}
+
+.line-3 {
+    top: 70%;
+    animation-duration: 11s;
+    animation-delay: -2s;
+}
+
+@keyframes slideChartLine {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(25%);
+    }
+}
+
+/* ========== Trading Indicators (Buy/Sell Arrows) ========== */
+.indicator-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.trade-indicator {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    animation: indicatorFloat 8s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+.trade-indicator.buy {
+    color: rgba(46, 204, 113, 1);
+    text-shadow: 0 0 15px rgba(46, 204, 113, 0.8);
+}
+
+.trade-indicator.sell {
+    color: rgba(231, 76, 60, 1);
+    text-shadow: 0 0 15px rgba(231, 76, 60, 0.8);
+}
+
+.indicator-1 {
+    top: 25%;
+    left: 15%;
+    animation-duration: 10s;
+}
+
+.indicator-2 {
+    top: 60%;
+    right: 20%;
+    animation-delay: -3s;
+    animation-duration: 12s;
+}
+
+.indicator-3 {
+    bottom: 25%;
+    left: 40%;
+    animation-delay: -6s;
+    animation-duration: 9s;
+}
+
+@keyframes indicatorFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 0.9;
+    }
+}
+
+/* ========== Percentage Changes (Floating Stats) ========== */
+.stats-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.stat-badge {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    animation: statFloat 10s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+.stat-badge.positive {
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.2) 0%, rgba(22, 160, 133, 0.3) 100%);
+    border: 1px solid rgba(46, 204, 113, 0.5);
+    color: rgba(46, 204, 113, 1);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+}
+
+.stat-badge.negative {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.2) 0%, rgba(192, 57, 43, 0.3) 100%);
+    border: 1px solid rgba(231, 76, 60, 0.5);
+    color: rgba(231, 76, 60, 1);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.stat-1 {
+    top: 18%;
+    left: 25%;
+    animation-duration: 12s;
+}
+
+.stat-2 {
+    top: 45%;
+    right: 30%;
+    animation-delay: -4s;
+    animation-duration: 10s;
+}
+
+.stat-3 {
+    bottom: 30%;
+    left: 15%;
+    animation-delay: -7s;
+    animation-duration: 11s;
+}
+
+.stat-4 {
+    top: 65%;
+    right: 15%;
+    animation-delay: -2s;
+    animation-duration: 13s;
+}
+
+@keyframes statFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-30px) translateX(20px);
+        opacity: 1;
+    }
+}

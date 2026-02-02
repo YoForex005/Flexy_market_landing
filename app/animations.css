@@ -1,0 +1,339 @@
+/* ========================================
+   ANIMATED BACKGROUND KEYFRAMES
+   ======================================== */
+
+@keyframes ribbonFloat1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(30px, -20px) scale(1.1);
+    }
+}
+
+@keyframes ribbonFloat2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-30px, 25px) scale(1.05);
+    }
+}
+
+@keyframes ribbonFloat3 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(20px, 20px) scale(1.08);
+    }
+}
+
+@keyframes ribbonFloat4 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-25px, -15px) scale(1.06);
+    }
+}
+
+@keyframes ribbonFloat5 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(25px, 30px) scale(1.09);
+    }
+}
+
+@keyframes waveMove1 {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes waveMove2 {
+
+    0%,
+    100% {
+        background-position: 100% 50%;
+    }
+
+    50% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes waveMove3 {
+
+    0%,
+    100% {
+        background-position: 50% 0%;
+    }
+
+    50% {
+        background-position: 50% 100%;
+    }
+}
+
+@keyframes auroraFloat1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translate(15%, -10%) scale(1.15);
+        opacity: 0.85;
+    }
+}
+
+@keyframes auroraFloat2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translate(-12%, 15%) scale(1.12);
+        opacity: 0.75;
+    }
+}
+
+@keyframes auroraFloat3 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.65;
+    }
+
+    50% {
+        transform: translate(10%, -8%) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes ribbonFlow1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    33% {
+        transform: translate(-100px, 80px) rotate(15deg) scale(1.1);
+        border-radius: 40% 60% 50% 50% / 50% 60% 40% 60%;
+    }
+
+    66% {
+        transform: translate(50px, -50px) rotate(-10deg) scale(0.95);
+        border-radius: 55% 45% 40% 60% / 45% 55% 55% 45%;
+    }
+}
+
+@keyframes ribbonFlow2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+    }
+
+    33% {
+        transform: translate(80px, 100px) rotate(-20deg) scale(1.05);
+        border-radius: 60% 40% 60% 40% / 50% 50% 50% 50%;
+    }
+
+    66% {
+        transform: translate(-60px, -70px) rotate(12deg) scale(1.08);
+        border-radius: 50% 50% 45% 55% / 60% 40% 60% 40%;
+    }
+}
+
+@keyframes ribbonFlow3 {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+        border-radius: 50% 50% 40% 60% / 30% 60% 40% 70%;
+    }
+
+    50% {
+        transform: translate(-50%, -45%) rotate(8deg) scale(1.12);
+        border-radius: 45% 55% 50% 50% / 55% 45% 55% 45%;
+    }
+}
+
+@keyframes ribbonFlow4 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        border-radius: 70% 30% 50% 50% / 60% 40% 60% 40%;
+    }
+
+    40% {
+        transform: translate(-90px, -60px) rotate(18deg) scale(1.07);
+        border-radius: 50% 50% 60% 40% / 40% 60% 40% 60%;
+    }
+
+    80% {
+        transform: translate(70px, 50px) rotate(-15deg) scale(0.98);
+        border-radius: 60% 40% 55% 45% / 50% 50% 50% 50%;
+    }
+}
+
+@keyframes ribbonFlow5 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        border-radius: 45% 55% 60% 40% / 50% 50% 50% 50%;
+    }
+
+    35% {
+        transform: translate(90px, -80px) rotate(-12deg) scale(1.1);
+        border-radius: 55% 45% 50% 50% / 60% 40% 60% 40%;
+    }
+
+    70% {
+        transform: translate(-80px, 70px) rotate(10deg) scale(1.02);
+        border-radius: 50% 50% 55% 45% / 45% 55% 45% 55%;
+    }
+}
+
+@keyframes waveSlide1 {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+        background-size: 200% 200%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+        background-size: 250% 250%;
+    }
+}
+
+@keyframes waveSlide2 {
+
+    0%,
+    100% {
+        background-position: 100% 50%;
+        background-size: 220% 220%;
+    }
+
+    50% {
+        background-position: 0% 50%;
+        background-size: 180% 180%;
+    }
+}
+
+@keyframes waveSlide3 {
+
+    0%,
+    100% {
+        background-position: 50% 0%;
+        background-size: 240% 240%;
+    }
+
+    50% {
+        background-position: 50% 100%;
+        background-size: 200% 200%;
+    }
+}
+
+@keyframes auroraMove1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+    }
+
+    33% {
+        transform: translate(15%, -10%) scale(1.2);
+        opacity: 0.85;
+    }
+
+    66% {
+        transform: translate(-10%, 12%) scale(0.9);
+        opacity: 0.6;
+    }
+}
+
+@keyframes auroraMove2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translate(-12%, 15%) scale(1.15);
+        opacity: 0.75;
+    }
+}
+
+@keyframes auroraMove3 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.65;
+    }
+
+    40% {
+        transform: translate(10%, -8%) scale(1.1);
+        opacity: 0.8;
+    }
+
+    80% {
+        transform: translate(-8%, 5%) scale(0.95);
+        opacity: 0.55;
+    }
+}
+
+@keyframes auroraMove4 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(8%, 10%) scale(1.18);
+        opacity: 0.7;
+    }
+}
