@@ -5,6 +5,7 @@ import Ticker from '@/components/Ticker';
 import Awards from '@/components/Awards';
 import Discover from '@/components/Discover';
 import Results from '@/components/Results';
+import AccountTypes from '@/components/AccountTypes';
 import Features from '@/components/Features';
 import Support from '@/components/Support';
 import Footer from '@/components/Footer';
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <Discover />
       <Results />
+      <AccountTypes />
       <Features />
       <Support />
       <Footer />

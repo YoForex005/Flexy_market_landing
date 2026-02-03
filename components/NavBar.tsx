@@ -99,26 +99,26 @@ export default function NavBar() {
                                                         </div>
                                                         <div className="col-3">
                                                             <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Markets</h6>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/forex-trading.php">Forex Trading</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/cryptocurrencies.php">Cryptocurrencies</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/stock-derivatives.php">Stock Derivatives</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/turbo-stocks.php">Turbo Stocks</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/commodities.php">Commodities</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/equity-indices.php">Equity Indices</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/precious-metals.php">Precious Metals</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/energies.php">Energies</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/shares.php">Shares</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/thematic-indices.php">Thematic Indices</Link>
+                                                            <Link className="dropdown-item py-2" href="/forex-trading">Forex Trading</Link>
+                                                            <Link className="dropdown-item py-2" href="/cryptocurrencies">Cryptocurrencies</Link>
+                                                            <Link className="dropdown-item py-2" href="/stock-derivatives">Stock Derivatives</Link>
+                                                            <Link className="dropdown-item py-2" href="/turbo-stocks">Turbo Stocks</Link>
+                                                            <Link className="dropdown-item py-2" href="/commodities">Commodities</Link>
+                                                            <Link className="dropdown-item py-2" href="/equity-indices">Equity Indices</Link>
+                                                            <Link className="dropdown-item py-2" href="/precious-metals">Precious Metals</Link>
+                                                            <Link className="dropdown-item py-2" href="/energies">Energies</Link>
+                                                            <Link className="dropdown-item py-2" href="/shares">Shares</Link>
+                                                            <Link className="dropdown-item py-2" href="/thematic-indices">Thematic Indices</Link>
                                                         </div>
                                                         <div className="col-3">
                                                             <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Platforms</h6>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/mt5.php">MT5 Platform</Link>
+                                                            <Link className="dropdown-item py-2" href="/platforms">MT5 Platform</Link>
                                                         </div>
                                                         <div className="col-3">
                                                             <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Our Offerings</h6>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/flexy-copy-trading.php">Flexy Copy Trading</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/execution-policy.php">Execution Policy</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/margin-leverage.php">Margin and Leverage</Link>
+                                                            <Link className="dropdown-item py-2" href="/flexy-copy-trading">Flexy Copy Trading</Link>
+                                                            <Link className="dropdown-item py-2" href="/execution-policy">Execution Policy</Link>
+                                                            <Link className="dropdown-item py-2" href="/margin-leverage">Margin and Leverage</Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -136,22 +136,22 @@ export default function NavBar() {
                                                     <div className="row">
                                                         <div className="col-6">
                                                             <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Education</h6>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/learning_centre.php">Learning Centre</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/live_education.php">Live Education</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/blog/">Blogs</Link>
+                                                            <Link className="dropdown-item py-2" href="/learning-centre">Learning Centre</Link>
+                                                            <Link className="dropdown-item py-2" href="/live-education">Live Education</Link>
+                                                            <Link className="dropdown-item py-2" href="/blog">Blogs</Link>
                                                         </div>
                                                         <div className="col-6">
                                                             <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Community</h6>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/news_and_analysis.php">News and Analysis</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/analytical-tools.php">Analytical Tools</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/economic_calender.php">Economic Calendar</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/forex-calculator.php">Forex Calculators</Link>
+                                                            <Link className="dropdown-item py-2" href="/news-analysis">News and Analysis</Link>
+                                                            <Link className="dropdown-item py-2" href="/analytical-tools">Analytical Tools</Link>
+                                                            <Link className="dropdown-item py-2" href="/economic-calendar">Economic Calendar</Link>
+                                                            <Link className="dropdown-item py-2" href="/forex-calculator">Forex Calculators</Link>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li className="list-inline-item mx-3">
-                                                <Link href="https://flexymarkets.com/promotion.php" className="nav-link fw-bold" style={{ color: isSticky ? '#000' : '#154941' }}>Promotions</Link>
+                                                <Link href="/promotions" className="nav-link fw-bold" style={{ color: isSticky ? '#000' : '#154941' }}>Promotions</Link>
                                             </li>
                                             <li className="list-inline-item mx-3 position-relative dropdown">
                                                 <a
@@ -165,10 +165,10 @@ export default function NavBar() {
                                                 <div className={`dropdown-menu mega-menu2 menu-company p-4 animated-dropdown shadow-lg border-0 ${openDropdown === 'company' ? 'show' : ''}`} style={{ display: openDropdown === 'company' ? 'block' : 'none' }}>
                                                     <div className="row">
                                                         <div className="col-12">
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/about.php">Who is Flexy Group?</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/legal-document.php">Legal Documents</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/flexy-csr.php">CSR</Link>
-                                                            <Link className="dropdown-item py-2" href="https://flexymarkets.com/contact.php">Contact Us</Link>
+                                                            <Link className="dropdown-item py-2" href="/about">Who is Flexy Group?</Link>
+                                                            <Link className="dropdown-item py-2" href="/legal-documents">Legal Documents</Link>
+                                                            <Link className="dropdown-item py-2" href="/csr">CSR</Link>
+                                                            <Link className="dropdown-item py-2" href="/contact">Contact Us</Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -176,20 +176,20 @@ export default function NavBar() {
                                         </ul>
                                     </nav>
                                     <div className="header_button d-flex align-items-center gap-3">
-                                        <button
-                                            type="button"
+                                        <a
+                                            href="https://user.flexymarkets.com/accounts/signIn"
                                             className="btn fw-bold text-decoration-none p-0 text-black"
                                             style={{ color: '#000', border: '1px solid transparent' }}
                                         >
                                             Login
-                                        </button>
-                                        <button
-                                            type="button"
+                                        </a>
+                                        <a
+                                            href="https://user.flexymarkets.com/accounts/signUp"
                                             className="btn rounded-3 fw-bold px-4 py-2 text-white"
                                             style={{ background: '#0f4941', border: '1px solid #0f4941' }}
                                         >
                                             Get Started
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -246,24 +246,24 @@ export default function NavBar() {
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/account" style={{ fontSize: '14px' }}>Account Types</Link>
 
                                                 <h6 className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Markets</h6>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/forex-trading.php" style={{ fontSize: '14px' }}>Forex Trading</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/cryptocurrencies.php" style={{ fontSize: '14px' }}>Cryptocurrencies</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/stock-derivatives.php" style={{ fontSize: '14px' }}>Stock Derivatives</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/turbo-stocks.php" style={{ fontSize: '14px' }}>Turbo Stocks</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/commodities.php" style={{ fontSize: '14px' }}>Commodities</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/equity-indices.php" style={{ fontSize: '14px' }}>Equity Indices</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/precious-metals.php" style={{ fontSize: '14px' }}>Precious Metals</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/energies.php" style={{ fontSize: '14px' }}>Energies</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/shares.php" style={{ fontSize: '14px' }}>Shares</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/thematic-indices.php" style={{ fontSize: '14px' }}>Thematic Indices</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/forex-trading" style={{ fontSize: '14px' }}>Forex Trading</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/cryptocurrencies" style={{ fontSize: '14px' }}>Cryptocurrencies</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/stock-derivatives" style={{ fontSize: '14px' }}>Stock Derivatives</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/turbo-stocks" style={{ fontSize: '14px' }}>Turbo Stocks</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/commodities" style={{ fontSize: '14px' }}>Commodities</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/equity-indices" style={{ fontSize: '14px' }}>Equity Indices</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/precious-metals" style={{ fontSize: '14px' }}>Precious Metals</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/energies" style={{ fontSize: '14px' }}>Energies</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/shares" style={{ fontSize: '14px' }}>Shares</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/thematic-indices" style={{ fontSize: '14px' }}>Thematic Indices</Link>
 
                                                 <h6 className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Platforms</h6>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/mt5.php" style={{ fontSize: '14px' }}>MT5 Platform</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/platforms" style={{ fontSize: '14px' }}>MT5 Platform</Link>
 
                                                 <h6 className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Our Offerings</h6>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/flexy-copy-trading.php" style={{ fontSize: '14px' }}>Flexy Copy Trading</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/execution-policy.php" style={{ fontSize: '14px' }}>Execution Policy</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/margin-leverage.php" style={{ fontSize: '14px' }}>Margin and Leverage</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/flexy-copy-trading" style={{ fontSize: '14px' }}>Flexy Copy Trading</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/execution-policy" style={{ fontSize: '14px' }}>Execution Policy</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/margin-leverage" style={{ fontSize: '14px' }}>Margin and Leverage</Link>
                                             </div>
                                         )}
                                     </li>
@@ -319,21 +319,27 @@ export default function NavBar() {
                                     </li>
                                 </ul>
 
-                                <div className="d-flex gap-3 mt-4">
-                                    <button
-                                        type="button"
-                                        className="btn fw-bold py-2 px-4"
-                                        style={{ border: '1px solid #ccc', color: '#666', background: 'transparent' }}
+                                <div className="d-flex align-items-center">
+                                    <a
+                                        href="https://user.flexymarkets.com/accounts/signIn"
+                                        className="btn fw-bold me-3 text-dark"
+                                        style={{ fontSize: "15px" }}
                                     >
                                         Login
-                                    </button>
-                                    <button
-                                        type="button"
-                                        className="btn fw-bold py-2 px-4 text-white"
-                                        style={{ background: '#0f4941', border: '1px solid #0f4941' }}
+                                    </a>
+                                    <a
+                                        href="https://user.flexymarkets.com/accounts/signUp"
+                                        className="btn fw-bold"
+                                        style={{
+                                            backgroundColor: "#012e27",
+                                            color: "#fff",
+                                            padding: "10px 24px",
+                                            borderRadius: "6px",
+                                            fontSize: "15px"
+                                        }}
                                     >
                                         Get Started
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

@@ -10,14 +10,13 @@ import Ticker from "./Ticker";
 
 export default function Hero() {
     const heroRef = useRef<HTMLDivElement>(null);
-    const [isChatVisible, setIsChatVisible] = useState(true);
 
     return (
         <div className="index-banner position-relative" ref={heroRef}>
             {/* Premium Gradient Waves Background - Pure CSS */}
             <AnimatedBackground variant="aurora" intensity="high" />
 
-            <div className="index-banner-content text-center" style={{ position: 'relative', zIndex: 10, maxWidth: "1200px", padding: "40px 20px" }}>
+            <div className="index-banner-content text-center" style={{ position: 'relative', zIndex: 10, maxWidth: "1200px", paddingTop: "40px", paddingBottom: "100px", paddingLeft: "20px", paddingRight: "20px" }}>
                 <div
                     className="d-inline-flex align-items-center justify-content-center slideup_animation animate mb-4"
                     style={{
@@ -73,19 +72,22 @@ export default function Hero() {
                 >
                     We offer a superior trading environment that puts traders in the best position to profit.
                 </p>
-                <button
-                    type="button"
+                <a
+                    href="https://user.flexymarkets.com/accounts/signUp"
                     className="index-banner-button slideup_animation animate fw-bold"
                     style={{
                         padding: "16px 40px",
                         fontSize: "16px",
                         borderRadius: "50px",
                         boxShadow: "0 10px 20px rgba(15, 73, 65, 0.2)",
-                        marginTop: "10px"
+                        marginTop: "10px",
+                        display: "inline-block",
+                        textDecoration: "none",
+                        color: "#fff"
                     }}
                 >
                     Get your welcome bonus*
-                </button>
+                </a>
                 <div className="index-banner-limited mt-4 text-muted" style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "0.5px" }}>
                     *Limited-Time Offer
                 </div>
@@ -94,35 +96,10 @@ export default function Hero() {
                     Easy Access to 1,400+ Global Assets
                 </div>
 
-
                 {/* Integrated Marquee Ticker */}
                 <div className="mt-5">
                     <Ticker />
                 </div>
-            </div>
-
-            {/* Floating Actions */}
-            <div className="floating-actions">
-                {isChatVisible && (
-                    <div className="chat-bubble">
-                        <span>Chat with us</span>
-                        <div
-                            className="close-chat"
-                            onClick={() => setIsChatVisible(false)}
-                            style={{ cursor: 'pointer' }}
-                        >
-                            ×
-                        </div>
-                    </div>
-                )}
-                <a
-                    href="https://wa.me/1234567890"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="whatsapp-btn"
-                >
-                    <i className="fab fa-whatsapp"></i>
-                </a>
             </div>
         </div>
     );

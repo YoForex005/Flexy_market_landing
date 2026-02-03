@@ -1,0 +1,62 @@
+"use client";
+
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
+import MarketHero from '@/components/MarketHero';
+import MarketTable from '@/components/MarketTable';
+import MarketFeatures from '@/components/MarketFeatures';
+import ForexCTA from '@/components/ForexCTA';
+
+export default function CryptoTradingPage() {
+    const standardData = [
+        { symbol: "BTCUSD", name: "Bitcoin vs US Dollar", avgSpread: "25.00", lowSpread: "15.00", leverage: "50", icon: "https://assets.coincap.io/assets/icons/btc@2x.png" },
+        { symbol: "ETHUSD", name: "Ethereum vs US Dollar", avgSpread: "1.50", lowSpread: "0.80", leverage: "50", icon: "https://assets.coincap.io/assets/icons/eth@2x.png" },
+        { symbol: "SOLUSD", name: "Solana vs US Dollar", avgSpread: "0.05", lowSpread: "0.03", leverage: "20", icon: "https://assets.coincap.io/assets/icons/sol@2x.png" },
+        { symbol: "ADAUSD", name: "Cardano vs US Dollar", avgSpread: "0.002", lowSpread: "0.001", leverage: "20", icon: "https://assets.coincap.io/assets/icons/ada@2x.png" },
+        { symbol: "XRPUSD", name: "Ripple vs US Dollar", avgSpread: "0.003", lowSpread: "0.002", leverage: "20", icon: "https://assets.coincap.io/assets/icons/xrp@2x.png" },
+    ];
+
+    const ultraData = [
+        { symbol: "BTCUSD", name: "Bitcoin vs US Dollar", avgSpread: "15.00", lowSpread: "10.00", leverage: "50", icon: "https://assets.coincap.io/assets/icons/btc@2x.png" },
+        { symbol: "ETHUSD", name: "Ethereum vs US Dollar", avgSpread: "1.00", lowSpread: "0.50", leverage: "50", icon: "https://assets.coincap.io/assets/icons/eth@2x.png" },
+        { symbol: "SOLUSD", name: "Solana vs US Dollar", avgSpread: "0.04", lowSpread: "0.02", leverage: "20", icon: "https://assets.coincap.io/assets/icons/sol@2x.png" },
+        { symbol: "ADAUSD", name: "Cardano vs US Dollar", avgSpread: "0.0015", lowSpread: "0.001", leverage: "20", icon: "https://assets.coincap.io/assets/icons/ada@2x.png" },
+        { symbol: "XRPUSD", name: "Ripple vs US Dollar", avgSpread: "0.002", lowSpread: "0.001", leverage: "20", icon: "https://assets.coincap.io/assets/icons/xrp@2x.png" },
+    ];
+
+    const features = [
+        { title: "24/7 Trading", description: "Trade cryptocurrencies 24 hours a day, 7 days a week.", iconClass: "fas fa-clock" },
+        { title: "Deep Liquidity", description: "Execute large orders with stable pricing and minimal slippage.", iconClass: "fas fa-water" },
+        { title: "Wide Range", description: "Access all major cryptos including Bitcoin, Ethereum, and Altcoins.", iconClass: "fas fa-coins" },
+        { title: "Secure Wallet", description: "Trade with confidence using our regulated and secure environment.", iconClass: "fas fa-lock" },
+    ];
+
+    return (
+        <main>
+            <NavBar />
+            <MarketHero
+                title="Discover Crypto Trading"
+                subtitle="Trade Crypto derivatives including Bitcoin at real-time prices with unparalleled conditions."
+                activeMarket="Cryptocurrencies"
+                stickers={[
+                    { imageUrl: "https://assets.coincap.io/assets/icons/btc@2x.png", top: "20%", right: "12%", rotate: "15deg", delay: "0s", size: 90 },
+                    { imageUrl: "https://assets.coincap.io/assets/icons/eth@2x.png", top: "50%", right: "18%", rotate: "-8deg", delay: "1.5s", size: 80 },
+                    { imageUrl: "https://assets.coincap.io/assets/icons/sol@2x.png", top: "30%", left: "10%", rotate: "-5deg", delay: "1s", size: 70 },
+                    { imageUrl: "https://assets.coincap.io/assets/icons/ada@2x.png", top: "65%", left: "20%", rotate: "10deg", delay: "2s", size: 65 },
+                    { imageUrl: "https://assets.coincap.io/assets/icons/dot@2x.png", top: "15%", left: "25%", rotate: "5deg", delay: "0.5s", size: 60 },
+                ]}
+            />
+            <MarketTable
+                title="Crypto Market Prices"
+                standardData={standardData}
+                ultraData={ultraData}
+            />
+            <MarketFeatures
+                title="Why Trade Crypto With Us?"
+                features={features}
+            />
+            <ForexCTA />
+            <Footer />
+        </main>
+    );
+}

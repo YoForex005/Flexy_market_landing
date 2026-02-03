@@ -18,6 +18,19 @@ export default function Support() {
                         <Link
                             href="https://flexymarkets.com/contact"
                             className="btn btn-support"
+                            style={{
+                                backgroundColor: '#0f664a',
+                                color: '#ffffff',
+                                border: 'none',
+                                padding: '12px 32px',
+                                borderRadius: '8px',
+                                fontSize: '15px',
+                                fontWeight: '600',
+                                textDecoration: 'none',
+                                display: 'inline-block',
+                                boxShadow: '0 2px 8px rgba(15, 102, 74, 0.2)',
+                                transition: 'all 0.2s ease'
+                            }}
                         >
                             Contact Us
                         </Link>
@@ -101,48 +114,31 @@ export default function Support() {
 
                 .btn-support {
                     display: inline-block;
-                    padding: 16px 40px;
-                    font-size: 16px;
-                    font-weight: 700;
-                    border-radius: 50px;
-                    background: #0f4941;
-                    color: white !important;
+                    padding: 12px 32px;
+                    font-size: 15px;
+                    font-weight: 600;
+                    border-radius: 8px;
+                    background-color: #0f664a;
+                    color: #ffffff !important;
                     text-decoration: none;
                     border: none;
-                    box-shadow: 0 10px 20px rgba(15, 73, 65, 0.2);
-                    transition: all 0.4s ease;
-                    position: relative;
-                    overflow: hidden;
-                    z-index: 1;
-                }
-
-                .btn-support::after {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: -100%;
-                    width: 100%;
-                    height: 100%;
-                    background: linear-gradient(
-                        90deg, 
-                        transparent, 
-                        rgba(255, 255, 255, 0.2), 
-                        transparent
-                    );
-                    transition: none;
-                }
-
-                .btn-support:hover::after {
-                    left: 100%;
-                    transition: 0.6s ease;
+                    box-shadow: 0 2px 8px rgba(15, 102, 74, 0.2);
+                    transition: all 0.2s ease;
+                    cursor: pointer;
                 }
 
                 .btn-support:hover {
-                    transform: translateY(-3px) scale(1.02);
-                    box-shadow: 0 20px 30px rgba(15, 73, 65, 0.4);
-                    background: #0d3d36;
-                    color: white !important;
+                    background-color: #0d5a40;
+                    box-shadow: 0 4px 12px rgba(15, 102, 74, 0.3);
+                    transform: translateY(-1px);
+                    color: #ffffff !important;
                 }
+
+                .btn-support:active {
+                    transform: translateY(0);
+                    box-shadow: 0 1px 4px rgba(15, 102, 74, 0.2);
+                }
+
 
                 .support-icon-wrapper {
                     position: relative;

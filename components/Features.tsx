@@ -19,34 +19,34 @@ export default function Features() {
 
                     <div className="tab-content mb-0 position-relative">
                         <div className={`tab-pane fade ${activeTab === 'trade' ? 'show active' : ''}`}>
-                            <img 
-                                src="/images/trade-instantly.webp" 
-                                alt="Trade Instantly Screenshot" 
+                            <img
+                                src="/images/trade-instantly.webp"
+                                alt="Trade Instantly Screenshot"
                                 loading="lazy"
                                 className="w-100 features-responsive-img"
                             />
                         </div>
                         <div className={`tab-pane fade ${activeTab === 'tools' ? 'show active' : ''}`}>
-                            <img 
-                                src="/images/advance-tools.webp" 
-                                alt="Use Advanced Tools Screenshot" 
+                            <img
+                                src="/images/advance-tools.webp"
+                                alt="Use Advanced Tools Screenshot"
                                 loading="lazy"
                                 className="w-100 features-responsive-img"
                             />
                         </div>
                         <div className={`tab-pane fade ${activeTab === 'expand' ? 'show active' : ''}`}>
-                            <img 
-                                src="/images/expand-opportunities.webp" 
-                                alt="Expand Your Opportunities Screenshot" 
+                            <img
+                                src="/images/expand-opportunities.webp"
+                                alt="Expand Your Opportunities Screenshot"
                                 loading="lazy"
                                 className="w-100 features-responsive-img"
                             />
                         </div>
                     </div>
 
-                                        <ul className="nav nav-pills justify-content-center gap-3 mt-4 px-3">
+                    <ul className="nav nav-pills justify-content-center gap-3 mt-4 px-3">
                         <li className="nav-item">
-                            <button 
+                            <button
                                 className={`nav-link feature-nav-btn ${activeTab === 'trade' ? 'active' : ''}`}
                                 onClick={() => setActiveTab('trade')}
                             >
@@ -54,7 +54,7 @@ export default function Features() {
                             </button>
                         </li>
                         <li className="nav-item">
-                            <button 
+                            <button
                                 className={`nav-link feature-nav-btn ${activeTab === 'tools' ? 'active' : ''}`}
                                 onClick={() => setActiveTab('tools')}
                             >
@@ -62,7 +62,7 @@ export default function Features() {
                             </button>
                         </li>
                         <li className="nav-item">
-                            <button 
+                            <button
                                 className={`nav-link feature-nav-btn ${activeTab === 'expand' ? 'active' : ''}`}
                                 onClick={() => setActiveTab('expand')}
                             >
@@ -73,7 +73,7 @@ export default function Features() {
                 </section>
             </div>
 
-                        <style jsx>{`
+            <style jsx>{`
                 .features-responsive-img {
                     object-fit: cover;
                     width: 100%;

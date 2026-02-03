@@ -77,9 +77,8 @@ export default function Results() {
 
                     <div className="mt-5">
                         <a
-                            href="#"
+                            href="https://user.flexymarkets.com/accounts/signUp"
                             className="btn btn-lg rounded-pill px-5 py-3 d-inline-flex align-items-center gap-2 magic-hover-btn"
-                            onClick={(e) => e.preventDefault()}
                         >
                             Start Trading Today <i className="fas fa-arrow-right"></i>
                         </a>
@@ -159,9 +158,8 @@ export default function Results() {
                                             Gain access to free educational resources, webinars and expert mentorship to boost your trading knowledge.
                                         </p>
                                         <a
-                                            href="#"
+                                            href="https://user.flexymarkets.com/accounts/signUp"
                                             className="btn fw-bold rounded-pill px-4 py-2 text-white"
-                                            onClick={(e) => e.preventDefault()}
                                             style={{
                                                 background: 'transparent',
                                                 border: '2px solid rgba(46, 204, 113, 0.5)',
@@ -206,9 +204,8 @@ export default function Results() {
                                             Experience seamless trading with cutting-edge infrastructure and tools designed for superior performance and reliability.
                                         </p>
                                         <a
-                                            href="#"
+                                            href="https://user.flexymarkets.com/accounts/signUp"
                                             className="btn fw-bold rounded-pill px-4 py-2"
-                                            onClick={(e) => e.preventDefault()}
                                             style={{
                                                 background: 'transparent',
                                                 border: '2px solid rgba(15, 102, 74, 0.5)',
