@@ -121,7 +121,7 @@ export default function CopyTradingHowItWorks() {
                 {/* Bottom CTA */}
                 <div className="text-center mt-5 pt-4">
                     <a
-                        href="https://user.flexymarkets.com/accounts/signIn"
+                        href="https://user.flexymarkets.com/accounts/signIns"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn btn-primary px-5 py-3 fw-bold"

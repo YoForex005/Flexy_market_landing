@@ -3,7 +3,7 @@
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import MarketHero from '@/components/MarketHero';
-import MarketTable from '@/components/MarketTable';
+import GenericMarketTable from '@/components/GenericMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
 
@@ -38,6 +38,8 @@ export default function PreciousMetalsPage() {
                 title="Discover Precious Metals"
                 subtitle="Trade Gold, Silver, Platinum and Palladium with ease. Diversify your portfolio with hard assets."
                 activeMarket="Precious Metals"
+                paddingTop="210px"
+                paddingBottom="180px"
                 stickers={[
                     { countryCode: "za", top: "30%", right: "15%", rotate: "-15deg", delay: "0s", size: 80 }, // South Africa (Gold/Plat)
                     { countryCode: "au", top: "60%", right: "10%", rotate: "10deg", delay: "2s", size: 70 }, // Australia
@@ -45,7 +47,7 @@ export default function PreciousMetalsPage() {
                     { countryCode: "ch", top: "50%", left: "20%", rotate: "-10deg", delay: "1.5s", size: 65 }, // Swiss (Refining)
                 ]}
             />
-            <MarketTable
+            <GenericMarketTable
                 title="Metal Prices"
                 standardData={standardData}
                 ultraData={ultraData}

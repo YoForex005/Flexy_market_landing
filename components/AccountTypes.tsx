@@ -202,7 +202,7 @@ export default function AccountTypes() {
 
                                     {/* CTA Button */}
                                     <a
-                                        href="https://user.flexymarkets.com/accounts/signUp"
+                                        href="https://user.flexymarkets.com/accounts/signUps"
                                         className="btn w-100 fw-bold py-3 rounded-pill"
                                         style={{
                                             background: isRecommended ? '#fff' : '#0f664a',

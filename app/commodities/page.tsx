@@ -3,7 +3,7 @@
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import MarketHero from '@/components/MarketHero';
-import MarketTable from '@/components/MarketTable';
+import GenericMarketTable from '@/components/GenericMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
 
@@ -38,14 +38,16 @@ export default function CommoditiesPage() {
                 title="Discover Commodities Trading"
                 subtitle="Trade Gold, Oil, Silver and other soft commodities with competitive spreads and superior execution."
                 activeMarket="Commodities"
+                paddingTop="210px"
+                paddingBottom="180px"
                 stickers={[
                     { countryCode: "au", top: "15%", right: "15%", rotate: "20deg", delay: "0s", size: 70 }, // Australia (Gold)
                     { countryCode: "ca", top: "45%", right: "8%", rotate: "-10deg", delay: "2s", size: 60 }, // Canada (Oil)
                     { countryCode: "sa", top: "65%", left: "10%", rotate: "5deg", delay: "1s", size: 75 }, // Saudi Arabia (Oil)
-                    { countryCode: "us", top: "25%", left: "20%", rotate: "-15deg", delay: "1.5s", size: 85 }, // US
+                    { countryCode: "us", top: "15%", left: "5%", rotate: "-15deg", delay: "1.5s", size: 85 }, // US
                 ]}
             />
-            <MarketTable
+            <GenericMarketTable
                 title="Commodities Prices"
                 standardData={standardData}
                 ultraData={ultraData}

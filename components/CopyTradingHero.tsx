@@ -1,13 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-export default function CopyTradingHero() {
+interface CopyTradingHeroProps {
+    paddingTop?: string;
+    paddingBottom?: string;
+}
+
+export default function CopyTradingHero({ paddingTop = "120px", paddingBottom = "100px" }: CopyTradingHeroProps) {
     return (
         <section className="copy-trading-hero position-relative"
             style={{
-                background: 'linear-gradient(135deg, #ffffff 0%, #f8fffe 100%)',
-                paddingTop: '120px',
-                paddingBottom: '100px',
+                background: 'radial-gradient(circle at 50% -20%, #ccfbf1 0%, #ffffff 60%)',
+                paddingTop: paddingTop,
+                paddingBottom: paddingBottom,
                 minHeight: '650px',
                 overflow: 'hidden'
             }}>
@@ -22,12 +27,11 @@ export default function CopyTradingHero() {
                 pointerEvents: 'none'
             }}></div>
 
-            <div className="container position-relative">
-                <div className="row align-items-center g-5">
-                    {/* Left Content */}
-                    <div className="col-lg-6 mb-5 mb-lg-0">
+            <div className="container position-relative text-center">
+                <div className="row justify-content-center">
+                    <div className="col-lg-10 col-xl-9">
                         {/* Trust Badges */}
-                        <div className="d-flex gap-3 mb-4 flex-wrap">
+                        <div className="d-flex justify-content-center gap-3 mb-4 flex-wrap">
                             <div className="badge-item d-flex align-items-center gap-2 px-3 py-2 rounded-pill"
                                 style={{ background: '#f0fdf4', border: '1px solid #bbf7d0' }}>
                                 <i className="fas fa-shield-alt" style={{ color: '#0f664a', fontSize: '14px' }}></i>
@@ -40,107 +44,76 @@ export default function CopyTradingHero() {
                             </div>
                         </div>
 
-                        <h1 className="fw-bold mb-4" style={{
-                            color: '#1a1a1a',
-                            fontSize: '3.5rem',
-                            lineHeight: '1.15',
-                            maxWidth: '520px',
+                        <h1 className="fw-bold mb-4 mx-auto" style={{
+                            color: '#0f4941',
+                            fontSize: 'clamp(3rem, 5vw, 4.5rem)',
+                            lineHeight: '1.1',
+                            maxWidth: '800px',
                             letterSpacing: '-0.02em',
-                            marginBottom: '100px'
                         }}>
                             Trade Like an Expert
                         </h1>
-                        <p className="mb-5" style={{
+                        <p className="mb-5 mx-auto" style={{
                             color: '#4a5568',
-                            fontSize: '1.05rem',
+                            fontSize: '1.2rem',
                             lineHeight: '1.8',
-                            maxWidth: '500px'
+                            maxWidth: '600px'
                         }}>
                             No time? No experience? No problem. Take the copy trading shortcut and copy
                             the trades of a Strategy Manager. It's free and so easy to use.
                         </p>
 
                         {/* CTA Buttons */}
-                        <div className="d-flex gap-3 flex-wrap">
+                        <div className="d-flex justify-content-center gap-3 flex-wrap mb-5">
                             <a
-                                href="https://user.flexymarkets.com/accounts/signIn"
+                                href="https://user.flexymarkets.com/accounts/signIns"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn btn-primary px-5 py-3 fw-bold"
+                                className="btn btn-primary px-5 py-3 fw-bold rounded-pill shadow-lg hover-lift"
                                 style={{
-                                    fontSize: '15px',
-                                    borderRadius: '8px',
-                                    background: 'linear-gradient(135deg, #0f664a 0%, #0d5a40 100%)',
-                                    border: 'none',
-                                    boxShadow: '0 4px 12px rgba(15, 102, 74, 0.3)',
-                                    transition: 'all 0.3s ease'
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.transform = 'translateY(-2px)';
-                                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(15, 102, 74, 0.4)';
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.transform = 'translateY(0)';
-                                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(15, 102, 74, 0.3)';
+                                    fontSize: '16px'
                                 }}
                             >
                                 Start Copy Trading
                             </a>
                             <a
                                 href="#how-it-works"
-                                className="btn btn-outline-dark px-5 py-3 fw-bold"
+                                className="btn btn-outline-dark px-5 py-3 fw-bold rounded-pill hover-lift"
                                 style={{
-                                    fontSize: '15px',
-                                    borderRadius: '8px',
-                                    borderColor: '#1a1a1a',
-                                    color: '#1a1a1a',
-                                    borderWidth: '2px',
-                                    transition: 'all 0.3s ease'
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.background = '#1a1a1a';
-                                    e.currentTarget.style.color = '#fff';
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.background = 'transparent';
-                                    e.currentTarget.style.color = '#1a1a1a';
+                                    fontSize: '16px'
                                 }}
                             >
                                 Learn How It Works
                             </a>
                         </div>
-                    </div>
 
-                    {/* Right Image */}
-                    <div className="col-lg-6 text-center">
-                        <div className="position-relative d-inline-block" style={{ maxWidth: '580px', width: '100%' }}>
+                        {/* Centered Image */}
+                        <div className="position-relative d-inline-block mt-3" style={{ maxWidth: '800px', width: '100%' }}>
                             <div style={{
                                 position: 'absolute',
-                                top: '20px',
-                                right: '20px',
-                                width: '100%',
-                                height: '100%',
-                                background: 'linear-gradient(135deg, rgba(15, 102, 74, 0.1) 0%, rgba(46, 204, 113, 0.05) 100%)',
-                                borderRadius: '20px',
-                                filter: 'blur(40px)',
-                                zIndex: 0
+                                top: '50%',
+                                left: '50%',
+                                transform: 'translate(-50%, -50%)',
+                                width: '120%',
+                                height: '120%',
+                                background: 'radial-gradient(circle, rgba(15, 102, 74, 0.08) 0%, transparent 70%)',
+                                zIndex: 0,
+                                pointerEvents: 'none'
                             }}></div>
                             <img
                                 src="/images/copy-trading-hero.png"
                                 alt="Trade Like an Expert"
-                                className="position-relative"
+                                className="position-relative img-fluid"
                                 style={{
-                                    width: '100%',
-                                    height: 'auto',
-                                    maxWidth: '580px',
-                                    zIndex: 1
+                                    zIndex: 1,
+                                    maxHeight: '450px'
                                 }}
                                 onError={(e) => {
                                     const parent = e.currentTarget.parentElement;
                                     if (parent) {
                                         parent.innerHTML = `
-                                            <div style="width: 450px; height: 450px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                                                <i class="fas fa-users" style="font-size: 120px; color: #0f664a; opacity: 0.3;"></i>
+                                            <div style="width: 300px; height: 300px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                                <i class="fas fa-users" style="font-size: 80px; color: #0f664a; opacity: 0.3;"></i>
                                             </div>
                                         `;
                                     }

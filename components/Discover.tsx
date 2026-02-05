@@ -45,7 +45,7 @@ export default function Discover() {
                                             Get full access to Flexy Market&apos;s top-rated, award-winning trading platforms designed to make your trading journey smooth and profitable.
                                         </p>
                                         <a
-                                            href="https://user.flexymarkets.com/accounts/signUp"
+                                            href="https://user.flexymarkets.com/accounts/signUps"
                                             className="btn fw-bold rounded-pill px-4 py-2 text-white"
                                             style={{
                                                 background: 'transparent',
@@ -91,7 +91,7 @@ export default function Discover() {
                                             Use our extensive range of trading tools to minimize risk, maximize profits, and unlock your true trading potential.
                                         </p>
                                         <a
-                                            href="https://user.flexymarkets.com/accounts/signUp"
+                                            href="https://user.flexymarkets.com/accounts/signUps"
                                             className="btn fw-bold rounded-pill px-4 py-2"
                                             style={{
                                                 color: '#0f4941',
@@ -140,7 +140,7 @@ export default function Discover() {
                                             Join 10,000+ traders leveraging expert strategies and insights to stay ahead in the game. Start your winning journey today.
                                         </p>
                                         <a
-                                            href="https://user.flexymarkets.com/accounts/signUp"
+                                            href="https://user.flexymarkets.com/accounts/signUps"
                                             className="btn fw-bold rounded-pill px-5 py-3 text-white"
                                             style={{
                                                 background: '#0f664a',

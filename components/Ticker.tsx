@@ -7,15 +7,18 @@ function Ticker() {
     const container = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (!container.current) return;
+        const containerElement = container.current;
 
-        // Cleanup existing widget to prevent duplicates or stale state
-        container.current.innerHTML = "";
+        if (!containerElement) {
+            return;
+        }
+
+        containerElement.innerHTML = "";
 
         // Create the required DOM structure
         const widgetDiv = document.createElement("div");
         widgetDiv.className = "tradingview-widget-container__widget";
-        container.current.appendChild(widgetDiv);
+        containerElement.appendChild(widgetDiv);
 
         const script = document.createElement("script");
         script.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
@@ -41,8 +44,14 @@ function Ticker() {
             "locale": "en"
         });
 
-        container.current.appendChild(script);
+        containerElement.appendChild(script);
 
+        // Cleanup logic to prevent memory leaks and race conditions
+        return () => {
+            if (containerElement) {
+                containerElement.innerHTML = "";
+            }
+        };
     }, []);
 
     return (

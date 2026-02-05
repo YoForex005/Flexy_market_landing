@@ -3,7 +3,7 @@
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import MarketHero from '@/components/MarketHero';
-import MarketTable from '@/components/MarketTable';
+import GenericMarketTable from '@/components/GenericMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
 
@@ -54,6 +54,8 @@ export default function StockDerivativesPage() {
                 title="Discover Stock Derivatives Trading"
                 subtitle="Buy and sell the most liquid stocks, like Apple and Tesla, 24/5 with market-leading execution and conditions."
                 activeMarket="Stock Derivatives"
+                paddingTop="210px"
+                paddingBottom="180px"
                 stickers={[
                     { iconClass: "fab fa-apple", color: "#000000", top: "20%", right: "12%", rotate: "15deg", delay: "0s", size: 80 }, // Apple (Black)
                     { iconClass: "fab fa-google", color: "#4285F4", top: "50%", right: "15%", rotate: "-10deg", delay: "2s", size: 70 }, // Google (Blue)
@@ -63,7 +65,7 @@ export default function StockDerivativesPage() {
                     { iconClass: "fas fa-microchip", color: "#76B900", top: "65%", right: "10%", rotate: "5deg", delay: "2.5s", size: 80 }, // Nvidia (Green)
                 ]}
             />
-            <MarketTable
+            <GenericMarketTable
                 title="Pick Your Pairs"
                 standardData={standardData}
                 ultraData={ultraData}

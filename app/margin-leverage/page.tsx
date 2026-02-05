@@ -8,38 +8,46 @@ export default function MarginLeverage() {
         <main style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}>
             <NavBar />
 
-            {/* HERO SECTION - Standardized 120px Top Padding */}
-            <section className="container text-center" style={{ paddingTop: "120px", paddingBottom: "60px" }}>
-                <div className="d-inline-block px-3 py-1 mb-3 rounded-pill" style={{ backgroundColor: "rgba(15, 102, 74, 0.05)" }}>
-                    <span className="fw-bold text-uppercase" style={{ color: "#0f664a", fontSize: "12px", letterSpacing: "1px" }}>
-                        Margin & Leverage
-                    </span>
-                </div>
+            {/* HERO SECTION - Standardized Style */}
+            <section className="position-relative text-center"
+                style={{
+                    background: 'radial-gradient(circle at 50% -20%, #ccfbf1 0%, #ffffff 60%)',
+                    paddingTop: "210px",
+                    paddingBottom: "180px"
+                }}>
+                <div className="container position-relative z-1">
+                    <div className="d-inline-flex align-items-center justify-content-center mb-4 px-3 py-1 rounded-pill border border-emerald-200 bg-emerald-50 text-emerald-800 shadow-sm"
+                        style={{ backgroundColor: "rgba(15, 102, 74, 0.05)", border: '1px solid #bbf7d0' }}>
+                        <span className="fw-bold text-uppercase" style={{ color: "#0f664a", fontSize: "12px", letterSpacing: "1px" }}>
+                            Margin & Leverage
+                        </span>
+                    </div>
 
-                <h1 className="display-4 fw-bold mb-4"
-                    style={{
-                        color: "#0f2a24",
-                        fontSize: "clamp(48px, 6vw, 72px)",
-                        letterSpacing: "-1.5px",
-                        marginBottom: "100px"
-                    }}>
-                    Trade Bigger
-                </h1>
-
-                <p className="lead text-muted mx-auto mb-5" style={{ maxWidth: "600px", fontSize: "18px" }}>
-                    Use flexible leverage to increase the size of your trades and take a larger stake in the markets.
-                </p>
-
-                <div>
-                    <a href="https://user.flexymarkets.com/accounts/signUp"
-                        className="btn rounded-pill fw-bold px-5 py-3 text-white shadow-lg hover-scale"
+                    <h1 className="fw-bold mb-4 mx-auto"
                         style={{
-                            backgroundColor: "#0f2a24",
-                            border: "none",
-                            transition: "transform 0.2s ease"
+                            color: "#0f4941",
+                            fontSize: "clamp(48px, 6vw, 72px)",
+                            letterSpacing: "-1.5px",
+                            marginBottom: "100px"
                         }}>
-                        Open an Account
-                    </a>
+                        Trade Bigger
+                    </h1>
+
+                    <p className="lead text-muted mx-auto mb-5" style={{ maxWidth: "600px", fontSize: "18px" }}>
+                        Use flexible leverage to increase the size of your trades and take a larger stake in the markets.
+                    </p>
+
+                    <div>
+                        <a href="https://user.flexymarkets.com/accounts/signUps"
+                            className="btn rounded-pill fw-bold px-5 py-3 text-white shadow-lg hover-lift"
+                            style={{
+                                backgroundColor: "#0f4941",
+                                border: "none",
+                                transition: "all 0.3s ease"
+                            }}>
+                            Open an Account
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -71,13 +79,13 @@ export default function MarginLeverage() {
                             }}></div>
 
                             <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-                                <h3 className="fw-bold mb-3">Flexible Leverage up to</h3>
+                                <h3 className="fw-bold mb-3 text-white">Flexible Leverage up to</h3>
                                 <div className="display-1 fw-bold text-gradient-green" style={{ letterSpacing: "-2px" }}>
                                     500:1
                                 </div>
                                 <div className="mt-4 px-4 py-2 rounded-3"
                                     style={{ background: "rgba(255,255,255,0.1)", backdropFilter: "blur(10px)", display: "inline-block" }}>
-                                    <span style={{ fontSize: "14px", color: "#8daea8" }}>Maximize your potential</span>
+                                    <span style={{ fontSize: "14px", color: "#ffffff" }}>Maximize your potential</span>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +99,7 @@ export default function MarginLeverage() {
                                 color: "white",
                                 minHeight: "400px"
                             }}>
-                            <h3 className="fw-bold mb-4">Real-Time Margin Monitoring</h3>
+                            <h3 className="fw-bold mb-4 text-white">Real-Time Margin Monitoring</h3>
                             <div className="d-flex justify-content-center align-items-center h-75">
                                 {/* Animated Chart Representation */}
                                 <div className="chart-bars d-flex align-items-end gap-3" style={{ height: "150px" }}>
@@ -154,7 +162,7 @@ export default function MarginLeverage() {
                     <div className="bg-white rounded-5 p-5 shadow-sm">
                         <h2 className="fw-bold mb-3" style={{ color: "#0f2a24" }}>Trade Over 1,400 Assets</h2>
                         <p className="text-muted mb-4">Build your portfolio with Forex, Stocks, Precious Metals, Energies, and Indices.</p>
-                        <a href="https://user.flexymarkets.com/accounts/signUp"
+                        <a href="https://user.flexymarkets.com/accounts/signUps"
                             className="btn rounded-pill fw-bold px-5 py-3 text-white shadow-lg hover-scale"
                             style={{
                                 backgroundColor: "#0f664a",

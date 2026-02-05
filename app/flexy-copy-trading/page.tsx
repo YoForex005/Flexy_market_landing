@@ -17,7 +17,7 @@ export default function CopyTradingPage() {
     return (
         <main>
             <NavBar />
-            <CopyTradingHero />
+            <CopyTradingHero paddingTop="210px" paddingBottom="180px" />
             <CopyTradingStats />
             <CopyTradingHowItWorks />
             <CopyTradingFeatures />

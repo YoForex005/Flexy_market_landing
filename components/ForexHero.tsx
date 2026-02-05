@@ -6,9 +6,21 @@ import WorldMapBackground from './WorldMapBackground';
 import FloatingSticker from './FloatingSticker';
 import MarketNavigation from './MarketNavigation';
 
-export default function ForexHero() {
+interface ForexHeroProps {
+    paddingTop?: string;
+    paddingBottom?: string;
+}
+
+export default function ForexHero({ paddingTop = "120px", paddingBottom = "100px" }: ForexHeroProps) {
     return (
-        <section className="position-relative overflow-hidden" style={{ minHeight: '800px', backgroundColor: "#fff", paddingTop: "120px", paddingBottom: "100px" }}>
+        <section className="position-relative overflow-hidden"
+            style={{
+                minHeight: 'auto',
+                background: 'radial-gradient(circle at 50% -20%, #ccfbf1 0%, #ffffff 60%)',
+                paddingTop: paddingTop,
+                paddingBottom: paddingBottom
+            }}
+        >
 
             {/* Background Map Pattern */}
             <WorldMapBackground />
@@ -49,24 +61,10 @@ export default function ForexHero() {
                 <div className="mb-5">
                     <button
                         type="button"
-                        className="btn fw-bold"
+                        className="btn btn-primary fw-bold"
                         style={{
-                            backgroundColor: "#0f4941",
-                            color: "#fff",
                             padding: "18px 42px",
-                            fontSize: "18px",
-                            borderRadius: "8px",
-                            border: "none",
-                            transition: "all 0.3s ease",
-                            boxShadow: "0 10px 25px rgba(15, 73, 65, 0.15)"
-                        }}
-                        onMouseOver={(e) => {
-                            e.currentTarget.style.transform = "translateY(-3px)";
-                            e.currentTarget.style.boxShadow = "0 15px 35px rgba(15, 73, 65, 0.25)";
-                        }}
-                        onMouseOut={(e) => {
-                            e.currentTarget.style.transform = "translateY(0)";
-                            e.currentTarget.style.boxShadow = "0 10px 25px rgba(15, 73, 65, 0.15)";
+                            fontSize: "18px"
                         }}
                     >
                         Start Trading Forex

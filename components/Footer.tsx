@@ -50,43 +50,77 @@ export default function Footer() {
                     {/* Links Section */}
                     <div className="footer_2 py-5">
                         <div className="row">
-                            <div className="col-md-2 mb-4">
+                            {/* Trading Markets */}
+                            <div className="col-lg-2 col-md-4 col-sm-6 mb-4">
+                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>TRADING MARKETS</h6>
+                                <Link href="/forex-trading" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Forex Trading</Link>
+                                <Link href="/cryptocurrencies" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Cryptocurrencies</Link>
+                                <Link href="/equity-indices" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Equity Indices</Link>
+                                <Link href="/thematic-indices" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Thematic Indices</Link>
+                                <Link href="/stock-derivatives" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Stock Derivatives</Link>
+                                <Link href="/turbo-stocks" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Turbo Stocks</Link>
+                                <Link href="/shares" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Shares</Link>
+                                <Link href="/commodities" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Commodities</Link>
+                                <Link href="/precious-metals" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Precious Metals</Link>
+                                <Link href="/energies" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Energies</Link>
+                            </div>
+
+                            {/* Tools & Resources */}
+                            <div className="col-lg-2 col-md-4 col-sm-6 mb-4">
+                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>TOOLS & RESOURCES</h6>
+                                <Link href="/economic-calendar" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Economic Calendar</Link>
+                                <Link href="/forex-calculator" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Forex Calculator</Link>
+                                <Link href="/analytical-tools" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Analytical Tools</Link>
+                                <Link href="/learning-centre" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Learning Centre</Link>
+                                <Link href="/live_education" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Live Education</Link>
+                                <Link href="/news-analysis" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>News & Analysis</Link>
+                            </div>
+
+                            {/* Platforms */}
+                            <div className="col-lg-2 col-md-4 col-sm-6 mb-4">
+                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>PLATFORMS</h6>
+                                <Link href="/platforms" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>All Platforms</Link>
+                                <Link href="/mt5" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>MT5 Platform</Link>
+                            </div>
+
+                            {/* Accounts */}
+                            <div className="col-lg-2 col-md-4 col-sm-6 mb-4">
                                 <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>ACCOUNTS</h6>
                                 <Link href="/account" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Account Types</Link>
                             </div>
 
-                            <div className="col-md-2 mb-4">
+                            {/* Our Offering */}
+                            <div className="col-lg-2 col-md-4 col-sm-6 mb-4">
                                 <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>OUR OFFERING</h6>
                                 <Link href="/flexy-copy-trading" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Flexy Copy Trading</Link>
+                                <Link href="/promotions" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Promotions</Link>
                                 <Link href="/execution-policy" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Execution Policy</Link>
                                 <Link href="/margin-leverage" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Margin and Leverage</Link>
                             </div>
 
-                            <div className="col-md-2 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>PLATFORMS</h6>
-                                <Link href="/mt5" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>MT5 Platform</Link>
-                            </div>
-
-                            <div className="col-md-2 mb-4">
+                            {/* Company */}
+                            <div className="col-lg-2 col-md-4 col-sm-6 mb-4">
                                 <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>COMPANY</h6>
                                 <Link href="/about" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Who is Flexy Markets?</Link>
-                                <Link href="/legal-document" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Legal Documents</Link>
-                                <Link href="/flexy-csr" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>CSR</Link>
+                                <Link href="/legal-documents" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Legal Documents</Link>
                                 <Link href="/contact" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Contact Us</Link>
                             </div>
+                        </div>
 
-                            <div className="col-md-2 mb-4">
+                        {/* Address Section - Full Width Row */}
+                        <div className="row mt-4 pt-4" style={{ borderTop: '1px solid rgba(15, 73, 65, 0.1)' }}>
+                            <div className="col-lg-6 mb-4">
                                 <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>REGISTERED ADDRESS</h6>
-                                <p className="text-muted small">Flexy Markets Limited (Reg No. - 2024-00752)</p>
-                                <p className="text-muted small">Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia</p>
-                                <p className="text-muted small"><strong>Email:</strong> support@flexymarkets.com</p>
-                                <p className="text-muted small"><strong>Phone:</strong> +971 42293628</p>
+                                <p className="text-muted small mb-1">Flexy Markets Limited (Reg No. - 2024-00752)</p>
+                                <p className="text-muted small mb-1">Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia</p>
+                                <p className="text-muted small mb-1"><strong>Email:</strong> support@flexymarkets.com</p>
+                                <p className="text-muted small mb-0"><strong>Phone:</strong> +971 42293628</p>
                             </div>
 
-                            <div className="col-md-2 mb-4">
+                            <div className="col-lg-6 mb-4">
                                 <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>CORRESPONDENCE ADDRESS</h6>
-                                <p className="text-muted small">Middle East Office:</p>
-                                <p className="text-muted small">B2007-127, 33rd floor, Latifa Tower, Trade Center first, Seikh Zayad Road, Dubai-UAE</p>
+                                <p className="text-muted small mb-1">Middle East Office:</p>
+                                <p className="text-muted small mb-0">B2007-127, 33rd floor, Latifa Tower, Trade Center first, Seikh Zayad Road, Dubai-UAE</p>
                             </div>
                         </div>
                     </div>

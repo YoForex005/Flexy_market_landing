@@ -16,7 +16,7 @@ export default function Support() {
                             Whenever you need us we're just a few seconds away, 24/7, in extensive language options.
                         </p>
                         <Link
-                            href="https://flexymarkets.com/contact"
+                            href="/contact"
                             className="btn btn-support"
                             style={{
                                 backgroundColor: '#0f664a',

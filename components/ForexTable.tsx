@@ -104,12 +104,13 @@ export default function ForexTable() {
                                     <td className="py-3 fw-bold text-dark">{item.leverage}</td>
                                     <td className="py-3">
                                         <button
-                                            className="btn fw-bold text-white px-4 py-1"
+                                            className="btn fw-bold text-white px-4 py-1 rounded-pill shadow-sm hover-lift"
                                             style={{
-                                                backgroundColor: "#012e27",
-                                                borderRadius: "4px",
+                                                backgroundColor: "#0f664a",
+                                                border: "none",
                                                 fontSize: "14px",
-                                                minWidth: "80px"
+                                                minWidth: "80px",
+                                                transition: "all 0.3s ease"
                                             }}
                                         >
                                             Trade
@@ -124,18 +125,20 @@ export default function ForexTable() {
                 {/* Explore More Footer */}
                 <div className="text-center p-4" style={{ backgroundColor: "#fff" }}>
                     <p className="fw-bold mb-3 text-dark">Explore beyond the top 10 Forex Instruments! Ready to discover more?</p>
-                    <button
-                        className="btn fw-bold"
+                    <a href="https://user.flexymarkets.com/accounts/signUps"
+                        className="btn fw-bold text-decoration-none rounded-pill shadow-sm hover-lift"
                         style={{
-                            backgroundColor: "#012e27",
+                            backgroundColor: "#0f664a",
                             color: "#fff",
-                            padding: "12px 30px",
-                            fontSize: "15px",
-                            borderRadius: "4px"
+                            padding: "12px 40px",
+                            fontSize: "16px",
+                            border: "none",
+                            display: "inline-block",
+                            transition: "all 0.3s ease"
                         }}
                     >
                         Register to See More
-                    </button>
+                    </a>
                 </div>
 
             </div>

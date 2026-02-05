@@ -7,7 +7,14 @@ import MarketNavigation from './MarketNavigation';
 
 export default function CryptoHero() {
     return (
-        <section className="position-relative overflow-hidden" style={{ minHeight: '800px', backgroundColor: "#fff", paddingTop: "120px", paddingBottom: "100px" }}>
+        <section className="position-relative overflow-hidden"
+            style={{
+                minHeight: '800px',
+                background: 'radial-gradient(circle at 50% -20%, #ccfbf1 0%, #ffffff 60%)',
+                paddingTop: "120px",
+                paddingBottom: "100px"
+            }}
+        >
 
             {/* Background Pattern */}
             <WorldMapBackground />
@@ -48,16 +55,10 @@ export default function CryptoHero() {
                 <div className="mb-5">
                     <button
                         type="button"
-                        className="btn fw-bold"
+                        className="btn btn-primary fw-bold"
                         style={{
-                            backgroundColor: "#0f4941",
-                            color: "#fff",
                             padding: "16px 40px",
-                            fontSize: "16px",
-                            borderRadius: "4px",
-                            border: "none",
-                            transition: "all 0.3s ease",
-                            boxShadow: "0 10px 25px rgba(15, 73, 65, 0.15)"
+                            fontSize: "16px"
                         }}
                     >
                         Start Trading Forex

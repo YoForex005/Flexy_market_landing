@@ -3,7 +3,7 @@
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import MarketHero from '@/components/MarketHero';
-import MarketTable from '@/components/MarketTable';
+import GenericMarketTable from '@/components/GenericMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
 
@@ -38,6 +38,8 @@ export default function EquityIndicesPage() {
                 title="Indices Trading"
                 subtitle="Trade the world's leading equity indices like S&P 500 and DAX 40 with tight spreads."
                 activeMarket="Equity Indices"
+                paddingTop="210px"
+                paddingBottom="180px"
                 stickers={[
                     { countryCode: "us", top: "20%", right: "12%", rotate: "15deg", delay: "0s", size: 85 },
                     { countryCode: "jp", top: "55%", right: "25%", rotate: "-5deg", delay: "2.5s", size: 60 }, // Japan
@@ -45,7 +47,7 @@ export default function EquityIndicesPage() {
                     { countryCode: "gb", top: "15%", left: "20%", rotate: "-15deg", delay: "1s", size: 75 }, // UK
                 ]}
             />
-            <MarketTable
+            <GenericMarketTable
                 title="Major Indices"
                 standardData={standardData}
                 ultraData={ultraData}

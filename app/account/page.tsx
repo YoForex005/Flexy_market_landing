@@ -6,25 +6,49 @@ import Footer from '@/components/Footer';
 
 export default function Account() {
     return (
-        <main style={{ backgroundColor: "#f8fcfb", minHeight: "100vh" }}>
+        <main className="bg-white" style={{ minHeight: "100vh" }}>
             <NavBar />
 
             {/* Header Section */}
-            <section className="container text-center" style={{ paddingTop: "120px", paddingBottom: "100px" }}>
-                <div className="d-inline-block px-4 py-2 mb-4 rounded-pill" style={{ backgroundColor: "#E8F3F0" }}>
-                    <span className="fw-medium" style={{ color: "#0f664a", fontSize: "14px" }}>Account Types</span>
+            <section className="position-relative overflow-hidden"
+                style={{
+                    background: 'radial-gradient(circle at 50% -20%, #ccfbf1 0%, #ffffff 60%)',
+                    paddingTop: "210px",
+                    paddingBottom: "120px"
+                }}
+            >
+                {/* Background Decor */}
+                <div className="position-absolute top-0 start-0 w-100 h-100" style={{ opacity: 0.6, pointerEvents: 'none' }}>
+                    <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(15, 73, 65, 0.08) 0%, transparent 70%)' }}></div>
+                    <div style={{ position: 'absolute', top: '20%', left: '-10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(45, 212, 191, 0.1) 0%, transparent 70%)' }}></div>
                 </div>
-                <h1 className="display-4 fw-bold mb-4" style={{ color: "#0f664a", marginBottom: "100px" }}>
-                    Open Your Account
-                </h1>
-                <p className="lead text-muted mx-auto mb-5" style={{ maxWidth: "700px" }}>
-                    Open an account today to access fair conditions and get everything you need to achieve your trading goals.
-                </p>
-                <div className="d-flex justify-content-center">
-                    <button className="btn btn-primary rounded-pill px-5 py-3 fw-bold border-0 shadow-lg"
-                        style={{ backgroundColor: "#0f664a", transition: "all 0.3s" }}>
-                        Choose your Plan
-                    </button>
+
+                <div className="container text-center position-relative" style={{ zIndex: 2 }}>
+                    <div className="d-inline-block px-4 py-2 mb-4 rounded-pill" style={{ backgroundColor: "rgba(15, 73, 65, 0.06)" }}>
+                        <span className="fw-medium" style={{ color: "#0f664a", fontSize: "14px", letterSpacing: '0.5px' }}>ACCOUNT TYPES</span>
+                    </div>
+                    <h1 className="display-4 fw-bold mb-4" style={{ color: "#0f664a", marginBottom: "100px", letterSpacing: '-1px' }}>
+                        Open Your Account
+                    </h1>
+                    <p className="text-secondary mx-auto mb-5 fs-5" style={{ maxWidth: "700px" }}>
+                        Open an account today to access fair conditions and get everything you need to achieve your trading goals.
+                    </p>
+                    <div className="d-flex justify-content-center">
+                        <a href="https://user.flexymarkets.com/accounts/signUps"
+                            className="btn btn-primary rounded-pill px-5 py-3 fw-bold border-0 shadow-lg text-white text-decoration-none"
+                            style={{ backgroundColor: "#0f4941", transition: "all 0.3s", fontSize: '18px' }}
+                            onMouseOver={(e) => {
+                                e.currentTarget.style.transform = "translateY(-3px)";
+                                e.currentTarget.style.boxShadow = "0 15px 35px rgba(15, 73, 65, 0.25)";
+                            }}
+                            onMouseOut={(e) => {
+                                e.currentTarget.style.transform = "translateY(0)";
+                                e.currentTarget.style.boxShadow = "0 10px 25px rgba(15, 73, 65, 0.15)";
+                            }}
+                        >
+                            Choose Your Plan <i className="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -36,10 +60,9 @@ export default function Account() {
                         <div className="card h-100 border-0 p-4"
                             style={{ backgroundColor: "#d1e7dd", borderRadius: "32px", border: "1px solid rgba(15, 102, 74, 0.1)" }}>
                             <div className="mb-4">
-                                <h3 className="h3 fw-bold mb-2" style={{ color: "#0f664a" }}>No Deposit Bonus</h3>
-                                <p className="mb-0 fw-medium" style={{ color: "rgba(15, 102, 74, 0.7)" }}>NoDepositBonus</p>
+                                <h3 className="h3 fw-bold mb-0" style={{ color: "#0f664a" }}>No Deposit Bonus</h3>
                             </div>
-                            <p className="text-muted mb-4" style={{ minHeight: "48px" }}>No Deposit Bonus</p>
+                            <p className="text-muted mb-4" style={{ minHeight: "48px" }}>Start trading with a bonus without making a deposit</p>
 
                             <div className="bg-white rounded-4 p-4 mb-4" style={{ borderRadius: "16px" }}>
                                 <div className="d-flex justify-content-between mb-2 small">
@@ -60,10 +83,11 @@ export default function Account() {
                                 </div>
                             </div>
 
-                            <button className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto"
+                            <a href="https://user.flexymarkets.com/accounts/signUps"
+                                className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto text-decoration-none"
                                 style={{ backgroundColor: "#0f664a" }}>
                                 Select Plan
-                            </button>
+                            </a>
                         </div>
                     </div>
 
@@ -72,8 +96,7 @@ export default function Account() {
                         <div className="card h-100 border-0 p-4"
                             style={{ backgroundColor: "#d1e7dd", borderRadius: "32px", border: "1px solid rgba(15, 102, 74, 0.1)" }}>
                             <div className="mb-4">
-                                <h3 className="h3 fw-bold mb-2" style={{ color: "#0f664a" }}>ECN</h3>
-                                <p className="mb-0 fw-medium" style={{ color: "rgba(15, 102, 74, 0.7)" }}>Raw spread</p>
+                                <h3 className="h3 fw-bold mb-0" style={{ color: "#0f664a" }}>ECN</h3>
                             </div>
                             <p className="text-muted mb-4" style={{ minHeight: "48px" }}>Direct market pricing with fixed commission</p>
 
@@ -96,10 +119,11 @@ export default function Account() {
                                 </div>
                             </div>
 
-                            <button className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto"
+                            <a href="https://user.flexymarkets.com/accounts/signUps"
+                                className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto text-decoration-none"
                                 style={{ backgroundColor: "#0f664a" }}>
                                 Select Plan
-                            </button>
+                            </a>
                         </div>
                     </div>
 
@@ -108,10 +132,9 @@ export default function Account() {
                         <div className="card h-100 border-0 p-4"
                             style={{ backgroundColor: "#d1e7dd", borderRadius: "32px", border: "1px solid rgba(15, 102, 74, 0.1)" }}>
                             <div className="mb-4">
-                                <h3 className="h3 fw-bold mb-2" style={{ color: "#0f664a" }}>Pro</h3>
-                                <p className="mb-0 fw-medium" style={{ color: "rgba(15, 102, 74, 0.7)" }}>Pro</p>
+                                <h3 className="h3 fw-bold mb-0" style={{ color: "#0f664a" }}>Pro</h3>
                             </div>
-                            <p className="text-muted mb-4" style={{ minHeight: "48px" }}>Instant or market execution with tighter spreads.</p>
+                            <p className="text-muted mb-4" style={{ minHeight: "48px" }}>Instant or market execution with tighter spreads</p>
 
                             <div className="bg-white rounded-4 p-4 mb-4" style={{ borderRadius: "16px" }}>
                                 <div className="d-flex justify-content-between mb-2 small">
@@ -132,10 +155,11 @@ export default function Account() {
                                 </div>
                             </div>
 
-                            <button className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto"
+                            <a href="https://user.flexymarkets.com/accounts/signUps"
+                                className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto text-decoration-none"
                                 style={{ backgroundColor: "#0f664a" }}>
                                 Select Plan
-                            </button>
+                            </a>
                         </div>
                     </div>
 
@@ -144,10 +168,9 @@ export default function Account() {
                         <div className="card h-100 border-0 p-4"
                             style={{ backgroundColor: "#d1e7dd", borderRadius: "32px", border: "1px solid rgba(15, 102, 74, 0.1)" }}>
                             <div className="mb-4">
-                                <h3 className="h3 fw-bold mb-2" style={{ color: "#0f664a" }}>Superfast</h3>
-                                <p className="mb-0 fw-medium" style={{ color: "rgba(15, 102, 74, 0.7)" }}>Superfast</p>
+                                <h3 className="h3 fw-bold mb-0" style={{ color: "#0f664a" }}>Superfast</h3>
                             </div>
-                            <p className="text-muted mb-4" style={{ minHeight: "48px" }}>Instant or market execution with Superfast Speed.</p>
+                            <p className="text-muted mb-4" style={{ minHeight: "48px" }}>Instant or market execution with Superfast Speed</p>
 
                             <div className="bg-white rounded-4 p-4 mb-4" style={{ borderRadius: "16px" }}>
                                 <div className="d-flex justify-content-between mb-2 small">
@@ -164,10 +187,11 @@ export default function Account() {
                                 </div>
                             </div>
 
-                            <button className="btn w-100 rounded-pill py-3 fw-bold border-2 mt-auto bg-white"
-                                style={{ color: "#0f664a", borderColor: "#0f664a" }}>
+                            <a href="https://user.flexymarkets.com/accounts/signUps"
+                                className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto text-decoration-none"
+                                style={{ backgroundColor: "#0f664a" }}>
                                 Select Plan
-                            </button>
+                            </a>
                         </div>
                     </div>
 
@@ -176,10 +200,9 @@ export default function Account() {
                         <div className="card h-100 border-0 p-4"
                             style={{ backgroundColor: "#d1e7dd", borderRadius: "32px", border: "1px solid rgba(15, 102, 74, 0.1)" }}>
                             <div className="mb-4">
-                                <h3 className="h3 fw-bold mb-2" style={{ color: "#0f664a" }}>Social</h3>
-                                <p className="mb-0 fw-medium" style={{ color: "rgba(15, 102, 74, 0.7)" }}>Social</p>
+                                <h3 className="h3 fw-bold mb-0" style={{ color: "#0f664a" }}>Social</h3>
                             </div>
-                            <p className="text-muted mb-4" style={{ minHeight: "48px" }}>Made for all traders Best for IB</p>
+                            <p className="text-muted mb-4" style={{ minHeight: "48px" }}>Made for all traders, Best for IB</p>
 
                             <div className="bg-white rounded-4 p-4 mb-4" style={{ borderRadius: "16px" }}>
                                 <div className="d-flex justify-content-between mb-2 small">
@@ -200,10 +223,11 @@ export default function Account() {
                                 </div>
                             </div>
 
-                            <button className="btn w-100 rounded-pill py-3 fw-bold border-2 mt-auto bg-white"
-                                style={{ color: "#0f664a", borderColor: "#0f664a" }}>
+                            <a href="https://user.flexymarkets.com/accounts/signUps"
+                                className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto text-decoration-none"
+                                style={{ backgroundColor: "#0f664a" }}>
                                 Select Plan
-                            </button>
+                            </a>
                         </div>
                     </div>
 
@@ -212,8 +236,7 @@ export default function Account() {
                         <div className="card h-100 border-0 p-4"
                             style={{ backgroundColor: "#d1e7dd", borderRadius: "32px", border: "1px solid rgba(15, 102, 74, 0.1)" }}>
                             <div className="mb-4">
-                                <h3 className="h3 fw-bold mb-2" style={{ color: "#0f664a" }}>Standard</h3>
-                                <p className="mb-0 fw-medium" style={{ color: "rgba(15, 102, 74, 0.7)" }}>Standard</p>
+                                <h3 className="h3 fw-bold mb-0" style={{ color: "#0f664a" }}>Standard</h3>
                             </div>
                             <p className="text-muted mb-4" style={{ minHeight: "48px" }}>Low minimum deposit with no commission</p>
 
@@ -236,10 +259,11 @@ export default function Account() {
                                 </div>
                             </div>
 
-                            <button className="btn w-100 rounded-pill py-3 fw-bold border-2 mt-auto bg-white"
-                                style={{ color: "#0f664a", borderColor: "#0f664a" }}>
+                            <a href="https://user.flexymarkets.com/accounts/signUps"
+                                className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto text-decoration-none"
+                                style={{ backgroundColor: "#0f664a" }}>
                                 Select Plan
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -258,10 +282,11 @@ export default function Account() {
                         Use your Demo Account and test your trading strategies risk-free with virtual funds in a simulated environment. Then switch to a Real Account when you are ready.
                     </p>
 
-                    <button className="btn rounded-pill px-5 py-3 fw-bold text-white shadow-lg"
+                    <a href="https://user.flexymarkets.com/accounts/signUps"
+                        className="btn rounded-pill px-5 py-3 fw-bold text-white shadow-lg text-decoration-none"
                         style={{ backgroundColor: "#0f4941", transition: "all 0.3s" }}>
                         Get Started
-                    </button>
+                    </a>
                 </div>
             </section>
 

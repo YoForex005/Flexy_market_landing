@@ -77,7 +77,7 @@ export default function Results() {
 
                     <div className="mt-5">
                         <a
-                            href="https://user.flexymarkets.com/accounts/signUp"
+                            href="https://user.flexymarkets.com/accounts/signUps"
                             className="btn btn-lg rounded-pill px-5 py-3 d-inline-flex align-items-center gap-2 magic-hover-btn"
                         >
                             Start Trading Today <i className="fas fa-arrow-right"></i>
@@ -158,7 +158,7 @@ export default function Results() {
                                             Gain access to free educational resources, webinars and expert mentorship to boost your trading knowledge.
                                         </p>
                                         <a
-                                            href="https://user.flexymarkets.com/accounts/signUp"
+                                            href="https://user.flexymarkets.com/accounts/signUps"
                                             className="btn fw-bold rounded-pill px-4 py-2 text-white"
                                             style={{
                                                 background: 'transparent',
@@ -204,7 +204,7 @@ export default function Results() {
                                             Experience seamless trading with cutting-edge infrastructure and tools designed for superior performance and reliability.
                                         </p>
                                         <a
-                                            href="https://user.flexymarkets.com/accounts/signUp"
+                                            href="https://user.flexymarkets.com/accounts/signUps"
                                             className="btn fw-bold rounded-pill px-4 py-2"
                                             style={{
                                                 background: 'transparent',

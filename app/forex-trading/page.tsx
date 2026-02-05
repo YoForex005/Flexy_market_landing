@@ -9,7 +9,7 @@ export default function ForexTradingPage() {
     return (
         <main>
             <NavBar />
-            <ForexHero />
+            <ForexHero paddingTop="210px" paddingBottom="180px" />
             <ForexTable />
             <ForexFeatures />
             <ForexCTA />

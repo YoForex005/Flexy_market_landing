@@ -2,9 +2,8 @@
 
 export default function CopyTradingCTA() {
     return (
-        <section className="copy-trading-cta position-relative py-5"
+        <section className="dark-section copy-trading-cta position-relative py-5"
             style={{
-                background: 'linear-gradient(135deg, #0f4941 0%, #0d3d36 100%)',
                 paddingTop: '100px !important',
                 paddingBottom: '100px !important',
                 overflow: 'hidden'
@@ -21,7 +20,7 @@ export default function CopyTradingCTA() {
                 opacity: 0.5
             }}></div>
 
-            <div className="container position-relative text-center text-white">
+            <div className="container position-relative text-center">
                 <div className="row justify-content-center">
                     <div className="col-lg-8">
                         {/* Badge */}
@@ -69,7 +68,7 @@ export default function CopyTradingCTA() {
                         {/* CTA Buttons */}
                         <div className="d-flex gap-3 justify-content-center flex-wrap">
                             <a
-                                href="https://user.flexymarkets.com/accounts/signIn"
+                                href="https://user.flexymarkets.com/accounts/signIns"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn btn-light px-5 py-3 fw-bold"

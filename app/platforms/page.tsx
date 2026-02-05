@@ -10,7 +10,7 @@ export default function PlatformsPage() {
     return (
         <main>
             <NavBar />
-            <PlatformHero />
+            <PlatformHero paddingTop="210px" paddingBottom="180px" />
             <PlatformCards />
             <Features />
             <Support />

@@ -3,7 +3,7 @@
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import MarketHero from '@/components/MarketHero';
-import MarketTable from '@/components/MarketTable';
+import GenericMarketTable from '@/components/GenericMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
 
@@ -38,6 +38,8 @@ export default function SharesPage() {
                 title="Discover Share Trading"
                 subtitle="Invest in the world's most popular companies. Buy and sell shares of top global brands with competitive conditions."
                 activeMarket="Shares"
+                paddingTop="210px"
+                paddingBottom="180px"
                 stickers={[
                     { iconClass: "fab fa-google", color: "#EA4335", top: "20%", right: "12%", rotate: "12deg", delay: "0s", size: 90 }, // Google Red
                     { iconClass: "fab fa-cc-visa", color: "#1A1F71", top: "50%", right: "18%", rotate: "-8deg", delay: "1.5s", size: 65 }, // Visa Blue
@@ -45,7 +47,7 @@ export default function SharesPage() {
                     { iconClass: "fas fa-building", color: "#555555", top: "60%", left: "20%", rotate: "-15deg", delay: "2s", size: 80 }, // Building Grey
                 ]}
             />
-            <MarketTable
+            <GenericMarketTable
                 title="Popular Shares"
                 standardData={standardData}
                 ultraData={ultraData}

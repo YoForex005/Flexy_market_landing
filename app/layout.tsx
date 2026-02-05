@@ -28,7 +28,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
         <Script id="json-ld" type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -57,6 +59,23 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-823862486');
+          `}
+        </Script>
+
+        {/* Suppress harmless iframe warnings from TradingView widgets */}
+        <Script id="suppress-iframe-warnings" strategy="afterInteractive">
+          {`
+            if (typeof window !== 'undefined') {
+              const originalError = console.error;
+              console.error = function(...args) {
+                // Filter out the specific iframe contentWindow error from TradingView
+                if (args[0]?.toString().includes('contentWindow is not available') || 
+                    args[0]?.toString().includes('Cannot listen to the event from the provided iframe')) {
+                  return; // Suppress this specific error
+                }
+                originalError.apply(console, args);
+              };
+            }
           `}
         </Script>
       </body>

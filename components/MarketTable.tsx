@@ -35,7 +35,7 @@ export default function MarketTable({
         <section className="py-5 bg-white">
             <div className="container">
                 <div className="text-center mb-5">
-                    <h2 className="fw-bold mb-3" style={{ fontSize: "2.5rem", color: "#0f4941" }}>{title}</h2>
+                    <h2 className="fw-bold mb-3 position-relative" style={{ fontSize: "2.5rem", color: "#0f4941" }}>{title}</h2>
                     <p className="text-muted" style={{ fontSize: "16px" }}>
                         {description}
                     </p>
@@ -46,14 +46,14 @@ export default function MarketTable({
                     <div className="d-flex p-1" style={{ backgroundColor: "#f5f5f5", borderRadius: "8px" }}>
                         <button
                             className={`btn fw-bold px-4 py-2 ${activeTab === 'Standard' ? 'bg-white shadow-sm text-dark' : 'text-muted'}`}
-                            style={{ borderRadius: "6px", border: "none", transition: "all 0.2s" }}
+                            style={{ border: "none", transition: "all 0.2s" }}
                             onClick={() => setActiveTab('Standard')}
                         >
                             Standard
                         </button>
                         <button
                             className={`btn fw-bold px-4 py-2 ${activeTab === 'Ultra' ? 'bg-white shadow-sm text-dark' : 'text-muted'}`}
-                            style={{ borderRadius: "6px", border: "none", transition: "all 0.2s" }}
+                            style={{ border: "none", transition: "all 0.2s" }}
                             onClick={() => setActiveTab('Ultra')}
                         >
                             Ultra Low Standard
@@ -90,7 +90,12 @@ export default function MarketTable({
                                     <td className="text-center text-muted">{item.lowSpread}</td>
                                     <td className="text-center text-success fw-bold">1:{item.leverage}</td>
                                     <td className="text-end pe-4">
-                                        <button className="btn btn-sm btn-outline-success rounded-pill px-3">Trade</button>
+                                        <button
+                                            className="btn btn-sm fw-bold text-white rounded-pill px-4 shadow-sm hover-lift"
+                                            style={{ backgroundColor: "#0f664a", border: "none", transition: "all 0.3s ease" }}
+                                        >
+                                            Trade
+                                        </button>
                                     </td>
                                 </tr>
                             ))}
@@ -101,10 +106,9 @@ export default function MarketTable({
                 {/* See More */}
                 <div className="text-center p-4 mt-4" style={{ backgroundColor: "#fff" }}>
                     <p className="fw-bold mb-3 text-dark">Ready to discover more instruments?</p>
-                    <a href="https://user.flexymarkets.com/accounts/signUp" style={{ textDecoration: 'none' }}>
+                    <a href="https://user.flexymarkets.com/accounts/signUps" style={{ textDecoration: 'none' }}>
                         <button
-                            className="btn fw-bold px-4 py-2 text-white"
-                            style={{ background: '#0f4941', border: '1px solid #0f4941', borderRadius: '4px' }}
+                            className="btn btn-primary fw-bold px-4 py-2"
                         >
                             Register to See More
                         </button>

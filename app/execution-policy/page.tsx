@@ -8,37 +8,45 @@ export default function ExecutionPolicy() {
         <main style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}>
             <NavBar />
 
-            {/* HERO SECTION - Standardized 120px Top Padding */}
-            <section className="container text-center" style={{ paddingTop: "120px", paddingBottom: "80px" }}>
-                <div className="d-inline-block px-3 py-1 mb-3 rounded-pill" style={{ backgroundColor: "rgba(15, 102, 74, 0.05)" }}>
-                    <span className="fw-bold text-uppercase" style={{ color: "#0f664a", fontSize: "12px", letterSpacing: "1px" }}>
-                        Execution Policy
-                    </span>
-                </div>
+            {/* HERO SECTION - Standardized Style */}
+            <section className="position-relative text-center"
+                style={{
+                    background: 'radial-gradient(circle at 50% -20%, #ccfbf1 0%, #ffffff 60%)',
+                    paddingTop: "210px",
+                    paddingBottom: "180px"
+                }}>
+                <div className="container position-relative z-1">
+                    <div className="d-inline-flex align-items-center justify-content-center mb-4 px-3 py-1 rounded-pill border border-emerald-200 bg-emerald-50 text-emerald-800 shadow-sm"
+                        style={{ backgroundColor: "rgba(15, 102, 74, 0.05)", border: '1px solid #bbf7d0' }}>
+                        <span className="fw-bold text-uppercase" style={{ color: "#0f664a", fontSize: "12px", letterSpacing: "1px" }}>
+                            Execution Policy
+                        </span>
+                    </div>
 
-                <h1 className="display-4 fw-bold mb-4"
-                    style={{
-                        color: "#0f2a24",
-                        maxWidth: "900px",
-                        margin: "0 auto",
-                        fontSize: "clamp(40px, 5vw, 64px)",
-                        letterSpacing: "-1px",
-                        marginBottom: "100px"
-                    }}>
-                    Ultra-Fast Trade Execution<br />
-                    At Best Available Market Price
-                </h1>
-
-                <div className="mt-5">
-                    <a href="https://user.flexymarkets.com/accounts/signUp"
-                        className="btn rounded-3 fw-bold px-5 py-3 text-white shadow-lg"
+                    <h1 className="fw-bold mb-4 mx-auto"
                         style={{
-                            backgroundColor: "#0f2a24",
-                            border: "none",
-                            transition: "all 0.3s ease"
+                            color: "#0f4941",
+                            fontSize: "clamp(3rem, 5vw, 4.5rem)",
+                            lineHeight: "1.1",
+                            maxWidth: "900px",
+                            letterSpacing: "-0.02em",
+                            marginBottom: "100px"
                         }}>
-                        Open an Account
-                    </a>
+                        Ultra-Fast Trade Execution<br />
+                        At Best Available Market Price
+                    </h1>
+
+                    <div className="mt-5">
+                        <a href="https://user.flexymarkets.com/accounts/signUps"
+                            className="btn rounded-pill fw-bold px-5 py-3 text-white shadow-lg hover-lift"
+                            style={{
+                                backgroundColor: "#0f4941",
+                                border: "none",
+                                transition: "all 0.3s ease"
+                            }}>
+                            Open an Account
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -59,7 +67,7 @@ export default function ExecutionPolicy() {
                             <div className="col-md-3 col-sm-6">
                                 <div className="stat-item p-3 h-100">
                                     <i className="fas fa-bolt mb-4" style={{ fontSize: "40px", color: "#4facfe" }}></i>
-                                    <h2 className="fw-bold mb-3" style={{ fontSize: "24px" }}>
+                                    <h2 className="fw-bold mb-3 text-white" style={{ fontSize: "24px" }}>
                                         99.4% of All Trades<br />
                                         Executed in Less Than 1 Second
                                     </h2>
@@ -70,7 +78,7 @@ export default function ExecutionPolicy() {
                             <div className="col-md-3 col-sm-6">
                                 <div className="stat-item p-3 h-100">
                                     <i className="fas fa-ban mb-4" style={{ fontSize: "40px", color: "#c471ed" }}></i>
-                                    <h2 className="fw-bold mb-3" style={{ fontSize: "24px" }}>
+                                    <h2 className="fw-bold mb-3 text-white" style={{ fontSize: "24px" }}>
                                         Strictly No Re-quotes<br />
                                         and No Virtual Dealer Plug-in
                                     </h2>
@@ -81,7 +89,7 @@ export default function ExecutionPolicy() {
                             <div className="col-md-3 col-sm-6">
                                 <div className="stat-item p-3 h-100">
                                     <i className="fas fa-hand-holding-usd mb-4" style={{ fontSize: "40px", color: "#4facfe" }}></i>
-                                    <h2 className="fw-bold mb-3" style={{ fontSize: "24px" }}>
+                                    <h2 className="fw-bold mb-3 text-white" style={{ fontSize: "24px" }}>
                                         100% Execution Rate<br />
                                         With No Orders Rejected
                                     </h2>
@@ -92,7 +100,7 @@ export default function ExecutionPolicy() {
                             <div className="col-md-3 col-sm-6">
                                 <div className="stat-item p-3 h-100">
                                     <i className="fas fa-chart-line mb-4" style={{ fontSize: "40px", color: "#c471ed" }}></i>
-                                    <h2 className="fw-bold mb-3" style={{ fontSize: "24px" }}>
+                                    <h2 className="fw-bold mb-3 text-white" style={{ fontSize: "24px" }}>
                                         Live Quotes and Real-Time<br />
                                         Market Execution
                                     </h2>
@@ -161,7 +169,7 @@ export default function ExecutionPolicy() {
                     </div>
 
                     <div className="text-center mt-5">
-                        <a href="https://user.flexymarkets.com/accounts/signUp"
+                        <a href="https://user.flexymarkets.com/accounts/signUps"
                             className="btn rounded-3 fw-bold px-5 py-3 text-white shadow-lg"
                             style={{
                                 backgroundColor: "#0f2a24",

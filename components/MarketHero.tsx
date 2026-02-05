@@ -22,12 +22,21 @@ interface MarketHeroProps {
     title: string;
     subtitle: string;
     activeMarket: string;
+    paddingTop?: string;
+    paddingBottom?: string;
     stickers?: StickerConfig[];
 }
 
-export default function MarketHero({ title, subtitle, activeMarket, stickers = [] }: MarketHeroProps) {
+export default function MarketHero({ title, subtitle, activeMarket, paddingTop = "120px", paddingBottom = "100px", stickers = [] }: MarketHeroProps) {
     return (
-        <section className="position-relative overflow-hidden" style={{ minHeight: '800px', backgroundColor: "#fff", paddingTop: "120px", paddingBottom: "100px" }}>
+        <section className="position-relative overflow-hidden"
+            style={{
+                minHeight: 'auto',
+                background: 'radial-gradient(circle at 50% -20%, #ccfbf1 0%, #ffffff 60%)',
+                paddingTop: paddingTop,
+                paddingBottom: paddingBottom
+            }}
+        >
 
             {/* Background World Map */}
             <WorldMapBackground />
@@ -65,25 +74,12 @@ export default function MarketHero({ title, subtitle, activeMarket, stickers = [
 
                 {/* Primary CTA Button */}
                 <div className="mb-5">
-                    <a href="https://user.flexymarkets.com/accounts/signUp" style={{ textDecoration: 'none' }}>
+                    <a href="https://user.flexymarkets.com/accounts/signUps" style={{ textDecoration: 'none' }}>
                         <button
                             type="button"
-                            className="btn fw-bold px-5 py-3 text-white"
+                            className="btn btn-primary fw-bold px-5 py-3"
                             style={{
-                                background: '#0f4941',
-                                border: '1px solid #0f4941',
-                                borderRadius: '50px',
-                                fontSize: '18px',
-                                boxShadow: '0 4px 15px rgba(15, 73, 65, 0.4)',
-                                transition: 'all 0.3s ease'
-                            }}
-                            onMouseOver={(e) => {
-                                e.currentTarget.style.transform = "translateY(-3px)";
-                                e.currentTarget.style.boxShadow = "0 15px 35px rgba(15, 73, 65, 0.25)";
-                            }}
-                            onMouseOut={(e) => {
-                                e.currentTarget.style.transform = "translateY(0)";
-                                e.currentTarget.style.boxShadow = "0 10px 25px rgba(15, 73, 65, 0.15)";
+                                fontSize: '18px'
                             }}
                         >
                             Start Trading Forex <i className="fas fa-arrow-right ms-2"></i>

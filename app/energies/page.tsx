@@ -3,7 +3,7 @@
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import MarketHero from '@/components/MarketHero';
-import MarketTable from '@/components/MarketTable';
+import GenericMarketTable from '@/components/GenericMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
 
@@ -34,6 +34,8 @@ export default function EnergiesPage() {
                 title="Energies Trading"
                 subtitle="Trade Crude Oil, Brent Oil and Natural Gas. Take advantage of volatility in the energy markets."
                 activeMarket="Energies"
+                paddingTop="210px"
+                paddingBottom="180px"
                 stickers={[
                     { countryCode: "sa", top: "20%", right: "12%", rotate: "10deg", delay: "0s", size: 90 }, // Saudi Arabia
                     { countryCode: "us", top: "50%", right: "20%", rotate: "-5deg", delay: "1.5s", size: 80 }, // US
@@ -41,7 +43,7 @@ export default function EnergiesPage() {
                     { countryCode: "ru", top: "65%", right: "10%", rotate: "-10deg", delay: "1s", size: 75 }, // Russia
                 ]}
             />
-            <MarketTable
+            <GenericMarketTable
                 title="Energy Commodities"
                 standardData={standardData}
                 ultraData={ultraData}
