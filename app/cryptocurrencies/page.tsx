@@ -2,8 +2,8 @@
 
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
-import MarketHero from '@/components/MarketHero';
-import GenericMarketTable from '@/components/GenericMarketTable';
+import UnifiedHero from '@/components/UnifiedHero';
+import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
 
@@ -34,8 +34,8 @@ export default function CryptoTradingPage() {
     return (
         <main>
             <NavBar />
-            <MarketHero
-                title="Discover Crypto Trading"
+            <UnifiedHero
+                title={<>Discover<br />Crypto Derivatives Trading</>}
                 subtitle="Trade Crypto derivatives including Bitcoin at real-time prices with unparalleled conditions."
                 activeMarket="Cryptocurrencies"
                 paddingTop="210px"
@@ -48,7 +48,7 @@ export default function CryptoTradingPage() {
                     { imageUrl: "https://assets.coincap.io/assets/icons/dot@2x.png", top: "15%", left: "25%", rotate: "5deg", delay: "0.5s", size: 60 },
                 ]}
             />
-            <GenericMarketTable
+            <UnifiedMarketTable
                 title="Crypto Market Prices"
                 standardData={standardData}
                 ultraData={ultraData}

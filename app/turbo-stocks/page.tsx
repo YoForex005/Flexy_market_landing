@@ -2,8 +2,8 @@
 
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
-import MarketHero from '@/components/MarketHero';
-import GenericMarketTable from '@/components/GenericMarketTable';
+import UnifiedHero from '@/components/UnifiedHero';
+import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
 
@@ -34,7 +34,7 @@ export default function TurboStocksPage() {
     return (
         <main>
             <NavBar />
-            <MarketHero
+            <UnifiedHero
                 title="Trade Turbo Stocks"
                 subtitle="Experience high-speed trading with enhanced leverage on the world's most volatile stocks."
                 activeMarket="Turbo Stocks"
@@ -46,7 +46,7 @@ export default function TurboStocksPage() {
                     { iconClass: "fas fa-rocket", color: "#FF4500", top: "15%", left: "15%", rotate: "5deg", delay: "1s", size: 80 }, // Orange Red
                 ]}
             />
-            <GenericMarketTable
+            <UnifiedMarketTable
                 key="market-table-v2"
                 title="Popular Turbo Stocks"
                 standardData={standardData}

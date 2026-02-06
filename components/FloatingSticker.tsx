@@ -1,5 +1,7 @@
 "use client";
 
+import Image from 'next/image';
+
 interface FloatingStickerProps {
     countryCode?: string; // e.g., 'us', 'eu', 'gb'
     imageUrl?: string;    // Direct URL for custom icons
@@ -61,9 +63,11 @@ export default function FloatingSticker({ countryCode, imageUrl, iconClass, top,
                 {iconClass ? (
                     <i className={iconClass} style={{ fontSize: `${size * 0.5}px`, color: color }}></i>
                 ) : (
-                    <img
+                    src && <Image
                         src={src}
                         alt="sticker icon"
+                        width={size}
+                        height={size}
                         style={{
                             width: '100%',
                             height: '100%',

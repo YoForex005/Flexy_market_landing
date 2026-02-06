@@ -2,8 +2,8 @@
 
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
-import MarketHero from '@/components/MarketHero';
-import GenericMarketTable from '@/components/GenericMarketTable';
+import UnifiedHero from '@/components/UnifiedHero';
+import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
 
@@ -34,7 +34,7 @@ export default function CommoditiesPage() {
     return (
         <main>
             <NavBar />
-            <MarketHero
+            <UnifiedHero
                 title="Discover Commodities Trading"
                 subtitle="Trade Gold, Oil, Silver and other soft commodities with competitive spreads and superior execution."
                 activeMarket="Commodities"
@@ -47,7 +47,7 @@ export default function CommoditiesPage() {
                     { countryCode: "us", top: "15%", left: "5%", rotate: "-15deg", delay: "1.5s", size: 85 }, // US
                 ]}
             />
-            <GenericMarketTable
+            <UnifiedMarketTable
                 title="Commodities Prices"
                 standardData={standardData}
                 ultraData={ultraData}

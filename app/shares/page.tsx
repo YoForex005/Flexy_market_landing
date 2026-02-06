@@ -2,8 +2,8 @@
 
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
-import MarketHero from '@/components/MarketHero';
-import GenericMarketTable from '@/components/GenericMarketTable';
+import UnifiedHero from '@/components/UnifiedHero';
+import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
 
@@ -34,7 +34,7 @@ export default function SharesPage() {
     return (
         <main>
             <NavBar />
-            <MarketHero
+            <UnifiedHero
                 title="Discover Share Trading"
                 subtitle="Invest in the world's most popular companies. Buy and sell shares of top global brands with competitive conditions."
                 activeMarket="Shares"
@@ -47,7 +47,7 @@ export default function SharesPage() {
                     { iconClass: "fas fa-building", color: "#555555", top: "60%", left: "20%", rotate: "-15deg", delay: "2s", size: 80 }, // Building Grey
                 ]}
             />
-            <GenericMarketTable
+            <UnifiedMarketTable
                 title="Popular Shares"
                 standardData={standardData}
                 ultraData={ultraData}

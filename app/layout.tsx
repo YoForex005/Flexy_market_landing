@@ -1,9 +1,62 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import localFont from 'next/font/local';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import 'aos/dist/aos.css';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
+
+const tomato = localFont({
+  src: [
+    {
+      path: './fonts/TomatoGrotesk-Medium.woff',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/TomatoGrotesk-Medium.woff',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './fonts/TomatoGrotesk-SemiBold.woff',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: './fonts/TomatoGrotesk-SemiBold.woff',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './fonts/TomatoGrotesk-SemiBold.woff',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: './fonts/TomatoGrotesk-Slanted.woff',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: './fonts/TomatoGrotesk-Slanted.woff',
+      weight: '500',
+      style: 'italic',
+    },
+    {
+      path: './fonts/TomatoGrotesk-SemiBoldSlanted.woff',
+      weight: '600',
+      style: 'italic',
+    },
+    {
+      path: './fonts/TomatoGrotesk-SemiBoldSlanted.woff',
+      weight: '700',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-tomato',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Flexy Markets - Trusted Forex Broker',
@@ -23,14 +76,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth" className={tomato.variable}>
       <head>
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
         <Script id="json-ld" type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

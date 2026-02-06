@@ -3,10 +3,13 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function NavBar() {
-    const [isSticky, setIsSticky] = useState(false);
+    const [isSticky, setIsSticky] = useState(true);
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const pathname = usePathname();
+    const isHome = pathname === '/';
 
     const toggleDropdown = (menuName: string) => {
         setOpenDropdown(openDropdown === menuName ? null : menuName);
@@ -18,6 +21,10 @@ export default function NavBar() {
 
     useEffect(() => {
         const handleScroll = () => {
+            if (!isHome) {
+                setIsSticky(true);
+                return;
+            }
             const currentScrollY = window.scrollY;
             if (currentScrollY > 50) {
                 setIsSticky(true);
@@ -26,12 +33,12 @@ export default function NavBar() {
             }
         };
 
-        // Initialize on mount
+        // Initialize on mount and path change
         handleScroll();
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isHome]);
 
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
@@ -56,10 +63,10 @@ export default function NavBar() {
                     <div className="container">
                         <div className={`partner_row row py-2 ${isSticky ? 'd-none' : ''}`} style={{ fontSize: '13px', paddingTop: '10px' }}>
                             <div className="col-lg-1 offset-lg-10 text-end">
-                                <a style={{ color: '#154941', fontWeight: 600, textDecoration: 'none' }} href="https://partners.flexymarkets.com/">Partnership</a>
+                                <a style={{ color: isSticky ? '#154941' : '#ffffff', fontWeight: 600, textDecoration: 'none' }} href="https://partners.flexymarkets.com/">Partnership</a>
                             </div>
                             <div className="col-lg-1 text-end">
-                                <Link style={{ color: '#154941', fontWeight: 600, display: 'inline-block', borderLeft: '1px solid #ccc', paddingLeft: '20px', marginLeft: '10px', textDecoration: 'none' }} href="/contact">Contact</Link>
+                                <Link style={{ color: isSticky ? '#154941' : '#ffffff', fontWeight: 600, display: 'inline-block', borderLeft: `1px solid ${isSticky ? '#ccc' : 'rgba(255,255,255,0.3)'}`, paddingLeft: '20px', marginLeft: '10px', textDecoration: 'none' }} href="/contact">Contact</Link>
                             </div>
                         </div>
                         <div className="row align-items-center py-2">
@@ -67,12 +74,12 @@ export default function NavBar() {
                                 <div className="header_logo">
                                     <Link href="/">
                                         <img
-                                            src={isSticky ? "/hd_logo.png" : "/hd_logo.png"}
+                                            src="/hd_logo.png"
                                             alt="Logo"
-                                            style={{ height: '45px', transition: 'all .3s' }}
-                                            onError={(e) => {
-                                                const target = e.target as HTMLImageElement;
-                                                target.src = "/hd_logo.png"; // Fallback if dark logo is missing
+                                            style={{
+                                                height: '45px',
+                                                transition: 'all .3s',
+                                                filter: isSticky ? 'none' : 'brightness(0) invert(1)'
                                             }}
                                         />
                                     </Link>
@@ -87,7 +94,7 @@ export default function NavBar() {
                                                     className="dropdown-toggle nav-link fw-bold"
                                                     href="#"
                                                     onClick={(e) => { e.preventDefault(); toggleDropdown('trading'); }}
-                                                    style={{ color: isSticky ? '#000' : '#154941', cursor: 'pointer' }}
+                                                    style={{ color: isSticky ? '#154941' : '#ffffff', cursor: 'pointer' }}
                                                 >
                                                     Trading
                                                 </a>
@@ -128,7 +135,7 @@ export default function NavBar() {
                                                     className="dropdown-toggle nav-link fw-bold"
                                                     href="#"
                                                     onClick={(e) => { e.preventDefault(); toggleDropdown('discover'); }}
-                                                    style={{ color: isSticky ? '#000' : '#154941', cursor: 'pointer' }}
+                                                    style={{ color: isSticky ? '#154941' : '#ffffff', cursor: 'pointer' }}
                                                 >
                                                     Discover
                                                 </a>
@@ -151,14 +158,14 @@ export default function NavBar() {
                                                 </div>
                                             </li>
                                             <li className="list-inline-item mx-3">
-                                                <Link href="/promotions" className="nav-link fw-bold" style={{ color: isSticky ? '#000' : '#154941' }}>Promotions</Link>
+                                                <Link href="/promotions" className="nav-link fw-bold" style={{ color: isSticky ? '#154941' : '#ffffff' }}>Promotions</Link>
                                             </li>
                                             <li className="list-inline-item mx-3 position-relative dropdown">
                                                 <a
                                                     className="dropdown-toggle nav-link fw-bold"
                                                     href="#"
                                                     onClick={(e) => { e.preventDefault(); toggleDropdown('company'); }}
-                                                    style={{ color: isSticky ? '#000' : '#154941', cursor: 'pointer' }}
+                                                    style={{ color: isSticky ? '#154941' : '#ffffff', cursor: 'pointer' }}
                                                 >
                                                     Company
                                                 </a>
@@ -177,8 +184,8 @@ export default function NavBar() {
                                     <div className="header_button d-flex align-items-center gap-3">
                                         <a
                                             href="https://user.flexymarkets.com/accounts/signIns"
-                                            className="btn fw-bold text-decoration-none p-0 text-black"
-                                            style={{ color: '#000', border: '1px solid transparent' }}
+                                            className="btn fw-bold text-decoration-none p-0"
+                                            style={{ color: isSticky ? '#154941' : '#ffffff', border: '1px solid transparent' }}
                                         >
                                             Login
                                         </a>

@@ -68,7 +68,7 @@ export default function NewsAnalysisPage() {
                         <div className="card h-100 border-0 rounded-4 p-5 position-relative overflow-hidden"
                             style={{ backgroundColor: '#0f4941', color: 'white' }}>
                             <div className="position-relative" style={{ zIndex: 2, maxWidth: '60%' }}>
-                                <h3 className="fw-bold mb-3">Reuters News</h3>
+                                <h3 className="fw-bold mb-3 text-white">Reuters News</h3>
                                 <p className="text-white-50 mb-4 lh-lg">
                                     Get 24/7 market updates directly from leading news provider Reuters. Stay informed with the latest news and insights that can impact your trading decisions.
                                 </p>
@@ -88,7 +88,7 @@ export default function NewsAnalysisPage() {
                         <div className="card h-100 border-0 rounded-4 p-5 position-relative overflow-hidden"
                             style={{ backgroundColor: '#000000', color: 'white' }}>
                             <div className="position-relative" style={{ zIndex: 2, maxWidth: '60%' }}>
-                                <h3 className="fw-bold mb-3">Daily Market Analysis</h3>
+                                <h3 className="fw-bold mb-3 text-white">Daily Market Analysis</h3>
                                 <p className="text-white-50 mb-4 lh-lg">
                                     Get the latest market analysis of the top-trending assets from our Market Intelligence team. Our experts provide in-depth analysis to help you make informed decisions.
                                 </p>

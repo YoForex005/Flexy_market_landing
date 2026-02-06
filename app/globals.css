@@ -7,8 +7,8 @@
   /* ========== TYPOGRAPHY SYSTEM ========== */
 
   /* Font Families - Premium Fintech Stack */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-primary: var(--font-tomato), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-display: var(--font-tomato), 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', 'Courier New', monospace;
 
   /* Font Weights - 6-Level System */
@@ -20,25 +20,26 @@
   --font-weight-extrabold: 800;
 
   /* Type Scale - 10-Level System (Optimized for Fintech) */
-  --font-size-xs: 11px;
+  /* Type Scale - 10-Level System (Responsive with Clamp) */
+  --font-size-xs: clamp(10px, 1vw, 11px);
   /* Micro labels, table captions */
-  --font-size-sm: 13px;
+  --font-size-sm: clamp(12px, 1.1vw, 13px);
   /* Secondary labels, metadata */
-  --font-size-base: 15px;
+  --font-size-base: clamp(14px, 1.2vw, 15px);
   /* Body text - primary readability size */
-  --font-size-md: 17px;
+  --font-size-md: clamp(15px, 1.3vw, 17px);
   /* Prominent body, lead paragraphs */
-  --font-size-lg: 20px;
+  --font-size-lg: clamp(18px, 1.5vw, 20px);
   /* Section subheadings, card subtitles */
-  --font-size-xl: 24px;
+  --font-size-xl: clamp(20px, 2vw, 24px);
   /* Card titles, h4 */
-  --font-size-2xl: 32px;
+  --font-size-2xl: clamp(24px, 2.5vw, 32px);
   /* h3, feature titles */
-  --font-size-3xl: 42px;
+  --font-size-3xl: clamp(32px, 4vw, 42px);
   /* h2, page subtitles */
-  --font-size-4xl: 56px;
+  --font-size-4xl: clamp(40px, 5vw, 56px);
   /* h1, hero headings */
-  --font-size-5xl: 72px;
+  --font-size-5xl: clamp(48px, 6vw, 72px);
   /* Display headlines, main hero */
 
   /* Line Heights - Optimized for Readability */
@@ -119,7 +120,9 @@ body {
   color: var(--text-primary);
   font-family: var(--font-primary);
   font-size: 16px;
-  /* Increased from implicit 15px for better readability */
+
+
+
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-normal);
   letter-spacing: var(--letter-spacing-normal);
@@ -339,7 +342,7 @@ ul {
   top: 0;
   width: 100% !important;
   z-index: 1000;
-  background-color: var(--bg-primary) !important;
+  background-color: #eff2f5 !important;
   color: var(--text-primary);
   box-shadow: var(--shadow-sm);
   padding: 15px 0;
@@ -485,11 +488,12 @@ ul {
 .index-banner {
   width: 100%;
   min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  padding-top: 80px;
+  padding-top: 0;
   position: relative;
 }
 
@@ -585,13 +589,10 @@ ul {
 
 .hero-video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   opacity: 1;
   will-change: transform;
@@ -613,6 +614,7 @@ ul {
       rgba(0, 0, 0, 0.45) 0%,
       rgba(0, 0, 0, 0.50) 50%,
       rgba(0, 0, 0, 0.55) 100%);
+  backdrop-filter: blur(1.5px);
   z-index: 1;
 }
 
@@ -822,6 +824,21 @@ ul {
 /* ========================================
    RESPONSIVE DESIGN
    ======================================== */
+
+/* Hero Border Container Responsive */
+@media (max-width: 992px) {
+  .hero-border-container {
+    padding: 40px 50px !important;
+    max-width: 800px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-border-container {
+    padding: 30px 25px !important;
+    max-width: 100% !important;
+  }
+}
 
 /* Tablet Breakpoint - Scale Down Headings by 15% */
 @media (max-width: 1640px) {
@@ -1223,4 +1240,90 @@ a[class*="btn"],
 .dark-section small,
 .dark-section-alt small {
   color: var(--dark-section-text-muted) !important;
+}
+
+/* ========================================
+   HERO CAROUSEL ANIMATIONS & KEN BURNS EFFECT
+   ======================================== */
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(100%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+  pointer-events: none;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.hero-slide.active {
+  transform: translateX(0);
+  z-index: 2;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.hero-slide.exiting {
+  transform: translateX(-100%) scale(0.95);
+  z-index: 1;
+  visibility: visible;
+  filter: brightness(0.8);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+}
+
+/* Ken Burns Effect */
+.hero-video {
+  transform: scale(1);
+  transition: transform 15s ease-out;
+}
+
+.hero-slide.active .hero-video {
+  animation: kenBurns 15s ease-out forwards;
+}
+
+@keyframes kenBurns {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.15);
+  }
+}
+
+.hero-slide-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out 0.4s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+}
+
+.hero-slide.active .hero-slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-slide.exiting .hero-slide-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition: none;
+}
+
+.hero-progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+.hero-progress-bar {
+  height: 100%;
+  background: #2ecc71;
+  width: 0%;
+  transition: width 100ms linear;
 }

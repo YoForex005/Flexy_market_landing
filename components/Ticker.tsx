@@ -38,7 +38,7 @@ function Ticker() {
                 { "proName": "FX_IDC:GBPJPY", "title": "GBP/JPY" }
             ],
             "showSymbolLogo": true,
-            "colorTheme": "light",
+            "colorTheme": "dark",
             "isTransparent": true,
             "displayMode": "regular",
             "locale": "en"

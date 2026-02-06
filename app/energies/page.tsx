@@ -2,8 +2,8 @@
 
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
-import MarketHero from '@/components/MarketHero';
-import GenericMarketTable from '@/components/GenericMarketTable';
+import UnifiedHero from '@/components/UnifiedHero';
+import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
 
@@ -30,7 +30,7 @@ export default function EnergiesPage() {
     return (
         <main>
             <NavBar />
-            <MarketHero
+            <UnifiedHero
                 title="Energies Trading"
                 subtitle="Trade Crude Oil, Brent Oil and Natural Gas. Take advantage of volatility in the energy markets."
                 activeMarket="Energies"
@@ -43,7 +43,7 @@ export default function EnergiesPage() {
                     { countryCode: "ru", top: "65%", right: "10%", rotate: "-10deg", delay: "1s", size: 75 }, // Russia
                 ]}
             />
-            <GenericMarketTable
+            <UnifiedMarketTable
                 title="Energy Commodities"
                 standardData={standardData}
                 ultraData={ultraData}
