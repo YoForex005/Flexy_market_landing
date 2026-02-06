@@ -190,17 +190,21 @@ export default function Hero() {
                         >
                             {slide.description}
                         </p>
-                        <div className="index-banner-easy mt-4 fw-bold" style={{
-                            fontSize: "14px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            gap: "8px",
-                            color: "#ffffff",
-                            textShadow: "0 1px 8px rgba(0, 0, 0, 0.3)"
-                        }}>
-                            <i className="fas fa-check-circle" style={{ color: "#2ecc71" }}></i>
-                            {slide.ctaText}
+
+                        {/* Join Now Button */}
+                        <div className="mt-4">
+                            <a href="https://user.flexymarkets.com/accounts/signUps" style={{ textDecoration: 'none' }}>
+                                <button className="btn btn-primary fw-bold" style={{
+                                    padding: "12px 36px",
+                                    fontSize: "16px",
+                                    borderRadius: "4px", // More rectangular like "Join Now"
+                                    background: "#0052ff", // Brighter blue like the reference
+                                    border: "none",
+                                    boxShadow: "0 4px 15px rgba(0, 82, 255, 0.4)"
+                                }}>
+                                    Join Now
+                                </button>
+                            </a>
                         </div>
 
                         {/* Integrated Marquee Ticker - Only show on first slide or always? Keeping it inside content for now */}
@@ -211,28 +215,23 @@ export default function Hero() {
                 </div>
             ))}
 
-            {/* Navigation Arrows */}
-            <button
-                onClick={prevSlide}
-                className="position-absolute start-0 top-50 translate-middle-y border-0 bg-transparent p-4 d-none d-md-block"
-                style={{ zIndex: 20, cursor: 'pointer', opacity: 0.7, transition: 'opacity 0.3s' }}
-                onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = '0.7'}
-                aria-label="Previous Slide"
-            >
-                <i className="fas fa-chevron-left text-white" style={{ fontSize: '2rem', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}></i>
-            </button>
-
-            <button
-                onClick={nextSlide}
-                className="position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent p-4 d-none d-md-block"
-                style={{ zIndex: 20, cursor: 'pointer', opacity: 0.7, transition: 'opacity 0.3s' }}
-                onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = '0.7'}
-                aria-label="Next Slide"
-            >
-                <i className="fas fa-chevron-right text-white" style={{ fontSize: '2rem', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}></i>
-            </button>
+            {/* Navigation Arrows - Bottom Right */}
+            <div className="hero-nav-container d-none d-md-flex">
+                <button
+                    onClick={prevSlide}
+                    className="hero-nav-btn me-3"
+                    aria-label="Previous Slide"
+                >
+                    <i className="fas fa-chevron-left"></i>
+                </button>
+                <button
+                    onClick={nextSlide}
+                    className="hero-nav-btn"
+                    aria-label="Next Slide"
+                >
+                    <i className="fas fa-chevron-right"></i>
+                </button>
+            </div>
 
             {/* Progress Bar */}
             <div className="hero-progress-bar-container">
@@ -254,6 +253,36 @@ export default function Hero() {
                     font-size: clamp(40px, 6vw, 68px);
                 }
                 
+                .hero-nav-container {
+                    position: absolute;
+                    bottom: 15%;
+                    right: 10%;
+                    z-index: 20;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .hero-nav-btn {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.2);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    backdrop-filter: blur(5px);
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    font-size: 16px;
+                }
+
+                .hero-nav-btn:hover {
+                    background: rgba(255, 255, 255, 0.4);
+                    transform: scale(1.1);
+                }
+                
                 @media (max-width: 768px) {
                     .container-responsive {
                         padding-top: 80px;
@@ -266,6 +295,11 @@ export default function Hero() {
                     .hero-description {
                         font-size: 16px !important;
                         padding: 0 15px;
+                    }
+                    .hero-nav-container {
+                        bottom: 5%;
+                        right: 50%;
+                        transform: translateX(50%);
                     }
                 }
             `}</style>
