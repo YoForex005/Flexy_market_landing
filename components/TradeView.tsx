@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import cryptoImg from '../public/images/CRYPTO.png';
+import cryptoImg from '../public/images/crypto.png';
 import indicesImg from '../public/images/Indices.png';
 import forexImg from '../public/images/forex.png';
-import goldImg from '../public/images/GOLD.png';
+import goldImg from '../public/images/gold.png';
 
 export default function TradeView() {
     const markets = [
@@ -36,7 +36,7 @@ export default function TradeView() {
         {
             name: "Indices",
             description: "Trade global stock market indices",
-            href: "/indices",
+            href: "/equity-indices",
             gradient: "radial-gradient(circle at center, #173334 0%, #326262 100%)",
             image: indicesImg,
             textColor: "white",

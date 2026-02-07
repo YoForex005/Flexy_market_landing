@@ -6,16 +6,13 @@ import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 
-// Dynamic imports for heavy components
-const TradeView = dynamic(() => import('@/components/TradeView'));
-const Discover = dynamic(() => import('@/components/Discover'));
-const Results = dynamic(() => import('@/components/Results'));
-const AccountTypes = dynamic(() => import('@/components/AccountTypes'));
-const Features = dynamic(() => import('@/components/Features'));
-const Support = dynamic(() => import('@/components/Support'));
-import ForexRates from '@/components/ForexRates';
-import Ticker from '@/components/Ticker';
-import Awards from '@/components/Awards';
+// Dynamic imports - ssr: false skips server render for faster initial HTML
+const TradeView = dynamic(() => import('@/components/TradeView'), { ssr: false });
+const Discover = dynamic(() => import('@/components/Discover'), { ssr: false });
+const Results = dynamic(() => import('@/components/Results'), { ssr: false });
+const AccountTypes = dynamic(() => import('@/components/AccountTypes'), { ssr: false });
+const Features = dynamic(() => import('@/components/Features'), { ssr: false });
+const Support = dynamic(() => import('@/components/Support'), { ssr: false });
 
 export default function Home() {
   const sectionsRef = useRef<HTMLDivElement[]>([]);

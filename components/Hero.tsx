@@ -96,8 +96,8 @@ export default function Hero() {
                                     muted
                                     loop
                                     playsInline
-                                    preload="auto"
-                                    poster="/images/forex.png" // Add poster for faster perceived load
+                                    preload="metadata"
+                                    poster="/images/forex.png"
                                     style={{ filter: slide.customFilter }} // Apply custom filter
                                     key={slide.videoSrc}
                                     onLoadedMetadata={(e) => {
