@@ -29,6 +29,7 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
     optimizePackageImports: ['bootstrap', '@emailjs/browser'],
   },
+  allowedDevOrigins: ['100.89.159.98'],
 
   // Enable gzip compression
   compress: true,

@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
+import Loader from '@/components/Loader';
 
 const tomato = localFont({
   src: [
@@ -65,6 +66,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
+        <Loader />
         {children}
         <WhatsAppWidget />
 

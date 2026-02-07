@@ -105,10 +105,16 @@ export default function Hero() {
                                     muted
                                     loop
                                     playsInline
-                                    preload="metadata"
-                                    style={{ filter: slide.customFilter }}
+                                    preload={index === currentSlide ? "auto" : "none"}
+                                    style={{
+                                        filter: slide.customFilter,
+                                        backgroundColor: '#0f172a' // Dark placeholder to prevent white flash
+                                    }}
                                 >
-                                    <source src={slide.videoSrc} type="video/mp4" />
+                                    {/* Only render source if it's the current slide or next slide to save bandwidth */}
+                                    {(index === currentSlide || index === (currentSlide + 1) % slides.length) && (
+                                        <source src={slide.videoSrc} type="video/mp4" />
+                                    )}
                                 </video>
                                 <div className="hero-overlay"></div>
                             </>
