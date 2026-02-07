@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-const Ticker = dynamic(() => import('./Ticker'), { ssr: false });
+
 
 interface SlideData {
     id: number;
@@ -50,14 +50,9 @@ const SLIDE_DURATION = 15000;
 export default function Hero() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [hasTransitioned, setHasTransitioned] = useState(false);
-    const [showTicker, setShowTicker] = useState(false);
     const videoRef = useRef<HTMLVideoElement>(null);
 
-    // Defer Ticker loading - load after hero text is visible
-    useEffect(() => {
-        const timer = setTimeout(() => setShowTicker(true), 3000);
-        return () => clearTimeout(timer);
-    }, []);
+
 
     // Network-aware video: disable on very slow connections
     useEffect(() => {
@@ -220,25 +215,6 @@ export default function Hero() {
                     </div>
                 </div>
             ))}
-
-            {/* Ticker - Rendered once outside the loop to prevent widget errors */}
-            <div
-                style={{
-                    position: 'absolute',
-                    bottom: '20px',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    zIndex: 20,
-                    width: '100%',
-                    maxWidth: '1200px',
-                    padding: '0 20px',
-                    pointerEvents: 'none'
-                }}
-            >
-                <div style={{ pointerEvents: 'auto', minHeight: '72px' }}>
-                    {showTicker && <Ticker />}
-                </div>
-            </div>
 
             {/* Navigation Arrows */}
             <div className="hero-nav-container d-none d-md-flex">

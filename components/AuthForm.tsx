@@ -61,12 +61,15 @@ export default function AuthForm({ mode }: AuthFormProps) {
                     {/* Country - Full List */}
                     {isSignUp && (
                         <div className="mb-3">
-                            <label className="form-label small fw-bold text-muted">Country / Region of residence *</label>
+                            <label htmlFor="country" className="form-label small fw-bold text-muted">Country / Region of residence *</label>
                             <div className="position-relative">
                                 <span className="position-absolute top-50 start-0 translate-middle-y ps-3 text-muted">
                                     <i className="fas fa-globe"></i>
                                 </span>
                                 <select
+                                    id="country"
+                                    name="country"
+                                    autoComplete="country-name"
                                     className="form-select p-3 ps-5"
                                     value={country}
                                     onChange={(e) => setCountry(e.target.value)}
@@ -273,12 +276,15 @@ export default function AuthForm({ mode }: AuthFormProps) {
 
                     {/* Email */}
                     <div className="mb-3">
-                        <label className="form-label small fw-bold text-muted">Your email address *</label>
+                        <label htmlFor="email" className="form-label small fw-bold text-muted">Your email address *</label>
                         <div className="position-relative">
                             <span className="position-absolute top-50 start-0 translate-middle-y ps-3 text-muted">
                                 <i className="fas fa-envelope"></i>
                             </span>
                             <input
+                                id="email"
+                                name="email"
+                                autoComplete="email"
                                 type="email"
                                 className="form-control p-3 ps-5"
                                 value={email}
@@ -291,12 +297,15 @@ export default function AuthForm({ mode }: AuthFormProps) {
 
                     {/* Password */}
                     <div className="mb-4 position-relative">
-                        <label className="form-label small fw-bold text-muted">{isSignUp ? 'Create a password for the account *' : 'Password'}</label>
+                        <label htmlFor="password" className="form-label small fw-bold text-muted">{isSignUp ? 'Create a password for the account *' : 'Password'}</label>
                         <div className="position-relative">
                             <span className="position-absolute top-50 start-0 translate-middle-y ps-3 text-muted" style={{ zIndex: 5 }}>
                                 <i className="fas fa-lock"></i>
                             </span>
                             <input
+                                id="password"
+                                name="password"
+                                autoComplete={isSignUp ? "new-password" : "current-password"}
                                 type={showPassword ? "text" : "password"}
                                 className="form-control p-3 ps-5"
                                 value={password}

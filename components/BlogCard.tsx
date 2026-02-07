@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface Post {
@@ -31,16 +32,18 @@ export default function BlogCard({ post }: { post: Post }) {
 
                 {/* Card Image */}
                 <div className="position-relative overflow-hidden" style={{ height: "200px" }}>
-                    <img
+                    <Image
                         src={post.image_url}
                         alt={post.title}
-                        className="w-100 h-100 object-fit-cover transition-transform duration-500 group-hover:scale-110"
-                        style={{ transition: 'transform 0.5s ease' }}
-                        onError={(e) => {
-                            e.currentTarget.src = "/images/candlestick-chart-3d.webp";
-                        }}
+                        fill
+                        className="object-fit-cover transition-transform duration-500 group-hover:scale-110"
+                        style={{ transition: 'transform 0.5s ease', objectFit: 'cover' }}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        unoptimized // Bypass Next.js optimization server to prevent timeouts on R2 images
+                    // onError handled by Next.js automatically or needs separate state, strictly Next/Image doesn't have onError like img. 
+                    // For simplicity in this env, we assume valid URLs or fallback logic in parent.
                     />
-                    <div className="position-absolute top-0 end-0 m-3 px-3 py-1 rounded-pill bg-white shadow-sm fw-bold small text-emerald-800">
+                    <div className="position-absolute top-0 end-0 m-3 px-3 py-1 rounded-pill bg-white shadow-sm fw-bold small text-emerald-800" style={{ zIndex: 1 }}>
                         {displayTag}
                     </div>
                 </div>

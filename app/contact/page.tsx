@@ -107,8 +107,8 @@ export default function ContactPage() {
                                 </div>
                                 <h5 className="fw-bold mb-2">Phone Support</h5>
                                 <p className="text-muted small mb-3">Available 24/7 worldwide</p>
-                                <a href="tel:+442012345678" className="text-decoration-none fw-bold" style={{ color: "#0f4941" }}>
-                                    +44 20 1234 5678
+                                <a href="tel:+443300271632" className="text-decoration-none fw-bold" style={{ color: "#0f4941" }}>
+                                    +44 3300 271632
                                 </a>
                             </div>
                         </div>
@@ -137,10 +137,12 @@ export default function ContactPage() {
                                 <form onSubmit={handleSubmit}>
                                     <div className="row g-4">
                                         <div className="col-md-6">
-                                            <label className="form-label fw-bold small text-dark">Your Name *</label>
+                                            <label htmlFor="name" className="form-label fw-bold small text-dark">Your Name *</label>
                                             <input
+                                                id="name"
                                                 type="text"
                                                 name="name"
+                                                autoComplete="name"
                                                 className="form-control form-control-lg rounded-3 border-0 shadow-sm"
                                                 placeholder="John Doe"
                                                 value={formData.name}
@@ -150,10 +152,12 @@ export default function ContactPage() {
                                             />
                                         </div>
                                         <div className="col-md-6">
-                                            <label className="form-label fw-bold small text-dark">Email Address *</label>
+                                            <label htmlFor="email" className="form-label fw-bold small text-dark">Email Address *</label>
                                             <input
+                                                id="email"
                                                 type="email"
                                                 name="email"
+                                                autoComplete="email"
                                                 className="form-control form-control-lg rounded-3 border-0 shadow-sm"
                                                 placeholder="john@example.com"
                                                 value={formData.email}
@@ -163,9 +167,11 @@ export default function ContactPage() {
                                             />
                                         </div>
                                         <div className="col-12">
-                                            <label className="form-label fw-bold small text-dark">Subject *</label>
+                                            <label htmlFor="subject" className="form-label fw-bold small text-dark">Subject *</label>
                                             <select
+                                                id="subject"
                                                 name="subject"
+                                                autoComplete="off"
                                                 className="form-select form-select-lg rounded-3 border-0 shadow-sm"
                                                 value={formData.subject}
                                                 onChange={handleChange}
@@ -182,9 +188,11 @@ export default function ContactPage() {
                                             </select>
                                         </div>
                                         <div className="col-12">
-                                            <label className="form-label fw-bold small text-dark">Message *</label>
+                                            <label htmlFor="message" className="form-label fw-bold small text-dark">Message *</label>
                                             <textarea
+                                                id="message"
                                                 name="message"
+                                                autoComplete="off"
                                                 className="form-control form-control-lg rounded-3 border-0 shadow-sm"
                                                 rows={6}
                                                 placeholder="Tell us how we can help you..."

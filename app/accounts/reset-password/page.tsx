@@ -62,12 +62,15 @@ export default function ResetPasswordPage() {
                     <form onSubmit={(e) => e.preventDefault()}>
                         {/* Email */}
                         <div className="mb-4 position-relative">
-                            <label className="form-label small fw-bold text-muted">Your email address</label>
+                            <label htmlFor="email" className="form-label small fw-bold text-muted">Your email address</label>
                             <div className="position-relative">
                                 <span className="position-absolute top-50 start-0 translate-middle-y ps-3 text-muted">
                                     <i className="fas fa-envelope"></i>
                                 </span>
                                 <input
+                                    id="email"
+                                    name="email"
+                                    autoComplete="email"
                                     type="email"
                                     className="form-control p-3 ps-5"
                                     style={{ borderRadius: "8px", border: "1px solid #dee2e6", fontSize: "16px", backgroundColor: "#f8f9fa" }}

@@ -79,8 +79,7 @@ export default function Footer() {
                             {/* Platforms */}
                             <div className="col-lg-2 col-md-4 col-sm-6 mb-4">
                                 <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>PLATFORMS</h6>
-                                <Link href="/platforms" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>All Platforms</Link>
-                                <Link href="/mt5" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>MT5 Platform</Link>
+                                <Link href="/platforms" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>MT5 Platform</Link>
                             </div>
 
                             {/* Accounts */}
@@ -114,7 +113,17 @@ export default function Footer() {
                                 <p className="text-muted small mb-1">Flexy Markets Limited (Reg No. - 2024-00752)</p>
                                 <p className="text-muted small mb-1">Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia</p>
                                 <p className="text-muted small mb-1"><strong>Email:</strong> support@flexymarkets.com</p>
-                                <p className="text-muted small mb-0"><strong>Phone:</strong> +971 42293628</p>
+                                <p className="text-muted small mb-0">
+                                    <strong>Phone:</strong>{" "}
+                                    <a
+                                        href="https://wa.me/443300271632"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{ color: '#0f4941', textDecoration: 'none' }}
+                                    >
+                                        +44 3300 271632
+                                    </a>
+                                </p>
                             </div>
 
                             <div className="col-lg-6 mb-4">
@@ -129,8 +138,7 @@ export default function Footer() {
                     <div className="legal-footer bg-white rounded-4 p-4 mb-4" style={{ border: '1px solid rgba(15, 73, 65, 0.1)' }}>
                         <div className="row">
                             <div className="col-12 text-center mb-3">
-                                <a href="https://flexymarkets.com/legal_documents/VPS-Service-Terms-and-Conditions-special.pdf" className="text-muted small px-2">VPS Terms and Conditions</a> |
-                                <a href="https://flexymarkets.com/legal_documents/TERM%20AND%20CONDITION.pdf" className="text-muted small px-2">Terms and Conditions</a>
+                                <a href="/pdf/TERM%20AND%20CONDITION.pdf" target="_blank" className="text-muted small px-2">Terms and Conditions</a>
                             </div>
                         </div>
 

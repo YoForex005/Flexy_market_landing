@@ -45,7 +45,7 @@ export default function WhatsAppWidget() {
                         {/* Footer */}
                         <div className="whatsapp-footer">
                             <a
-                                href="https://api.whatsapp.com/send?phone=97142293628&text=Hello,%20I%20have%20a%20question%20about%20Flexy%20Markets"
+                                href="https://api.whatsapp.com/send?phone=443300271632&text=Hello,%20I%20have%20a%20question%20about%20Flexy%20Markets"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="whatsapp-link"
