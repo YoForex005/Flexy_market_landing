@@ -1,18 +1,21 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
-import TradeView from '@/components/TradeView';
+import Footer from '@/components/Footer';
+
+// Dynamic imports for heavy components
+const TradeView = dynamic(() => import('@/components/TradeView'));
+const Discover = dynamic(() => import('@/components/Discover'));
+const Results = dynamic(() => import('@/components/Results'));
+const AccountTypes = dynamic(() => import('@/components/AccountTypes'));
+const Features = dynamic(() => import('@/components/Features'));
+const Support = dynamic(() => import('@/components/Support'));
 import ForexRates from '@/components/ForexRates';
 import Ticker from '@/components/Ticker';
 import Awards from '@/components/Awards';
-import Discover from '@/components/Discover';
-import Results from '@/components/Results';
-import AccountTypes from '@/components/AccountTypes';
-import Features from '@/components/Features';
-import Support from '@/components/Support';
-import Footer from '@/components/Footer';
 
 export default function Home() {
   const sectionsRef = useRef<HTMLDivElement[]>([]);

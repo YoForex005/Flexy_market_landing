@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import logoImg from '../public/hd_logo.png';
 
 export default function NavBar() {
     const [isSticky, setIsSticky] = useState(true);
@@ -73,14 +74,16 @@ export default function NavBar() {
                             <div className="col-lg-2">
                                 <div className="header_logo">
                                     <Link href="/">
-                                        <img
-                                            src="/hd_logo.png"
+                                        <Image
+                                            src={logoImg}
                                             alt="Logo"
                                             style={{
                                                 height: '45px',
+                                                width: 'auto',
                                                 transition: 'all .3s',
                                                 filter: isSticky ? 'none' : 'brightness(0) invert(1)'
                                             }}
+                                            priority
                                         />
                                     </Link>
                                 </div>
@@ -209,7 +212,15 @@ export default function NavBar() {
                     <div className="container">
                         <div className="d-flex align-items-center justify-content-between">
                             <Link href="/">
-                                <img src="/hd_logo.png" alt="Logo" style={{ height: '35px' }} />
+                                <Image
+                                    src={logoImg}
+                                    alt="Logo"
+                                    style={{
+                                        height: '35px',
+                                        width: 'auto'
+                                    }}
+                                    priority
+                                />
                             </Link>
                             <button
                                 className="btn p-0"
@@ -298,7 +309,7 @@ export default function NavBar() {
                                         )}
                                     </li>
                                     <li className="py-2">
-                                        <Link href="https://flexymarkets.com/promotion.php" className="nav-link fw-bold" style={{ fontSize: '16px', color: '#154941' }}>Promotions</Link>
+                                        <Link href="/promotions" className="nav-link fw-bold" style={{ fontSize: '16px', color: '#154941' }}>Promotions</Link>
                                     </li>
                                     <li className="py-2">
                                         <a
@@ -312,11 +323,9 @@ export default function NavBar() {
                                         </a>
                                         {openDropdown === 'mobile-company' && (
                                             <div className="ps-3 pt-3 pb-3 mt-2" style={{ backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #dee2e6' }}>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/about.php" style={{ fontSize: '14px' }}>Who is Flexy Group?</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/license.php" style={{ fontSize: '14px' }}>License & Regulation</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/award.php" style={{ fontSize: '14px' }}>Award</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/client-fund-security.php" style={{ fontSize: '14px' }}>Client Fund Security</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="https://flexymarkets.com/why-choose-us.php" style={{ fontSize: '14px' }}>Why Choose Us?</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/about" style={{ fontSize: '14px' }}>Who is Flexy Group?</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/legal-documents" style={{ fontSize: '14px' }}>Legal Documents</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/contact" style={{ fontSize: '14px' }}>Contact Us</Link>
                                             </div>
                                         )}
                                     </li>

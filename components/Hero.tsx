@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import Ticker from "./Ticker";
 
 interface SlideData {
@@ -95,6 +97,7 @@ export default function Hero() {
                                     loop
                                     playsInline
                                     preload="auto"
+                                    poster="/images/forex.png" // Add poster for faster perceived load
                                     style={{ filter: slide.customFilter }} // Apply custom filter
                                     key={slide.videoSrc}
                                     onLoadedMetadata={(e) => {
@@ -109,14 +112,14 @@ export default function Hero() {
                             </>
                         ) : (
                             <>
-                                <img
-                                    src={slide.imageSrc}
+                                <Image
+                                    src={slide.imageSrc || ''}
                                     alt={slide.title}
+                                    fill
+                                    priority={index === 0} // Prioritize if it's the first slide
                                     className="hero-video" // Reuse class for full coverage
                                     style={{
                                         objectFit: 'cover',
-                                        width: '100%',
-                                        height: '100%',
                                         filter: slide.customFilter
                                     }}
                                 />
@@ -193,7 +196,7 @@ export default function Hero() {
 
                         {/* Join Now Button */}
                         <div className="mt-4">
-                            <a href="https://user.flexymarkets.com/accounts/signUps" style={{ textDecoration: 'none' }}>
+                            <Link href="https://user.flexymarkets.com/accounts/signUps" style={{ textDecoration: 'none' }}>
                                 <button className="btn btn-primary fw-bold" style={{
                                     padding: "12px 36px",
                                     fontSize: "16px",
@@ -204,7 +207,7 @@ export default function Hero() {
                                 }}>
                                     Join Now
                                 </button>
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Integrated Marquee Ticker - Only show on first slide or always? Keeping it inside content for now */}

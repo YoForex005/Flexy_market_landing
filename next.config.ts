@@ -31,6 +31,9 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['bootstrap', 'aos'],
   },
 
+  // Disable compression to fix HTTP2 errors
+  compress: false,
+
   // Faster development builds
   reactStrictMode: true,
 };

@@ -1,7 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
-
+import Image from 'next/image';
 import Link from 'next/link';
+import cryptoImg from '../public/images/crypto.png';
+import indicesImg from '../public/images/Indices.png';
+import forexImg from '../public/images/forex.png';
+import goldImg from '../public/images/gold.png';
 
 export default function TradeView() {
     const markets = [
@@ -10,7 +12,7 @@ export default function TradeView() {
             description: "Trade 60+ currency pairs with tight spreads",
             href: "/forex-trading",
             gradient: "radial-gradient(circle at center, #173334 0%, #326262 100%)",
-            image: "/images/forex.png",
+            image: forexImg,
             textColor: "white",
             buttonStyle: {
                 background: 'transparent',
@@ -23,7 +25,7 @@ export default function TradeView() {
             description: "Access popular crypto CFDs 24/7",
             href: "/cryptocurrencies",
             gradient: "radial-gradient(circle at center, #a0b9b3 0%, #a0b9b3 30%, #deedea 100%)",
-            image: "/images/Crypto.png",
+            image: cryptoImg,
             textColor: "#0f4941",
             buttonStyle: {
                 background: 'transparent',
@@ -36,7 +38,7 @@ export default function TradeView() {
             description: "Trade global stock market indices",
             href: "/indices",
             gradient: "radial-gradient(circle at center, #173334 0%, #326262 100%)",
-            image: "/images/Indices.png",
+            image: indicesImg,
             textColor: "white",
             buttonStyle: {
                 background: 'transparent',
@@ -49,7 +51,7 @@ export default function TradeView() {
             description: "Trade commodities like gold, oil & more",
             href: "/commodities",
             gradient: "radial-gradient(circle at center, #a0b9b3 0%, #a0b9b3 30%, #deedea 100%)",
-            image: "/images/gold.png",
+            image: goldImg,
             textColor: "#0f4941",
             buttonStyle: {
                 background: 'transparent',
@@ -113,12 +115,14 @@ export default function TradeView() {
                                         </div>
                                         <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center position-relative">
                                             <div className="image-crop-container">
-                                                <img
+                                                <Image
                                                     src={market.image}
                                                     alt={`${market.name} Trading`}
                                                     className="img-fluid drop-shadow-3d zoom-image"
                                                     style={{
                                                         maxHeight: '250px',
+                                                        width: 'auto',
+                                                        height: 'auto',
                                                         filter: market.textColor === 'white'
                                                             ? 'drop-shadow(0 10px 20px rgba(0,0,0,0.5)) brightness(1.15)'
                                                             : 'drop-shadow(0 10px 20px rgba(0,0,0,0.2))',

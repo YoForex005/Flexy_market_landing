@@ -1,8 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
-
+import Image from 'next/image';
+import candlestickImg from '../public/images/candlestick-chart-3d.png';
+import graduationImg from '../public/images/graduation-cap-3d.png';
 import { useEffect, useState } from 'react';
-
 import AnimatedBackground from './AnimatedBackground';
 
 export default function Results() {
@@ -173,12 +172,14 @@ export default function Results() {
                                     </div>
                                     <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center position-relative">
                                         <div className="image-crop-container">
-                                            <img
-                                                src="/images/candlestick-chart-3d.png"
+                                            <Image
+                                                src={candlestickImg}
                                                 alt="Educational Resources"
                                                 className="img-fluid drop-shadow-3d zoom-image blend-screen"
                                                 style={{
                                                     maxHeight: '250px',
+                                                    width: 'auto',
+                                                    height: 'auto',
                                                     filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.5))',
                                                 }}
                                             />
@@ -220,12 +221,14 @@ export default function Results() {
                                     </div>
                                     <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center position-relative">
                                         <div className="image-crop-container">
-                                            <img
-                                                src="/images/graduation-cap-3d.png"
+                                            <Image
+                                                src={graduationImg}
                                                 alt="Cutting-Edge Technology"
                                                 className="img-fluid drop-shadow-3d zoom-image"
                                                 style={{
                                                     maxHeight: '220px',
+                                                    width: 'auto',
+                                                    height: 'auto',
                                                     filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))',
                                                 }}
                                             />
