@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import Image from 'next/image';
 
 interface CopyTradingHeroProps {
     paddingTop?: string;
@@ -100,23 +101,17 @@ export default function CopyTradingHero({ paddingTop = "120px", paddingBottom = 
                                 zIndex: 0,
                                 pointerEvents: 'none'
                             }}></div>
-                            <img
-                                src="/images/copy-trading-hero.png"
+                            <Image
+                                src="/images/copy-trading-hero.webp"
                                 alt="Trade Like an Expert"
                                 className="position-relative img-fluid"
+                                width={800}
+                                height={450}
                                 style={{
                                     zIndex: 1,
-                                    maxHeight: '450px'
-                                }}
-                                onError={(e) => {
-                                    const parent = e.currentTarget.parentElement;
-                                    if (parent) {
-                                        parent.innerHTML = `
-                                            <div style="width: 300px; height: 300px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                                                <i class="fas fa-users" style="font-size: 80px; color: #0f664a; opacity: 0.3;"></i>
-                                            </div>
-                                        `;
-                                    }
+                                    maxHeight: '450px',
+                                    width: 'auto',
+                                    height: 'auto'
                                 }}
                             />
                         </div>

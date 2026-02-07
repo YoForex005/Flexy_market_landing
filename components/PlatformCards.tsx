@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-"use client";
+import Image from 'next/image';
 
 export default function PlatformCards() {
     return (
@@ -16,10 +15,12 @@ export default function PlatformCards() {
                             {/* Visual Header */}
                             <div className="visual-header position-relative" style={{ height: '280px', overflow: 'hidden', background: '#f1f5f9' }}>
                                 <div className="absolute-center" style={{ width: '100%', height: '100%' }}>
-                                    <img
-                                        src="/platform-mobile.png"
+                                    <Image
+                                        src="/platform-mobile.webp"
                                         alt="Mobile Trading"
                                         className="img-fluid w-100 h-100 object-fit-cover transition-transform"
+                                        width={400}
+                                        height={280}
                                         style={{ transform: 'scale(1.05)' }}
                                     />
                                 </div>
@@ -55,10 +56,12 @@ export default function PlatformCards() {
                             {/* Visual Header */}
                             <div className="visual-header position-relative" style={{ height: '320px', overflow: 'hidden', background: '#f0fdf4' }}>
                                 <div className="absolute-center" style={{ width: '100%', height: '100%' }}>
-                                    <img
-                                        src="/platform-desktop.png"
+                                    <Image
+                                        src="/platform-desktop.webp"
                                         alt="Desktop Trading"
                                         className="img-fluid w-100 h-100 object-fit-cover transition-transform"
+                                        width={400}
+                                        height={320}
                                         style={{ transform: 'scale(1.05)' }}
                                     />
                                 </div>
@@ -91,10 +94,12 @@ export default function PlatformCards() {
                             {/* Visual Header */}
                             <div className="visual-header position-relative" style={{ height: '280px', overflow: 'hidden', background: '#f5f3ff' }}>
                                 <div className="absolute-center" style={{ width: '100%', height: '100%' }}>
-                                    <img
-                                        src="/platform-webtrader.png"
+                                    <Image
+                                        src="/platform-webtrader.webp"
                                         alt="Web Trading"
                                         className="img-fluid w-100 h-100 object-fit-cover transition-transform"
+                                        width={400}
+                                        height={280}
                                         style={{ transform: 'scale(1.05)' }}
                                     />
                                 </div>

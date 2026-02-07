@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import cryptoImg from '../public/images/CRYPTO.png';
-import indicesImg from '../public/images/Indices.png';
-import forexImg from '../public/images/forex.png';
-import goldImg from '../public/images/GOLD.png';
+import cryptoImg from '../public/images/CRYPTO.webp';
+import indicesImg from '../public/images/Indices.webp';
+import forexImg from '../public/images/forex.webp';
+import goldImg from '../public/images/GOLD.webp';
 
 export default function TradeView() {
     const markets = [

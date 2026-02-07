@@ -70,7 +70,7 @@ export default function AuthSplitLayout({ leftContent, children }: AuthSplitLayo
                 <div className="container-fluid">
                     {/* Logo is flexible here if we want overrides, but standard Link is fine */}
                     <a href="/" className="navbar-brand">
-                        <img src="/hd_logo.png" alt="Flexy Markets" style={{ height: "45px" }} />
+                        <img src="/hd_logo.webp" alt="Flexy Markets" style={{ height: "45px" }} />
                     </a>
                 </div>
             </header>

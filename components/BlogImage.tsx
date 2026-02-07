@@ -8,7 +8,7 @@ interface BlogImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     fallbackSrc?: string;
 }
 
-export default function BlogImage({ src, alt, fallbackSrc = "/images/candlestick-chart-3d.png", ...props }: BlogImageProps) {
+export default function BlogImage({ src, alt, fallbackSrc = "/images/candlestick-chart-3d.webp", ...props }: BlogImageProps) {
     return (
         <img
             src={src}

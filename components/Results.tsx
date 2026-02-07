@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import candlestickImg from '../public/images/candlestick-chart-3d.png';
-import graduationImg from '../public/images/graduation-cap-3d.png';
+import candlestickImg from '../public/images/candlestick-chart-3d.webp';
+import graduationImg from '../public/images/graduation-cap-3d.webp';
 import { useEffect, useState } from 'react';
 import AnimatedBackground from './AnimatedBackground';
 

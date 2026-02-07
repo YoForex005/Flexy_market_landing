@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import logoImg from '../public/hd_logo.png';
+import logoImg from '../public/hd_logo.webp';
 
 export default function NavBar() {
     const [isSticky, setIsSticky] = useState(true);

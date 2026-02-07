@@ -22,7 +22,7 @@ const slides: SlideData[] = [
     {
         id: 1,
         type: 'video',
-        videoSrc: "https://pub-58234dac80f54ab7a6d0f53bcd35bd06.r2.dev/images/Neymar%20vs%20Argentina%2011%2007%202021%20Copa%20America%20Final%20FINAL%201.mp4",
+        videoSrc: "/videos/hero-video.mp4",
         customFilter: "none", // Original Green/Teal
         badgeText: "Trusted by over Million Traders",
         title: "The Broker You Can Trust",
@@ -33,7 +33,7 @@ const slides: SlideData[] = [
     {
         id: 2,
         type: 'image',
-        imageSrc: "/images/girl1.png",
+        imageSrc: "/images/girl1.webp",
         customFilter: "none",
         badgeText: "Premium Trading Experience",
         title: "Join The Elite",
@@ -96,12 +96,13 @@ export default function Hero() {
                                     muted
                                     loop
                                     playsInline
-                                    preload="metadata"
+                                    preload="auto"
                                     poster="/images/forex.png"
                                     style={{ filter: slide.customFilter }} // Apply custom filter
                                     key={slide.videoSrc}
                                     onLoadedMetadata={(e) => {
-                                        e.currentTarget.playbackRate = 1.5;
+                                        // Normal speed
+                                        e.currentTarget.playbackRate = 1.0;
                                     }}
                                 >
                                     <source src={slide.videoSrc} type="video/mp4" />

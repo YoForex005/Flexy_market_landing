@@ -2,6 +2,7 @@
 "use client";
 
 
+import Image from 'next/image';
 import AnimatedBackground from './AnimatedBackground';
 
 export default function Discover() {
@@ -58,12 +59,16 @@ export default function Discover() {
                                     </div>
                                     <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center position-relative">
                                         <div className="image-crop-container">
-                                            <img
-                                                src="/images/gift-box-3d.png"
+                                            <Image
+                                                src="/images/gift-box-3d.webp"
                                                 alt="Seamless Trading Gift Box"
                                                 className="img-fluid drop-shadow-3d zoom-image blend-screen"
+                                                width={300}
+                                                height={250}
                                                 style={{
                                                     maxHeight: '250px',
+                                                    width: 'auto',
+                                                    height: 'auto',
                                                     filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.5))',
                                                 }}
                                             />
@@ -105,12 +110,16 @@ export default function Discover() {
                                     </div>
                                     <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center position-relative">
                                         <div className="image-crop-container">
-                                            <img
-                                                src="/images/growth-chart-3d.png"
+                                            <Image
+                                                src="/images/growth-chart-3d.webp"
                                                 alt="Maximize Returns Graph"
                                                 className="img-fluid drop-shadow-3d zoom-image"
+                                                width={300}
+                                                height={280}
                                                 style={{
                                                     maxHeight: '280px',
+                                                    width: 'auto',
+                                                    height: 'auto',
                                                     filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.2))',
                                                     maskImage: 'radial-gradient(circle closest-side, black 65%, transparent 95%)',
                                                     WebkitMaskImage: 'radial-gradient(circle closest-side, black 65%, transparent 95%)'
@@ -153,12 +162,16 @@ export default function Discover() {
                                     </div>
                                     <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center justify-content-md-end position-relative">
                                         <div className="image-crop-container">
-                                            <img
-                                                src="/images/trophy-new-3d.png"
+                                            <Image
+                                                src="/images/trophy-new-3d.webp"
                                                 alt="Winning Trophy"
                                                 className="img-fluid zoom-image trophy-rotate blend-screen"
+                                                width={400}
+                                                height={330}
                                                 style={{
                                                     maxHeight: '330px',
+                                                    width: 'auto',
+                                                    height: 'auto',
                                                     filter: 'brightness(1.15) contrast(1.05) drop-shadow(0 0 30px rgba(255,215,0,0.15))',
                                                     clipPath: 'inset(0 0 40px 0)', /* Crops the bottom logo */
                                                 }}

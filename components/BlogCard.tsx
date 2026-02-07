@@ -37,7 +37,7 @@ export default function BlogCard({ post }: { post: Post }) {
                         className="w-100 h-100 object-fit-cover transition-transform duration-500 group-hover:scale-110"
                         style={{ transition: 'transform 0.5s ease' }}
                         onError={(e) => {
-                            e.currentTarget.src = "/images/candlestick-chart-3d.png";
+                            e.currentTarget.src = "/images/candlestick-chart-3d.webp";
                         }}
                     />
                     <div className="position-absolute top-0 end-0 m-3 px-3 py-1 rounded-pill bg-white shadow-sm fw-bold small text-emerald-800">
