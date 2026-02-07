@@ -115,23 +115,29 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-primary);
   font-size: 16px;
-
-
-
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-normal);
   letter-spacing: var(--letter-spacing-normal);
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+main {
+  overflow-x: hidden;
 }
 
 /* ========================================
@@ -304,7 +310,7 @@ ul {
    MEGA MENU & DROPDOWNS
    ======================================== */
 .mega-menu2 {
-  min-width: 1100px;
+  min-width: min(1100px, 95vw);
   left: 50%;
   transform: translateX(-50%) translateY(10px) !important;
   margin-top: 20px;
