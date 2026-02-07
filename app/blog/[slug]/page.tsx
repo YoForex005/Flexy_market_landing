@@ -18,7 +18,7 @@ const formatDate = (dateString: Date) => {
 
 // Helper to sanitize/fix image paths
 const fixImagePath = (path: string) => {
-    if (!path) return '/images/candlestick-chart-3d.png';
+    if (!path) return '/images/candlestick-chart-3d.webp';
     if (path.startsWith('/') || path.startsWith('http')) return path;
     return `/images/${path}`;
 };

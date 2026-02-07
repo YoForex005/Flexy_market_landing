@@ -66,7 +66,6 @@ export default function Discover() {
                                                 width={300}
                                                 height={250}
                                                 style={{
-                                                    maxHeight: '250px',
                                                     width: 'auto',
                                                     height: 'auto',
                                                     filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.5))',
@@ -117,7 +116,6 @@ export default function Discover() {
                                                 width={300}
                                                 height={280}
                                                 style={{
-                                                    maxHeight: '280px',
                                                     width: 'auto',
                                                     height: 'auto',
                                                     filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.2))',
@@ -169,11 +167,9 @@ export default function Discover() {
                                                 width={400}
                                                 height={330}
                                                 style={{
-                                                    maxHeight: '330px',
-                                                    width: 'auto',
-                                                    height: 'auto',
                                                     filter: 'brightness(1.15) contrast(1.05) drop-shadow(0 0 30px rgba(255,215,0,0.15))',
-                                                    clipPath: 'inset(0 0 40px 0)', /* Crops the bottom logo */
+                                                    width: 'auto',
+                                                    height: 'auto'
                                                 }}
                                             />
                                         </div>

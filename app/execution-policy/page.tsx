@@ -127,7 +127,7 @@ export default function ExecutionPolicy() {
 
                         {/* Flexy Logo */}
                         <div className="mt-4">
-                            <img src="/hd_logo.png" alt="Flexy Markets" style={{ height: "40px", opacity: 0.8 }} />
+                            <img src="/hd_logo.webp" alt="Flexy Markets" style={{ height: "40px", opacity: 0.8 }} />
                         </div>
                     </div>
                 </div>

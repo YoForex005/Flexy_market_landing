@@ -1,16 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Ticker from "./Ticker";
+import dynamic from 'next/dynamic';
+
+const Ticker = dynamic(() => import('./Ticker'), { ssr: false });
 
 interface SlideData {
     id: number;
     type: 'video' | 'image';
     videoSrc?: string;
     imageSrc?: string;
-    customFilter?: string; // Add custom filter property
+    customFilter?: string;
     badgeText: string;
     title: string;
     subtitle: string;
@@ -23,7 +25,7 @@ const slides: SlideData[] = [
         id: 1,
         type: 'video',
         videoSrc: "/videos/hero-video.mp4",
-        customFilter: "none", // Original Green/Teal
+        customFilter: "none",
         badgeText: "Trusted by over Million Traders",
         title: "The Broker You Can Trust",
         subtitle: "The Results You Deserve",
@@ -43,72 +45,71 @@ const slides: SlideData[] = [
     }
 ];
 
+const SLIDE_DURATION = 15000;
+
 export default function Hero() {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [progress, setProgress] = useState(0);
-    const DURATION = 15000; // 15 seconds
-    const UPDATE_INTERVAL = 100; // Update progress every 100ms
-    const timerRef = useRef<NodeJS.Timeout | null>(null);
+    const [hasTransitioned, setHasTransitioned] = useState(false);
+    const [showTicker, setShowTicker] = useState(false);
+    const videoRef = useRef<HTMLVideoElement>(null);
 
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
-        setProgress(0);
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-        setProgress(0);
-    };
-
+    // Defer Ticker loading - load after hero text is visible
     useEffect(() => {
-        const startTime = Date.now();
-        setProgress(0); // Reset progress on slide change
+        const timer = setTimeout(() => setShowTicker(true), 3000);
+        return () => clearTimeout(timer);
+    }, []);
 
-        timerRef.current = setInterval(() => {
-            const elapsed = Date.now() - startTime;
-            const newProgress = Math.min((elapsed / DURATION) * 100, 100);
-            setProgress(newProgress);
+    // Network-aware video: disable on very slow connections
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
 
-            if (elapsed >= DURATION) {
-                nextSlide();
-            }
-        }, UPDATE_INTERVAL);
+        const conn = (navigator as unknown as { connection?: { effectiveType?: string; saveData?: boolean } }).connection;
+        const isSlowNetwork = conn && (
+            conn.effectiveType === '2g' ||
+            conn.effectiveType === 'slow-2g' ||
+            conn.saveData
+        );
 
-        return () => {
-            if (timerRef.current) clearInterval(timerRef.current);
-        };
-    }, [currentSlide]);
+        if (isSlowNetwork) {
+            video.preload = 'none';
+            video.pause();
+        }
+    }, []);
+
+    const nextSlide = useCallback(() => {
+        if (!hasTransitioned) setHasTransitioned(true);
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, [hasTransitioned]);
+
+    const prevSlide = useCallback(() => {
+        if (!hasTransitioned) setHasTransitioned(true);
+        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    }, [hasTransitioned]);
 
     return (
         <div className="index-banner position-relative group">
             {slides.map((slide, index) => (
                 <div
                     key={slide.id}
-                    className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+                    className={`hero-slide ${index === currentSlide ? 'active' : ''} ${!hasTransitioned && index === 0 ? 'instant' : ''}`}
                 >
-                    {/* Background Media (Video or Image) */}
+                    {/* Background Media */}
                     <div className="hero-video-container">
                         {slide.type === 'video' ? (
                             <>
                                 <video
+                                    ref={videoRef}
                                     className="hero-video"
                                     autoPlay
                                     muted
                                     loop
                                     playsInline
-                                    preload="auto"
-                                    poster="/images/forex.png"
-                                    style={{ filter: slide.customFilter }} // Apply custom filter
-                                    key={slide.videoSrc}
-                                    onLoadedMetadata={(e) => {
-                                        // Normal speed
-                                        e.currentTarget.playbackRate = 1.0;
-                                    }}
+                                    preload="metadata"
+                                    style={{ filter: slide.customFilter }}
                                 >
                                     <source src={slide.videoSrc} type="video/mp4" />
-                                    Your browser does not support the video tag.
                                 </video>
-                                {/* Professional Overlay for Text Legibility - ONLY for video or consistent? Keeping consistent */}
                                 <div className="hero-overlay"></div>
                             </>
                         ) : (
@@ -117,8 +118,7 @@ export default function Hero() {
                                     src={slide.imageSrc || ''}
                                     alt={slide.title}
                                     fill
-                                    priority={index === 0} // Prioritize if it's the first slide
-                                    className="hero-video" // Reuse class for full coverage
+                                    className="hero-video"
                                     style={{
                                         objectFit: 'cover',
                                         filter: slide.customFilter
@@ -195,14 +195,13 @@ export default function Hero() {
                             {slide.description}
                         </p>
 
-                        {/* Join Now Button */}
                         <div className="mt-4">
                             <Link href="https://user.flexymarkets.com/accounts/signUps" style={{ textDecoration: 'none' }}>
                                 <button className="btn btn-primary fw-bold" style={{
                                     padding: "12px 36px",
                                     fontSize: "16px",
-                                    borderRadius: "4px", // More rectangular like "Join Now"
-                                    background: "#0052ff", // Brighter blue like the reference
+                                    borderRadius: "4px",
+                                    background: "#0052ff",
                                     border: "none",
                                     boxShadow: "0 4px 15px rgba(0, 82, 255, 0.4)"
                                 }}>
@@ -211,15 +210,31 @@ export default function Hero() {
                             </Link>
                         </div>
 
-                        {/* Integrated Marquee Ticker - Only show on first slide or always? Keeping it inside content for now */}
-                        <div className="mt-5 w-100">
-                            <Ticker />
-                        </div>
+                        {/* Ticker removed from here to prevent multiple instances */}
                     </div>
                 </div>
             ))}
 
-            {/* Navigation Arrows - Bottom Right */}
+            {/* Ticker - Rendered once outside the loop to prevent widget errors */}
+            <div
+                style={{
+                    position: 'absolute',
+                    bottom: '20px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    zIndex: 20,
+                    width: '100%',
+                    maxWidth: '1200px',
+                    padding: '0 20px',
+                    pointerEvents: 'none'
+                }}
+            >
+                <div style={{ pointerEvents: 'auto', minHeight: '72px' }}>
+                    {showTicker && <Ticker />}
+                </div>
+            </div>
+
+            {/* Navigation Arrows */}
             <div className="hero-nav-container d-none d-md-flex">
                 <button
                     onClick={prevSlide}
@@ -237,12 +252,14 @@ export default function Hero() {
                 </button>
             </div>
 
-            {/* Progress Bar */}
+            {/* CSS-animated Progress Bar - eliminates 10 re-renders/sec from setInterval */}
             <div className="hero-progress-bar-container">
                 <div
+                    key={currentSlide}
                     className="hero-progress-bar"
-                    style={{ width: `${progress}%` }}
-                ></div>
+                    style={{ animationDuration: `${SLIDE_DURATION}ms` }}
+                    onAnimationEnd={nextSlide}
+                />
             </div>
 
             <style jsx>{`
@@ -256,7 +273,7 @@ export default function Hero() {
                 .hero-title {
                     font-size: clamp(40px, 6vw, 68px);
                 }
-                
+
                 .hero-nav-container {
                     position: absolute;
                     bottom: 15%;
@@ -286,7 +303,7 @@ export default function Hero() {
                     background: rgba(255, 255, 255, 0.4);
                     transform: scale(1.1);
                 }
-                
+
                 @media (max-width: 768px) {
                     .container-responsive {
                         padding-top: 80px;

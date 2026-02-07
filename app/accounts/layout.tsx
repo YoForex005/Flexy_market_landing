@@ -11,7 +11,7 @@ export default function AuthLayout({
             <header className="py-4 px-4 px-md-5">
                 <div className="container-fluid">
                     <Link href="/" className="navbar-brand">
-                        <img src="/hd_logo.png" alt="Flexy Markets" style={{ height: "45px" }} />
+                        <img src="/hd_logo.webp" alt="Flexy Markets" style={{ height: "45px" }} />
                     </Link>
                 </div>
             </header>

@@ -48,7 +48,7 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
                     ? (row.featured_image.startsWith('/') || row.featured_image.startsWith('http')
                         ? row.featured_image
                         : `/images/${row.featured_image}`)
-                    : '/images/candlestick-chart-3d.png',
+                    : '/images/candlestick-chart-3d.webp',
                 author: row.author || 'Flexy Team',
                 created_at: row.created_at,
                 tags: row.tags ? row.tags.split(',').map((tag: string) => tag.trim()) : [],

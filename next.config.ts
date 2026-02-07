@@ -27,7 +27,7 @@ const nextConfig: NextConfig = {
   // Tree-shake and optimize imports
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['bootstrap', 'aos', '@emailjs/browser'],
+    optimizePackageImports: ['bootstrap', '@emailjs/browser'],
   },
 
   // Enable gzip compression
@@ -37,6 +37,40 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
 
   reactStrictMode: true,
+
+  // Aggressive caching for static assets
+  async headers() {
+    return [
+      {
+        // Cache fonts, images, video for 1 year
+        source: '/:path*.(woff|woff2|webp|png|jpg|jpeg|svg|ico|mp4)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Security + performance headers
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

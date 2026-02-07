@@ -13,12 +13,21 @@ function Ticker() {
             return;
         }
 
-        containerElement.innerHTML = "";
+        // Check if widget is already injected to prevent duplicates
+        if (containerElement.childElementCount > 0) {
+            return;
+        }
 
         // Create the required DOM structure
         const widgetDiv = document.createElement("div");
         widgetDiv.className = "tradingview-widget-container__widget";
         containerElement.appendChild(widgetDiv);
+
+        // Add copyright element to satisfy widget script requirements
+        const copyrightDiv = document.createElement("div");
+        copyrightDiv.className = "tradingview-widget-copyright";
+        copyrightDiv.style.display = "none"; // Hide it visually but keep it in DOM
+        containerElement.appendChild(copyrightDiv);
 
         const script = document.createElement("script");
         script.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
@@ -46,12 +55,8 @@ function Ticker() {
 
         containerElement.appendChild(script);
 
-        // Cleanup logic to prevent memory leaks and race conditions
-        return () => {
-            if (containerElement) {
-                containerElement.innerHTML = "";
-            }
-        };
+        // No explicit cleanup needed: React removes the container element on unmount.
+        // Clearing innerHTML manually causes issues with the external script if it's still initializing.
     }, []);
 
     return (
