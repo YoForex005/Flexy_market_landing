@@ -28,7 +28,7 @@ export default function Footer() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://www.instagram.com/flexy.markets/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"
+                                            <a href="https://www.instagram.com/officialflexymarktes" aria-label="Instagram" target="_blank" rel="noopener noreferrer"
                                                 className="d-flex align-items-center justify-content-center rounded-circle bg-white shadow-sm"
                                                 style={{ width: '50px', height: '50px', transition: 'all 0.3s' }}>
                                                 <i className="fab fa-instagram" style={{ fontSize: '24px', color: '#E4405F' }}></i>
