@@ -4,6 +4,13 @@ import UnifiedHero from '@/components/UnifiedHero';
 import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import ForexFeatures from '@/components/ForexFeatures';
 import ForexCTA from '@/components/ForexCTA';
+import JsonLd from '@/components/JsonLd';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Forex Trading | Trade Currency Pairs | Flexy Markets',
+    description: 'Trade EURUSD, GBPUSD, and 40+ other currency pairs with leverage up to 1:1000. Benefit from tight spreads and fast execution with Flexy Markets.',
+};
 
 export default function ForexTradingPage() {
     // Standard Data
@@ -34,8 +41,24 @@ export default function ForexTradingPage() {
         { symbol: "EURCHF#", name: "Euro vs Swiss Franc", avgSpread: "1.8", lowSpread: "1.3", leverage: "400", country: "eu" },
     ].map(item => ({ ...item, icon: `https://flagcdn.com/w40/${item.country}.png` }));
 
+    const productSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: 'Forex Trading',
+        description: 'Trade major, minor, and exotic currency pairs with leverage up to 1:1000 and tight spreads.',
+        brand: {
+            '@type': 'Brand',
+            name: 'Flexy Markets'
+        },
+        provider: {
+            '@type': 'Organization',
+            name: 'Flexy Markets'
+        }
+    };
+
     return (
         <main>
+            <JsonLd data={productSchema} />
             <NavBar />
             <UnifiedHero
                 title={<>Discover<br />Forex Trading</>}

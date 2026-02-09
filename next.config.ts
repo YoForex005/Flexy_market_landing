@@ -35,8 +35,8 @@ const nextConfig: NextConfig = {
   },
   allowedDevOrigins: ['100.89.159.98'],
 
-  // Enable gzip compression
-  compress: true,
+  // Disable gzip compression (leave it to the CDN/Proxy)
+  compress: false,
 
   // Remove X-Powered-By header
   poweredByHeader: false,

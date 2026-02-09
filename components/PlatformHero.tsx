@@ -1,7 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
+
 "use client";
 
-import AnimatedBackground from './AnimatedBackground';
+
 
 interface PlatformHeroProps {
     paddingTop?: string;
@@ -60,7 +60,7 @@ export default function PlatformHero({ paddingTop = "120px", paddingBottom = "10
                         lineHeight: '1.8'
                     }}
                 >
-                    Begin trading on one of the industry's top multi-asset platforms and harness the strength of a trusted global broker.
+                    Begin trading on one of the industry&apos;s top multi-asset platforms and harness the strength of a trusted global broker.
                 </p>
 
                 {/* New Interactive Feature Section */}

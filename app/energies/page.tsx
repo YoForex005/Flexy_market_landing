@@ -1,11 +1,16 @@
-"use client";
-
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import UnifiedHero from '@/components/UnifiedHero';
 import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
+import JsonLd from '@/components/JsonLd';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Energy Trading | Oil & Gas CLS | Flexy Markets',
+    description: 'Trade energy commodities including Crude Oil (WTI, Brent) and Natural Gas. Take advantage of market volatility with competitive conditions.',
+};
 
 export default function EnergiesPage() {
     const standardData = [
@@ -27,8 +32,24 @@ export default function EnergiesPage() {
         { title: "News Trading", description: "React quickly to geopolitical events that directly impact energy prices.", iconClass: "fas fa-newspaper" },
     ];
 
+    const productSchema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Energy Commodities Trading",
+        "description": "Trade US Crude Oil, Brent Crude Oil, and Natural Gas with competitive spreads and leverage.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Flexy Markets"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "Flexy Markets"
+        }
+    };
+
     return (
         <main>
+            <JsonLd data={productSchema} />
             <NavBar />
             <UnifiedHero
                 title="Energies Trading"

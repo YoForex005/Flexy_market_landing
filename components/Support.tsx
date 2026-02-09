@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 "use client";
 
 import Link from 'next/link';
@@ -13,7 +13,7 @@ export default function Support() {
                             Rely on Award-Winning Support
                         </h2>
                         <p className="lead text-muted mb-4">
-                            Whenever you need us we're just a few seconds away, 24/7, in extensive language options.
+                            Whenever you need us we&apos;re just a few seconds away, 24/7, in extensive language options.
                         </p>
                         <Link
                             href="/contact"

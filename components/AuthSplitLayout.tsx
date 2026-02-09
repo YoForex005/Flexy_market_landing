@@ -1,6 +1,9 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import logoImg from '../public/hd_logo.webp';
 
 interface AuthSplitLayoutProps {
     leftContent: React.ReactNode;
@@ -69,9 +72,14 @@ export default function AuthSplitLayout({ leftContent, children }: AuthSplitLayo
             <header className="py-4 px-4 px-md-5">
                 <div className="container-fluid">
                     {/* Logo is flexible here if we want overrides, but standard Link is fine */}
-                    <a href="/" className="navbar-brand">
-                        <img src="/hd_logo.webp" alt="Flexy Markets" style={{ height: "45px" }} />
-                    </a>
+                    <Link href="/" className="navbar-brand">
+                        <Image
+                            src={logoImg}
+                            alt="Flexy Markets"
+                            style={{ height: "45px", width: "auto" }}
+                            priority
+                        />
+                    </Link>
                 </div>
             </header>
 

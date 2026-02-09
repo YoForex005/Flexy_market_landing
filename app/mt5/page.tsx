@@ -5,6 +5,12 @@ import Features from '@/components/Features';
 import Support from '@/components/Support';
 import Footer from '@/components/Footer';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'MetaTrader 5 (MT5) | Advanced Trading Platform | Flexy Markets',
+    description: 'Experience the power of MetaTrader 5 (MT5). Advanced charting, automated trading, and superior execution speeds for professional traders.',
+};
 
 export const dynamic = 'force-static';
 

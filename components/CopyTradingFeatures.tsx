@@ -43,7 +43,7 @@ export default function CopyTradingFeatures() {
                     </h2>
                     <p className="lead text-muted" style={{ maxWidth: '700px', margin: '0 auto' }}>
                         Copy trading makes it simple for anyone to trade like a professional.
-                        Here's why thousands of traders choose our platform.
+                        Here&apos;s why thousands of traders choose our platform.
                     </p>
                 </div>
 

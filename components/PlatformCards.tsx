@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 "use client";
 
 import Image from 'next/image';
@@ -38,10 +38,14 @@ export default function PlatformCards() {
 
                                 <div className="d-flex flex-column gap-2 mt-auto">
                                     <a href="https://apps.apple.com/in/app/flexy-markets/id6752637785"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="btn btn-dark rounded-pill py-3 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm lift-hover">
                                         <i className="fab fa-apple fa-lg"></i> App Store
                                     </a>
                                     <a href="https://play.google.com/store/search?q=flexymarkets&c=apps"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="btn btn-outline-dark rounded-pill py-3 fw-bold d-flex align-items-center justify-content-center gap-2 lift-hover">
                                         <i className="fab fa-google-play fa-lg"></i> Google Play
                                     </a>
@@ -81,6 +85,8 @@ export default function PlatformCards() {
                                 </p>
 
                                 <a href="https://download.mql5.com/cdn/web/flexy.markets.limited/mt5/flexymarkets5setup.exe"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="btn btn-emerald w-100 rounded-pill py-3 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-lg lift-hover-lg">
                                     <i className="fas fa-download fa-lg"></i> Download Now
                                 </a>
@@ -116,6 +122,8 @@ export default function PlatformCards() {
                                 </p>
 
                                 <a href="https://user.flexymarkets.com/accounts/signIns"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="btn btn-primary-soft w-100 rounded-pill py-3 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm lift-hover"
                                     style={{ background: '#eff6ff', color: '#2563eb' }}>
                                     <i className="fas fa-globe fa-lg"></i> Launch WebTrader

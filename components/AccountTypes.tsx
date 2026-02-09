@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -80,7 +80,7 @@ export default function AccountTypes() {
 
     return (
         <div className="account-types py-5 position-relative" style={{ background: '#fcfcfc' }}>
-            <AnimatedBackground variant="waves" intensity="subtle" />
+            <AnimatedBackground variant="ribbons" />
 
             <div className="container" style={{ position: 'relative', zIndex: 10 }}>
                 {/* Header */}

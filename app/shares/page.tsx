@@ -1,4 +1,4 @@
-"use client";
+
 
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
@@ -6,6 +6,13 @@ import UnifiedHero from '@/components/UnifiedHero';
 import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
+import JsonLd from '@/components/JsonLd';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Share Trading | Buy & Sell Global Stocks | Flexy Markets',
+    description: 'Invest in over 2,000 global shares including Apple, Tesla, and Amazon. Benefit from dividend payments and competitive trading conditions.',
+};
 
 export default function SharesPage() {
     const standardData = [
@@ -31,8 +38,24 @@ export default function SharesPage() {
         { title: "Low Fees", description: "Benefit from our low commission structure.", iconClass: "fas fa-percentage" },
     ];
 
+    const productSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: 'Share Trading',
+        description: 'Trade shares of top global companies like Apple, Tesla, and Amazon with 0% commission on select accounts.',
+        brand: {
+            '@type': 'Brand',
+            name: 'Flexy Markets'
+        },
+        provider: {
+            '@type': 'Organization',
+            name: 'Flexy Markets'
+        }
+    };
+
     return (
         <main>
+            <JsonLd data={productSchema} />
             <NavBar />
             <UnifiedHero
                 title="Discover Share Trading"

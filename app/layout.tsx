@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
 import Loader from '@/components/Loader';
+import JsonLd from '@/components/JsonLd';
 
 const tomato = localFont({
   src: [
@@ -20,19 +21,44 @@ const tomato = localFont({
     },
   ],
   variable: '--font-tomato',
-  display: 'swap',
-  preload: true,
 });
 
 export const metadata: Metadata = {
-  title: 'Flexy Markets - Trusted Forex Broker',
-  description: 'Flexymarkets - A reliable forex broker offering seamless trading experience, competitive spreads, and advanced trading tools for global markets.',
+  metadataBase: new URL('https://flexymarkets.com'),
+  title: {
+    default: 'Flexy Markets | Regulated Online Trading Broker',
+    template: '%s | Flexy Markets',
+  },
+  description: 'Trade CFD on Forex, Shares, Indices, Commodities & Cryptocurrencies with a regulated broker. Access 1,400+ assets with tight spreads and fast execution.',
   openGraph: {
-    title: 'Flexy Markets - Trusted Forex Broker',
-    description: 'Flexymarkets offers a seamless trading experience with competitive spreads and advanced trading tools for global markets.',
-    url: 'https://www.flexymarkets.com/',
     type: 'website',
-    images: ['https://flexymarkets.com/images/og_img.jpg'],
+    locale: 'en_US',
+    url: 'https://flexymarkets.com',
+    siteName: 'Flexy Markets',
+    images: [
+      {
+        url: '/images/og-image.jpg', // Ensure this exists or use a placeholder
+        width: 1200,
+        height: 630,
+        alt: 'Flexy Markets - Regulated Online Trading',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@FlexyMarkets',
+    creator: '@FlexyMarkets',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -41,6 +67,27 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Flexy Markets',
+    url: 'https://flexymarkets.com',
+    logo: 'https://flexymarkets.com/images/logo.png',
+    sameAs: [
+      'https://www.facebook.com/FlexyMarkets',
+      'https://twitter.com/FlexyMarkets',
+      'https://www.instagram.com/flexymarkets',
+      'https://www.linkedin.com/company/flexy-markets',
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+44-3300-271632',
+      contactType: 'customer service',
+      areaServed: 'Global',
+      availableLanguage: ['English', 'Spanish', 'Italian', 'German'],
+    },
+  };
+
   return (
     <html lang="en" data-scroll-behavior="smooth" className={tomato.variable}>
       <head>
@@ -77,6 +124,7 @@ export default function RootLayout({
 
         {/* Bootstrap JS - lazy loaded since only needed for dropdowns/modals */}
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" strategy="lazyOnload" />
+        <JsonLd data={organizationSchema} />
         <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];

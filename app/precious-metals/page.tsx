@@ -1,11 +1,16 @@
-"use client";
-
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import UnifiedHero from '@/components/UnifiedHero';
 import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
+import JsonLd from '@/components/JsonLd';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Trade Precious Metals | Gold & Silver | Flexy Markets',
+    description: 'Diversify your portfolio with precious metals trading. Access competitive spreads on Gold (XAU), Silver (XAG), Platinum, and Palladium.',
+};
 
 export default function PreciousMetalsPage() {
     const standardData = [
@@ -31,8 +36,24 @@ export default function PreciousMetalsPage() {
         { title: "Diversification", description: "Add a new asset class to your portfolio to spread your risk.", iconClass: "fas fa-chart-pie" },
     ];
 
+    const productSchema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Precious Metals Trading",
+        "description": "Trade Gold, Silver, Platinum and Palladium with competitive spreads and high leverage.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Flexy Markets"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "Flexy Markets"
+        }
+    };
+
     return (
         <main>
+            <JsonLd data={productSchema} />
             <NavBar />
             <UnifiedHero
                 title="Trade Precious Metals"

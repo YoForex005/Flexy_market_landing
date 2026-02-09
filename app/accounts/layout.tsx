@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import logoImg from '../../public/hd_logo.webp';
 
 export default function AuthLayout({
     children,
@@ -11,7 +13,12 @@ export default function AuthLayout({
             <header className="py-4 px-4 px-md-5">
                 <div className="container-fluid">
                     <Link href="/" className="navbar-brand">
-                        <img src="/hd_logo.webp" alt="Flexy Markets" style={{ height: "45px" }} />
+                        <Image
+                            src={logoImg}
+                            alt="Flexy Markets"
+                            style={{ height: "45px", width: "auto" }}
+                            priority
+                        />
                     </Link>
                 </div>
             </header>

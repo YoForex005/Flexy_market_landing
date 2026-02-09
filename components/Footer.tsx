@@ -21,21 +21,21 @@ export default function Footer() {
                                 <div className="footer_1_right">
                                     <ul className="d-flex gap-3 justify-content-lg-end justify-content-center list-unstyled mb-0">
                                         <li>
-                                            <a href="https://www.facebook.com/flexymarkets/" aria-label="Facebook"
+                                            <a href="https://www.facebook.com/flexymarkets/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"
                                                 className="d-flex align-items-center justify-content-center rounded-circle bg-white shadow-sm"
                                                 style={{ width: '50px', height: '50px', transition: 'all 0.3s' }}>
                                                 <i className="fab fa-facebook" style={{ fontSize: '24px', color: '#1877F2' }}></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://www.instagram.com/flexy.markets/" aria-label="Instagram"
+                                            <a href="https://www.instagram.com/flexy.markets/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"
                                                 className="d-flex align-items-center justify-content-center rounded-circle bg-white shadow-sm"
                                                 style={{ width: '50px', height: '50px', transition: 'all 0.3s' }}>
                                                 <i className="fab fa-instagram" style={{ fontSize: '24px', color: '#E4405F' }}></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://www.linkedin.com/company/flexy-market/" aria-label="LinkedIn"
+                                            <a href="https://www.linkedin.com/company/flexy-market/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"
                                                 className="d-flex align-items-center justify-content-center rounded-circle bg-white shadow-sm"
                                                 style={{ width: '50px', height: '50px', transition: 'all 0.3s' }}>
                                                 <i className="fab fa-linkedin" style={{ fontSize: '24px', color: '#0A66C2' }}></i>

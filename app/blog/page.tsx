@@ -4,6 +4,12 @@ import AnimatedBackground from '@/components/AnimatedBackground';
 import BlogGrid from '@/components/BlogGrid';
 import BlogSkeleton from '@/components/BlogSkeleton';
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Forex Trading Blog | Market Insights & Education | Flexy Markets',
+    description: 'Read the latest forex trading insights, educational articles, and market analysis from Flexy Markets experts.',
+};
 
 // Revalidate every 60 seconds (ISR)
 export const revalidate = 60;
@@ -16,7 +22,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
         <main className="position-relative bg-white" style={{ minHeight: "100vh" }}>
             {/* Background Animation */}
             <div className="position-fixed top-0 start-0 w-100 h-100" style={{ zIndex: 0 }}>
-                <AnimatedBackground variant="aurora" intensity="medium" />
+                <AnimatedBackground variant="aurora" />
             </div>
 
             <NavBar />

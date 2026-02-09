@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 "use client";
 
 
@@ -9,7 +9,7 @@ export default function Discover() {
     return (
         <div className="discover my-5 py-5 position-relative">
             {/* Subtle Gradient Waves Background */}
-            <AnimatedBackground variant="waves" intensity="subtle" />
+            <AnimatedBackground variant="waves" />
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
 
                 {/* Header Section */}
@@ -47,6 +47,8 @@ export default function Discover() {
                                         </p>
                                         <a
                                             href="https://user.flexymarkets.com/accounts/signUps"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             className="btn fw-bold rounded-pill px-4 py-2 text-white"
                                             style={{
                                                 background: 'transparent',
@@ -96,6 +98,8 @@ export default function Discover() {
                                         </p>
                                         <a
                                             href="https://user.flexymarkets.com/accounts/signUps"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             className="btn fw-bold rounded-pill px-4 py-2"
                                             style={{
                                                 color: '#0f4941',
@@ -148,6 +152,8 @@ export default function Discover() {
                                         </p>
                                         <a
                                             href="https://user.flexymarkets.com/accounts/signUps"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             className="btn fw-bold rounded-pill px-5 py-3 text-white"
                                             style={{
                                                 background: '#0f664a',

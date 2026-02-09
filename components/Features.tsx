@@ -1,7 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
+
 "use client";
 
 import { useState } from 'react';
+import Image from 'next/image';
+import tradeInstantlyImg from '../public/images/trade-instantly.webp';
+import advanceToolsImg from '../public/images/advance-tools.webp';
+import expandOkImg from '../public/images/expand-opportunities.webp';
 
 export default function Features() {
     const [activeTab, setActiveTab] = useState('trade');
@@ -19,26 +23,26 @@ export default function Features() {
 
                     <div className="tab-content mb-0 position-relative">
                         <div className={`tab-pane fade ${activeTab === 'trade' ? 'show active' : ''}`}>
-                            <img
-                                src="/images/trade-instantly.webp"
+                            <Image
+                                src={tradeInstantlyImg}
                                 alt="Trade Instantly Screenshot"
-                                loading="lazy"
+                                placeholder="blur"
                                 className="w-100 features-responsive-img"
                             />
                         </div>
                         <div className={`tab-pane fade ${activeTab === 'tools' ? 'show active' : ''}`}>
-                            <img
-                                src="/images/advance-tools.webp"
+                            <Image
+                                src={advanceToolsImg}
                                 alt="Use Advanced Tools Screenshot"
-                                loading="lazy"
+                                placeholder="blur"
                                 className="w-100 features-responsive-img"
                             />
                         </div>
                         <div className={`tab-pane fade ${activeTab === 'expand' ? 'show active' : ''}`}>
-                            <img
-                                src="/images/expand-opportunities.webp"
+                            <Image
+                                src={expandOkImg}
                                 alt="Expand Your Opportunities Screenshot"
-                                loading="lazy"
+                                placeholder="blur"
                                 className="w-100 features-responsive-img"
                             />
                         </div>
@@ -75,7 +79,6 @@ export default function Features() {
 
             <style jsx>{`
                 .features-responsive-img {
-                    object-fit: cover;
                     width: 100%;
                     height: auto;
                     display: block;

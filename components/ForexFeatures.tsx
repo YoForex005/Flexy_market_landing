@@ -30,7 +30,7 @@ export default function ForexFeatures() {
                 <div className="text-center mb-5">
                     <h2 className="fw-bold mb-3" style={{ fontSize: "2.5rem" }}>Why Trade Forex With Us?</h2>
                     <p className="mx-auto" style={{ maxWidth: "700px" }}>
-                        Enter the world's most liquid market with the confidence of having a leading broker at your side.
+                        Enter the world&apos;s most liquid market with the confidence of having a leading broker at your side.
                     </p>
                 </div>
 

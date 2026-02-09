@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, memo } from 'react';
-import styles from './Ticker.module.css';
+
 
 function Ticker() {
     const container = useRef<HTMLDivElement>(null);

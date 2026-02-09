@@ -26,8 +26,7 @@ const fixImagePath = (path: string) => {
 async function getPost(slugOrId: string) {
     try {
         // Try finding by slug first (if slug is not empty)
-        let query = 'SELECT * FROM blogs WHERE (slug = $1 OR seo_slug = $1) AND status = $1';
-        let params = [slugOrId]; // This might fail if we are looking up by ID essentially
+
 
         // Since the prompt shows empty slugs, we might need to fallback to ID if we pass ID in URL.
         // For now, let's assume we might pass ID if slug is empty.
@@ -47,6 +46,33 @@ async function getPost(slugOrId: string) {
         console.error('Error fetching post:', error);
         return null;
     }
+}
+
+import type { Metadata } from 'next';
+
+// ... (previous imports)
+
+// ... (getPost function remains the same)
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const post = await getPost(slug);
+
+    if (!post) {
+        return {
+            title: 'Post Not Found | Flexy Markets',
+        };
+    }
+
+    return {
+        title: `${post.title} | Flexy Markets Blog`,
+        description: post.excerpt || `Read ${post.title} on Flexy Markets Blog.`,
+        openGraph: {
+            title: post.title,
+            description: post.excerpt || `Read ${post.title} on Flexy Markets Blog.`,
+            images: post.featured_image ? [fixImagePath(post.featured_image)] : [],
+        }
+    };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -87,7 +113,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     return (
         <main className="position-relative bg-white" style={{ minHeight: "100vh" }}>
             <div className="position-fixed top-0 start-0 w-100 h-100" style={{ zIndex: 0 }}>
-                <AnimatedBackground variant="aurora" intensity="subtle" />
+                <AnimatedBackground variant="aurora" />
             </div>
 
             <NavBar />

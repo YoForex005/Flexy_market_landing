@@ -64,7 +64,7 @@ export default function NavBar() {
                     <div className="container">
                         <div className={`partner_row row py-2 ${isSticky ? 'd-none' : ''}`} style={{ fontSize: '13px', paddingTop: '10px' }}>
                             <div className="col-lg-1 offset-lg-10 text-end">
-                                <a style={{ color: isSticky ? '#154941' : '#ffffff', fontWeight: 600, textDecoration: 'none' }} href="https://partners.flexymarkets.com/">Partnership</a>
+                                <a style={{ color: isSticky ? '#154941' : '#ffffff', fontWeight: 600, textDecoration: 'none' }} href="https://partners.flexymarkets.com/" target="_blank" rel="noopener noreferrer">Partnership</a>
                             </div>
                             <div className="col-lg-1 text-end">
                                 <Link style={{ color: isSticky ? '#154941' : '#ffffff', fontWeight: 600, display: 'inline-block', borderLeft: `1px solid ${isSticky ? '#ccc' : 'rgba(255,255,255,0.3)'}`, paddingLeft: '20px', marginLeft: '10px', textDecoration: 'none' }} href="/contact">Contact</Link>

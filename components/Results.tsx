@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 import candlestickImg from '../public/images/candlestick-chart-3d.webp';
 import graduationImg from '../public/images/graduation-cap-3d.webp';
@@ -37,7 +39,7 @@ export default function Results() {
     return (
         <div className="result py-5 position-relative" style={{ background: '#fcfcfc' }}>
             {/* Premium Financial Aurora Background */}
-            <AnimatedBackground variant="aurora" intensity="subtle" />
+            <AnimatedBackground variant="aurora" />
             <div className="container" style={{ position: 'relative', zIndex: 10 }}>
                 <div className="result_in text-center">
                     <div className="results_proven_in_main mb-4" style={{ marginBottom: '20px', paddingBottom: '50px' }}>
@@ -79,6 +81,8 @@ export default function Results() {
 
                         <a
                             href="https://user.flexymarkets.com/accounts/signUps"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="btn btn-lg rounded-pill px-5 py-3 d-inline-flex align-items-center gap-2 magic-hover-btn"
                         >
                             Start Trading Today <i className="fas fa-arrow-right"></i>

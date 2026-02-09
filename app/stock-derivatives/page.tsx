@@ -1,4 +1,4 @@
-"use client";
+
 
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
@@ -6,6 +6,13 @@ import UnifiedHero from '@/components/UnifiedHero';
 import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
+import JsonLd from '@/components/JsonLd';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Stock Derivatives Trading | Leverage & Short Selling | Flexy Markets',
+    description: 'Trade stock derivatives on major global companies. Benefit from leverage and the ability to profit from falling markets with short selling.',
+};
 
 export default function StockDerivativesPage() {
     const standardData = [
@@ -47,8 +54,24 @@ export default function StockDerivativesPage() {
         },
     ];
 
+    const productSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: 'Stock Derivatives Trading',
+        description: 'Trade stock derivatives with leverage and ability to go long or short on major global companies.',
+        brand: {
+            '@type': 'Brand',
+            name: 'Flexy Markets'
+        },
+        provider: {
+            '@type': 'Organization',
+            name: 'Flexy Markets'
+        }
+    };
+
     return (
         <main>
+            <JsonLd data={productSchema} />
             <NavBar />
             <UnifiedHero
                 title="Discover Stock Derivatives Trading"

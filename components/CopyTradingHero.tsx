@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+
 "use client";
 import Image from 'next/image';
 
@@ -61,7 +61,7 @@ export default function CopyTradingHero({ paddingTop = "120px", paddingBottom = 
                             maxWidth: '600px'
                         }}>
                             No time? No experience? No problem. Take the copy trading shortcut and copy
-                            the trades of a Strategy Manager. It's free and so easy to use.
+                            the trades of a Strategy Manager. It&apos;s free and so easy to use.
                         </p>
 
                         {/* CTA Buttons */}
@@ -113,6 +113,7 @@ export default function CopyTradingHero({ paddingTop = "120px", paddingBottom = 
                                     width: 'auto',
                                     height: 'auto'
                                 }}
+                                priority={true}
                             />
                         </div>
                     </div>

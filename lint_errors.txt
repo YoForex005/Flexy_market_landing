@@ -1,0 +1,175 @@
+
+> flexy-market@0.1.0 lint
+> eslint
+
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\about\content.tsx
+  94:178  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\about\page.tsx
+  1:8  warning  'Link' is defined but never used    @typescript-eslint/no-unused-vars
+  2:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\account\content.tsx
+  3:10  warning  'useState' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\account\page.tsx
+  1:8  warning  'Link' is defined but never used    @typescript-eslint/no-unused-vars
+  2:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\analytical-tools\content.tsx
+  6:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\analytical-tools\page.tsx
+  1:8  warning  'Link' is defined but never used    @typescript-eslint/no-unused-vars
+  2:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\blog\[slug]\page.tsx
+  29:13  error    'query' is never reassigned. Use 'const' instead   prefer-const
+  29:13  warning  'query' is assigned a value but never used         @typescript-eslint/no-unused-vars
+  30:13  error    'params' is never reassigned. Use 'const' instead  prefer-const
+  30:13  warning  'params' is assigned a value but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\contact\content.tsx
+   57:27  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   76:48  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   76:90  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  196:82  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\contact\page.tsx
+  1:8  warning  'Link' is defined but never used    @typescript-eslint/no-unused-vars
+  2:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\economic-calendar\content.tsx
+   5:29  warning  'useState' is defined but never used                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+   6:8   warning  'UnifiedHero' is defined but never used                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+  53:30  warning  The ref value 'containerRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'containerRef.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\economic-calendar\page.tsx
+  1:8  warning  'UnifiedHero' is defined but never used  @typescript-eslint/no-unused-vars
+  2:8  warning  'JsonLd' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\forex-calculator\page.tsx
+  1:8  warning  'Link' is defined but never used    @typescript-eslint/no-unused-vars
+  2:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\forex-trading\page.tsx
+  44:4  error  Parsing error: Declaration or statement expected
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\learning-centre\page.tsx
+  223:65  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\legal-documents\page.tsx
+   70:27   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   70:115  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  242:45   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  242:91   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\live_education\page.tsx
+    3:8   warning  'Link' is defined but never used                                 @typescript-eslint/no-unused-vars
+   72:34  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  120:65  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\news-analysis\content.tsx
+    6:8   warning  'FloatingSticker' is defined but never used                      @typescript-eslint/no-unused-vars
+  178:36  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\news-analysis\page.tsx
+  1:8  warning  'Link' is defined but never used    @typescript-eslint/no-unused-vars
+  2:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\promotions\content.tsx
+   8:12  warning  'isVisible' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+  11:9   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\promotions\content.tsx:11:9
+   9 |
+  10 |     useEffect(() => {
+> 11 |         setIsVisible(true);
+     |         ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  12 |     }, []);
+  13 |
+  14 |     return (  react-hooks/set-state-in-effect
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\app\promotions\page.tsx
+  1:8  warning  'Link' is defined but never used    @typescript-eslint/no-unused-vars
+  2:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\AccountTypes.tsx
+  1:1  warning  Unused eslint-disable directive (no problems were reported from '@next/next/no-img-element')
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\AnimatedBackground.tsx
+   37:27  warning  'intensity' is defined but never used  @typescript-eslint/no-unused-vars
+  128:26  warning  'intensity' is defined but never used  @typescript-eslint/no-unused-vars
+  186:28  warning  'intensity' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\AuthForm.tsx
+  12:11  warning  'router' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\AuthSplitLayout.tsx
+  74:21  error  Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\BlogGrid.tsx
+  37:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  62:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\CopyTradingFeatures.tsx
+  46:29  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\CopyTradingHero.tsx
+   1:1   warning  Unused eslint-disable directive (no problems were reported from '@next/next/no-img-element')
+  64:65  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                               react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\CopyTradingTestimonials.tsx
+  92:37  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  92:56  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\Discover.tsx
+  1:1  warning  Unused eslint-disable directive (no problems were reported from '@next/next/no-img-element')
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\Features.tsx
+  1:1  warning  Unused eslint-disable directive (no problems were reported from '@next/next/no-img-element')
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\ForexCTA.tsx
+  3:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\ForexFeatures.tsx
+  33:40  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\Hero.tsx
+  6:8  warning  'dynamic' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\JsonLd.tsx
+  4:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  4:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\MarketFeatures.tsx
+  21:40  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\PlatformCards.tsx
+  1:1  warning  Unused eslint-disable directive (no problems were reported from '@next/next/no-img-element')
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\PlatformHero.tsx
+   1:1   warning  Unused eslint-disable directive (no problems were reported from '@next/next/no-img-element')
+   4:8   warning  'AnimatedBackground' is defined but never used                                                @typescript-eslint/no-unused-vars
+  63:57  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                               react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\Support.tsx
+   1:1   warning  Unused eslint-disable directive (no problems were reported from '@next/next/no-img-element')
+  16:52  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                               react/no-unescaped-entities
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\Ticker.tsx
+  4:8  warning  'styles' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ADMIN\OneDrive\Desktop\Flexy-market\Flexy_market_landing\components\WhatsAppWidget.tsx
+  1:1  warning  Unused eslint-disable directive (no problems were reported from '@next/next/no-img-element')
+
+Γ£û 72 problems (30 errors, 42 warnings)
+  2 errors and 8 warnings potentially fixable with the `--fix` option.
+

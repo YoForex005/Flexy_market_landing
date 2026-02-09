@@ -1,21 +1,32 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Image, { ImageProps } from 'next/image';
 
-interface BlogImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+interface BlogImageProps extends Omit<ImageProps, 'src'> {
     src: string;
-    alt: string;
     fallbackSrc?: string;
 }
 
 export default function BlogImage({ src, alt, fallbackSrc = "/images/candlestick-chart-3d.webp", ...props }: BlogImageProps) {
+    const [imgSrc, setImgSrc] = useState(src);
+
+    useEffect(() => {
+        setImgSrc(src);
+    }, [src]);
+
     return (
-        <img
-            src={src}
+        <Image
+            src={imgSrc}
             alt={alt}
-            onError={(e) => {
-                e.currentTarget.src = fallbackSrc;
+            onError={() => {
+                if (imgSrc !== fallbackSrc) {
+                    setImgSrc(fallbackSrc);
+                }
             }}
+            fill
+            unoptimized
+            style={{ objectFit: 'cover' }}
             {...props}
         />
     );

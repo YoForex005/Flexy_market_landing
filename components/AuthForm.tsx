@@ -2,14 +2,14 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+
 
 interface AuthFormProps {
     mode: 'signin' | 'signup';
 }
 
 export default function AuthForm({ mode }: AuthFormProps) {
-    const router = useRouter();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [country, setCountry] = useState('Saint Lucia'); // Default from screenshot

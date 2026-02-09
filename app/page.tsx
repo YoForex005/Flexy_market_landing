@@ -1,4 +1,4 @@
-"use client";
+
 
 import dynamic from 'next/dynamic';
 import NavBar from '@/components/NavBar';
@@ -7,12 +7,20 @@ import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
 
 // Dynamic imports - ssr: false skips server render for faster initial HTML
-const TradeView = dynamic(() => import('@/components/TradeView'), { ssr: false });
-const Discover = dynamic(() => import('@/components/Discover'), { ssr: false });
-const Results = dynamic(() => import('@/components/Results'), { ssr: false });
-const AccountTypes = dynamic(() => import('@/components/AccountTypes'), { ssr: false });
-const Features = dynamic(() => import('@/components/Features'), { ssr: false });
-const Support = dynamic(() => import('@/components/Support'), { ssr: false });
+const TradeView = dynamic(() => import('@/components/TradeView'));
+const Discover = dynamic(() => import('@/components/Discover'));
+const Results = dynamic(() => import('@/components/Results'));
+const AccountTypes = dynamic(() => import('@/components/AccountTypes'));
+const Features = dynamic(() => import('@/components/Features'));
+const Support = dynamic(() => import('@/components/Support'));
+
+export const metadata = {
+  title: 'Flexy Markets | Regulated Online Trading Broker',
+  description: 'Trade CFD on Forex, Shares, Indices, Commodities & Cryptocurrencies with a regulated broker. Access 1,400+ assets with tight spreads and fast execution.',
+  alternates: {
+    canonical: 'https://flexymarkets.com',
+  },
+};
 
 export default function Home() {
   return (

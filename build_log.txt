@@ -1,0 +1,119 @@
+
+> flexy-market@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.4 (Turbopack)
+- Environments: .env
+- Experiments (use with caution):
+  Γ£ô optimizeCss
+  ┬╖ optimizePackageImports
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 9 errors:
+./app/page.tsx:10:19
+Ecmascript file had an error
+   8 |
+   9 | // Dynamic imports - ssr: false skips server render for faster initial HTML
+> 10 | const TradeView = dynamic(() => import('@/components/TradeView'), { ssr: false });
+     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | const Discover = dynamic(() => import('@/components/Discover'), { ssr: false });
+  12 | const Results = dynamic(() => import('@/components/Results'), { ssr: false });
+  13 | const AccountTypes = dynamic(() => import('@/components/AccountTypes'), { ssr: false });
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+./app/page.tsx:11:18
+Ecmascript file had an error
+   9 | // Dynamic imports - ssr: false skips server render for faster initial HTML
+  10 | const TradeView = dynamic(() => import('@/components/TradeView'), { ssr: false });
+> 11 | const Discover = dynamic(() => import('@/components/Discover'), { ssr: false });
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | const Results = dynamic(() => import('@/components/Results'), { ssr: false });
+  13 | const AccountTypes = dynamic(() => import('@/components/AccountTypes'), { ssr: false });
+  14 | const Features = dynamic(() => import('@/components/Features'), { ssr: false });
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+./app/page.tsx:12:17
+Ecmascript file had an error
+  10 | const TradeView = dynamic(() => import('@/components/TradeView'), { ssr: false });
+  11 | const Discover = dynamic(() => import('@/components/Discover'), { ssr: false });
+> 12 | const Results = dynamic(() => import('@/components/Results'), { ssr: false });
+     |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  13 | const AccountTypes = dynamic(() => import('@/components/AccountTypes'), { ssr: false });
+  14 | const Features = dynamic(() => import('@/components/Features'), { ssr: false });
+  15 | const Support = dynamic(() => import('@/components/Support'), { ssr: false });
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+./app/page.tsx:13:22
+Ecmascript file had an error
+  11 | const Discover = dynamic(() => import('@/components/Discover'), { ssr: false });
+  12 | const Results = dynamic(() => import('@/components/Results'), { ssr: false });
+> 13 | const AccountTypes = dynamic(() => import('@/components/AccountTypes'), { ssr: false });
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  14 | const Features = dynamic(() => import('@/components/Features'), { ssr: false });
+  15 | const Support = dynamic(() => import('@/components/Support'), { ssr: false });
+  16 |
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+./app/page.tsx:14:18
+Ecmascript file had an error
+  12 | const Results = dynamic(() => import('@/components/Results'), { ssr: false });
+  13 | const AccountTypes = dynamic(() => import('@/components/AccountTypes'), { ssr: false });
+> 14 | const Features = dynamic(() => import('@/components/Features'), { ssr: false });
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  15 | const Support = dynamic(() => import('@/components/Support'), { ssr: false });
+  16 |
+  17 | export const metadata = {
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+./app/page.tsx:15:17
+Ecmascript file had an error
+  13 | const AccountTypes = dynamic(() => import('@/components/AccountTypes'), { ssr: false });
+  14 | const Features = dynamic(() => import('@/components/Features'), { ssr: false });
+> 15 | const Support = dynamic(() => import('@/components/Support'), { ssr: false });
+     |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  16 |
+  17 | export const metadata = {
+  18 |   title: 'Flexy Markets | Regulated Online Trading Broker',
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+./app/execution-policy
+Invalid import
+'client-only' cannot be imported from a Server Component module. It should only be used from a Client Component.
+The error was caused by using 'styled-jsx'. It only works in a Client Component but none of its parents are marked with "use client", so they're Server Components by default.
+
+
+
+./app/live_education
+Invalid import
+'client-only' cannot be imported from a Server Component module. It should only be used from a Client Component.
+The error was caused by using 'styled-jsx'. It only works in a Client Component but none of its parents are marked with "use client", so they're Server Components by default.
+
+
+
+./app/margin-leverage
+Invalid import
+'client-only' cannot be imported from a Server Component module. It should only be used from a Client Component.
+The error was caused by using 'styled-jsx'. It only works in a Client Component but none of its parents are marked with "use client", so they're Server Components by default.
+
+
+
+    at <unknown> (./app/page.tsx:10:19)
+    at <unknown> (./app/page.tsx:11:18)
+    at <unknown> (./app/page.tsx:12:17)
+    at <unknown> (./app/page.tsx:13:22)
+    at <unknown> (./app/page.tsx:14:18)
+    at <unknown> (./app/page.tsx:15:17)

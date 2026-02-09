@@ -1,11 +1,16 @@
-"use client";
-
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import UnifiedHero from '@/components/UnifiedHero';
 import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
+import JsonLd from '@/components/JsonLd';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Equity Indices Trading | S&P 500, NASDAQ, DAX | Flexy Markets',
+    description: 'Trade major global indices like S&P 500, NASDAQ 100, and DAX 40 with competitive spreads and leverage.',
+};
 
 export default function EquityIndicesPage() {
     const standardData = [
@@ -25,30 +30,46 @@ export default function EquityIndicesPage() {
     ];
 
     const features = [
-        { title: "Market Indicators", description: "Trade the overall performance of a stock market with a single position.", iconClass: "fas fa-chart-area" },
-        { title: "Global Access", description: "Access major indices from the US, Europe, Asia, and Australia.", iconClass: "fas fa-globe" },
-        { title: "Extended Hours", description: "Trade indices even when the underlying stock markets are closed.", iconClass: "fas fa-clock" },
-        { title: "Low Commissions", description: "Enjoy commission-free trading on major global indices.", iconClass: "fas fa-money-bill-wave" },
+        { title: "Global Market Access", description: "Trade the world's leading stock indices from a single account.", iconClass: "fas fa-globe" },
+        { title: "Competitive Spreads", description: "Enjoy tight spreads on all major indices, keeping your trading costs low.", iconClass: "fas fa-percentage" },
+        { title: "Long & Short Trading", description: "Take advantage of both rising and falling markets with CFDs.", iconClass: "fas fa-arrows-alt-v" },
+        { title: "No Commission", description: "Trade indices with zero commission on Standard accounts.", iconClass: "fas fa-wallet" },
     ];
+
+    const productSchema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Equity Indices Trading",
+        "description": "Trade global equity indices like S&P 500 and DAX 40 with leverage.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Flexy Markets"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "Flexy Markets"
+        }
+    };
 
     return (
         <main>
+            <JsonLd data={productSchema} />
             <NavBar />
             <UnifiedHero
                 title="Trade Equity Indices"
-                subtitle="Trade the world's leading stock market indices like the S&P 500, Dow Jones and DAX 40."
+                subtitle="Access the world's most popular stock indices. Trade S&P 500, NASDAQ, DAX 40 and more."
                 activeMarket="Equity Indices"
                 paddingTop="210px"
                 paddingBottom="180px"
                 stickers={[
                     { countryCode: "us", top: "15%", right: "12%", rotate: "15deg", delay: "0s", size: 90 }, // US
-                    { countryCode: "de", top: "50%", right: "18%", rotate: "-8deg", delay: "1.5s", size: 80 }, // Germany
-                    { countryCode: "gb", top: "35%", left: "10%", rotate: "5deg", delay: "1s", size: 75 }, // UK
-                    { countryCode: "jp", top: "65%", left: "15%", rotate: "-10deg", delay: "2s", size: 70 }, // Japan
+                    { countryCode: "de", top: "55%", right: "18%", rotate: "-8deg", delay: "1.5s", size: 80 }, // Germany
+                    { countryCode: "gb", top: "30%", left: "10%", rotate: "-5deg", delay: "1s", size: 75 }, // UK
+                    { countryCode: "jp", top: "60%", left: "15%", rotate: "10deg", delay: "2s", size: 70 }, // Japan
                 ]}
             />
             <UnifiedMarketTable
-                title="Major Indices"
+                title="Indices Pricing"
                 standardData={standardData}
                 ultraData={ultraData}
             />

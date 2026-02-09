@@ -7,7 +7,7 @@ export default function CopyTradingTestimonials() {
             role: "Copy Trader",
             image: "👩‍💼",
             rating: 5,
-            text: "I've been copying trades for 6 months and my portfolio is up 32%. The platform is incredibly easy to use, even for beginners like me.",
+            text: "I&apos;ve been copying trades for 6 months and my portfolio is up 32%. The platform is incredibly easy to use, even for beginners like me.",
             profit: "+32% ROI",
             duration: "6 months"
         },
@@ -89,7 +89,7 @@ export default function CopyTradingTestimonials() {
                                     lineHeight: '1.7',
                                     fontStyle: 'italic'
                                 }}>
-                                    "{testimonial.text}"
+                                    &quot;{testimonial.text}&quot;
                                 </p>
 
                                 {/* Stats */}

@@ -1,11 +1,16 @@
-"use client";
-
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import UnifiedHero from '@/components/UnifiedHero';
 import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
+import JsonLd from '@/components/JsonLd';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Thematic Indices Trading | AI, EV & Crypto Indices | Flexy Markets',
+    description: 'Invest in the future with thematic indices. Gain exposure to AI, Electric Vehicles, Metaverse, and ESG sectors with a single trade.',
+};
 
 export default function ThematicIndicesPage() {
     const standardData = [
@@ -31,8 +36,24 @@ export default function ThematicIndicesPage() {
         { title: "Expertly Curated", description: "Indices designed by market experts to capture sector performance.", iconClass: "fas fa-user-tie" },
     ];
 
+    const productSchema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Thematic Indices Trading",
+        "description": "Trade thematic indices covering AI, EVs, Biotech, Metaverse, and ESG sectors.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Flexy Markets"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "Flexy Markets"
+        }
+    };
+
     return (
         <main>
+            <JsonLd data={productSchema} />
             <NavBar />
             <UnifiedHero
                 title="Trade Thematic Indices"
@@ -61,4 +82,3 @@ export default function ThematicIndicesPage() {
         </main>
     );
 }
-

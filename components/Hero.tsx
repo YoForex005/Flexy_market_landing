@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
+
 
 
 
@@ -124,6 +124,7 @@ export default function Hero() {
                                         objectFit: 'cover',
                                         filter: slide.customFilter
                                     }}
+                                    priority={index === 0}
                                 />
                                 <div className="hero-overlay"></div>
                             </>
@@ -197,17 +198,21 @@ export default function Hero() {
                         </p>
 
                         <div className="mt-4">
-                            <Link href="https://user.flexymarkets.com/accounts/signUps" style={{ textDecoration: 'none' }}>
-                                <button className="btn btn-primary fw-bold" style={{
+                            <Link
+                                href="https://user.flexymarkets.com/accounts/signUps"
+                                className="btn btn-primary fw-bold"
+                                style={{
+                                    textDecoration: 'none',
                                     padding: "12px 36px",
                                     fontSize: "16px",
                                     borderRadius: "4px",
                                     background: "#0052ff",
                                     border: "none",
-                                    boxShadow: "0 4px 15px rgba(0, 82, 255, 0.4)"
-                                }}>
-                                    Join Now
-                                </button>
+                                    boxShadow: "0 4px 15px rgba(0, 82, 255, 0.4)",
+                                    display: "inline-block"
+                                }}
+                            >
+                                Join Now
                             </Link>
                         </div>
 

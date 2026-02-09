@@ -8,12 +8,10 @@ type BackgroundVariant = "ribbons" | "waves" | "aurora";
 
 interface AnimatedBackgroundProps {
   variant?: BackgroundVariant;
-  intensity?: "subtle" | "medium" | "high";
 }
 
 export default function AnimatedBackground({
-  variant = "ribbons",
-  intensity = "medium"
+  variant = "ribbons"
 }: AnimatedBackgroundProps) {
 
   return (
@@ -24,9 +22,9 @@ export default function AnimatedBackground({
         pointerEvents: 'none'
       }}
     >
-      {variant === "ribbons" && <FlowingRibbons intensity={intensity} />}
-      {variant === "waves" && <GradientWaves intensity={intensity} />}
-      {variant === "aurora" && <FinancialAurora intensity={intensity} />}
+      {variant === "ribbons" && <FlowingRibbons />}
+      {variant === "waves" && <GradientWaves />}
+      {variant === "aurora" && <FinancialAurora />}
     </div>
   );
 }
@@ -34,7 +32,7 @@ export default function AnimatedBackground({
 /**
  * STYLE 1: Flowing Ribbons
  */
-function FlowingRibbons({ intensity }: { intensity: string }) {
+function FlowingRibbons() {
   return (
     <div className="" style={{
       position: 'absolute',
@@ -125,7 +123,7 @@ function FlowingRibbons({ intensity }: { intensity: string }) {
 /**
  * STYLE 2: Gradient Waves
  */
-function GradientWaves({ intensity }: { intensity: string }) {
+function GradientWaves() {
   return (
     <div style={{
       position: 'absolute',
@@ -183,7 +181,7 @@ function GradientWaves({ intensity }: { intensity: string }) {
 /**
  * STYLE 3: Financial Aurora
  */
-function FinancialAurora({ intensity }: { intensity: string }) {
+function FinancialAurora() {
   return (
     <div style={{
       position: 'absolute',

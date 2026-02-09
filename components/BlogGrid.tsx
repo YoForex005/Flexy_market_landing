@@ -34,7 +34,7 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
             ['published', limit, offset]
         );
 
-        const mappedPosts = res.rows.map((row: any) => {
+        const mappedPosts = res.rows.map((row) => {
             // Create excerpt from content_snippet by stripping HTML
             const plainText = row.content_snippet ? row.content_snippet.replace(/<[^>]+>/g, '') : '';
             const excerpt = plainText.substring(0, 150) + '...';
@@ -59,9 +59,14 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
         });
 
         return { success: true, data: mappedPosts, total };
-    } catch (error: any) {
-        console.error('Database Error:', error);
-        return { success: false, data: [], total: 0, error: error.message || 'Unknown database error' };
+    } catch (error: unknown) {
+        console.error('Database Error in getPosts:', error);
+        // Log specifically if it's a connection error
+        const dbError = error as { code?: string; message?: string };
+        if (dbError.code) {
+            console.error(`DB Error Code: ${dbError.code}, Message: ${dbError.message}`);
+        }
+        return { success: false, data: [], total: 0, error: dbError.message || 'Unknown database error' };
     }
 }
 

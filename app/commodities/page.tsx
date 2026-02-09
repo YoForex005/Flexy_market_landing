@@ -1,4 +1,4 @@
-"use client";
+
 
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
@@ -6,6 +6,13 @@ import UnifiedHero from '@/components/UnifiedHero';
 import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
+import JsonLd from '@/components/JsonLd';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Commodities Trading | Gold, Silver & Oil | Flexy Markets',
+    description: 'Diversify your portfolio by trading commodities including Gold, Silver, and Oil. Access competitive spreads and leverage with Flexy Markets.',
+};
 
 export default function CommoditiesPage() {
     const standardData = [
@@ -31,8 +38,24 @@ export default function CommoditiesPage() {
         { title: "No Ownership", description: "Speculate on price movements without the need for physical delivery or storage.", iconClass: "fas fa-box-open" },
     ];
 
+    const productSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: 'Commodities Trading',
+        description: 'Trade commodities like Gold, Silver, Oil, and Gas with competitive spreads and leverage.',
+        brand: {
+            '@type': 'Brand',
+            name: 'Flexy Markets'
+        },
+        provider: {
+            '@type': 'Organization',
+            name: 'Flexy Markets'
+        }
+    };
+
     return (
         <main>
+            <JsonLd data={productSchema} />
             <NavBar />
             <UnifiedHero
                 title="Discover Commodities Trading"

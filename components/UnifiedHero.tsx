@@ -86,16 +86,15 @@ export default function UnifiedHero({
 
                 {/* Primary CTA Button */}
                 <div className="mb-5">
-                    <a href={ctaLink} style={{ textDecoration: 'none' }}>
-                        <button
-                            type="button"
-                            className="btn btn-primary fw-bold px-5 py-3"
-                            style={{
-                                fontSize: '18px'
-                            }}
-                        >
-                            {ctaText} <i className="fas fa-arrow-right ms-2"></i>
-                        </button>
+                    <a
+                        href={ctaLink}
+                        className="btn btn-primary fw-bold px-5 py-3"
+                        style={{
+                            textDecoration: 'none',
+                            fontSize: '18px'
+                        }}
+                    >
+                        {ctaText} <i className="fas fa-arrow-right ms-2"></i>
                     </a>
                 </div>
 

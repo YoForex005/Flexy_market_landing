@@ -1,11 +1,16 @@
-"use client";
-
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import UnifiedHero from '@/components/UnifiedHero';
 import UnifiedMarketTable from '@/components/UnifiedMarketTable';
 import MarketFeatures from '@/components/MarketFeatures';
 import ForexCTA from '@/components/ForexCTA';
+import JsonLd from '@/components/JsonLd';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Crypto Trading | Bitcoin, Ethereum & Altcoins | Flexy Markets',
+    description: 'Trade popular cryptocurrencies like Bitcoin (BTC), Ethereum (ETH), and Solana (SOL) with leverage. 24/7 crypto trading market access.',
+};
 
 export default function CryptoTradingPage() {
     const standardData = [
@@ -31,8 +36,24 @@ export default function CryptoTradingPage() {
         { title: "Secure Wallet", description: "Trade with confidence using our regulated and secure environment.", iconClass: "fas fa-lock" },
     ];
 
+    const productSchema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Cryptocurrency Trading",
+        "description": "Trade Bitcoin, Ethereum, and other major cryptocurrencies with leverage and deep liquidity.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Flexy Markets"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "Flexy Markets"
+        }
+    };
+
     return (
         <main>
+            <JsonLd data={productSchema} />
             <NavBar />
             <UnifiedHero
                 title={<>Discover<br />Crypto Derivatives Trading</>}
