@@ -22,7 +22,7 @@ export default function BlogCard({ post }: { post: Post }) {
 
     return (
 
-        <Link href={`/blog/${post.slug || post.id}`} className="text-decoration-none h-100 d-block">
+        <Link href={`/blog/${post.slug}`} className="text-decoration-none h-100 d-block">
             <div className="card h-100 border-0 rounded-4 overflow-hidden shadow-lg hover-lift group"
                 style={{
                     background: 'rgba(255, 255, 255, 0.8)',

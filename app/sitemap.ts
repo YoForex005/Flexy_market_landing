@@ -57,16 +57,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     };
 
     try {
-        // Set a 10 second timeout for the database query
+        // Set a 10 second timeout for the database query - JOIN with seo_meta table
         const res = await withTimeout(
-            pool.query<{ seo_slug: string; slug: string; created_at: Date }>(
-                "SELECT seo_slug, slug, created_at FROM blogs WHERE status = 'published'"
+            pool.query<{ slug: string; created_at: Date }>(
+                `SELECT sm.seo_slug as slug, b.created_at
+                 FROM blogs b
+                 INNER JOIN seo_meta sm ON b.id = sm.post_id
+                 WHERE b.status = 'published'`
             ),
             10000
         );
 
         blogRoutes = res.rows.map((post) => ({
-            url: `${BASE_URL}/blog/${post.seo_slug || post.slug}`,
+            url: `${BASE_URL}/blog/${post.slug}`,
             lastModified: post.created_at,
             changeFrequency: 'weekly' as const,
             priority: 0.6,

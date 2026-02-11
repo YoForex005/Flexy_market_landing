@@ -37,13 +37,14 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
         );
         const total = parseInt(countRes.rows[0].count);
 
-        // Fetch paginated data - optimized to select only needed fields and truncate content (with 10s timeout)
+        // Fetch paginated data - JOIN with seo_meta table to get slug (with 10s timeout)
         const res = await withTimeout(
             pool.query(
-                `SELECT id, title, slug, seo_slug, featured_image, author, created_at, tags, views, substring(content from 1 for 200) as content_snippet 
-                 FROM blogs 
-                 WHERE status = $1 
-                 ORDER BY created_at DESC 
+                `SELECT b.id, b.title, sm.seo_slug as slug, b.featured_image, b.author, b.created_at, b.tags, b.views, substring(b.content from 1 for 200) as content_snippet
+                 FROM blogs b
+                 LEFT JOIN seo_meta sm ON b.id = sm.post_id
+                 WHERE b.status = $1
+                 ORDER BY b.created_at DESC
                  LIMIT $2 OFFSET $3`,
                 ['published', limit, offset]
             ),
@@ -59,7 +60,7 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
             return {
                 id: row.id,
                 title: row.title,
-                slug: row.seo_slug || row.slug || '',
+                slug: row.slug || `post-${row.id}`, // Use slug from seo_meta table
                 excerpt: excerpt,
                 content: row.content || '',
                 // Smart image path handling

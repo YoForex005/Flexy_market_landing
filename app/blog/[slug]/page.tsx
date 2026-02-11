@@ -23,22 +23,16 @@ const fixImagePath = (path: string) => {
     return `/images/${path}`;
 };
 
-async function getPost(slugOrId: string) {
+async function getPost(slug: string) {
     try {
-        // Try finding by slug first (if slug is not empty)
-
-
-        // Since the prompt shows empty slugs, we might need to fallback to ID if we pass ID in URL.
-        // For now, let's assume we might pass ID if slug is empty.
-        // BUT, nice URLs usually use slugs.
-
-        // Let's check if the input looks like an ID (numeric)
-        if (/^\d+$/.test(slugOrId)) {
-            const res = await pool.query('SELECT * FROM blogs WHERE id = $1', [slugOrId]);
-            return res.rows[0];
-        }
-
-        const res = await pool.query('SELECT * FROM blogs WHERE (slug = $1 OR seo_slug = $1)', [slugOrId]);
+        // Fetch blog by slug from seo_meta table joined with blogs table
+        const res = await pool.query(
+            `SELECT b.*
+             FROM blogs b
+             INNER JOIN seo_meta sm ON b.id = sm.post_id
+             WHERE sm.seo_slug = $1`,
+            [slug]
+        );
 
         return res.rows[0];
 
