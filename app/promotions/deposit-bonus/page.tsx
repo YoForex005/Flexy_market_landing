@@ -81,17 +81,17 @@ export default function DepositBonusPage() {
                             </div>
                         </div>
 
-                        <div className={`${styles['flex']} ${styles['flex-col']} ${styles['sm-flex-row']} ${styles['gap-4']} ${styles['justify-center']} ${styles['animate-fadeInUp']} ${styles['delay-400']}`}>
-                            <a href="https://user.flexymarkets.com/accounts/signUp" className={`${styles['bg-yellow-400']} ${styles['hover-bg-yellow-500']} ${styles['text-gray-900']} ${styles['font-bold']} ${styles['px-6']} sm:px-10 ${styles['py-3']} sm:py-4 ${styles['rounded-xl']} ${styles['text-lg']} ${styles['shadow-2xl']} ${styles['hover-scale-105']} ${styles['transition-all']} ${styles['duration-300']}`}>
+                        <div className={`${styles['flex']} ${styles['flex-col']} ${styles['sm-flex-row']} ${styles['gap-6']} ${styles['justify-center']} ${styles['animate-fadeInUp']} ${styles['delay-400']}`}>
+                            <a href="https://user.flexymarkets.com/accounts/signUp" className={styles['hero-btn-primary']}>
                                 Claim Your Bonus Now →
                             </a>
                             <button onClick={() => scrollToSection('how-it-works')}
-                                className={`${styles['bg-white-10']} ${styles['backdrop-blur-md']} ${styles['hover-bg-white-20']} ${styles['text-white']} ${styles['font-bold']} ${styles['px-6']} sm:px-10 ${styles['py-3']} sm:py-4 ${styles['rounded-xl']} ${styles['text-lg']} ${styles['border-2']} ${styles['border-white-50']} ${styles['hover-scale-105']} ${styles['transition-all']} ${styles['duration-300']}`}>
+                                className={styles['hero-btn-secondary']}>
                                 How It Works
                             </button>
                         </div>
 
-                        <div className={`${styles['mt-12']} ${styles['text-white-70']} ${styles['text-sm']} ${styles['max-w-3xl']} ${styles['mx-auto']} ${styles['animate-fadeInUp']} ${styles['delay-500']}`}>
+                        <div className={`${styles['mt-12']} ${styles['text-white']} ${styles['text-sm']} ${styles['max-w-3xl']} ${styles['mx-auto']} ${styles['animate-fadeInUp']} ${styles['delay-500']}`}>
                             <p>* The Deposit Bonus is non-withdrawable. However, profits made using the bonus are fully withdrawable under the stated conditions. *</p>
                         </div>
                     </div>
@@ -112,41 +112,38 @@ export default function DepositBonusPage() {
                             <h2 className={`${styles['text-3xl']} sm:text-5xl ${styles['font-bold']} ${styles['text-dark-green']} ${styles['mb-4']}`}>Why Choose Our Deposit Bonus?</h2>
                         </div>
 
-                        <div className={`${styles['grid']} ${styles['grid-cols-1']} ${styles['sm-grid-cols-2']} ${styles['lg-grid-cols-3']} ${styles['gap-8']}`}>
+                        <div className={`${styles['grid']} ${styles['grid-cols-1']} ${styles['sm-grid-cols-2']} ${styles['lg-grid-cols-3']} ${styles['gap-12']}`}>
                             {/* Card 1 */}
-                            <div className={`${styles['text-center']} ${styles['card-hover']} ${styles['bg-gradient-gray']} ${styles['rounded-2xl']} ${styles['p-6']} sm:p-8 ${styles['shadow-lg']}`}>
-                                <div className={`${styles['w-20']} ${styles['h-20']} ${styles['icon-bg']} ${styles['rounded-2xl']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['mx-auto']} ${styles['mb-6']} transform rotate-12`}>
-                                    <svg className="w-10 h-10 text-white transform -rotate-12" style={{ width: '40px', height: '40px' }} fill="currentColor" viewBox="0 0 20 20">
+                            <div className={`${styles['text-center']} ${styles['card-hover']} ${styles['bg-gradient-gray']} ${styles['rounded-2xl']} ${styles['p-8']} sm:p-12 ${styles['shadow-lg']}`}>
+                                <div className={`${styles['w-14']} ${styles['h-14']} ${styles['icon-bg']} ${styles['rounded-2xl']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['mx-auto']} ${styles['mb-6']} transform rotate-12`}>
+                                    <svg className="w-6 h-6 text-white transform -rotate-12" style={{ width: '24px', height: '24px' }} fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
                                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clipRule="evenodd" />
                                     </svg>
                                 </div>
-                                <h3 className={`${styles['text-2xl']} ${styles['font-bold']} ${styles['text-dark-green']} ${styles['mb-2']}`}>Increase Your</h3>
-                                <h4 className={`${styles['text-xl']} ${styles['font-bold']} ${styles['text-primary-green']} ${styles['mb-4']}`}>Capital</h4>
+                                <h3 className={`${styles['text-2xl']} ${styles['font-bold']} ${styles['text-dark-green']} ${styles['mb-4']}`}>Increase Your Capital</h3>
                                 <p className={`${styles['text-gray-600']}`}>Get 25% Bonus on Every Deposit Up to $5000!</p>
                             </div>
 
                             {/* Card 2 */}
-                            <div className={`${styles['text-center']} ${styles['card-hover']} ${styles['bg-gradient-gray']} ${styles['rounded-2xl']} ${styles['p-6']} sm:p-8 ${styles['shadow-lg']}`}>
-                                <div className={`${styles['w-20']} ${styles['h-20']} ${styles['icon-bg']} ${styles['rounded-2xl']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['mx-auto']} ${styles['mb-6']} transform rotate-12`}>
-                                    <svg className="w-10 h-10 text-white transform -rotate-12" style={{ width: '40px', height: '40px' }} fill="currentColor" viewBox="0 0 20 20">
+                            <div className={`${styles['text-center']} ${styles['card-hover']} ${styles['bg-gradient-gray']} ${styles['rounded-2xl']} ${styles['p-8']} sm:p-12 ${styles['shadow-lg']}`}>
+                                <div className={`${styles['w-14']} ${styles['h-14']} ${styles['icon-bg']} ${styles['rounded-2xl']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['mx-auto']} ${styles['mb-6']} transform rotate-12`}>
+                                    <svg className="w-6 h-6 text-white transform -rotate-12" style={{ width: '24px', height: '24px' }} fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                                     </svg>
                                 </div>
-                                <h3 className={`${styles['text-2xl']} ${styles['font-bold']} ${styles['text-dark-green']} ${styles['mb-2']}`}>Withdrawable</h3>
-                                <h4 className={`${styles['text-xl']} ${styles['font-bold']} ${styles['text-primary-green']} ${styles['mb-4']}`}>Profits</h4>
+                                <h3 className={`${styles['text-2xl']} ${styles['font-bold']} ${styles['text-dark-green']} ${styles['mb-4']}`}>Withdrawable Profits</h3>
                                 <p className={`${styles['text-gray-600']}`}>Withdraw your profits under the terms.</p>
                             </div>
 
                             {/* Card 3 */}
-                            <div className={`${styles['text-center']} ${styles['card-hover']} ${styles['bg-gradient-gray']} ${styles['rounded-2xl']} ${styles['p-6']} sm:p-8 ${styles['shadow-lg']} sm:col-span-2 lg:col-span-1`}>
-                                <div className={`${styles['w-20']} ${styles['h-20']} ${styles['icon-bg']} ${styles['rounded-2xl']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['mx-auto']} ${styles['mb-6']} transform rotate-12`}>
-                                    <svg className="w-10 h-10 text-white transform -rotate-12" style={{ width: '40px', height: '40px' }} fill="currentColor" viewBox="0 0 20 20">
+                            <div className={`${styles['text-center']} ${styles['card-hover']} ${styles['bg-gradient-gray']} ${styles['rounded-2xl']} ${styles['p-8']} sm:p-12 ${styles['shadow-lg']} sm:col-span-2 lg:col-span-1`}>
+                                <div className={`${styles['w-14']} ${styles['h-14']} ${styles['icon-bg']} ${styles['rounded-2xl']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['mx-auto']} ${styles['mb-6']} transform rotate-12`}>
+                                    <svg className="w-6 h-6 text-white transform -rotate-12" style={{ width: '24px', height: '24px' }} fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
                                     </svg>
                                 </div>
-                                <h3 className={`${styles['text-2xl']} ${styles['font-bold']} ${styles['text-dark-green']} ${styles['mb-2']}`}>Instant</h3>
-                                <h4 className={`${styles['text-xl']} ${styles['font-bold']} ${styles['text-primary-green']} ${styles['mb-4']}`}>Credit</h4>
+                                <h3 className={`${styles['text-2xl']} ${styles['font-bold']} ${styles['text-dark-green']} ${styles['mb-4']}`}>Instant Credit</h3>
                                 <p className={`${styles['text-gray-600']}`}>Bonus credited instantly after request.</p>
                             </div>
 
@@ -164,19 +161,17 @@ export default function DepositBonusPage() {
                             <p className={`${styles['text-lg']} sm:text-xl ${styles['text-gray-600']}`}>Get your 25% bonus in 4 simple steps</p>
                         </div>
 
-                        <div className={`${styles['grid']} ${styles['grid-cols-1']} ${styles['sm-grid-cols-2']} ${styles['lg-grid-cols-4']} ${styles['gap-8']}`}>
+                        <div className={`${styles['grid']} ${styles['grid-cols-1']} ${styles['sm-grid-cols-2']} ${styles['lg-grid-cols-4']} ${styles['gap-12']}`}>
                             {[1, 2, 3, 4].map((step, index) => (
                                 <div key={step} className={`${styles['relative']} ${styles['h-full']}`}>
-                                    <div className={`${styles['bg-white']} ${styles['rounded-2xl']} ${styles['p-8']} ${styles['shadow-lg']} ${styles['card-hover']} ${styles['h-full']} ${styles['border']} ${styles['border-gray-100']}`}>
-                                        <div className={`${styles['flex']} ${styles['items-center']} ${styles['gap-4']} ${styles['mb-4']}`}>
-                                            <div className={`${styles['w-12']} ${styles['h-12']} ${styles['step-number']} ${styles['rounded-full']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['text-white']} ${styles['font-bold']} ${styles['text-xl']} ${styles['flex-shrink-0']}`}>
-                                                {step}
-                                            </div>
-                                            <h3 className={`${styles['text-xl']} ${styles['font-bold']} ${styles['text-dark-green']}`}>
-                                                {['Sign Up & Verify', 'Create Account', 'Submit Request', 'Claim Bonus'][index]}
-                                            </h3>
+                                    <div className={`${styles['bg-white']} ${styles['rounded-2xl']} ${styles['p-12']} ${styles['shadow-lg']} ${styles['card-hover']} ${styles['h-full']} ${styles['border']} ${styles['border-gray-100']} ${styles['text-center']} ${styles['flex']} ${styles['flex-col']} ${styles['items-center']}`}>
+                                        <div className={`${styles['w-12']} ${styles['h-12']} ${styles['step-number']} ${styles['rounded-full']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['text-white']} ${styles['font-bold']} ${styles['text-xl']} ${styles['mb-4']} ${styles['flex-shrink-0']}`}>
+                                            {step}
                                         </div>
-                                        <p className={`${styles['text-gray-600']} ${styles['pl-16']}`}>
+                                        <h3 className={`${styles['text-xl']} ${styles['font-bold']} ${styles['text-dark-green']} ${styles['mb-4']}`}>
+                                            {['Sign Up & Verify', 'Create Account', 'Submit Request', 'Claim Bonus'][index]}
+                                        </h3>
+                                        <p className={`${styles['text-gray-600']}`}>
                                             {[
                                                 'Sign up, log in, and complete your verification.',
                                                 'Get verified, open your account, and make a deposit!',
@@ -200,8 +195,8 @@ export default function DepositBonusPage() {
                             <h2 className={`${styles['text-3xl']} sm:text-5xl ${styles['font-bold']} ${styles['text-dark-green']} ${styles['mb-4']}`}>Deposit Bonus Terms</h2>
                         </div>
 
-                        <div className={`${styles['bg-gradient-terms']} ${styles['rounded-3xl']} ${styles['p-8']} md:p-12`}>
-                            <div className={`${styles['grid']} ${styles['grid-cols-1']} ${styles['sm-grid-cols-2']} ${styles['gap-6']}`}>
+                        <div className={`${styles['bg-gradient-terms']} ${styles['rounded-3xl']} ${styles['p-12']} md:p-16 ${styles['border']} ${styles['border-gray-100']}`}>
+                            <div className={`${styles['grid']} ${styles['grid-cols-1']} ${styles['sm-grid-cols-2']} ${styles['gap-12']}`}>
                                 {[
                                     'Receive 25% Bonus on Every Deposit',
                                     'Maximum bonus per deposit: $1,250 (25% of $5,000)',
@@ -209,21 +204,21 @@ export default function DepositBonusPage() {
                                     'Claim your bonus within 60 days of deposit',
                                     'Credit expires 60 days after claim'
                                 ].map((term, index) => (
-                                    <div key={index} className={`${styles['flex']} ${styles['items-center']} ${styles['gap-4']} ${index === 4 ? styles['sm-col-span-2'] : ''}`}>
-                                        <div className={`${styles['flex-shrink-0']} w-10 h-10 ${styles['bg-white']} ${styles['rounded-full']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} mt-1 shadow-sm`}>
+                                    <div key={index} className={`${styles['flex']} ${styles['items-center']} ${styles['gap-4']}`}>
+                                        <div className={`${styles['flex-shrink-0']} ${styles['w-10']} ${styles['h-10']} ${styles['bg-white']} ${styles['rounded-full']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['shadow-sm']}`}>
                                             <svg className="w-5 h-5 text-[#0d6454]" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 20 20">
                                                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                             </svg>
                                         </div>
-                                        <p className={`${styles['text-gray-700']} ${styles['font-medium']}`}>{term}</p>
+                                        <p className={`${styles['text-gray-700']} ${styles['font-semibold']} ${styles['text-lg']}`}>{term}</p>
                                     </div>
                                 ))}
                             </div>
                         </div>
 
-                        <div className={`${styles['text-center']} ${styles['mt-10']}`}>
+                        <div className={`${styles['text-center']} ${styles['mt-12']}`}>
                             <a href="https://user.flexymarkets.com/accounts/signUp"
-                                className={`${styles['btn-primary']} ${styles['text-white']} ${styles['font-bold']} ${styles['px-12']} ${styles['py-4']} ${styles['rounded-xl']} ${styles['text-lg']} ${styles['shadow-xl']} ${styles['hover-scale-105']} ${styles['transition-all']} ${styles['duration-300']}`}>
+                                className={styles['hero-btn-primary']}>
                                 Get Your 25% Bonus Now
                             </a>
                         </div>

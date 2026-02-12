@@ -29,17 +29,17 @@ export default function Flexy150Page() {
 
                             {/* Left Side - Text Content */}
                             <div className={`${styles['text-left']} ${styles['max-w-2xl']}`}>
-                                <h1 className={`${styles['text-3xl']} ${styles['sm-text-4xl']} ${styles['lg-text-5xl']} ${styles['font-bold']} ${styles['text-green-dark']} ${styles['mb-2']}`}>
+                                <h1 className={`${styles['text-7xl']} ${styles['font-bold']} ${styles['text-green-dark']} ${styles['mb-2']}`}>
                                     Flexy150:
                                 </h1>
-                                <h2 className={`${styles['text-2xl']} ${styles['sm-text-3xl']} ${styles['lg-text-4xl']} ${styles['font-bold']} ${styles['text-green-dark']} ${styles['mb-4']}`}>
+                                <h2 className={`${styles['text-6xl']} ${styles['font-bold']} ${styles['text-green-dark']} ${styles['mb-8']}`}>
                                     Zero Deposit, Zero Risk
                                 </h2>
-                                <p className={`${styles['text-lg']} ${styles['sm-text-xl']} ${styles['lg-text-2xl']} ${styles['text-gray-900']} ${styles['font-semibold']} ${styles['mb-6']} ${styles['mb-8']}`}>
+                                <p className={`${styles['text-2xl']} ${styles['sm-text-3xl']} ${styles['text-gray-900']} ${styles['font-semibold']} ${styles['mb-10']}`}>
                                     Receive $150 Free Trading Credit from Flexy Markets!
                                 </p>
                                 <a href="https://user.flexymarkets.com/accounts/signUp"
-                                    className={`${styles['bg-green-primary']} ${styles['hover-bg-green-dark']} ${styles['text-white']} ${styles['font-bold']} ${styles['px-8']} ${styles['py-3']} ${styles['rounded-lg']} ${styles['text-base']} ${styles['sm-text-lg']} ${styles['transition-all']} ${styles['duration-300']} ${styles['transform']} ${styles['hover-scale-105']} ${styles['shadow-lg']} ${styles['hover-shadow-xl']} inline-block`}>
+                                    className={`${styles['bg-green-primary']} ${styles['hover-bg-green-dark']} ${styles['text-white']} ${styles['hover-text-white']} ${styles['font-bold']} ${styles['px-12']} ${styles['py-4']} ${styles['rounded-full']} ${styles['text-lg']} ${styles['transition-all']} ${styles['duration-300']} ${styles['transform']} ${styles['hover-scale-105']} ${styles['shadow-xl']} ${styles['hover-shadow-xl']} inline-block`}>
                                     Begin Trading Free
                                 </a>
                             </div>
@@ -52,7 +52,7 @@ export default function Flexy150Page() {
                                     <img
                                         src={balloonImage}
                                         alt="Money Balloon"
-                                        className={`${styles['object-contain']} ${styles['w-full']} ${styles['h-full']} ${styles['shadow-2xl']} ${styles['parachute-float']} ${styles['parachute-swing']}`}
+                                        className={`${styles['object-contain']} ${styles['w-full']} ${styles['h-full']} ${styles['parachute-float']} ${styles['parachute-swing']}`}
                                     />
                                 </div>
                             </div>
@@ -70,24 +70,15 @@ export default function Flexy150Page() {
             {/* Why Flexy150 Plan Section */}
             <section className={`${styles['bg-white']} ${styles['py-16']} ${styles['relative']} ${styles['overflow-hidden']}`}>
 
-                {/* Floating Coin - Placeholder */}
-                <div className={`${styles['absolute']} ${styles['left-20']} top-2/3 ${styles['-translate-y-2-2']} ${styles['z-0']} ${styles['hidden']} ${styles['lg-block']}`}>
-                    <div className={`${styles['relative']}`}>
-                        <img
-                            src={coinImage}
-                            alt="Flexy150 Coin"
-                            className={`${styles['w-32']} ${styles['h-32']} ${styles['md-w-200px']} ${styles['md-h-200px']} ${styles['rounded-full']} ${styles['shadow-2xl']} ${styles['transform']} ${styles['rotate-12']} ${styles['opacity-90']}`}
-                        />
-                    </div>
-                </div>
-
                 <div className={`${styles['max-w-7xl']} ${styles['mx-auto']} ${styles['px-4']} ${styles['md-px-6']} ${styles['relative']} ${styles['z-10']}`}>
 
                     {/* Section Title */}
-                    <div className={`${styles['text-center']} ${styles['mb-12']}`}>
-                        <h2 className={`${styles['text-3xl']} ${styles['md-text-4xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-6']}`}>
-                            Why Choose <span className={`${styles['text-green-primary']}`}>Flexy150 Plan?</span>
-                        </h2>
+                    <div className={`${styles['flex']} ${styles['flex-col']} ${styles['items-center']} ${styles['justify-center']} ${styles['mb-12']}`}>
+                        <div className={`${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['gap-4']} ${styles['mb-6']}`}>
+                            <h2 className={`${styles['text-4xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-0']}`}>
+                                Why Choose <span className={`${styles['text-green-primary']}`}>Flexy150 Plan?</span>
+                            </h2>
+                        </div>
                         <div className={`${styles['w-full']} ${styles['max-w-4xl']} ${styles['mx-auto']} ${styles['h-px']} ${styles['bg-gradient-divider']}`}></div>
                     </div>
 
@@ -96,65 +87,74 @@ export default function Flexy150Page() {
 
                         {/* Card 1 */}
                         <div className={`${styles['relative']} group`}>
-                            <div className={`${styles['absolute']} ${styles['-top-8']} left-1/2 ${styles['-translate-x-1-2']} ${styles['z-20']}`}>
-                                <div className={`${styles['w-16']} h-16 ${styles['bg-white']} ${styles['rounded-full']} ${styles['border']} ${styles['border-gray-300']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['shadow-2xl']}`}>
-                                    <div className={`${styles['text-gray-900']} ${styles['text-2xl']} ${styles['font-bold']}`}>0$</div>
-                                </div>
-                            </div>
-                            <div className={`${styles['relative']} ${styles['backdrop-blur-xl']} ${styles['bg-white']} ${styles['border']} ${styles['border-gray-300']} ${styles['rounded-2xl']} ${styles['p-8']} ${styles['pt-12']} ${styles['shadow-2xl']} ${styles['transition-all']} ${styles['duration-500']} hover:bg-gray-50 ${styles['min-h-280']} ${styles['flex']} ${styles['flex-col']} ${styles['justify-center']}`}>
-                                <div className={`${styles['text-center']}`}>
-                                    <h3 className={`${styles['text-xl']} ${styles['md-text-2xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-4']}`}>Zero Initial Investment</h3>
-                                    <div className={`${styles['w-full']} ${styles['h-px']} ${styles['bg-gradient-divider']} ${styles['mb-4']}`}></div>
-                                    <p className={`${styles['text-gray-600']} ${styles['text-sm']} ${styles['md-text-base']} ${styles['leading-relaxed']}`}>
-                                        Claim your trading credit immediately upon registration and account verification.
-                                    </p>
+                            <div className={`${styles['relative']} ${styles['overflow-hidden']} ${styles['backdrop-blur-xl']} ${styles['bg-white']} ${styles['border']} ${styles['border-gray-300']} ${styles['rounded-2xl']} ${styles['p-8']} ${styles['shadow-2xl']} ${styles['transition-all']} ${styles['duration-500']} hover:bg-gray-50 ${styles['min-h-280']} ${styles['flex']} ${styles['flex-col']} ${styles['items-center']} ${styles['justify-center']}`}>
+                                <img src={coinImage} alt="" className={styles['card-bg-watermark']} />
+                                <div className={`${styles['relative']} ${styles['z-10']} ${styles['flex']} ${styles['flex-col']} ${styles['items-center']}`}>
+                                    <div className={`${styles['mb-8']}`}>
+                                        <div className={`${styles['w-24']} h-24 ${styles['rounded-full']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']}`}>
+                                            <div className={`${styles['text-gray-900']} ${styles['text-4xl']} ${styles['font-bold']}`}>0$</div>
+                                        </div>
+                                    </div>
+                                    <div className={`${styles['text-center']}`}>
+                                        <h3 className={`${styles['text-xl']} ${styles['md-text-2xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-4']}`}>Zero Initial Investment</h3>
+                                        <div className={`${styles['w-full']} ${styles['h-px']} ${styles['bg-gradient-divider']} ${styles['mb-4']}`}></div>
+                                        <p className={`${styles['text-gray-600']} ${styles['text-sm']} ${styles['md-text-base']} ${styles['leading-relaxed']}`}>
+                                            Claim your trading credit immediately upon registration and account verification.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Card 2 */}
                         <div className={`${styles['relative']} group`}>
-                            <div className={`${styles['absolute']} ${styles['-top-8']} left-1/2 ${styles['-translate-x-1-2']} ${styles['z-20']}`}>
-                                <div className={`${styles['w-16']} h-16 ${styles['bg-white']} ${styles['rounded-full']} ${styles['border']} ${styles['border-gray-300']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['shadow-2xl']}`}>
-                                    <div className={`${styles['text-gray-900']} ${styles['flex']} ${styles['items-center']}`}>
-                                        <span className={`${styles['text-2xl']} ${styles['font-bold']}`}>%</span>
-                                        <svg className={`${styles['w-full']} h-6 ${styles['ml-1']}`} style={{ width: '24px', height: '24px' }} viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                            <polyline points="22,7 13.5,15.5 8.5,10.5 2,17" strokeWidth="2"></polyline>
-                                            <polyline points="16,7 22,7 22,13" strokeWidth="2"></polyline>
-                                        </svg>
+                            <div className={`${styles['relative']} ${styles['overflow-hidden']} ${styles['backdrop-blur-xl']} ${styles['bg-white']} ${styles['border']} ${styles['border-gray-300']} ${styles['rounded-2xl']} ${styles['p-8']} ${styles['shadow-2xl']} ${styles['transition-all']} ${styles['duration-500']} hover:bg-gray-50 ${styles['min-h-280']} ${styles['flex']} ${styles['flex-col']} ${styles['items-center']} ${styles['justify-center']}`}>
+                                <img src={coinImage} alt="" className={styles['card-bg-watermark']} />
+                                <div className={`${styles['relative']} ${styles['z-10']} ${styles['flex']} ${styles['flex-col']} ${styles['items-center']}`}>
+                                    <div className={`${styles['mb-8']}`}>
+                                        <div className={`${styles['w-24']} h-24 ${styles['rounded-full']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']}`}>
+                                            <div className={`${styles['text-gray-900']} ${styles['flex']} ${styles['items-center']}`}>
+                                                <span className={`${styles['text-4xl']} ${styles['font-bold']}`}>%</span>
+                                                <svg className={`${styles['w-full']} h-10 ${styles['ml-1']}`} style={{ width: '40px', height: '40px' }} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <polyline points="22,7 13.5,15.5 8.5,10.5 2,17" strokeWidth="2"></polyline>
+                                                    <polyline points="16,7 22,7 22,13" strokeWidth="2"></polyline>
+                                                </svg>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div className={`${styles['relative']} ${styles['backdrop-blur-xl']} ${styles['bg-white']} ${styles['border']} ${styles['border-gray-300']} ${styles['rounded-2xl']} ${styles['p-8']} ${styles['pt-12']} ${styles['shadow-2xl']} ${styles['transition-all']} ${styles['duration-500']} hover:bg-gray-50 ${styles['min-h-280']} ${styles['flex']} ${styles['flex-col']} ${styles['justify-center']}`}>
-                                <div className={`${styles['text-center']}`}>
-                                    <h3 className={`${styles['text-xl']} ${styles['md-text-2xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-4']}`}>Profit Withdrawal Available</h3>
-                                    <div className={`${styles['w-full']} ${styles['h-px']} ${styles['bg-gradient-divider']} ${styles['mb-4']}`}></div>
-                                    <p className={`${styles['text-gray-600']} ${styles['text-sm']} ${styles['md-text-base']} ${styles['leading-relaxed']}`}>
-                                        Withdraw your earned profits by fulfilling the requirements.
-                                    </p>
+                                    <div className={`${styles['text-center']}`}>
+                                        <h3 className={`${styles['text-xl']} ${styles['md-text-2xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-4']}`}>Profit Withdrawal Available</h3>
+                                        <div className={`${styles['w-full']} ${styles['h-px']} ${styles['bg-gradient-divider']} ${styles['mb-4']}`}></div>
+                                        <p className={`${styles['text-gray-600']} ${styles['text-sm']} ${styles['md-text-base']} ${styles['leading-relaxed']}`}>
+                                            Withdraw your earned profits by fulfilling the requirements.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Card 3 */}
                         <div className={`${styles['relative']} group ${styles['md-col-span-2']} ${styles['lg-col-span-1']}`}>
-                            <div className={`${styles['absolute']} ${styles['-top-8']} left-1/2 ${styles['-translate-x-1-2']} ${styles['z-20']}`}>
-                                <div className={`${styles['w-16']} h-16 ${styles['bg-white']} ${styles['rounded-full']} ${styles['border']} ${styles['border-gray-300']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']} ${styles['shadow-2xl']}`}>
-                                    <div className={`${styles['relative']} ${styles['text-gray-900']}`}>
-                                        <svg className="w-8 h-8" style={{ width: '32px', height: '32px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 12l2 2 4-4" />
-                                        </svg>
-                                        <div className={`${styles['absolute']} ${styles['-top-1']} ${styles['-right-1']} w-4 h-4 bg-green-400 ${styles['rounded-full']} ${styles['border']} ${styles['border-2']} borderColor-white`}></div>
+                            <div className={`${styles['relative']} ${styles['overflow-hidden']} ${styles['backdrop-blur-xl']} ${styles['bg-white']} ${styles['border']} ${styles['border-gray-200']} ${styles['rounded-2xl']} ${styles['p-8']} ${styles['shadow-2xl']} ${styles['transition-all']} ${styles['duration-500']} hover:bg-gray-50 ${styles['min-h-280']} ${styles['flex']} ${styles['flex-col']} ${styles['items-center']} ${styles['justify-center']}`}>
+                                <img src={coinImage} alt="" className={styles['card-bg-watermark']} />
+                                <div className={`${styles['relative']} ${styles['z-10']} ${styles['flex']} ${styles['flex-col']} ${styles['items-center']}`}>
+                                    <div className={`${styles['mb-8']}`}>
+                                        <div className={`${styles['w-24']} h-24 ${styles['rounded-full']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']}`}>
+                                            <div className={`${styles['relative']} ${styles['text-gray-900']}`}>
+                                                <svg className="w-12 h-12" style={{ width: '48px', height: '48px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 12l2 2 4-4" />
+                                                </svg>
+                                                <div className={`${styles['absolute']} ${styles['-top-2']} ${styles['-right-2']} w-6 h-6 bg-green-400 ${styles['rounded-full']} ${styles['border']} ${styles['border-2']} borderColor-white`}></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div className={`${styles['relative']} ${styles['backdrop-blur-xl']} ${styles['bg-white']} ${styles['border']} ${styles['border-gray-200']} ${styles['rounded-2xl']} ${styles['p-8']} ${styles['pt-12']} ${styles['shadow-2xl']} ${styles['transition-all']} ${styles['duration-500']} hover:bg-gray-50 ${styles['min-h-280']} ${styles['flex']} ${styles['flex-col']} ${styles['justify-center']}`}>
-                                <div className={`${styles['text-center']}`}>
-                                    <h3 className={`${styles['text-xl']} ${styles['md-text-2xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-4']}`}>Completely Risk-Free</h3>
-                                    <div className={`${styles['w-full']} ${styles['h-px']} ${styles['bg-gradient-divider']} ${styles['mb-4']}`}></div>
-                                    <p className={`${styles['text-gray-600']} ${styles['text-sm']} ${styles['md-text-base']} ${styles['leading-relaxed']}`}>
-                                        Upon receiving your credit, engage in trading activities without worrying about potential losses.
-                                    </p>
+                                    <div className={`${styles['text-center']}`}>
+                                        <h3 className={`${styles['text-xl']} ${styles['md-text-2xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-4']}`}>Completely Risk-Free</h3>
+                                        <div className={`${styles['w-full']} ${styles['h-px']} ${styles['bg-gradient-divider']} ${styles['mb-4']}`}></div>
+                                        <p className={`${styles['text-gray-600']} ${styles['text-sm']} ${styles['md-text-base']} ${styles['leading-relaxed']}`}>
+                                            Upon receiving your credit, engage in trading activities without worrying about potential losses.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +169,7 @@ export default function Flexy150Page() {
 
                     <div className={`${styles['flex']} ${styles['justify-center']}`}>
                         <a href="https://user.flexymarkets.com/accounts/signUp"
-                            className={`${styles['bg-green-primary']} ${styles['hover-bg-green-dark']} ${styles['text-white']} ${styles['font-bold']} ${styles['px-12']} ${styles['py-4']} ${styles['rounded-lg']} ${styles['text-lg']} ${styles['shadow-xl']} ${styles['hover-shadow-xl']} ${styles['transition-all']} ${styles['duration-300']} ${styles['transform']} ${styles['hover-scale-105']}`}>
+                            className={`${styles['bg-green-primary']} ${styles['hover-bg-green-dark']} ${styles['text-white']} ${styles['hover-text-white']} ${styles['font-bold']} ${styles['px-12']} ${styles['py-4']} ${styles['rounded-full']} ${styles['text-lg']} ${styles['shadow-xl']} ${styles['hover-shadow-xl']} ${styles['transition-all']} ${styles['duration-300']} ${styles['transform']} ${styles['hover-scale-105']}`}>
                             Activate Flexy150
                         </a>
                     </div>
@@ -184,9 +184,9 @@ export default function Flexy150Page() {
                         <div className={`${styles['w-full']} ${styles['h-px']} ${styles['bg-gradient-divider']}`}></div>
                     </div>
 
-                    <div className={`${styles['grid']} ${styles['grid-cols-1']} ${styles['md-grid-cols-2']} ${styles['lg-grid-cols-3']} ${styles['gap-12']}`}>
+                    <div className={`${styles['grid']} ${styles['grid-cols-1']} ${styles['md-grid-cols-2']} ${styles['lg-grid-cols-3']} ${styles['gap-8']}`}>
                         {/* Step 1 */}
-                        <div className={`${styles['text-left']}`}>
+                        <div className={`${styles['bg-white']} ${styles['border']} ${styles['border-gray-200']} ${styles['rounded-2xl']} ${styles['p-10']} ${styles['shadow-lg']} ${styles['hover-shadow-xl']} ${styles['transition-all']} ${styles['duration-300']}`}>
                             <h3 className={`${styles['text-2xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-4']}`}>1. Create Account</h3>
                             <div className={`${styles['w-full']} ${styles['h-px']} ${styles['bg-gradient-divider-left']} ${styles['mb-4']}`}></div>
                             <p className={`${styles['text-gray-600']} ${styles['text-base']} ${styles['leading-relaxed']}`}>
@@ -194,7 +194,7 @@ export default function Flexy150Page() {
                             </p>
                         </div>
                         {/* Step 2 */}
-                        <div className={`${styles['text-left']}`}>
+                        <div className={`${styles['bg-white']} ${styles['border']} ${styles['border-gray-200']} ${styles['rounded-2xl']} ${styles['p-10']} ${styles['shadow-lg']} ${styles['hover-shadow-xl']} ${styles['transition-all']} ${styles['duration-300']}`}>
                             <h3 className={`${styles['text-2xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-4']}`}>2. Complete Verification</h3>
                             <div className={`${styles['w-full']} ${styles['h-px']} ${styles['bg-gradient-divider-left']} ${styles['mb-4']}`}></div>
                             <p className={`${styles['text-gray-600']} ${styles['text-base']} ${styles['leading-relaxed']}`}>
@@ -202,7 +202,7 @@ export default function Flexy150Page() {
                             </p>
                         </div>
                         {/* Step 3 */}
-                        <div className={`${styles['text-left']} ${styles['md-col-span-2']} ${styles['lg-col-span-1']}`}>
+                        <div className={`${styles['bg-white']} ${styles['border']} ${styles['border-gray-200']} ${styles['rounded-2xl']} ${styles['p-10']} ${styles['shadow-lg']} ${styles['hover-shadow-xl']} ${styles['transition-all']} ${styles['duration-300']} ${styles['md-col-span-2']} ${styles['lg-col-span-1']}`}>
                             <h3 className={`${styles['text-2xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-4']}`}>3. Activate Flexy150</h3>
                             <div className={`${styles['w-full']} ${styles['h-px']} ${styles['bg-gradient-divider-left']} ${styles['mb-4']}`}></div>
                             <p className={`${styles['text-gray-600']} ${styles['text-base']} ${styles['leading-relaxed']}`}>
@@ -217,7 +217,7 @@ export default function Flexy150Page() {
             <section className={`${styles['bg-gradient-gray']} ${styles['py-16']}`}>
                 <div className={`${styles['max-w-6xl']} ${styles['mx-auto']} ${styles['px-4']} ${styles['md-px-6']}`}>
                     <div className={`${styles['text-center']} ${styles['mb-12']}`}>
-                        <h2 className={`${styles['text-3xl']} ${styles['lg-text-4xl']} ${styles['font-bold']} ${styles['text-green-dark']} ${styles['mb-4']}`}>Program Terms & Conditions</h2>
+                        <h2 className={`${styles['text-4xl']} ${styles['font-bold']} ${styles['text-green-dark']} ${styles['mb-4']}`}>Program Terms & Conditions</h2>
                         <p className={`${styles['text-gray-600']} ${styles['text-lg']}`}>Simple, transparent rules for the Flexy150 program</p>
                     </div>
 
@@ -229,9 +229,9 @@ export default function Flexy150Page() {
                             { title: "30-Day Validity", desc: "Credit remains valid for 30 days after activation.", iconPath: "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" },
                             { title: "Withdrawal Requirements", desc: "Minimum $150 deposit required to withdraw profits earned from trading.", iconPath: "M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z", iconPath2: "M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z", color: "#e67e22" }
                         ].map((term, index) => (
-                            <div key={index} className={`${styles['bg-white']} ${styles['rounded-xl']} ${styles['p-6']} ${styles['shadow-md']} hover:shadow-lg ${styles['transition-all']} ${styles['border-l-4']} ${styles['flex']} ${styles['items-start']} ${styles['gap-4']}`} style={{ borderColor: term.color || '#00685a' }}>
-                                <div className={`${styles['flex-shrink-0']} w-10 h-10 ${styles['rounded-lg']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']}`} style={{ backgroundColor: term.color || '#00685a' }}>
-                                    <svg className="w-5 h-5 text-white" style={{ width: '20px', height: '20px' }} fill="currentColor" viewBox="0 0 20 20">
+                            <div key={index} className={`${styles['bg-white']} ${styles['rounded-2xl']} ${styles['p-6']} ${styles['shadow-lg']} hover:shadow-xl ${styles['transition-all']} ${styles['border-l-4']} ${styles['flex']} ${styles['items-start']} ${styles['gap-4']}`} style={{ borderColor: term.color || '#00685a' }}>
+                                <div className={`${styles['flex-shrink-0']} w-12 h-12 ${styles['rounded-lg']} ${styles['flex']} ${styles['items-center']} ${styles['justify-center']}`} style={{ backgroundColor: term.color || '#00685a' }}>
+                                    <svg className="w-7 h-7 text-white" style={{ width: '28px', height: '28px' }} fill="currentColor" viewBox="0 0 20 20">
                                         <path d={term.iconPath}></path>
                                         {term.iconPath2 && <path d={term.iconPath2} fillRule="evenodd" clipRule="evenodd"></path>}
                                     </svg>
@@ -246,7 +246,7 @@ export default function Flexy150Page() {
                 </div>
 
                 <div className={`${styles['text-center']} ${styles['flex']} ${styles['justify-center']} ${styles['gap-4']} ${styles['px-4']} ${styles['bg-gradient-gray']}`}>
-                    <a href="legal_documents/TermsandConditionsfortheFlexy150Plan.pdf" className={`${styles['bg-white']} ${styles['border']} ${styles['border-2']} ${styles['border-green-primary']} ${styles['text-green-primary']} hover:bg-gray-50 ${styles['font-bold']} ${styles['px-10']} ${styles['py-4']} ${styles['rounded-lg']} ${styles['text-lg']} ${styles['shadow-xl']} hover:shadow-2xl ${styles['transition-all']} ${styles['duration-300']} ${styles['transform']} ${styles['hover-scale-105']}`}>
+                    <a href="legal_documents/TermsandConditionsfortheFlexy150Plan.pdf" className={`${styles['bg-green-primary']} ${styles['hover-bg-green-dark']} ${styles['text-white']} ${styles['hover-text-white']} ${styles['font-bold']} ${styles['px-10']} ${styles['py-4']} ${styles['rounded-full']} ${styles['text-lg']} ${styles['shadow-xl']} ${styles['hover-shadow-xl']} ${styles['transition-all']} ${styles['duration-300']} ${styles['transform']} ${styles['hover-scale-105']}`}>
                         View Terms and Conditions
                     </a>
                 </div>
@@ -255,8 +255,10 @@ export default function Flexy150Page() {
             {/* FAQ Section */}
             <section className={`${styles['bg-white']} ${styles['py-16']}`}>
                 <div className={`${styles['max-w-4xl']} ${styles['mx-auto']} ${styles['px-6']}`}>
-                    <h2 className={`${styles['text-3xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-6']}`}>Frequently Asked Questions</h2>
-                    <div className={`${styles['w-full']} ${styles['h-px']} ${styles['bg-gradient-divider']} ${styles['mb-8']}`}></div>
+                    <div className={`${styles['text-center']} ${styles['mb-12']}`}>
+                        <h2 className={`${styles['text-4xl']} ${styles['font-bold']} ${styles['text-gray-900']} ${styles['mb-6']}`}>Frequently Asked Questions</h2>
+                        <div className={`${styles['w-full']} ${styles['h-px']} ${styles['bg-gradient-divider']} ${styles['mb-8']}`}></div>
+                    </div>
 
                     <div className={`${styles['space-y-4']}`}>
                         {[
@@ -266,14 +268,14 @@ export default function Flexy150Page() {
                             { q: "What are the requirements for trading and withdrawing profits?", a: "Execute trades using the provided $150 credit. To withdraw any profits generated from trading, you must deposit a minimum of $150 USD into your account. The $150 credit itself cannot be withdrawn, only the profits earned from trading with it." },
                             { q: "What are the specific withdrawal conditions for Flexy150?", a: "The $150 credit provided through Flexy150 can only be used for trading purposes. To withdraw any profits you earn from trading with this credit, you are required to make a minimum deposit of $150 USD to your trading account. The credit itself remains non-withdrawable and is exclusively for trading activities." }
                         ].map((item, index) => (
-                            <details key={index} className={`${styles['bg-white']} ${styles['border']} ${styles['border-gray-300']} ${styles['rounded-lg']} ${styles['overflow-hidden']} ${styles['faq-details']}`} open={index === 0}>
-                                <summary className={`${styles['cursor-pointer']} ${styles['px-6']} ${styles['py-4']} ${styles['text-gray-900']} ${styles['font-medium']} ${styles['text-lg']} hover:bg-gray-50 ${styles['transition-all']} ${styles['flex']} ${styles['justify-between']} ${styles['items-center']}`}>
+                            <details key={index} className={`${styles['bg-white']} ${styles['border']} ${styles['border-gray-200']} ${styles['rounded-2xl']} ${styles['overflow-hidden']} ${styles['faq-details']} ${styles['shadow-lg']} hover:shadow-xl ${styles['transition-all']} ${styles['duration-300']} ${styles['mb-6']}`} open={index === 0}>
+                                <summary className={`${styles['cursor-pointer']} ${styles['px-10']} ${styles['py-8']} ${styles['text-gray-900']} ${styles['font-bold']} ${styles['text-xl']} hover:bg-gray-50 ${styles['transition-all']} ${styles['flex']} ${styles['justify-between']} ${styles['items-center']}`}>
                                     {item.q}
-                                    <svg className="w-5 h-5 transform transition-transform" style={{ width: '20px', height: '20px' }} viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                    <svg className="w-6 h-6 transform transition-transform" style={{ width: '24px', height: '24px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                                     </svg>
                                 </summary>
-                                <div className={`${styles['px-6']} ${styles['pb-4']} ${styles['text-gray-600']} ${styles['text-base']} ${styles['leading-relaxed']} ${styles['border-t']} ${styles['border-gray-300']} ${styles['pt-4']}`}>
+                                <div className={`${styles['px-10']} ${styles['pb-12']} ${styles['text-gray-600']} ${styles['text-lg']} ${styles['leading-relaxed']} ${styles['border-t']} ${styles['border-gray-100']} ${styles['pt-8']}`}>
                                     {item.a}
                                 </div>
                             </details>
