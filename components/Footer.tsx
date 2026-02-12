@@ -139,6 +139,8 @@ export default function Footer() {
                         <div className="row">
                             <div className="col-12 text-center mb-3">
                                 <a href="/pdf/TERM%20AND%20CONDITION.pdf" target="_blank" className="text-muted small px-2">Terms and Conditions</a>
+                                <span className="text-muted">|</span>
+                                <Link href="/privacy-policy" className="text-muted small px-2">Privacy Policy</Link>
                             </div>
                         </div>
 
