@@ -1,0 +1,55 @@
+# Flexy Markets
+
+## Company Overview
+Flexy Markets is a regulated online trading broker offering access to over 1,400 assets including Forex, Shares, Indices, Commodities, and Cryptocurrencies. We provide a secure trading environment with tight spreads, fast execution, and powerful tools on the MetaTrader 5 (MT5) platform.
+
+- **Website**: https://flexymarkets.com
+- **Industry**: Financial Services / Online Trading
+- **Headquarters**: Global (Regulated Broker)
+
+## Products & Services
+
+### Trading Accounts
+We offer tailored account types to suit different trading styles and experience levels:
+1.  **Standard Account**: Entry-level account for new traders.
+    -   Minimum Deposit: $250
+2.  **Pro Account (Recommended)**: Best value for most traders.
+    -   Minimum Deposit: $1,000
+    -   Variable Spreads: From 0.8 pips
+    -   Commission: None
+3.  **VIP Account**: For high-volume professional traders.
+    -   Minimum Deposit: $25,000
+4.  **Islamic Account**: Swap-free account compliant with Sharia law.
+    -   Minimum Deposit: $5,000
+
+### Trading Platform
+-   **MetaTrader 5 (MT5)**: Advanced multi-asset platform with superior tools for comprehensive price analysis, algorithmic trading applications (trading robots, Expert Advisor), and copy trading.
+
+## Key Differentiators
+-   **Regulated & Secure**: We operate under strict regulatory standards to ensure the safety of client funds.
+-   **Simplicity**: "Trade Instantly" with our streamlined account opening and funding process.
+-   **Advanced Tools**: Access to technical analysis tools, economic calendars, and real-time market news.
+-   **Diverse Assets**: Trade CFDs on Forex, Crypto, Stocks, Commodities, and Indices all from one account.
+-   **Customer Support**: Global support available in multiple languages (English, Spanish, Italian, German).
+
+## Frequently Asked Questions (FAQ)
+
+### Is Flexy Markets regulated?
+Yes, Flexy Markets is a regulated online trading broker, ensuring transparency and security for all clients.
+
+### What is the minimum deposit?
+The minimum deposit starts at $250 for our Standard Account.
+
+### What platform do you use?
+We provide the MetaTrader 5 (MT5) platform, known for its advanced charting and automated trading capabilities.
+
+### How can I contact support?
+You can reach our customer service team via phone at +44-3300-271632 or through our website's contact channels.
+
+## Contact Information
+-   **Customer Service**: +44-3300-271632
+-   **Social Media**:
+    -   Twitter: @FlexyMarkets
+    -   Facebook: FlexyMarkets
+    -   Instagram: @flexy.markets
+    -   LinkedIn: Flexy Markets

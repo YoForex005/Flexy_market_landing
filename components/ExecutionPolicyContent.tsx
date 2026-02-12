@@ -135,6 +135,7 @@ export default function ExecutionPolicyContent() {
                                 src={logoImg}
                                 alt="Flexy Markets"
                                 style={{ height: "40px", width: "auto", opacity: 0.8 }}
+                                priority
                             />
                         </div>
                     </div>

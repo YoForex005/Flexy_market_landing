@@ -65,6 +65,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             title: post.title,
             description: post.excerpt || `Read ${post.title} on Flexy Markets Blog.`,
             images: post.featured_image ? [fixImagePath(post.featured_image)] : [],
+            type: 'article',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.excerpt || `Read ${post.title} on Flexy Markets Blog.`,
+            images: post.featured_image ? [fixImagePath(post.featured_image)] : [],
         }
     };
 }
@@ -96,11 +103,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     // 2. Downgrade any other H1 tags to H2 to maintain hierarchy
     let contentHtml = post.content || '';
 
-    // Remove leading H1 (and surrounding whitespace)
-    contentHtml = contentHtml.replace(/^\s*<h1[^>]*>.*?<\/h1>\s*/i, '');
-
-    // Replace any remaining <h1> with <h2> (in case they are subheadings)
-    contentHtml = contentHtml.replace(/<h1[^>]*>(.*?)<\/h1>/gi, '<h2>$1</h2>');
+    // Remove any H1 tags (and their content if it's the title) to avoid duplicates
+    // Strategy: 
+    // 1. Try to find H1 at the start and remove it.
+    // 2. Replace any other H1 with H2.
+    contentHtml = contentHtml.replace(/<h1[^>]*>.*?<\/h1>/i, ''); // Remove first H1
+    contentHtml = contentHtml.replace(/<h1[^>]*>(.*?)<\/h1>/gi, '<h2>$1</h2>'); // Replace others with H2
 
     const tags = post.tags ? post.tags.split(',').map((t: string) => t.trim()) : [];
 
