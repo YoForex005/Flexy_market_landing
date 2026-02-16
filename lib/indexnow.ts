@@ -1,143 +1,113 @@
-import fs from 'fs';
-import path from 'path';
+import sitemap from '@/app/sitemap';
 
-const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow';
-const BING_ENDPOINT = 'https://www.bing.com/indexnow';
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY;
+const INDEXNOW_HOST = process.env.INDEXNOW_HOST || 'https://flexymarkets.com';
+const INDEXNOW_ENDPOINT = process.env.INDEXNOW_ENDPOINT || 'www.bing.com';
 
-interface IndexNowParams {
-    host: string;
-    key: string;
-    keyLocation?: string;
-    urlList?: string[];
-    url?: string;
-}
-
+/**
+ * Submit a single URL to IndexNow
+ */
 export async function submitSingleUrl(url: string) {
-    const host = process.env.INDEXNOW_HOST;
-    const key = process.env.INDEXNOW_KEY;
-    const keyLocation = `https://${host}/${key}.txt`;
-
-    if (!host || !key) {
-        throw new Error('Missing INDEXNOW_HOST or INDEXNOW_KEY environment variables');
+    if (!INDEXNOW_KEY) {
+        throw new Error('INDEXNOW_KEY is not defined in environment variables');
     }
 
-    const body = {
-        host,
-        key,
-        keyLocation,
-        url,
+    const payload = {
+        host: INDEXNOW_HOST.replace(/^https?:\/\//, ''),
+        key: INDEXNOW_KEY,
+        keyLocation: `${INDEXNOW_HOST}/${INDEXNOW_KEY}.txt`,
+        urlList: [url],
     };
 
-    try {
-        const response = await fetch(INDEXNOW_ENDPOINT, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body),
-        });
+    console.log(`Submitting single URL to IndexNow: ${url}`);
 
-        if (!response.ok) {
-            const errorText = await response.text();
-            throw new Error(`IndexNow submission failed: ${response.status} ${response.statusText} - ${errorText}`);
-        }
+    const response = await fetch(`https://${INDEXNOW_ENDPOINT}/indexnow`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+        },
+        body: JSON.stringify(payload),
+    });
 
-        return { success: true, status: response.status };
-
-    } catch (error) {
-        console.error('IndexNow submission error:', error);
-        throw error;
+    if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`IndexNow submission failed (${response.status}): ${errorText}`);
     }
+
+    return { status: response.status, message: 'URL submitted successfully' };
 }
 
+/**
+ * Submit bulk URLs to IndexNow
+ */
 export async function submitBulkUrls(urls: string[]) {
-    const host = process.env.INDEXNOW_HOST;
-    const key = process.env.INDEXNOW_KEY;
-    const keyLocation = `https://${host}/${key}.txt`;
-
-    if (!host || !key) {
-        throw new Error('Missing INDEXNOW_HOST or INDEXNOW_KEY environment variables');
+    if (!INDEXNOW_KEY) {
+        throw new Error('INDEXNOW_KEY is not defined in environment variables');
     }
 
-    const body = {
-        host,
-        key,
-        keyLocation,
+    const payload = {
+        host: INDEXNOW_HOST.replace(/^https?:\/\//, ''),
+        key: INDEXNOW_KEY,
+        keyLocation: `${INDEXNOW_HOST}/${INDEXNOW_KEY}.txt`,
         urlList: urls,
     };
 
-    try {
-        const response = await fetch(INDEXNOW_ENDPOINT, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body),
-        });
+    console.log(`Submitting ${urls.length} URLs to IndexNow`);
 
-        if (!response.ok) {
-            const errorText = await response.text();
-            throw new Error(`IndexNow bulk submission failed: ${response.status} ${response.statusText} - ${errorText}`);
-        }
+    const response = await fetch(`https://${INDEXNOW_ENDPOINT}/indexnow`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+        },
+        body: JSON.stringify(payload),
+    });
 
-        return { success: true, status: response.status };
-
-    } catch (error) {
-        console.error('IndexNow bulk submission error:', error);
-        throw error;
+    if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`IndexNow bulk submission failed (${response.status}): ${errorText}`);
     }
+
+    return { status: response.status, message: `${urls.length} URLs submitted successfully` };
 }
 
+/**
+ * Verify that the key file exists and matches the key in .env
+ */
 export async function verifyKeyFile() {
-    const key = process.env.INDEXNOW_KEY;
-    if (!key) {
-        throw new Error("INDEXNOW_KEY not set in environment variables.");
+    if (!INDEXNOW_KEY) {
+        throw new Error('INDEXNOW_KEY is not defined in environment variables');
     }
 
-    const keyFilePath = path.join(process.cwd(), 'public', `${key}.txt`);
+    const keyLocation = `${INDEXNOW_HOST}/${INDEXNOW_KEY}.txt`;
+    console.log(`Verifying key file at: ${keyLocation}`);
+
     try {
-        if (fs.existsSync(keyFilePath)) {
-            const content = fs.readFileSync(keyFilePath, 'utf-8');
-            if (content.trim() === key) {
-                return { success: true, message: "Key file found and content matches." };
-            } else {
-                return { success: false, message: "Key file found but content does not match INDEXNOW_KEY." };
-            }
-        } else {
-            return { success: false, message: `Key file not found at ${keyFilePath}` };
+        const response = await fetch(keyLocation);
+        if (!response.ok) {
+            return { success: false, error: `Key file not found at ${keyLocation} (Status: ${response.status})` };
         }
-    } catch (error) {
-        return { success: false, message: `Error checking key file: ${error}` };
+        const content = await response.text();
+        const isValid = content.trim() === INDEXNOW_KEY;
+        return { success: isValid, content: content.trim(), expected: INDEXNOW_KEY };
+    } catch (error: any) {
+        return { success: false, error: error.message };
     }
 }
 
-// Helper to extract URLs from sitemap.xml
-// Note: This is a basic XML parser. For complex sitemaps, consider a dedicated XML parser library.
+/**
+ * Fetch all URLs from the sitemap
+ */
 export async function getSitemapUrls(): Promise<string[]> {
-    const host = process.env.INDEXNOW_HOST;
-    if (!host) return [];
-
-    const sitemapUrl = `https://${host}/sitemap.xml`;
-
     try {
-        const response = await fetch(sitemapUrl);
-        if (!response.ok) {
-            console.error(`Failed to fetch sitemap from ${sitemapUrl}: ${response.statusText}`);
+        const sitemapData = await sitemap();
+        // Check if sitemapData is an array
+        if (!Array.isArray(sitemapData)) {
+            console.error('Sitemap function did not return an array:', sitemapData);
             return [];
         }
-
-        const xmlText = await response.text();
-        const locRegex = /<loc>(.*?)<\/loc>/g;
-        const urls: string[] = [];
-        let match;
-
-        while ((match = locRegex.exec(xmlText)) !== null) {
-            urls.push(match[1]);
-        }
-
-        return urls;
-    } catch (error) {
-        console.error("Error parsing sitemap:", error);
-        return [];
+        return sitemapData.map(item => item.url);
+    } catch (error: any) {
+        console.error('Error fetching sitemap URLs:', error);
+        throw new Error(`Failed to fetch sitemap URLs: ${error.message}`);
     }
 }

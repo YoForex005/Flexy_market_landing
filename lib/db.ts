@@ -5,8 +5,14 @@ import { Pool } from 'pg';
 // prevents "too many clients" errors during hot-reloading
 const globalForDb = global as unknown as { pool: Pool };
 
+const connectionString = process.env.DATABASE_URL;
+
+if (!connectionString) {
+    throw new Error('DATABASE_URL is not defined in environment variables');
+}
+
 const pool = globalForDb.pool || new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString,
     ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
     // Connection timeout settings to prevent hanging on production
     connectionTimeoutMillis: 5000, // 5 seconds to connect

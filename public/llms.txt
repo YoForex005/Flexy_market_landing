@@ -1,55 +1,40 @@
-# Flexy Markets
+# Flexy Markets - Regulated Online Trading Broker
 
-## Company Overview
-Flexy Markets is a regulated online trading broker offering access to over 1,400 assets including Forex, Shares, Indices, Commodities, and Cryptocurrencies. We provide a secure trading environment with tight spreads, fast execution, and powerful tools on the MetaTrader 5 (MT5) platform.
-
-- **Website**: https://flexymarkets.com
-- **Industry**: Financial Services / Online Trading
-- **Headquarters**: Global (Regulated Broker)
+## Company Information
+- **Name:** Flexy Markets Limited
+- **Website:** https://flexymarkets.com/
+- **Industry:** Online Trading / FinTech
+- **Registered Address:** Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia.
+- **Registration No:** 2024-00752
+- **Mission:** Providing traders with the tools and environment needed to maximize their trading potential through cutting-edge technology and award-winning support.
 
 ## Products & Services
-
-### Trading Accounts
-We offer tailored account types to suit different trading styles and experience levels:
-1.  **Standard Account**: Entry-level account for new traders.
-    -   Minimum Deposit: $250
-2.  **Pro Account (Recommended)**: Best value for most traders.
-    -   Minimum Deposit: $1,000
-    -   Variable Spreads: From 0.8 pips
-    -   Commission: None
-3.  **VIP Account**: For high-volume professional traders.
-    -   Minimum Deposit: $25,000
-4.  **Islamic Account**: Swap-free account compliant with Sharia law.
-    -   Minimum Deposit: $5,000
-
-### Trading Platform
--   **MetaTrader 5 (MT5)**: Advanced multi-asset platform with superior tools for comprehensive price analysis, algorithmic trading applications (trading robots, Expert Advisor), and copy trading.
+- **Trading Markets:** Forex, Cryptocurrencies, Equity Indices, Thematic Indices, Stock Derivatives, Turbo Stocks, Shares, Commodities, Precious Metals, Energies.
+- **Platforms:** MetaTrader 5 (MT5) for Desktop, Web, and Mobile.
+- **Copy Trading:** Flexy Copy Trading for mirroring professional trader strategies.
+- **Tools:** Economic Calendar, Forex Calculator, Analytical Tools.
+- **Education:** Learning Centre, Live Education, News & Analysis.
 
 ## Key Differentiators
--   **Regulated & Secure**: We operate under strict regulatory standards to ensure the safety of client funds.
--   **Simplicity**: "Trade Instantly" with our streamlined account opening and funding process.
--   **Advanced Tools**: Access to technical analysis tools, economic calendars, and real-time market news.
--   **Diverse Assets**: Trade CFDs on Forex, Crypto, Stocks, Commodities, and Indices all from one account.
--   **Customer Support**: Global support available in multiple languages (English, Spanish, Italian, German).
+- **Regulated Excellence:** Regulated broker ensuring a secure trading environment.
+- **Asset Variety:** Over 1,400 assets across global markets.
+- **Fast Execution:** No rejections or requotes on trades.
+- **Support:** 24/7 award-winning support in multiple languages.
+- **Transparency:** Clear execution policies and legal documentation.
 
-## Frequently Asked Questions (FAQ)
+## Key Statistics (Proven Results)
+- **2.37 Billion+** trades executed on Flexy Markets.
+- **ZERO** rejections or requotes on trades.
+- **90.1%** of withdrawals are automatically approved.
+- **1,400+** tradable assets.
 
-### Is Flexy Markets regulated?
-Yes, Flexy Markets is a regulated online trading broker, ensuring transparency and security for all clients.
-
-### What is the minimum deposit?
-The minimum deposit starts at $250 for our Standard Account.
-
-### What platform do you use?
-We provide the MetaTrader 5 (MT5) platform, known for its advanced charting and automated trading capabilities.
-
-### How can I contact support?
-You can reach our customer service team via phone at +44-3300-271632 or through our website's contact channels.
+## FAQs
+- **Is Flexy Markets regulated?** Yes, Flexy Markets Limited is a regulated entity.
+- **What platforms are available?** We offer the MetaTrader 5 (MT5) platform across all devices.
+- **What is the support availability?** We provide 24/7 support via email and phone/WhatsApp.
+- **Are there restricted regions?** Yes, we do not provide services for residents of the USA, Canada, Argentina, UAE, Israel, and Iran.
 
 ## Contact Information
--   **Customer Service**: +44-3300-271632
--   **Social Media**:
-    -   Twitter: @FlexyMarkets
-    -   Facebook: FlexyMarkets
-    -   Instagram: @flexy.markets
-    -   LinkedIn: Flexy Markets
+- **Email:** support@flexymarkets.com
+- **WhatsApp/Phone:** +44 3300 271632
+- **Social Media:** Facebook, Instagram, LinkedIn (@flexymarkets)

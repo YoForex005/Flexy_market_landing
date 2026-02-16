@@ -120,6 +120,7 @@ export default function Hero() {
                                     alt={slide.title}
                                     fill
                                     className="hero-video"
+                                    sizes="100vw"
                                     style={{
                                         objectFit: 'cover',
                                         filter: slide.customFilter

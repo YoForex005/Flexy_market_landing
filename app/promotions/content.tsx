@@ -83,11 +83,7 @@ export default function PromotionsContent() {
                 </div>
 
                 {/* Scroll Indicator */}
-                <div className={`${styles['absolute']} ${styles['bottom-10']} ${styles['left-1-2']} ${styles['transform-center-x']} ${styles['animate-bounce']}`}>
-                    <svg className="w-6 h-6 text-white" style={{ width: '24px', height: '24px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                    </svg>
-                </div>
+
             </section>
 
             {/* Featured Bonuses Section */}

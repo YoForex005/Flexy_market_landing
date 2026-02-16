@@ -1,80 +1,72 @@
 import React from 'react';
 import JsonLd from './JsonLd';
 
-interface Step {
+interface HowToStep {
     name: string;
     text: string;
-    image?: string;
     url?: string;
-}
-
-interface Supply {
-    name: string;
-}
-
-interface Tool {
-    name: string;
+    image?: string;
 }
 
 interface HowToSchemaProps {
     name: string;
     description: string;
-    image?: string;
-    totalTime?: string; // ISO 8601 format (e.g., PT15M)
+    steps: HowToStep[];
+    totalTime?: string; // ISO 8601 duration format, e.g., "PT10M"
     estimatedCost?: {
         currency: string;
-        value: string | number;
+        value: string;
     };
-    steps: Step[];
-    supplies?: Supply[];
-    tools?: Tool[];
+    tools?: string[];
 }
 
+/**
+ * HowToSchema component for step-by-step guides.
+ * Helps search engines understand the steps required to complete a task.
+ */
 const HowToSchema: React.FC<HowToSchemaProps> = ({
     name,
     description,
-    image,
+    steps,
     totalTime,
     estimatedCost,
-    steps,
-    supplies,
     tools
 }) => {
-    const data = {
-        '@context': 'https://schema.org',
-        '@type': 'HowTo',
-        name,
-        description,
-        ...(image && { image: { '@type': 'ImageObject', url: image } }),
-        ...(totalTime && { totalTime }),
-        ...(estimatedCost && {
-            estimatedCost: {
-                '@type': 'MonetaryAmount',
-                currency: estimatedCost.currency,
-                value: estimatedCost.value
-            }
-        }),
-        ...(supplies && {
-            supply: supplies.map(s => ({
-                '@type': 'HowToSupply',
-                name: s.name
-            }))
-        }),
-        ...(tools && {
-            tool: tools.map(t => ({
-                '@type': 'HowToTool',
-                name: t.name
-            }))
-        }),
-        step: steps.map((step, index) => ({
-            '@type': 'HowToStep',
-            url: step.url,
-            name: step.name,
-            text: step.text,
-            image: step.image ? { '@type': 'ImageObject', url: step.image } : undefined,
-            position: index + 1
+    const data: any = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": name,
+        "description": description,
+        "step": steps.map((step, index) => ({
+            "@type": "HowToStep",
+            "url": step.url,
+            "name": step.name,
+            "itemListElement": [{
+                "@type": "HowToDirection",
+                "text": step.text
+            }],
+            "image": step.image
         }))
     };
+
+    if (totalTime) {
+        data.totalTime = totalTime;
+    }
+
+    if (estimatedCost) {
+        data.estimatedCost = {
+            "@type": "MonetaryAmount",
+            "currency": estimatedCost.currency,
+            "value": estimatedCost.value
+        };
+    }
+
+    if (tools && tools.length > 0) {
+        data.tool = tools.map(tool => ({
+            "@type": "HowToTool",
+            "name": tool
+        }));
+    }
 
     return <JsonLd data={data} />;
 };

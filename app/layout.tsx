@@ -62,6 +62,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0f664a',
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -110,6 +116,17 @@ export default function RootLayout({
               "https://www.linkedin.com/company/flexy-market/"
             ]
           })}
+        </Script>
+        {/* Google tag (gtag.js) */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q4GCWX9KQP" strategy="afterInteractive" />
+        <Script id="google-analytics-g4" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-Q4GCWX9KQP');
+          `}
         </Script>
       </head>
       <body>

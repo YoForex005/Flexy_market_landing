@@ -6,13 +6,27 @@ import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
 
+import SectionSkeleton from '@/components/SectionSkeleton';
+
 // Dynamic imports - ssr: false skips server render for faster initial HTML
-const TradeView = dynamic(() => import('@/components/TradeView'));
-const Discover = dynamic(() => import('@/components/Discover'));
-const Results = dynamic(() => import('@/components/Results'));
-const AccountTypes = dynamic(() => import('@/components/AccountTypes'));
-const Features = dynamic(() => import('@/components/Features'));
-const Support = dynamic(() => import('@/components/Support'));
+const TradeView = dynamic(() => import('@/components/TradeView'), {
+  loading: () => <SectionSkeleton height="600px" />
+});
+const Discover = dynamic(() => import('@/components/Discover'), {
+  loading: () => <SectionSkeleton height="500px" />
+});
+const Results = dynamic(() => import('@/components/Results'), {
+  loading: () => <SectionSkeleton height="400px" />
+});
+const AccountTypes = dynamic(() => import('@/components/AccountTypes'), {
+  loading: () => <SectionSkeleton height="800px" />
+});
+const Features = dynamic(() => import('@/components/Features'), {
+  loading: () => <SectionSkeleton height="600px" />
+});
+const Support = dynamic(() => import('@/components/Support'), {
+  loading: () => <SectionSkeleton height="400px" />
+});
 
 import type { Metadata } from 'next';
 

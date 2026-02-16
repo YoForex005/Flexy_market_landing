@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { submitSingleUrl, submitBulkUrls } from '@/lib/indexnow';
 
+const API_SECRET_KEY = process.env.API_SECRET_KEY;
+
 export async function POST(req: NextRequest) {
     const apiKey = req.headers.get('x-api-key');
 
-    if (apiKey !== process.env.API_SECRET_KEY) {
+    if (!API_SECRET_KEY || apiKey !== API_SECRET_KEY) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -13,17 +15,15 @@ export async function POST(req: NextRequest) {
         const { url, urls } = body;
 
         if (urls && Array.isArray(urls)) {
-            await submitBulkUrls(urls);
-            return NextResponse.json({ success: true, message: `Submitted ${urls.length} URLs.` });
+            const result = await submitBulkUrls(urls);
+            return NextResponse.json(result);
         } else if (url) {
-            await submitSingleUrl(url);
-            return NextResponse.json({ success: true, message: `Submitted ${url}` });
+            const result = await submitSingleUrl(url);
+            return NextResponse.json(result);
         } else {
-            return NextResponse.json({ error: 'Missing "url" or "urls" in body' }, { status: 400 });
+            return NextResponse.json({ error: 'Missing url or urls in request body' }, { status: 400 });
         }
-
-    } catch (error) {
-        console.error('API Error:', error);
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    } catch (error: any) {
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
