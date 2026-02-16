@@ -76,6 +76,21 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/promotions/deposit-bonus',
+        destination: '/deposit-bonus',
+        permanent: true,
+      },
+      {
+        source: '/promotions/flexy150',
+        destination: '/flexy150',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
