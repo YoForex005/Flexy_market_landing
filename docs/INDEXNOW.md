@@ -42,7 +42,15 @@ curl -X POST https://flexymarkets.com/api/indexnow/submit \
 ```
 
 ### Full Sitemap Sync (Cron Job)
-Configure a cron job to call the sync endpoint periodically:
+Configure a cron job to call the sync endpoint periodically.
+
+#### Vercel Cron Jobs
+We have configured a `vercel.json` file to automatically trigger the sync endpoint daily at 10:00 UTC.
+
+**Requirement:**
+You must add `CRON_SECRET` to your Vercel Environment Variables for this to work.
+
+Manual Trigger:
 ```bash
 curl -X POST https://flexymarkets.com/api/indexnow/sync \
   -H "x-cron-secret: your_secure_cron_secret"

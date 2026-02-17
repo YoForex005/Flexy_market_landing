@@ -3,9 +3,11 @@ import Script from 'next/script';
 import localFont from 'next/font/local';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
-import WhatsAppWidget from '@/components/WhatsAppWidget';
+import dynamic from 'next/dynamic';
 import Loader from '@/components/Loader';
 import JsonLd from '@/components/JsonLd';
+
+import DynamicWhatsApp from '@/components/DynamicWhatsApp';
 
 const tomato = localFont({
   src: [
@@ -26,7 +28,7 @@ const tomato = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://flexymarkets.com'),
   title: {
-    default: 'Flexy Markets | Regulated Online Trading Broker',
+    default: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
     template: '%s | Flexy Markets',
   },
   description: 'Trade CFD on Forex, Shares, Indices, Commodities & Cryptocurrencies with a regulated broker. Access 1,400+ assets with tight spreads and fast execution.',
@@ -59,6 +61,9 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  alternates: {
+    canonical: './',
   },
 };
 
@@ -132,12 +137,14 @@ export default function RootLayout({
       <body>
         <Loader />
         {children}
-        <WhatsAppWidget />
+        <DynamicWhatsApp />
 
-        {/* Font Awesome - loaded async to avoid render-blocking (was blocking FCP by ~200-400ms) */}
-        <Script id="load-fontawesome" strategy="afterInteractive">
-          {`(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';document.head.appendChild(l)})()`}
-        </Script>
+        {/* Font Awesome - loaded with next/script for better control */}
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+          strategy="lazyOnload"
+          crossOrigin="anonymous"
+        />
 
         {/* Bootstrap JS - lazy loaded since only needed for dropdowns/modals */}
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" strategy="lazyOnload" />

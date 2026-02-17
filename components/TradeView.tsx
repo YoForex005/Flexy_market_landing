@@ -116,15 +116,15 @@ export default function TradeView() {
                                             </button>
                                         </div>
                                         <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center position-relative">
-                                            <div className="image-crop-container">
+                                            <div className="image-crop-container" style={{ position: 'relative', height: '250px', width: '100%' }}>
                                                 <Image
                                                     src={market.image}
                                                     alt={`${market.name} Trading`}
                                                     className="img-fluid drop-shadow-3d zoom-image"
+                                                    fill
+                                                    sizes="(max-width: 768px) 100vw, 40vw"
                                                     style={{
-                                                        maxHeight: '250px',
-                                                        width: 'auto',
-                                                        height: 'auto',
+                                                        objectFit: 'contain',
                                                         filter: market.textColor === 'white'
                                                             ? 'drop-shadow(0 10px 20px rgba(0,0,0,0.5)) brightness(1.15)'
                                                             : 'drop-shadow(0 10px 20px rgba(0,0,0,0.2))',

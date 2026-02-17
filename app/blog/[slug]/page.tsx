@@ -140,10 +140,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                                     <i className="fas fa-user-circle me-2 fs-5"></i>
                                     <span className="fw-medium">{post.author || 'Flexy Team'}</span>
                                 </div>
-                                <div className="d-flex align-items-center me-4">
-                                    <i className="far fa-calendar-alt me-2 fs-5"></i>
-                                    <span>{formatDate(post.created_at)}</span>
-                                </div>
+                                {(post.updated_at || post.created_at) && (
+                                    <div className="d-flex align-items-center me-4">
+                                        <i className="far fa-calendar-alt me-2 fs-5"></i>
+                                        <span>{formatDate(post.updated_at || post.created_at)}</span>
+                                    </div>
+                                )}
                                 {post.views > 0 && (
                                     <div className="d-flex align-items-center">
                                         <i className="far fa-eye me-2 fs-5"></i>
@@ -158,11 +160,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     {post.featured_image && (
                         <div className="row justify-content-center mb-5">
                             <div className="col-lg-10">
-                                <div className="rounded-5 overflow-hidden shadow-lg position-relative" style={{ minHeight: '400px' }}>
+                                <div className="rounded-5 overflow-hidden shadow-lg position-relative w-100" style={{ aspectRatio: '16/9' }}>
                                     <BlogImage
                                         src={fixImagePath(post.featured_image)}
                                         alt={post.title}
-                                        className="w-100 h-100 object-fit-cover position-absolute top-0 start-0"
+                                        className="w-100 h-100 position-absolute top-0 start-0"
+                                        style={{ objectFit: 'contain' }}
                                     />
                                 </div>
                             </div>

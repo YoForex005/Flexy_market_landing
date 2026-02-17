@@ -58,7 +58,7 @@ export default function Footer() {
                                 <Link href="/equity-indices" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Equity Indices</Link>
                                 <Link href="/thematic-indices" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Thematic Indices</Link>
                                 <Link href="/stock-derivatives" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Stock Derivatives</Link>
-                                <Link href="/turbo-stocks" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Turbo Stocks</Link>
+                                <Link href="/flexy-150" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Flexy 150</Link>
                                 <Link href="/shares" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Shares</Link>
                                 <Link href="/commodities" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Commodities</Link>
                                 <Link href="/precious-metals" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Precious Metals</Link>
@@ -72,14 +72,14 @@ export default function Footer() {
                                 <Link href="/forex-calculator" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Forex Calculator</Link>
                                 <Link href="/analytical-tools" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Analytical Tools</Link>
                                 <Link href="/learning-centre" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Learning Centre</Link>
-                                <Link href="/live_education" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Live Education</Link>
+                                <Link href="/live-education" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Live Education</Link>
                                 <Link href="/news-analysis" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>News & Analysis</Link>
                             </div>
 
                             {/* Platforms */}
                             <div className="col-lg-2 col-md-4 col-6 mb-4">
                                 <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>PLATFORMS</h6>
-                                <Link href="/platforms" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>MT5 Platform</Link>
+                                <Link href="/metatrader-5" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>MT5 Platform</Link>
                             </div>
 
                             {/* Accounts */}

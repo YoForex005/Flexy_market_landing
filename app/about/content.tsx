@@ -99,32 +99,6 @@ export default function AboutContent() {
                 </div>
             </section>
 
-            {/* TEAM SECTION (Placeholder) */}
-            <section className="py-5 bg-white">
-                <div className="container py-5">
-                    <div className="text-center mb-5">
-                        <h2 className="display-5 fw-bold text-dark">Meet Our Leadership</h2>
-                        <p className="text-secondary">Guided by industry veterans with decades of experience</p>
-                    </div>
-                    <div className="row g-4 justify-content-center">
-                        {[1, 2, 3].map((item) => (
-                            <div key={item} className="col-lg-4 col-md-6">
-                                <div className="text-center">
-                                    <div className="bg-light rounded-circle mx-auto mb-4" style={{ width: '150px', height: '150px', overflow: 'hidden' }}>
-                                        <i className="fas fa-user-circle fa-8x text-secondary opacity-25" style={{ lineHeight: '150px' }}></i>
-                                    </div>
-                                    <h4 className="fw-bold text-dark">Executive Name</h4>
-                                    <p className="text-success small fw-bold">Position Title</p>
-                                    <p className="text-secondary small px-4">
-                                        Brief bio description reflecting expertise and leadership role within the company.
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
             {/* WHY CHOOSE SECTION */}
             <section className="py-5 text-white position-relative" style={{ backgroundColor: '#0f4941', borderRadius: '50px 50px 0 0' }}>
                 <div className="container py-5">

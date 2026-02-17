@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Flexy150 Bonus | Flexy Markets',
         description: 'Claim your $150 no-deposit trading bonus.',
-        url: 'https://flexymarkets.com/flexy150',
+        url: 'https://flexymarkets.com/flexy-150',
         siteName: 'Flexy Markets',
         locale: 'en_US',
         type: 'website',

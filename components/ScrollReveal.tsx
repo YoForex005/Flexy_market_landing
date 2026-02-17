@@ -5,15 +5,19 @@ import { useEffect, useRef } from 'react';
 export default function ScrollReveal({
     children,
     className = '',
-    style
+    style,
+    priority = false
 }: {
     children: React.ReactNode;
     className?: string;
     style?: React.CSSProperties;
+    priority?: boolean;
 }) {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        if (priority) return;
+
         const el = ref.current;
         if (!el) return;
 
@@ -29,10 +33,14 @@ export default function ScrollReveal({
 
         observer.observe(el);
         return () => observer.disconnect();
-    }, []);
+    }, [priority]);
 
     return (
-        <div ref={ref} className={`scroll-fade-section ${className}`} style={style}>
+        <div
+            ref={ref}
+            className={`scroll-fade-section ${className} ${priority ? 'section-visible' : ''}`}
+            style={style}
+        >
             {children}
         </div>
     );

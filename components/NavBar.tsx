@@ -112,7 +112,7 @@ export default function NavBar() {
                                                             <Link className="dropdown-item py-2" href="/forex-trading">Forex Trading</Link>
                                                             <Link className="dropdown-item py-2" href="/cryptocurrencies">Cryptocurrencies</Link>
                                                             <Link className="dropdown-item py-2" href="/stock-derivatives">Stock Derivatives</Link>
-                                                            <Link className="dropdown-item py-2" href="/turbo-stocks">Turbo Stocks</Link>
+                                                            <Link className="dropdown-item py-2" href="/flexy-150">Flexy 150</Link>
                                                             <Link className="dropdown-item py-2" href="/commodities">Commodities</Link>
                                                             <Link className="dropdown-item py-2" href="/equity-indices">Equity Indices</Link>
                                                             <Link className="dropdown-item py-2" href="/precious-metals">Precious Metals</Link>
@@ -122,7 +122,7 @@ export default function NavBar() {
                                                         </div>
                                                         <div className="col-3">
                                                             <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Platforms</h6>
-                                                            <Link className="dropdown-item py-2" href="/platforms">MT5 Platform</Link>
+                                                            <Link className="dropdown-item py-2" href="/metatrader-5">MT5 Platform</Link>
                                                         </div>
                                                         <div className="col-3">
                                                             <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Our Offerings</h6>
@@ -147,7 +147,7 @@ export default function NavBar() {
                                                         <div className="col-6">
                                                             <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Education</h6>
                                                             <Link className="dropdown-item py-2" href="/learning-centre">Learning Centre</Link>
-                                                            <Link className="dropdown-item py-2" href="/live_education">Live Education</Link>
+                                                            <Link className="dropdown-item py-2" href="/live-education">Live Education</Link>
                                                             <Link className="dropdown-item py-2" href="/blog">Blogs</Link>
                                                         </div>
                                                         <div className="col-6">
@@ -274,7 +274,7 @@ export default function NavBar() {
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/thematic-indices" style={{ fontSize: '14px' }}>Thematic Indices</Link>
 
                                                 <h6 className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Platforms</h6>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/platforms" style={{ fontSize: '14px' }}>MT5 Platform</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/metatrader-5" style={{ fontSize: '14px' }}>MT5 Platform</Link>
 
                                                 <h6 className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Our Offerings</h6>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/flexy-copy-trading" style={{ fontSize: '14px' }}>Flexy Copy Trading</Link>
@@ -297,7 +297,7 @@ export default function NavBar() {
                                             <div className="ps-3 pt-3 pb-3 mt-2" style={{ backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #dee2e6' }}>
                                                 <h6 className="text-muted text-uppercase mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Education</h6>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/learning-centre" style={{ fontSize: '14px' }}>Learning Centre</Link>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/live_education" style={{ fontSize: '14px' }}>Live Education</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/live-education" style={{ fontSize: '14px' }}>Live Education</Link>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/blog" style={{ fontSize: '14px' }}>Blogs</Link>
 
                                                 <h6 className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Community</h6>

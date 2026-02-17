@@ -146,7 +146,7 @@ export default function PromotionsContent() {
                                         <p className={`${styles['text-sm']} ${styles['text-gray-500']} ${styles['mb-6']}`}>
                                             To withdraw profits, a minimum deposit of $150 is required. T&Cs apply.
                                         </p>
-                                        <Link href="/flexy150" className={`${styles['btn-primary-custom']}`}>
+                                        <Link href="/flexy-150" className={`${styles['btn-primary-custom']}`}>
                                             Learn More
                                             <svg className="w-5 h-5" style={{ width: '20px', height: '20px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />

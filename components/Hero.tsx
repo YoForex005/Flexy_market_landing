@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useMobile } from '@/hooks/useMobile';
 
 
 
@@ -54,8 +55,12 @@ export default function Hero() {
 
 
 
+    const isMobile = useMobile();
+
     // Network-aware video: disable on very slow connections
     useEffect(() => {
+        if (isMobile) return; // Skip video logic on mobile
+
         const video = videoRef.current;
         if (!video) return;
 
@@ -70,7 +75,7 @@ export default function Hero() {
             video.preload = 'none';
             video.pause();
         }
-    }, []);
+    }, [isMobile]);
 
     const nextSlide = useCallback(() => {
         if (!hasTransitioned) setHasTransitioned(true);
@@ -91,7 +96,7 @@ export default function Hero() {
                 >
                     {/* Background Media */}
                     <div className="hero-video-container">
-                        {slide.type === 'video' ? (
+                        {slide.type === 'video' && !isMobile ? (
                             <>
                                 <video
                                     ref={videoRef}
@@ -101,6 +106,7 @@ export default function Hero() {
                                     loop
                                     playsInline
                                     preload={index === currentSlide ? "auto" : "none"}
+                                    poster="/images/trade-instantly.webp"
                                     style={{
                                         filter: slide.customFilter,
                                         backgroundColor: '#0f172a' // Dark placeholder to prevent white flash
@@ -116,7 +122,7 @@ export default function Hero() {
                         ) : (
                             <>
                                 <Image
-                                    src={slide.imageSrc || ''}
+                                    src={slide.imageSrc || '/images/trade-instantly.webp'} // Fallback for video on mobile
                                     alt={slide.title}
                                     fill
                                     className="hero-video"

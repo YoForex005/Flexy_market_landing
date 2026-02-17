@@ -11,7 +11,7 @@ interface Post {
     content: string;
     image_url: string;
     author: string;
-    created_at: string;
+    created_at?: string | null;
     tags: string[];
     views: number;
 }
@@ -53,8 +53,12 @@ export default function BlogCard({ post }: { post: Post }) {
                     <div className="d-flex align-items-center mb-3 text-muted small justify-content-between">
                         <div className="d-flex align-items-center">
                             <i className="fas fa-user-circle me-2"></i> {post.author}
-                            <span className="mx-2">•</span>
-                            <i className="far fa-calendar-alt me-2"></i> {post.created_at}
+                            {post.created_at && (
+                                <>
+                                    <span className="mx-2">•</span>
+                                    <i className="far fa-calendar-alt me-2"></i> {post.created_at}
+                                </>
+                            )}
                         </div>
                         {post.views > 0 && (
                             <div className="d-flex align-items-center" title={`${post.views} views`}>

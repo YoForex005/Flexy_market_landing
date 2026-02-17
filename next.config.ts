@@ -86,7 +86,22 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/promotions/flexy150',
-        destination: '/flexy150',
+        destination: '/flexy-150',
+        permanent: true,
+      },
+      {
+        source: '/live_education',
+        destination: '/live-education',
+        permanent: true,
+      },
+      {
+        source: '/flexy150',
+        destination: '/flexy-150',
+        permanent: true,
+      },
+      {
+        source: '/mt5',
+        destination: '/metatrader-5',
         permanent: true,
       },
     ];

@@ -11,7 +11,8 @@ interface MappedPost {
     content: string;
     image_url: string;
     author: string;
-    created_at: Date;
+    created_at: Date | null;
+    updated_at: Date | null;
     tags: string[];
     views: number;
 }
@@ -38,13 +39,14 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
         const total = parseInt(countRes.rows[0].count);
 
         // Fetch paginated data - JOIN with seo_meta table to get slug (with 10s timeout)
+        // Added updated_at to the selection
         const res = await withTimeout(
             pool.query(
-                `SELECT b.id, b.title, sm.seo_slug as slug, b.featured_image, b.author, b.created_at, b.tags, b.views, substring(b.content from 1 for 200) as content_snippet
+                `SELECT b.id, b.title, sm.seo_slug as slug, b.featured_image, b.author, b.created_at, b.updated_at, b.tags, b.views, substring(b.content from 1 for 200) as content_snippet
                  FROM blogs b
                  LEFT JOIN seo_meta sm ON b.id = sm.post_id
                  WHERE b.status = $1
-                 ORDER BY b.created_at DESC
+                 ORDER BY b.updated_at DESC, b.created_at DESC
                  LIMIT $2 OFFSET $3`,
                 ['published', limit, offset]
             ),
@@ -70,7 +72,8 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
                         : `/images/${row.featured_image}`)
                     : '/images/candlestick-chart-3d.webp',
                 author: row.author || 'Flexy Team',
-                created_at: row.created_at,
+                created_at: row.created_at, // Can be null
+                updated_at: row.updated_at, // Can be null
                 tags: row.tags ? row.tags.split(',').map((tag: string) => tag.trim()) : [],
                 views: parseInt(row.views) || 0
             };
@@ -117,21 +120,28 @@ export default async function BlogGrid({ page }: { page: number }) {
     return (
         <>
             <div className="row g-4 justify-content-center">
-                {result.data.map((post) => (
-                    <div key={post.id} className="col-lg-4 col-md-6">
-                        <BlogCard post={{
-                            ...post,
-                            created_at: new Date(post.created_at).toLocaleDateString('en-GB', {
-                                day: '2-digit',
-                                month: '2-digit',
-                                year: 'numeric'
-                            }),
-                            // Ensure tags and views are passed through
-                            tags: post.tags,
-                            views: post.views
-                        }} />
-                    </div>
-                ))}
+                {result.data.map((post) => {
+                    // Calculate date to display
+                    const dateToUse = post.updated_at || post.created_at;
+                    const formattedDate = dateToUse ? new Date(dateToUse).toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric'
+                    }) : null;
+
+                    return (
+                        <div key={post.id} className="col-lg-4 col-md-6">
+                            <BlogCard post={{
+                                ...post,
+                                // Use updated_at if available, otherwise created_at
+                                created_at: formattedDate,
+                                // Ensure tags and views are passed through
+                                tags: post.tags,
+                                views: post.views
+                            }} />
+                        </div>
+                    )
+                })}
             </div>
 
             {/* Pagination Controls */}
