@@ -32,13 +32,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
-  description: 'Trade CFDs on Forex, Shares, Indices, Commodities & Cryptocurrencies with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets.',
+  description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
   alternates: {
     canonical: 'https://flexymarkets.com',
   },
   openGraph: {
     title: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
-    description: 'Trade CFD on Forex, Shares, Indices, Commodities & Cryptocurrencies with a regulated broker.',
+    description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
     url: 'https://flexymarkets.com',
     siteName: 'Flexy Markets',
     locale: 'en_US',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
-    description: 'Trade CFD on Forex, Shares, Indices, Commodities & Cryptocurrencies with a regulated broker.',
+    description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
   },
 };
 
