@@ -1,8 +1,9 @@
 import sitemap from '@/app/sitemap';
 
 const INDEXNOW_KEY = process.env.INDEXNOW_KEY;
-const INDEXNOW_HOST = process.env.INDEXNOW_HOST || 'https://flexymarkets.com';
+const INDEXNOW_HOST = (process.env.INDEXNOW_HOST || 'https://flexymarkets.com').replace(/\/$/, '');
 const INDEXNOW_ENDPOINT = process.env.INDEXNOW_ENDPOINT || 'www.bing.com';
+
 
 /**
  * Submit a single URL to IndexNow
