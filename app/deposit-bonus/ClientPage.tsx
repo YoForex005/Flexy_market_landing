@@ -83,7 +83,7 @@ export default function DepositBonusPage() {
 
                         <div className={`${styles['flex']} ${styles['flex-col']} ${styles['sm-flex-row']} ${styles['gap-6']} ${styles['justify-center']} ${styles['animate-fadeInUp']} ${styles['delay-400']}`}>
                             <a href="https://user.flexymarkets.com/accounts/signUp" className={styles['hero-btn-primary']}>
-                                Claim Your Bonus Now →
+                                Claim Your Bonus Now
                             </a>
                             <button onClick={() => scrollToSection('how-it-works')}
                                 className={styles['hero-btn-secondary']}>
@@ -97,8 +97,6 @@ export default function DepositBonusPage() {
                     </div>
                 </div>
 
-                <div className={`${styles['scroll-indicator']} ${styles['text-white']}`} style={{ display: 'none' }}>
-                </div>
             </section>
 
             {/* Why Choose Section */}
@@ -279,7 +277,7 @@ export default function DepositBonusPage() {
                         </p>
 
                         <a href="https://user.flexymarkets.com/accounts/signUp" className={`${styles['btn-cta']}`}>
-                            Claim Your 25% Bonus Now →
+                            Claim Your 25% Bonus Now
                         </a>
 
                         <div className={`${styles['mt-10']} ${styles['text-white-80']} ${styles['text-sm']}`}>

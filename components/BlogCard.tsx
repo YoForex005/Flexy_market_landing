@@ -74,7 +74,7 @@ export default function BlogCard({ post }: { post: Post }) {
                     </p>
 
                     <button className="btn btn-emerald rounded-pill fw-bold w-100 mt-auto transition-colors">
-                        Read Article <i className="fas fa-arrow-right ms-2"></i>
+                        Read Article
                     </button>
                 </div>
 

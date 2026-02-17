@@ -83,7 +83,7 @@ export default function CopyTradingTestimonials() {
                                 </div>
 
                                 {/* Testimonial Text */}
-                                <p className="mb-4" style={{
+                                <p className="mb-4 text-center text-md-start" style={{
                                     color: '#4a5568',
                                     fontSize: '0.95rem',
                                     lineHeight: '1.7',
@@ -110,8 +110,8 @@ export default function CopyTradingTestimonials() {
                                 </div>
 
                                 {/* Author */}
-                                <div className="d-flex align-items-center gap-3">
-                                    <div className="avatar d-flex align-items-center justify-content-center rounded-circle"
+                                <div className="d-flex flex-column align-items-center flex-md-row align-items-md-start gap-3 text-center text-md-start">
+                                    <div className="avatar d-flex align-items-center justify-content-center rounded-circle mx-auto mx-md-0"
                                         style={{
                                             width: '50px',
                                             height: '50px',
@@ -120,7 +120,7 @@ export default function CopyTradingTestimonials() {
                                         }}>
                                         {testimonial.image}
                                     </div>
-                                    <div>
+                                    <div className="flex-grow-1">
                                         <div className="fw-bold" style={{ color: '#1a1a1a' }}>
                                             {testimonial.name}
                                         </div>
@@ -128,7 +128,7 @@ export default function CopyTradingTestimonials() {
                                             {testimonial.role}
                                         </div>
                                     </div>
-                                    <i className="fas fa-badge-check ms-auto"
+                                    <i className="fas fa-badge-check d-none d-md-block"
                                         style={{ color: '#0f664a', fontSize: '20px' }}></i>
                                 </div>
                             </div>

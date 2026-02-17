@@ -108,6 +108,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossOrigin="anonymous" referrerPolicy="no-referrer" />
         <Script id="json-ld" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -140,12 +141,7 @@ export default function RootLayout({
         {children}
         <DynamicWhatsApp />
 
-        {/* Font Awesome - loaded with next/script for better control */}
-        <Script
-          src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
-          strategy="lazyOnload"
-          crossOrigin="anonymous"
-        />
+        {/* Font Awesome is now loaded as CSS in the <head> to prevent DOM conflicts with React */}
 
         {/* Bootstrap JS - lazy loaded since only needed for dropdowns/modals */}
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" strategy="lazyOnload" />

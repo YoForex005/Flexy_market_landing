@@ -85,7 +85,7 @@ export default function Results() {
                             rel="noopener noreferrer"
                             className="btn btn-lg rounded-pill px-5 py-3 d-inline-flex align-items-center gap-2 magic-hover-btn"
                         >
-                            Start Trading Today <i className="fas fa-arrow-right"></i>
+                            Start Trading Today
                         </a>
                     </div>
 

@@ -52,7 +52,7 @@ export default function LiveEducationContent() {
                                 e.currentTarget.style.boxShadow = "0 10px 25px rgba(15, 73, 65, 0.15)";
                             }}
                         >
-                            Open an Account to Access More <i className="fas fa-arrow-right ms-2"></i>
+                            Open an Account to Access More
                         </a>
                     </div>
                 </div>
@@ -172,7 +172,7 @@ export default function LiveEducationContent() {
                                 e.currentTarget.style.boxShadow = "0 10px 25px rgba(15, 73, 65, 0.15)";
                             }}
                         >
-                            Start Now <i className="fas fa-arrow-right ms-2"></i>
+                            Start Now
                         </button>
                     </a>
                 </div>

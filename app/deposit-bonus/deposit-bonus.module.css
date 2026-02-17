@@ -56,19 +56,6 @@
     }
 }
 
-@keyframes bounce {
-
-    0%,
-    100% {
-        transform: translateY(-25%) translateX(-50%);
-        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-    }
-
-    50% {
-        transform: translateY(0) translateX(-50%);
-        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    }
-}
 
 
 .animate-float {
@@ -617,13 +604,6 @@
     /* Navbar account */
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: bounce 2s infinite;
-}
 
 .card-hover {
     transition: all 0.3s ease;

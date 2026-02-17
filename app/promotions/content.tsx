@@ -75,14 +75,13 @@ export default function PromotionsContent() {
                         <div className={`${styles['animate-fadeInUp']} ${styles['delay-300']}`}>
                             <a href="https://user.flexymarkets.com/accounts/signUp">
                                 <button className={`${styles['btn-yellow']} ${styles['animate-pulse-custom']}`}>
-                                    Start Trading Forex →
+                                    Start Trading Forex
                                 </button>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                {/* Scroll Indicator */}
 
             </section>
 
@@ -120,9 +119,6 @@ export default function PromotionsContent() {
                                         </p>
                                         <Link href="/deposit-bonus" className={`${styles['btn-primary-custom']}`}>
                                             Claim Now
-                                            <svg className="w-5 h-5" style={{ width: '20px', height: '20px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                                            </svg>
                                         </Link>
                                     </div>
                                 </div>
@@ -148,9 +144,6 @@ export default function PromotionsContent() {
                                         </p>
                                         <Link href="/flexy-150" className={`${styles['btn-primary-custom']}`}>
                                             Learn More
-                                            <svg className="w-5 h-5" style={{ width: '20px', height: '20px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                                            </svg>
                                         </Link>
                                     </div>
                                 </div>
@@ -187,9 +180,6 @@ export default function PromotionsContent() {
                                         <p className={`${styles['text-gray-600']} small mb-4`}>Trade and earn points that can be redeemed for credit bonus rewards.</p>
                                         <a href="https://user.flexymarkets.com/accounts/signUp" className={`${styles['text-dark-green']} fw-bold text-decoration-none d-inline-flex align-items-center gap-1`}>
                                             Join Now
-                                            <svg className="w-4 h-4" style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                            </svg>
                                         </a>
                                     </div>
                                 </div>
@@ -206,9 +196,6 @@ export default function PromotionsContent() {
                                         <p className={`${styles['text-gray-600']} small mb-4`}>The more people you invite, the more you earn with every successful referral.</p>
                                         <a href="https://user.flexymarkets.com/accounts/signUp" className={`${styles['text-dark-green']} fw-bold text-decoration-none d-inline-flex align-items-center gap-1`}>
                                             Start Earning Now
-                                            <svg className="w-4 h-4" style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                            </svg>
                                         </a>
                                     </div>
                                 </div>
@@ -225,9 +212,6 @@ export default function PromotionsContent() {
                                         <p className={`${styles['text-gray-600']} small mb-4`}>Increase the speed of your trades and eliminate downtime.</p>
                                         <a href="https://user.flexymarkets.com/accounts/signUp" className={`${styles['text-dark-green']} fw-bold text-decoration-none d-inline-flex align-items-center gap-1`}>
                                             Claim Now
-                                            <svg className="w-4 h-4" style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                            </svg>
                                         </a>
                                     </div>
                                 </div>
@@ -244,9 +228,6 @@ export default function PromotionsContent() {
                                         <p className={`${styles['text-gray-600']} small mb-4`}>No hidden fees. Your money is for trading, not paying for the service.</p>
                                         <a href="https://user.flexymarkets.com/accounts/signUp" className={`${styles['text-dark-green']} fw-bold text-decoration-none d-inline-flex align-items-center gap-1`}>
                                             Create Account
-                                            <svg className="w-4 h-4" style={{ width: '16px', height: '16px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                            </svg>
                                         </a>
                                     </div>
                                 </div>
@@ -275,7 +256,7 @@ export default function PromotionsContent() {
                         </p>
                         <a href="https://user.flexymarkets.com/accounts/signUp">
                             <button className={`${styles['btn-yellow']} ${styles['animate-pulse-custom']}`}>
-                                Start Trading Now →
+                                Start Trading Now
                             </button>
                         </a>
                     </div>

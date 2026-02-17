@@ -94,7 +94,7 @@ export default function UnifiedHero({
                             fontSize: '18px'
                         }}
                     >
-                        {ctaText} <i className="fas fa-arrow-right ms-2"></i>
+                        {ctaText}
                     </a>
                 </div>
 

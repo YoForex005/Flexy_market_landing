@@ -169,7 +169,7 @@ export default function MarginLeverageContent() {
                                 border: "none",
                                 transition: "transform 0.2s ease"
                             }}>
-                            Open an Account <i className="fas fa-arrow-right ms-2"></i>
+                            Open an Account
                         </a>
                     </div>
                 </div>

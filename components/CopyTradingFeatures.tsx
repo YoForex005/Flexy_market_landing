@@ -50,14 +50,14 @@ export default function CopyTradingFeatures() {
                 <div className="row g-4">
                     {features.map((feature, index) => (
                         <div key={index} className="col-lg-4 col-md-6">
-                            <div className="feature-card p-4 h-100 rounded-3"
+                            <div className="feature-card p-4 h-100 rounded-3 text-center text-md-start"
                                 style={{
                                     background: '#f8f9fa',
                                     border: '1px solid #e5e7eb',
                                     transition: 'all 0.3s ease'
                                 }}>
                                 <div className="mb-3">
-                                    <div className="icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle"
+                                    <div className="icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle mx-auto mx-md-0"
                                         style={{
                                             width: '60px',
                                             height: '60px',

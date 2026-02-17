@@ -19,7 +19,7 @@ export default function ForexCTA() {
                             fontSize: '18px'
                         }}
                     >
-                        Start Trading Now <i className="fas fa-arrow-right ms-2"></i>
+                        Start Trading Now
                     </button>
                 </a>
             </div>

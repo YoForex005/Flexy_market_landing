@@ -92,7 +92,7 @@ export default function PlatformHero({ paddingTop = "120px", paddingBottom = "10
                         }
                     ].map((item, index) => (
                         <div key={index} className="col-md-4 col-lg-3">
-                            <div className="feature-card p-4 h-100 rounded-4 text-start"
+                            <div className="feature-card p-4 h-100 rounded-4 text-center text-md-start"
                                 style={{
                                     background: item.bg,
                                     backdropFilter: 'blur(10px)',
@@ -100,7 +100,7 @@ export default function PlatformHero({ paddingTop = "120px", paddingBottom = "10
                                     cursor: 'pointer',
                                     transition: 'all 0.3s ease'
                                 }}>
-                                <div className="icon-box mb-3 d-inline-flex align-items-center justify-content-center rounded-3"
+                                <div className="icon-box mb-3 d-inline-flex align-items-center justify-content-center rounded-3 mx-auto mx-md-0"
                                     style={{
                                         width: '48px',
                                         height: '48px',

@@ -64,7 +64,7 @@ export default function AnalyticalToolsContent() {
                                     e.currentTarget.style.boxShadow = "0 10px 25px rgba(15, 73, 65, 0.15)";
                                 }}
                             >
-                                Open an Account <i className="fas fa-arrow-right ms-2"></i>
+                                Open an Account
                             </button>
                         </a>
                     </div>

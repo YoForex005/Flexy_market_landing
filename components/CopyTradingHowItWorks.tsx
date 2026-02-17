@@ -102,7 +102,7 @@ export default function CopyTradingHowItWorks() {
                                                         style={{ fontSize: '36px', color: '#0f664a' }}></i>
                                                 </div>
                                             </div>
-                                            <div className="col-md-10">
+                                            <div className="col-md-10 text-center text-md-start">
                                                 <h4 className="fw-bold mb-2" style={{ color: '#1a1a1a', fontSize: '1.5rem' }}>
                                                     {step.title}
                                                 </h4>
@@ -133,7 +133,6 @@ export default function CopyTradingHowItWorks() {
                             boxShadow: '0 4px 12px rgba(15, 102, 74, 0.3)'
                         }}>
                         Get Started Now
-                        <i className="fas fa-arrow-right ms-2"></i>
                     </a>
                 </div>
             </div>

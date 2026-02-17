@@ -103,7 +103,7 @@ export default function NewsAnalysisContent() {
                                     </p>
                                 </div>
                                 <div className="card-footer bg-white border-0 p-4 pt-0">
-                                    <span className="text-success fw-bold small">Read Analysis <i className="fas fa-arrow-right ms-1"></i></span>
+                                    <span className="text-success fw-bold small">Read Analysis</span>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ export default function NewsAnalysisContent() {
                                     </p>
                                 </div>
                                 <div className="card-footer bg-white border-0 p-4 pt-0">
-                                    <span className="text-success fw-bold small">Read Analysis <i className="fas fa-arrow-right ms-1"></i></span>
+                                    <span className="text-success fw-bold small">Read Analysis</span>
                                 </div>
                             </div>
                         </div>

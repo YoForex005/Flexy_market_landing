@@ -63,13 +63,14 @@ export default function CopyTradingStats() {
                                     style={{
                                         width: '80px',
                                         height: '80px',
-                                        background: stat.bgColor,
-                                        transition: 'all 0.3s ease'
+                                        background: stat.color,
+                                        transition: 'all 0.3s ease',
+                                        boxShadow: `0 8px 16px ${stat.color}33`
                                     }}>
                                     <i className={`fas ${stat.icon}`}
                                         style={{
                                             fontSize: '32px',
-                                            color: stat.color
+                                            color: '#fff'
                                         }}></i>
                                 </div>
                                 <h3 className="fw-bold mb-2" style={{

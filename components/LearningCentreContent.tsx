@@ -181,7 +181,7 @@ export default function LearningCentreContent() {
                                     Discover new market opportunities with Trading Central. Get access to Analyst Views, Daily Market News, and Web TV.
                                 </p>
                                 <div className="text-end mt-auto">
-                                    <i className="fas fa-chart-area display-4 opacity-50"></i>
+                                    <i className="fas fa-chart-area display-4 text-white"></i>
                                 </div>
                             </div>
                         </div>
@@ -192,7 +192,7 @@ export default function LearningCentreContent() {
                                     Stay on top of every economic event that can affect your trading. Filter by date, country, and importance.
                                 </p>
                                 <div className="text-end mt-auto">
-                                    <i className="fas fa-calendar-alt display-4 opacity-50"></i>
+                                    <i className="fas fa-calendar-alt display-4 text-white"></i>
                                 </div>
                             </div>
                         </div>
@@ -210,9 +210,12 @@ export default function LearningCentreContent() {
 
                     <div className="row g-4">
                         <div className="col-lg-3 col-md-6">
-                            <div className="card h-100 border-0 rounded-4 p-4 bg-light text-center">
-                                <div className="mb-3">
-                                    <i className="fas fa-chalkboard-teacher display-4 text-secondary"></i>
+                            <div className="card h-100 border rounded-4 p-4 bg-white text-center shadow-sm community-card">
+                                <div className="mb-3 d-flex justify-content-center">
+                                    <div className="icon-wrapper d-flex align-items-center justify-content-center rounded-circle"
+                                        style={{ width: '80px', height: '80px', background: '#f0fdf4' }}>
+                                        <i className="fas fa-chalkboard-teacher fs-2" style={{ color: '#0f664a' }}></i>
+                                    </div>
                                 </div>
                                 <h3 className="h5 fw-bold mb-2 text-dark">77+ Expert Instructors</h3>
                                 <p className="mb-0 small text-secondary">
@@ -221,9 +224,12 @@ export default function LearningCentreContent() {
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6">
-                            <div className="card h-100 border-0 rounded-4 p-4 bg-light text-center">
-                                <div className="mb-3">
-                                    <i className="fas fa-language display-4 text-secondary"></i>
+                            <div className="card h-100 border rounded-4 p-4 bg-white text-center shadow-sm community-card">
+                                <div className="mb-3 d-flex justify-content-center">
+                                    <div className="icon-wrapper d-flex align-items-center justify-content-center rounded-circle"
+                                        style={{ width: '80px', height: '80px', background: '#f0fdf4' }}>
+                                        <i className="fas fa-language fs-2" style={{ color: '#0f664a' }}></i>
+                                    </div>
                                 </div>
                                 <h3 className="h5 fw-bold mb-2 text-dark">23 Languages</h3>
                                 <p className="mb-0 small text-secondary">
@@ -232,9 +238,12 @@ export default function LearningCentreContent() {
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6">
-                            <div className="card h-100 border-0 rounded-4 p-4 bg-light text-center">
-                                <div className="mb-3">
-                                    <i className="fas fa-gift display-4 text-secondary"></i>
+                            <div className="card h-100 border rounded-4 p-4 bg-white text-center shadow-sm community-card">
+                                <div className="mb-3 d-flex justify-content-center">
+                                    <div className="icon-wrapper d-flex align-items-center justify-content-center rounded-circle"
+                                        style={{ width: '80px', height: '80px', background: '#f0fdf4' }}>
+                                        <i className="fas fa-gift fs-2" style={{ color: '#0f664a' }}></i>
+                                    </div>
                                 </div>
                                 <h3 className="h5 fw-bold mb-2 text-dark">100% Free</h3>
                                 <p className="mb-0 small text-secondary">
@@ -243,9 +252,12 @@ export default function LearningCentreContent() {
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6">
-                            <div className="card h-100 border-0 rounded-4 p-4 bg-light text-center">
-                                <div className="mb-3">
-                                    <i className="fas fa-clock display-4 text-secondary"></i>
+                            <div className="card h-100 border rounded-4 p-4 bg-white text-center shadow-sm community-card">
+                                <div className="mb-3 d-flex justify-content-center">
+                                    <div className="icon-wrapper d-flex align-items-center justify-content-center rounded-circle"
+                                        style={{ width: '80px', height: '80px', background: '#f0fdf4' }}>
+                                        <i className="fas fa-clock fs-2" style={{ color: '#0f664a' }}></i>
+                                    </div>
                                 </div>
                                 <h3 className="h5 fw-bold mb-2 text-dark">Learn at Your Pace</h3>
                                 <p className="mb-0 small text-secondary">
@@ -254,6 +266,18 @@ export default function LearningCentreContent() {
                             </div>
                         </div>
                     </div>
+
+                    <style jsx>{`
+                        .community-card {
+                            transition: all 0.3s ease;
+                            border-color: #f1f5f9 !important;
+                        }
+                        .community-card:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 10px 25px rgba(15, 102, 74, 0.1) !important;
+                            border-color: #0f664a !important;
+                        }
+                    `}</style>
                 </div>
             </section>
 
