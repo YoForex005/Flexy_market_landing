@@ -15,7 +15,7 @@ export default function Features() {
             <div className="row g-0">
                 <section className="every_heading text-center">
                     <div className="my-5 mb-4 px-3">
-                        <h2 className="display-4 fw-bold">Features</h2>
+                        <h2 className="display-4 fw-bold">Advanced Trading Features</h2>
                         <p className="lead text-muted">
                             Explore our platform with instant features, advanced tools, and more!
                         </p>

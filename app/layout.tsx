@@ -31,7 +31,8 @@ export const metadata: Metadata = {
     default: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
     template: '%s | Flexy Markets',
   },
-  description: 'Trade CFD on Forex, Shares, Indices, Commodities & Cryptocurrencies with a regulated broker. Access 1,400+ assets with tight spreads and fast execution.',
+  description: 'Trade CFDs on Forex, Shares, Indices, Commodities & Cryptocurrencies with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets.',
+  keywords: ['MQL5', 'Automated Trading', 'Forex Broker', 'Online Trading', 'CFD Trading', 'Flexy Markets', 'Regulated Broker', 'Algo Trading'],
   openGraph: {
     type: 'website',
     locale: 'en_US',

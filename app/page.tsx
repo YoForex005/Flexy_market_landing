@@ -32,7 +32,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
-  description: 'Trade CFD on Forex, Shares, Indices, Commodities & Cryptocurrencies with a regulated broker. Access 1,400+ assets with tight spreads and fast execution.',
+  description: 'Trade CFDs on Forex, Shares, Indices, Commodities & Cryptocurrencies with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets.',
   alternates: {
     canonical: 'https://flexymarkets.com',
   },

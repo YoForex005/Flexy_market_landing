@@ -28,8 +28,8 @@ const slides: SlideData[] = [
         videoSrc: "/videos/hero-video.mp4",
         customFilter: "none",
         badgeText: "Trusted by over Million Traders",
-        title: "The Broker You Can Trust",
-        subtitle: "The Results You Deserve",
+        title: "Regulated Forex Broker",
+        subtitle: "Optimized for MQL5",
         description: "We offer a superior trading environment that puts traders in the best position to profit.",
         ctaText: "Easy Access to 1,400+ Global Assets"
     },
@@ -39,8 +39,8 @@ const slides: SlideData[] = [
         imageSrc: "/images/girl1.webp",
         customFilter: "none",
         badgeText: "Premium Trading Experience",
-        title: "Join The Elite",
-        subtitle: "Trade With The Best",
+        title: "Premium Trading Environment",
+        subtitle: "Superior Execution",
         description: "Experience lightning fast execution, competitive spreads, and 24/7 dedicated support with Flexy Markets.",
         ctaText: "Start Your Trading Journey Today"
     }

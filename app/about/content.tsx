@@ -73,50 +73,51 @@ export default function AboutContent() {
             </section>
 
             {/* MISSION & VISION */}
-            <section className="py-5 bg-light" style={{ backgroundColor: '#f8fafc' }}>
+            <section className="py-5 bg-light" style={{ backgroundColor: '#f8fafc' }} aria-labelledby="mission-vision-heading">
                 <div className="container py-5">
+                    <h2 id="mission-vision-heading" className="visually-hidden">Mission and Vision</h2>
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-6">
-                            <div className="p-5 bg-white rounded-4 shadow-lg border-0 h-100">
+                            <article className="p-5 bg-white rounded-4 shadow-lg border-0 h-100">
                                 <span className="text-success fw-bold tracking-wider small">OUR MISSION</span>
                                 <h3 className="h2 fw-bold mt-3 mb-4 text-dark">Democratize Trading for Everyone</h3>
                                 <p className="text-secondary lh-lg mb-0">
                                     Our mission is to make trading accessible, transparent, and profitable for everyone.
                                     We strive to provide the best tools, education, and support to empower our clients to succeed in the global markets.
                                 </p>
-                            </div>
+                            </article>
                         </div>
                         <div className="col-lg-6">
-                            <div className="p-5 bg-dark text-white rounded-4 shadow-lg border-0 h-100" style={{ backgroundColor: '#0f4941' }}>
+                            <article className="p-5 bg-dark text-white rounded-4 shadow-lg border-0 h-100" style={{ backgroundColor: '#0f4941' }}>
                                 <span className="text-warning fw-bold tracking-wider small">OUR VISION</span>
                                 <h3 className="h2 fw-bold mt-3 mb-4">Leading the Future of Fintech</h3>
                                 <p className="text-white-50 lh-lg mb-0">
                                     We envision a world where financial freedom is within reach for all. By leveraging advanced technology and innovation, we aim to be the world&apos;s most trusted and reliable trading partner.
                                 </p>
-                            </div>
+                            </article>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* WHY CHOOSE SECTION */}
-            <section className="py-5 text-white position-relative" style={{ backgroundColor: '#0f4941', borderRadius: '50px 50px 0 0' }}>
+            <section className="py-5 text-white position-relative" style={{ backgroundColor: '#0f4941', borderRadius: '50px 50px 0 0' }} aria-labelledby="why-choose-heading">
                 <div className="container py-5">
                     <div className="text-center mb-5">
-                        <h2 className="display-4 fw-bold mb-5">Why Choose Flexy Markets?</h2>
+                        <h2 id="why-choose-heading" className="display-4 fw-bold mb-5">Why Choose Flexy Markets?</h2>
                     </div>
 
-                    <div className="row g-4 px-lg-5">
+                    <ul className="row g-4 px-lg-5 list-unstyled">
                         {[
                             { title: "Unlock Market Potential", desc: "Access a world of trading opportunities with Flexy Markets, powered by cutting-edge AI technology and deep market expertise to help you stay ahead.", icon: "fa-globe" },
                             { title: "Maximize Your Trading Accuracy", desc: "Leverage real-time data and in-depth market analysis to validate your trades, ensuring that every decision is based on accurate and up-to-date information.", icon: "fa-crosshairs" },
                             { title: "Real-Time Insights", desc: "Benefit from instant access to market data and predictive analytics, empowering you to make well-informed, timely decisions for optimal trading performance.", icon: "fa-bolt" },
                             { title: "Empower Your Trading Journey", desc: "Join a community of successful traders using Flexy Markets' intelligent tools, designed to guide your trading strategies and maximize potential profits.", icon: "fa-road" },
                         ].map((item, i) => (
-                            <div key={i} className="col-lg-6">
+                            <li key={i} className="col-lg-6">
                                 <div className="p-4 rounded-4 h-100 d-flex gap-4 align-items-start" style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
                                     <div className="flex-shrink-0 mt-1">
-                                        <i className={`fas ${item.icon} text-success fs-2`}></i>
+                                        <i className={`fas ${item.icon} text-success fs-2`} aria-hidden="true"></i>
                                     </div>
                                     <div>
                                         <h3 className="h5 fw-bold mb-3">{item.title}</h3>
@@ -125,9 +126,9 @@ export default function AboutContent() {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             </section>
 

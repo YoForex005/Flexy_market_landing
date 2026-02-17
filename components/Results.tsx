@@ -54,23 +54,23 @@ export default function Results() {
                     <div className="row g-4 mb-5">
                         <div className="col-lg-4">
                             <div className="p-4 p-lg-5 bg-white rounded-5 shadow-sm border h-100">
-                                <h1 className="fw-bold mb-3" style={{ color: '#0f664a', fontSize: 'clamp(36px, 4vw, 50px)' }}>
+                                <div className="fw-bold mb-3 h1" style={{ color: '#0f664a', fontSize: 'clamp(36px, 4vw, 50px)' }}>
                                     {count1} Billion
-                                </h1>
+                                </div>
                                 <p className="text-muted mb-0">trades have been executed on flexyMarket.</p>
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="p-4 p-lg-5 bg-white rounded-5 shadow-sm border h-100 d-flex flex-column justify-content-center">
-                                <h1 className="fw-bold mb-3" style={{ color: '#0f664a', fontSize: 'clamp(36px, 4vw, 50px)' }}>ZERO</h1>
+                                <div className="fw-bold mb-3 h1" style={{ color: '#0f664a', fontSize: 'clamp(36px, 4vw, 50px)' }}>ZERO</div>
                                 <p className="text-muted mb-0">rejections or requotes on trades.</p>
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="p-4 p-lg-5 bg-white rounded-5 shadow-sm border h-100">
-                                <h1 className="fw-bold mb-3" style={{ color: '#0f664a', fontSize: 'clamp(36px, 4vw, 50px)' }}>
+                                <div className="fw-bold mb-3 h1" style={{ color: '#0f664a', fontSize: 'clamp(36px, 4vw, 50px)' }}>
                                     {count2}%
-                                </h1>
+                                </div>
                                 <p className="text-muted mb-0">of our withdrawals are automatically approved.</p>
                             </div>
                         </div>
