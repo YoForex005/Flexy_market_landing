@@ -6,6 +6,7 @@ import AnimatedBackground from '@/components/AnimatedBackground';
 import Link from 'next/link';
 import BlogStyles from '@/components/BlogStyles';
 import BlogImage from '@/components/BlogImage';
+import BlogViewCounter from '@/components/BlogViewCounter';
 
 // Helper to format date
 const formatDate = (dateString: Date) => {
@@ -146,12 +147,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                                         <span>{formatDate(post.updated_at || post.created_at)}</span>
                                     </div>
                                 )}
-                                {post.views > 0 && (
-                                    <div className="d-flex align-items-center">
-                                        <i className="far fa-eye me-2 fs-5"></i>
-                                        <span>{post.views} views</span>
-                                    </div>
-                                )}
+                                <BlogViewCounter slug={slug} initialViews={Number(post.views || 0)} />
                             </div>
                         </div>
                     </div>

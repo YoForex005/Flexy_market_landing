@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import BlogViewDisplay from '@/components/BlogViewDisplay';
 
 interface Post {
     id: number;
@@ -43,9 +44,7 @@ export default function BlogCard({ post }: { post: Post }) {
                     // onError handled by Next.js automatically or needs separate state, strictly Next/Image doesn't have onError like img. 
                     // For simplicity in this env, we assume valid URLs or fallback logic in parent.
                     />
-                    <div className="position-absolute top-0 end-0 m-3 px-3 py-1 rounded-pill bg-white shadow-sm fw-bold small text-emerald-800" style={{ zIndex: 1 }}>
-                        {displayTag}
-                    </div>
+
                 </div>
 
                 {/* Card Content */}
@@ -60,11 +59,7 @@ export default function BlogCard({ post }: { post: Post }) {
                                 </>
                             )}
                         </div>
-                        {post.views > 0 && (
-                            <div className="d-flex align-items-center" title={`${post.views} views`}>
-                                <i className="far fa-eye me-1"></i> {post.views}
-                            </div>
-                        )}
+                        <BlogViewDisplay slug={post.slug} initialViews={post.views} />
                     </div>
 
                     <h3 className="h5 fw-bold mb-3 text-dark">{post.title}</h3>
