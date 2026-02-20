@@ -1,9 +1,14 @@
 // scripts/test-indexnow.js
 
 async function testIndexNow() {
-    const url = 'http://localhost:3000/api/indexnow/submit';
-    // Use the key found in .env (yoursecretkeyhere) for local testing
-    const apiKey = 'yoursecretkeyhere';
+    const args = process.argv.slice(2);
+    const isProd = args.includes('--prod');
+    const domain = isProd ? 'https://flexymarkets.com' : 'http://localhost:3000';
+    const url = `${domain}/api/indexnow/submit`;
+
+    // Use the key provided via --key=... or default to local testing key
+    const customKeyArg = args.find(a => a.startsWith('--key='));
+    const apiKey = customKeyArg ? customKeyArg.split('=')[1] : 'yoursecretkeyhere';
 
     const payload = {
         url: 'https://flexymarkets.com/test-verification-script'

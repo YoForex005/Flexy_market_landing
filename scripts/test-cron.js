@@ -1,9 +1,14 @@
 // scripts/test-cron.js
 
 async function testCron() {
-    const url = 'http://localhost:3000/api/indexnow/sync';
-    // Use the CRON_SECRET found in .env (yourcronsecrethere)
-    const cronSecret = 'yourcronsecrethere';
+    const args = process.argv.slice(2);
+    const isProd = args.includes('--prod');
+    const domain = isProd ? 'https://flexymarkets.com' : 'http://localhost:3000';
+    const url = `${domain}/api/indexnow/sync`;
+
+    // Use the secret provided via --secret=... or default to local testing secret
+    const customSecretArg = args.find(a => a.startsWith('--secret='));
+    const cronSecret = customSecretArg ? customSecretArg.split('=')[1] : 'yourcronsecrethere';
 
     console.log(`Testing IndexNow Sync (Cron) API at ${url} using GET...`);
 
