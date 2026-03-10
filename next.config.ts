@@ -101,7 +101,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/mt5',
-        destination: '/metatrader-5',
+        destination: '/rtx5',
+        permanent: true,
+      },
+      {
+        source: '/metatrader-5',
+        destination: '/rtx5',
         permanent: true,
       },
     ];

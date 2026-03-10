@@ -31,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/legal-documents',
         '/live-education',
         '/margin-leverage',
-        '/metatrader-5',
+        '/rtx5',
         '/news-analysis',
         '/platforms',
         '/precious-metals',

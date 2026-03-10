@@ -79,7 +79,7 @@ export default function Footer() {
                             {/* Platforms */}
                             <div className="col-lg-2 col-md-4 col-6 mb-4">
                                 <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>PLATFORMS</h6>
-                                <Link href="/metatrader-5" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>RTX 5 Platform</Link>
+                                <Link href="/rtx5" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>RTX 5 Platform</Link>
                             </div>
 
                             {/* Accounts */}
