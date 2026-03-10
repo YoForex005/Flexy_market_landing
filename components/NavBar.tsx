@@ -122,7 +122,7 @@ export default function NavBar() {
                                                         </div>
                                                         <div className="col-3">
                                                             <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Platforms</h6>
-                                                            <Link className="dropdown-item py-2" href="/metatrader-5">MT5 Platform</Link>
+                                                            <Link className="dropdown-item py-2" href="/metatrader-5">RTX 5 Platform</Link>
                                                         </div>
                                                         <div className="col-3">
                                                             <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Our Offerings</h6>
@@ -274,7 +274,7 @@ export default function NavBar() {
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/thematic-indices" style={{ fontSize: '14px' }}>Thematic Indices</Link>
 
                                                 <h6 className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Platforms</h6>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/metatrader-5" style={{ fontSize: '14px' }}>MT5 Platform</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/metatrader-5" style={{ fontSize: '14px' }}>RTX 5 Platform</Link>
 
                                                 <h6 className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Our Offerings</h6>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/flexy-copy-trading" style={{ fontSize: '14px' }}>Flexy Copy Trading</Link>

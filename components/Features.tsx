@@ -1,11 +1,10 @@
-
 "use client";
 
 import { useState } from 'react';
 import Image from 'next/image';
-import tradeInstantlyImg from '../public/images/trade-instantly.webp';
-import advanceToolsImg from '../public/images/advance-tools.webp';
-import expandOkImg from '../public/images/expand-opportunities.webp';
+import tradeInstantlyImg from '../public/rtxmockups/rtx1.png';
+import advanceToolsImg from '../public/rtxmockups/rtx 2.png';
+import expandOkImg from '../public/rtxmockups/rtx 3.png';
 
 export default function Features() {
     const [activeTab, setActiveTab] = useState('trade');
@@ -27,7 +26,7 @@ export default function Features() {
                                 src={tradeInstantlyImg}
                                 alt="Trade Instantly Screenshot"
                                 placeholder="blur"
-                                className="w-100 features-responsive-img"
+                                className=" features-responsive-img"
                             />
                         </div>
                         <div className={`tab-pane fade ${activeTab === 'tools' ? 'show active' : ''}`}>
@@ -35,7 +34,7 @@ export default function Features() {
                                 src={advanceToolsImg}
                                 alt="Use Advanced Tools Screenshot"
                                 placeholder="blur"
-                                className="w-100 features-responsive-img"
+                                className=" features-responsive-img"
                             />
                         </div>
                         <div className={`tab-pane fade ${activeTab === 'expand' ? 'show active' : ''}`}>
@@ -43,7 +42,7 @@ export default function Features() {
                                 src={expandOkImg}
                                 alt="Expand Your Opportunities Screenshot"
                                 placeholder="blur"
-                                className="w-100 features-responsive-img"
+                                className=" features-responsive-img"
                             />
                         </div>
                     </div>
@@ -89,6 +88,7 @@ export default function Features() {
                     backface-visibility: hidden;
                     transform: translateZ(0);
                     transition: none;
+                    margin: 0 auto;
                 }
 
                 .tab-pane {
@@ -106,6 +106,7 @@ export default function Features() {
                 .tab-pane.fade.show {
                     opacity: 1 !important;
                 }
+
                 .feature-nav-btn {
                     padding: 14px 32px !important;
                     font-size: 16px;
@@ -152,40 +153,40 @@ export default function Features() {
                     background: linear-gradient(135deg, #0d5a40 0%, #0b4d35 100%);
                 }
 
+                /* Large screens */
+                @media (min-width: 992px) {
+                    .features-responsive-img {
+                        width: 70vw !important;
+                        max-width: 70vw;
+                        height: auto;
+                        object-fit: contain;
+                    }
+                }
+
+                /* Tablet */
+                @media (min-width: 768px) and (max-width: 991px) {
+                    .features-responsive-img {
+                        max-height: 400px;
+                        max-width: 100%;
+                        width: 100%;
+                        height: auto;
+                        object-fit: contain;
+                    }
+                }
+
+                /* Mobile */
                 @media (max-width: 767px) {
+                    .features-responsive-img {
+                        max-height: 300px;
+                        max-width: 100%;
+                        width: 100%;
+                        height: auto;
+                        object-fit: contain;
+                    }
+
                     .feature-nav-btn {
                         padding: 12px 24px !important;
                         font-size: 14px;
-                    }
-                }
-
-                /* Desktop - Portrait orientation */
-                @media (min-width: 992px) {
-                    .features-responsive-img {
-                        aspect-ratio: auto;
-                        max-height: none;
-                        height: auto;
-                        max-width: 1200px;
-                        width: 100%;
-                        margin: 0 auto;
-                    }
-                }
-
-                /* Tablet - Slightly wider */
-                @media (min-width: 768px) and (max-width: 991px) {
-                    .features-responsive-img {
-                        aspect-ratio: 16/9;
-                        max-height: 400px;
-                        max-width: 100%;
-                    }
-                }
-
-                /* Mobile - Full width, auto height */
-                @media (max-width: 767px) {
-                    .features-responsive-img {
-                        aspect-ratio: 16/9;
-                        max-height: 300px;
-                        max-width: 100%;
                     }
                 }
             `}</style>

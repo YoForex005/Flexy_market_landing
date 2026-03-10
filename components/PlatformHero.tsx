@@ -47,7 +47,7 @@ export default function PlatformHero({ paddingTop = "120px", paddingBottom = "10
                         marginBottom: '100px'
                     }}
                 >
-                    Get Flexy Markets MT5
+                    Get Flexy Markets RTX5
                 </h1>
 
                 {/* Description */}

@@ -78,13 +78,13 @@ export default function PlatformCards() {
                                 <div className="badge bg-emerald-100 text-emerald-800 rounded-pill px-3 py-2 mb-3 fw-bold shadow-sm">
                                     <i className="fas fa-star me-1 text-warning"></i> Professional Choice
                                 </div>
-                                <h3 className="fw-bold mb-2 text-dark display-6" style={{ fontSize: '1.75rem' }}>MT5 Desktop</h3>
+                                <h3 className="fw-bold mb-2 text-dark display-6" style={{ fontSize: '1.75rem' }}>RTX5 Desktop</h3>
                                 <p className="text-muted mb-4 small text-uppercase fw-bold tracking-wider">Windows</p>
                                 <p className="text-slate-600 mb-4 px-2" style={{ lineHeight: '1.6' }}>
                                     The ultimate trading powerhouse. Advanced technical analysis, algorithmic trading, and zero latency.
                                 </p>
 
-                                <a href="https://download.mql5.com/cdn/web/flexy.markets.limited/mt5/flexymarkets5setup.exe"
+                                <a href={process.env.NEXT_PUBLIC_DOWNLOAD_LINK || ""}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn btn-emerald w-100 rounded-pill py-3 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-lg lift-hover-lg">
