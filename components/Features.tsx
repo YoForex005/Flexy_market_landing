@@ -26,7 +26,8 @@ export default function Features() {
                                 src={tradeInstantlyImg}
                                 alt="Trade Instantly Screenshot"
                                 placeholder="blur"
-                                className=" features-responsive-img"
+                                className="features-responsive-img"
+                                style={{ width: '95%', height: 'auto', maxWidth: '95%', margin: '0 auto', display: 'block' }}
                             />
                         </div>
                         <div className={`tab-pane fade ${activeTab === 'tools' ? 'show active' : ''}`}>
@@ -34,7 +35,8 @@ export default function Features() {
                                 src={advanceToolsImg}
                                 alt="Use Advanced Tools Screenshot"
                                 placeholder="blur"
-                                className=" features-responsive-img"
+                                className="features-responsive-img"
+                                style={{ width: '95%', height: 'auto', maxWidth: '95%', margin: '0 auto', display: 'block' }}
                             />
                         </div>
                         <div className={`tab-pane fade ${activeTab === 'expand' ? 'show active' : ''}`}>
@@ -42,7 +44,8 @@ export default function Features() {
                                 src={expandOkImg}
                                 alt="Expand Your Opportunities Screenshot"
                                 placeholder="blur"
-                                className=" features-responsive-img"
+                                className="features-responsive-img"
+                                style={{ width: '95%', height: 'auto', maxWidth: '95%', margin: '0 auto', display: 'block' }}
                             />
                         </div>
                     </div>
@@ -176,17 +179,38 @@ export default function Features() {
 
                 /* Mobile */
                 @media (max-width: 767px) {
-                    .features-responsive-img {
-                        max-height: 300px;
-                        max-width: 100%;
+                    .tab-content {
                         width: 100%;
-                        height: auto;
+                    }
+                    .tab-pane.active {
+                        display: block;
+                        width: 100%;
+                    }
+                    .features-responsive-img {
+                        width: 100% !important;
+                        max-width: 100% !important;
+                        height: auto !important;
                         object-fit: contain;
+                        display: block;
+                        margin: 0 auto;
+                    }
+
+                    .nav.nav-pills {
+                        flex-direction: column !important;
+                        align-items: center !important;
+                        gap: 12px !important;
+                    }
+
+                    .nav-item {
+                        width: 100%;
+                        max-width: 320px;
                     }
 
                     .feature-nav-btn {
-                        padding: 12px 24px !important;
+                        width: 100%;
+                        padding: 12px 16px !important;
                         font-size: 14px;
+                        white-space: normal;
                     }
                 }
             `}</style>
