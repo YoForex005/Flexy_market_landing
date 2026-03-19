@@ -9,7 +9,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Trading Platforms | RTX 5 Web, Desktop & Mobile | Flexy Markets',
-    description: 'Download the advanced MetaTrader 5 (RTX 5) platform for PC, Mac, iOS, or Android. Trade with superior execution and analysis tools.',
+    description: 'Download the advanced RTX 5 platform for PC, Mac, iOS, or Android. Trade with superior execution and analysis tools.',
 };
 
 export default function PlatformsPage() {

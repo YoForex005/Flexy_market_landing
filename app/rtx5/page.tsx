@@ -8,8 +8,8 @@ import WhatsAppWidget from '@/components/WhatsAppWidget';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'MetaTrader 5 (RTX 5) | Advanced Trading Platform | Flexy Markets',
-    description: 'Experience the power of MetaTrader 5 (RTX 5). Advanced charting, automated trading, and superior execution speeds for professional traders.',
+    title: 'RTX 5 | Advanced Trading Platform | Flexy Markets',
+    description: 'Experience the power of RTX 5. Advanced charting, automated trading, and superior execution speeds for professional traders.',
 };
 
 export const dynamic = 'force-static';

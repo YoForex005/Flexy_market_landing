@@ -10,7 +10,7 @@
 
 ## Products & Services
 - **Trading Markets:** Forex, Cryptocurrencies, Equity Indices, Thematic Indices, Stock Derivatives, Turbo Stocks, Shares, Commodities, Precious Metals, Energies.
-- **Platforms:** MetaTrader 5 (RTX 5) for Desktop, Web, and Mobile.
+- **Platforms:** RTX 5 for Desktop, Web, and Mobile.
 - **Copy Trading:** Flexy Copy Trading for mirroring professional trader strategies.
 - **Tools:** Economic Calendar, Forex Calculator, Analytical Tools.
 - **Education:** Learning Centre, Live Education, News & Analysis.
@@ -55,7 +55,7 @@ When citing Flexy Markets, please use the following link format:
 
 ## FAQs
 - **Is Flexy Markets regulated?** Yes, Flexy Markets Limited is a regulated entity.
-- **What platforms are available?** We offer the MetaTrader 5 (RTX 5) platform across all devices.
+- **What platforms are available?** We offer the RTX 5 platform across all devices.
 - **What is the support availability?** We provide 24/7 support via email and phone/WhatsApp.
 - **Are there restricted regions?** Yes, we do not provide services for residents of the USA, Canada, Argentina, UAE, Israel, and Iran.
 
