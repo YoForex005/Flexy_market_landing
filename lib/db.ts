@@ -5,23 +5,45 @@ import { Pool } from 'pg';
 // prevents "too many clients" errors during hot-reloading
 const globalForDb = global as unknown as { pool: Pool };
 
-const connectionString = process.env.DATABASE_URL;
+/**
+ * Lazily create and return the database pool.
+ * This avoids crashing at import time during `next build`
+ * when DATABASE_URL is not available in the build environment.
+ */
+function getPool(): Pool {
+    if (globalForDb.pool) return globalForDb.pool;
 
-if (!connectionString) {
-    throw new Error('DATABASE_URL is not defined in environment variables');
+    const connectionString = process.env.DATABASE_URL;
+
+    if (!connectionString) {
+        throw new Error('DATABASE_URL is not defined in environment variables');
+    }
+
+    const pool = new Pool({
+        connectionString,
+        ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+        connectionTimeoutMillis: 5000,
+        idleTimeoutMillis: 30000,
+        query_timeout: 15000,
+        statement_timeout: 15000,
+        max: 5,
+    });
+
+    globalForDb.pool = pool;
+    return pool;
 }
 
-const pool = globalForDb.pool || new Pool({
-    connectionString,
-    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
-    // Connection timeout settings to prevent hanging on production
-    connectionTimeoutMillis: 5000, // 5 seconds to connect
-    idleTimeoutMillis: 30000, // Close idle connections after 30s
-    query_timeout: 15000, // 15 seconds max query time
-    statement_timeout: 15000, // 15 seconds max statement time
-    max: 5, // Limit pool size to prevent connection flooding
+// Default export: a Proxy that forwards all property access / method calls
+// to the lazily-initialised pool, so every existing `import pool from './db'`
+// continues to work without changes.
+const lazyPool = new Proxy({} as Pool, {
+    get(_target, prop, receiver) {
+        const pool = getPool();
+        const value = Reflect.get(pool, prop, receiver);
+        return typeof value === 'function' ? value.bind(pool) : value;
+    },
 });
 
-if (process.env.NODE_ENV !== 'production') globalForDb.pool = pool;
+export { getPool };
+export default lazyPool;
 
-export default pool;
