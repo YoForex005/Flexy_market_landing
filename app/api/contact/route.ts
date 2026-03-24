@@ -20,10 +20,15 @@ export async function POST(request: Request) {
             }
         });
 
-        // Email HTML template
-        const emailHTML = `
+        const logoUrl = 'https://flexymarkets.com/hd_logo.webp';
+
+        // 1. Support Notification Email
+        const supportEmailHTML = `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e7eb; border-radius: 10px;">
-                <h2 style="color: #0f4941; margin-bottom: 20px;">New Contact Form Submission</h2>
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <img src="${logoUrl}" alt="Flexy Markets Logo" style="height: 50px; width: auto;">
+                </div>
+                <h2 style="color: #0f4941; margin-bottom: 20px; text-align: center;">New Contact Form Submission</h2>
                 
                 <div style="background: #f8fcfb; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
                     <h3 style="color: #0f4941; margin-top: 0;">Contact Information</h3>
@@ -37,26 +42,56 @@ export async function POST(request: Request) {
                     <p style="white-space: pre-wrap;">${message}</p>
                 </div>
                 
-                <p style="margin-top: 20px; color: #6b7280; font-size: 12px;">
+                <p style="margin-top: 20px; color: #6b7280; font-size: 12px; text-align: center;">
                     This email was sent from the Flexy Markets contact form.
                 </p>
             </div>
         `;
 
-        // Email options - Sending to BOTH addresses
-        const mailOptions = {
-            from: 'support@flexymarkets.com',
-            to: 'support@flexymarkets.com, financewithyoforex@gmail.com', // Both recipients
-            subject: `Contact Form: ${subject} - from ${name}`,
-            html: emailHTML,
-            replyTo: email // Allow direct reply to the sender
-        };
+        // 2. User Confirmation Email
+        const userEmailHTML = `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e7eb; border-radius: 10px;">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <img src="${logoUrl}" alt="Flexy Markets Logo" style="height: 50px; width: auto;">
+                </div>
+                <h2 style="color: #0f4941; margin-bottom: 20px; text-align: center;">Message Received</h2>
+                
+                <p>Hello ${name},</p>
+                <p>Thank you for contacting Flexy Markets. We have received your message regarding "<strong>${subject}</strong>" and our support team will get back to you shortly.</p>
+                
+                <div style="background: #f8fcfb; padding: 15px; border-radius: 8px; margin-top: 20px; border: 1px solid #e5e7eb;">
+                    <p style="margin: 0; color: #6b7280; font-style: italic;">"We are committed to providing you with the best trading experience. Our team is available 24/7 to assist you."</p>
+                </div>
+                
+                <p style="margin-top: 30px;">Best regards,<br>The Flexy Markets Team</p>
+                
+                <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 30px 0;">
+                
+                <p style="color: #6b7280; font-size: 11px; text-align: center;">
+                    This is an automated response. Please do not reply directly to this email.
+                </p>
+            </div>
+        `;
 
-        // Send email
-        await transporter.sendMail(mailOptions);
+        // Send to Support
+        await transporter.sendMail({
+            from: '"Flexy Markets Support" <support@flexymarkets.com>',
+            to: 'support@flexymarkets.com',
+            subject: `Contact Form: ${subject} - from ${name}`,
+            html: supportEmailHTML,
+            replyTo: email
+        });
+
+        // Send to User
+        await transporter.sendMail({
+            from: '"Flexy Markets Support" <support@flexymarkets.com>',
+            to: email,
+            subject: `Thanks for contacting Flexy Markets!`,
+            html: userEmailHTML
+        });
 
         return NextResponse.json(
-            { message: 'Email sent successfully to both addresses' },
+            { message: 'Emails sent successfully' },
             { status: 200 }
         );
     } catch (error) {

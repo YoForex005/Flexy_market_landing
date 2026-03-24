@@ -18,13 +18,29 @@ export default function ContactContent() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setSubmitStatus('idle');
 
-        // Simulator API call
-        setTimeout(() => {
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setSubmitStatus('success');
+                setFormData({ name: '', email: '', subject: '', message: '' });
+            } else {
+                setSubmitStatus('error');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            setSubmitStatus('error');
+        } finally {
             setIsSubmitting(false);
-            setSubmitStatus('success');
-            setFormData({ name: '', email: '', subject: '', message: '' });
-        }, 1500);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -194,6 +210,13 @@ export default function ContactContent() {
                                             <div className="col-12 mt-3">
                                                 <div className="alert alert-success rounded-pill text-center" role="alert">
                                                     Message sent successfully! We&apos;ll get back to you soon.
+                                                </div>
+                                            </div>
+                                        )}
+                                        {submitStatus === 'error' && (
+                                            <div className="col-12 mt-3">
+                                                <div className="alert alert-danger rounded-pill text-center" role="alert">
+                                                    Failed to send message. Please try again later or contact us directly.
                                                 </div>
                                             </div>
                                         )}
