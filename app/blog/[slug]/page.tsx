@@ -7,6 +7,8 @@ import Link from 'next/link';
 import BlogStyles from '@/components/BlogStyles';
 import BlogImage from '@/components/BlogImage';
 import BlogViewCounter from '@/components/BlogViewCounter';
+import BlogFaq from '@/components/BlogFaq';
+import { normalizeBlogFaq } from '@/lib/blogFaq';
 
 // Helper to format date
 const formatDate = (dateString: Date) => {
@@ -113,6 +115,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     contentHtml = contentHtml.replace(/<h1[^>]*>(.*?)<\/h1>/gi, '<h2>$1</h2>'); // Replace others with H2
 
     const tags = post.tags ? post.tags.split(',').map((t: string) => t.trim()) : [];
+    const faqItems = normalizeBlogFaq(post.faq_json);
 
     return (
         <main className="position-relative bg-white" style={{ minHeight: "100vh" }}>
@@ -178,6 +181,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                                 className="blog-content fs-5 text-dark lh-lg"
                                 dangerouslySetInnerHTML={{ __html: contentHtml }}
                             />
+
+                            <BlogFaq items={faqItems} />
 
                             {/* Tags List */}
                             {tags.length > 0 && (
