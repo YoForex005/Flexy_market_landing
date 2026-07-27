@@ -11,6 +11,7 @@ interface MappedPost {
     content: string;
     image_url: string;
     author: string;
+    published_at: Date | null;
     created_at: Date | null;
     updated_at: Date | null;
     tags: string[];
@@ -32,21 +33,44 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
 
         // Get total count for pagination statements (with 10s timeout)
         const countRes = await withTimeout(
-            pool.query('SELECT COUNT(*) FROM blogs WHERE status = $1', ['published']),
+            pool.query(
+                `SELECT COUNT(*)
+                 FROM blogs b
+                 INNER JOIN LATERAL (
+                     SELECT BTRIM(sm.seo_slug) AS seo_slug
+                     FROM seo_meta sm
+                     WHERE sm.post_id = b.id
+                       AND NULLIF(BTRIM(sm.seo_slug), '') IS NOT NULL
+                     ORDER BY sm.id DESC
+                     LIMIT 1
+                 ) sm ON TRUE
+                 WHERE b.status = $1`,
+                ['published']
+            ),
             10000,
             'Database count query timed out'
         );
         const total = parseInt(countRes.rows[0].count);
 
-        // Fetch paginated data - JOIN with seo_meta table to get slug (with 10s timeout)
-        // Added updated_at to the selection
+        // Fetch one deterministic archive row per eligible published blog.
         const res = await withTimeout(
             pool.query(
-                `SELECT b.id, b.title, sm.seo_slug as slug, b.featured_image, b.author, b.created_at, b.updated_at, b.tags, b.views, substring(b.content from 1 for 200) as content_snippet
+                `SELECT b.id, b.title, sm.seo_slug AS slug, b.featured_image, b.author,
+                        b.published_at, b.created_at, b.updated_at, b.tags, b.views,
+                        SUBSTRING(b.content FROM 1 FOR 200) AS content_snippet
                  FROM blogs b
-                 LEFT JOIN seo_meta sm ON b.id = sm.post_id
+                 INNER JOIN LATERAL (
+                     SELECT BTRIM(sm.seo_slug) AS seo_slug
+                     FROM seo_meta sm
+                     WHERE sm.post_id = b.id
+                       AND NULLIF(BTRIM(sm.seo_slug), '') IS NOT NULL
+                     ORDER BY sm.id DESC
+                     LIMIT 1
+                 ) sm ON TRUE
                  WHERE b.status = $1
-                 ORDER BY b.updated_at DESC, b.created_at DESC
+                 ORDER BY
+                     COALESCE(b.updated_at, b.published_at, b.created_at) DESC NULLS LAST,
+                     b.id DESC
                  LIMIT $2 OFFSET $3`,
                 ['published', limit, offset]
             ),
@@ -72,6 +96,7 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
                         : `/images/${row.featured_image}`)
                     : '/images/candlestick-chart-3d.webp',
                 author: row.author || 'Flexy Team',
+                published_at: row.published_at,
                 created_at: row.created_at, // Can be null
                 updated_at: row.updated_at, // Can be null
                 tags: row.tags ? row.tags.split(',').map((tag: string) => tag.trim()) : [],
@@ -122,7 +147,7 @@ export default async function BlogGrid({ page }: { page: number }) {
             <div className="row g-4 justify-content-center">
                 {result.data.map((post) => {
                     // Calculate date to display
-                    const dateToUse = post.updated_at || post.created_at;
+                    const dateToUse = post.updated_at || post.published_at || post.created_at;
                     const formattedDate = dateToUse ? new Date(dateToUse).toLocaleDateString('en-GB', {
                         day: '2-digit',
                         month: '2-digit',
@@ -133,7 +158,7 @@ export default async function BlogGrid({ page }: { page: number }) {
                         <div key={post.id} className="col-lg-4 col-md-6">
                             <BlogCard post={{
                                 ...post,
-                                // Use updated_at if available, otherwise created_at
+                                // Use the same timestamp precedence as archive ordering.
                                 created_at: formattedDate,
                                 // Ensure tags and views are passed through
                                 tags: post.tags,

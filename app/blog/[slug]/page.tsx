@@ -31,7 +31,8 @@ async function getPost(slug: string) {
             `SELECT b.*
              FROM blogs b
              INNER JOIN seo_meta sm ON b.id = sm.post_id
-             WHERE sm.seo_slug = $1`,
+             WHERE sm.seo_slug = $1
+               AND b.status = 'published'`,
             [slug]
         );
 
@@ -141,10 +142,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                                     <i className="fas fa-user-circle me-2 fs-5"></i>
                                     <span className="fw-medium">{post.author || 'Flexy Team'}</span>
                                 </div>
-                                {(post.updated_at || post.created_at) && (
+                                {(post.updated_at || post.published_at || post.created_at) && (
                                     <div className="d-flex align-items-center me-4">
                                         <i className="far fa-calendar-alt me-2 fs-5"></i>
-                                        <span>{formatDate(post.updated_at || post.created_at)}</span>
+                                        <span>{formatDate(post.updated_at || post.published_at || post.created_at)}</span>
                                     </div>
                                 )}
                                 <BlogViewCounter slug={slug} initialViews={Number(post.views || 0)} />

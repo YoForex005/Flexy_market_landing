@@ -59,12 +59,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     };
 
     try {
-        // Set a 10 second timeout for the database query - JOIN with seo_meta table
+        // Return one sitemap row per eligible published blog.
         const res = await withTimeout(
-            pool.query<{ slug: string; created_at: Date }>(
-                `SELECT sm.seo_slug as slug, b.created_at
+            pool.query<{ slug: string; last_modified: Date | null }>(
+                `SELECT sm.seo_slug AS slug,
+                        COALESCE(b.updated_at, b.published_at, b.created_at) AS last_modified
                  FROM blogs b
-                 INNER JOIN seo_meta sm ON b.id = sm.post_id
+                 INNER JOIN LATERAL (
+                     SELECT BTRIM(sm.seo_slug) AS seo_slug
+                     FROM seo_meta sm
+                     WHERE sm.post_id = b.id
+                       AND NULLIF(BTRIM(sm.seo_slug), '') IS NOT NULL
+                     ORDER BY sm.id DESC
+                     LIMIT 1
+                 ) sm ON TRUE
                  WHERE b.status = 'published'`
             ),
             10000
@@ -72,7 +80,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         blogRoutes = res.rows.map((post) => ({
             url: `${BASE_URL}/blog/${post.slug}`,
-            lastModified: post.created_at,
+            ...(post.last_modified ? { lastModified: post.last_modified } : {}),
             changeFrequency: 'weekly' as const,
             priority: 0.6,
         }));
