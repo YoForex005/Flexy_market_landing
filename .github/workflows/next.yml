@@ -28,7 +28,7 @@ jobs:
           script: |
             set -Eeuo pipefail
 
-            APP_DIR="/home/ubuntu/Flexy_market_landing"
+            APP_DIR="/home/ubuntu/Flexy_market_landing/"
             COMMIT_SHA="${{ github.sha }}"
 
             cd "$APP_DIR"
