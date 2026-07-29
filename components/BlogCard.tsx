@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import BlogViewDisplay from '@/components/BlogViewDisplay';
+import { BLOG_AUTHOR } from '@/lib/siteIdentity';
 
 interface Post {
     id: number;
@@ -11,7 +12,6 @@ interface Post {
     excerpt: string;
     content: string;
     image_url: string;
-    author: string;
     created_at?: string | null;
     tags: string[];
     views: number;
@@ -51,7 +51,7 @@ export default function BlogCard({ post }: { post: Post }) {
                 <div className="card-body p-4 d-flex flex-column">
                     <div className="d-flex align-items-center mb-3 text-muted small justify-content-between">
                         <div className="d-flex align-items-center">
-                            <i className="fas fa-user-circle me-2"></i> {post.author}
+                            <i className="fas fa-user-circle me-2"></i> {BLOG_AUTHOR}
                             {post.created_at && (
                                 <>
                                     <span className="mx-2">•</span>

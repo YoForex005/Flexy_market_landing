@@ -6,6 +6,7 @@ import './globals.css';
 import dynamic from 'next/dynamic';
 import Loader from '@/components/Loader';
 import JsonLd from '@/components/JsonLd';
+import { BLOG_AUTHOR, SITE_PUBLISHER } from '@/lib/siteIdentity';
 
 import DynamicWhatsApp from '@/components/DynamicWhatsApp';
 
@@ -27,6 +28,8 @@ const tomato = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://flexymarkets.com'),
+  authors: [{ name: BLOG_AUTHOR }],
+  publisher: SITE_PUBLISHER,
   title: {
     default: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
     template: '%s | Flexy Markets',
@@ -82,7 +85,7 @@ export default function RootLayout({
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Flexy Markets',
+    name: SITE_PUBLISHER,
     url: 'https://flexymarkets.com',
     logo: 'https://flexymarkets.com/images/logo.png',
     sameAs: [
@@ -113,7 +116,7 @@ export default function RootLayout({
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "https://schema.org/Corporation",
-            "name": "Flexy Markets",
+            "name": SITE_PUBLISHER,
             "url": "https://flexymarkets.com",
             "logo": "https://flexymarkets.com/images/header_logo_dark.png",
             "sameAs": [

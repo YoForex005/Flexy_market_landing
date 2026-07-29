@@ -10,7 +10,6 @@ interface MappedPost {
     excerpt: string;
     content: string;
     image_url: string;
-    author: string;
     published_at: Date | null;
     created_at: Date | null;
     updated_at: Date | null;
@@ -55,7 +54,7 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
         // Fetch one deterministic archive row per eligible published blog.
         const res = await withTimeout(
             pool.query(
-                `SELECT b.id, b.title, sm.seo_slug AS slug, b.featured_image, b.author,
+                `SELECT b.id, b.title, sm.seo_slug AS slug, b.featured_image,
                         b.published_at, b.created_at, b.updated_at, b.tags, b.views,
                         SUBSTRING(b.content FROM 1 FOR 200) AS content_snippet
                  FROM blogs b
@@ -95,7 +94,6 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
                         ? row.featured_image
                         : `/images/${row.featured_image}`)
                     : '/images/candlestick-chart-3d.webp',
-                author: row.author || 'Flexy Team',
                 published_at: row.published_at,
                 created_at: row.created_at, // Can be null
                 updated_at: row.updated_at, // Can be null

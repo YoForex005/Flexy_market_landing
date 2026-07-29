@@ -9,6 +9,7 @@ import BlogImage from '@/components/BlogImage';
 import BlogViewCounter from '@/components/BlogViewCounter';
 import BlogFaq from '@/components/BlogFaq';
 import { normalizeBlogFaq } from '@/lib/blogFaq';
+import { BLOG_AUTHOR, SITE_PUBLISHER } from '@/lib/siteIdentity';
 
 // Helper to format date
 const formatDate = (dateString: Date) => {
@@ -65,6 +66,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title: `${post.title} | Flexy Markets Blog`,
         description: post.excerpt || `Read ${post.title} on Flexy Markets Blog.`,
+        authors: [{ name: BLOG_AUTHOR }],
+        publisher: SITE_PUBLISHER,
         openGraph: {
             title: post.title,
             description: post.excerpt || `Read ${post.title} on Flexy Markets Blog.`,
@@ -143,7 +146,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                             <div className="d-flex align-items-center justify-content-center text-secondary mb-5">
                                 <div className="d-flex align-items-center me-4">
                                     <i className="fas fa-user-circle me-2 fs-5"></i>
-                                    <span className="fw-medium">{post.author || 'Flexy Team'}</span>
+                                    <span className="fw-medium">{BLOG_AUTHOR}</span>
                                 </div>
                                 {(post.updated_at || post.published_at || post.created_at) && (
                                     <div className="d-flex align-items-center me-4">
