@@ -47,5 +47,4 @@ jobs:
             pm2 restart flexi-market --update-env
 
             pm2 save
-
             echo "Deployment successful"
