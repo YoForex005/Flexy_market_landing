@@ -1,6 +1,7 @@
 import pool from '@/lib/db';
 import BlogCard from '@/components/BlogCard';
 import Link from 'next/link';
+import { BLOG_AUTHOR } from '@/lib/siteIdentity';
 
 // Define interface locally if not present globally
 interface MappedPost {
@@ -10,6 +11,7 @@ interface MappedPost {
     excerpt: string;
     content: string;
     image_url: string;
+    author: string;
     published_at: Date | null;
     created_at: Date | null;
     updated_at: Date | null;
@@ -54,7 +56,7 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
         // Fetch one deterministic archive row per eligible published blog.
         const res = await withTimeout(
             pool.query(
-                `SELECT b.id, b.title, sm.seo_slug AS slug, b.featured_image,
+                `SELECT b.id, b.title, sm.seo_slug AS slug, b.featured_image, b.author,
                         b.published_at, b.created_at, b.updated_at, b.tags, b.views,
                         SUBSTRING(b.content FROM 1 FOR 200) AS content_snippet
                  FROM blogs b
@@ -94,6 +96,7 @@ async function getPosts(page: number = 1, limit: number = 12): Promise<{ success
                         ? row.featured_image
                         : `/images/${row.featured_image}`)
                     : '/images/candlestick-chart-3d.webp',
+                author: row.author || BLOG_AUTHOR,
                 published_at: row.published_at,
                 created_at: row.created_at, // Can be null
                 updated_at: row.updated_at, // Can be null
@@ -144,21 +147,25 @@ export default async function BlogGrid({ page }: { page: number }) {
         <>
             <div className="row g-4 justify-content-center">
                 {result.data.map((post) => {
-                    // Calculate date to display
-                    const dateToUse = post.updated_at || post.published_at || post.created_at;
-                    const formattedDate = dateToUse ? new Date(dateToUse).toLocaleDateString('en-GB', {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric'
-                    }) : null;
+                    const formatDate = (value: Date | string | null) =>
+                        value
+                            ? new Date(value).toLocaleDateString('en-GB', {
+                                day: '2-digit',
+                                month: '2-digit',
+                                year: 'numeric'
+                            })
+                            : null;
+
+                    const publishedDate = post.published_at || post.created_at;
 
                     return (
                         <div key={post.id} className="col-lg-4 col-md-6">
                             <BlogCard post={{
                                 ...post,
-                                // Use the same timestamp precedence as archive ordering.
-                                created_at: formattedDate,
-                                // Ensure tags and views are passed through
+                                author: post.author,
+                                published_at: formatDate(publishedDate),
+                                created_at: formatDate(post.created_at),
+                                updated_at: formatDate(post.updated_at),
                                 tags: post.tags,
                                 views: post.views
                             }} />

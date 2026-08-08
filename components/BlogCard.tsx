@@ -12,7 +12,10 @@ interface Post {
     excerpt: string;
     content: string;
     image_url: string;
+    author?: string | null;
     created_at?: string | null;
+    published_at?: string | null;
+    updated_at?: string | null;
     tags: string[];
     views: number;
 }
@@ -20,6 +23,9 @@ interface Post {
 export default function BlogCard({ post }: { post: Post }) {
     // Use the first tag or default to 'Market Insights' if no tags
     const displayTag = post.tags && post.tags.length > 0 ? post.tags[0] : 'Market Insights';
+    const authorName = post.author || BLOG_AUTHOR;
+    const publishedLabel = post.published_at || post.created_at || null;
+    const updatedLabel = post.updated_at || null;
 
     return (
 
@@ -49,14 +55,23 @@ export default function BlogCard({ post }: { post: Post }) {
 
                 {/* Card Content */}
                 <div className="card-body p-4 d-flex flex-column">
-                    <div className="d-flex align-items-center mb-3 text-muted small justify-content-between">
-                        <div className="d-flex align-items-center">
-                            <i className="fas fa-user-circle me-2"></i> {BLOG_AUTHOR}
-                            {post.created_at && (
-                                <>
-                                    <span className="mx-2">•</span>
-                                    <i className="far fa-calendar-alt me-2"></i> {post.created_at}
-                                </>
+                    <div className="d-flex align-items-start mb-3 text-muted small justify-content-between gap-2">
+                        <div className="d-flex flex-column gap-1">
+                            <div className="d-flex align-items-center">
+                                <i className="fas fa-user-circle me-2"></i>
+                                <span className="fw-medium text-dark">{authorName}</span>
+                            </div>
+                            {publishedLabel && (
+                                <div className="d-flex align-items-center">
+                                    <i className="far fa-calendar-alt me-2"></i>
+                                    <span>Published {publishedLabel}</span>
+                                </div>
+                            )}
+                            {updatedLabel && (
+                                <div className="d-flex align-items-center">
+                                    <i className="fas fa-sync-alt me-2"></i>
+                                    <span>Updated {updatedLabel}</span>
+                                </div>
                             )}
                         </div>
                         <BlogViewDisplay slug={post.slug} initialViews={post.views} />

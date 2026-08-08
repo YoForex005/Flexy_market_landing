@@ -7,9 +7,11 @@ import Link from 'next/link';
 import BlogStyles from '@/components/BlogStyles';
 import BlogImage from '@/components/BlogImage';
 import BlogViewCounter from '@/components/BlogViewCounter';
+import BlogAuthorInfo from '@/components/BlogAuthorInfo';
 import BlogFaq from '@/components/BlogFaq';
 import { normalizeBlogFaq } from '@/lib/blogFaq';
 import { BLOG_AUTHOR, SITE_PUBLISHER } from '@/lib/siteIdentity';
+import type { Metadata } from 'next';
 
 // Helper to format date
 const formatDate = (dateString: Date) => {
@@ -47,12 +49,6 @@ async function getPost(slug: string) {
     }
 }
 
-import type { Metadata } from 'next';
-
-// ... (previous imports)
-
-// ... (getPost function remains the same)
-
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
     const post = await getPost(slug);
@@ -63,16 +59,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         };
     }
 
+    const authorName = post.author || BLOG_AUTHOR;
+    const publishedDate = post.published_at || post.created_at;
+    const updatedDate = post.updated_at || publishedDate;
+
     return {
         title: `${post.title} | Flexy Markets Blog`,
         description: post.excerpt || `Read ${post.title} on Flexy Markets Blog.`,
-        authors: [{ name: BLOG_AUTHOR }],
+        authors: [{ name: authorName }],
         publisher: SITE_PUBLISHER,
         openGraph: {
             title: post.title,
             description: post.excerpt || `Read ${post.title} on Flexy Markets Blog.`,
             images: post.featured_image ? [fixImagePath(post.featured_image)] : [],
             type: 'article',
+            publishedTime: publishedDate ? new Date(publishedDate).toISOString() : undefined,
+            modifiedTime: updatedDate ? new Date(updatedDate).toISOString() : undefined,
+            authors: [authorName],
         },
         twitter: {
             card: 'summary_large_image',
@@ -111,7 +114,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     let contentHtml = post.content || '';
 
     // Remove any H1 tags (and their content if it's the title) to avoid duplicates
-    // Strategy: 
+    // Strategy:
     // 1. Try to find H1 at the start and remove it.
     // 2. Replace any other H1 with H2.
     contentHtml = contentHtml.replace(/<h1[^>]*>.*?<\/h1>/i, ''); // Remove first H1
@@ -119,6 +122,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
     const tags = post.tags ? post.tags.split(',').map((t: string) => t.trim()) : [];
     const faqItems = normalizeBlogFaq(post.faq_json);
+    const authorName = post.author || BLOG_AUTHOR;
+    const publishedDate = post.published_at || post.created_at;
+    const updatedDate = post.updated_at || null;
 
     return (
         <main className="position-relative bg-white" style={{ minHeight: "100vh" }}>
@@ -143,23 +149,43 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                                 {post.title}
                             </h1>
 
-                            <div className="d-flex align-items-center justify-content-center text-secondary mb-5">
-                                <div className="d-flex align-items-center me-4">
-                                    <i className="fas fa-user-circle me-2 fs-5"></i>
-                                    <span className="fw-medium">{BLOG_AUTHOR}</span>
-                                </div>
-                                {(post.updated_at || post.published_at || post.created_at) && (
-                                    <div className="d-flex align-items-center me-4">
-                                        <i className="far fa-calendar-alt me-2 fs-5"></i>
-                                        <span>{formatDate(post.updated_at || post.published_at || post.created_at)}</span>
+                            <div className="mb-4">
+                                <BlogAuthorInfo
+                                    name={authorName}
+                                    credentials={post.author_credentials}
+                                    bio={post.author_bio}
+                                >
+                                    {publishedDate && (
+                                        <div className="d-flex align-items-center flex-shrink-0">
+                                            <i className="far fa-calendar-alt me-2 fs-5"></i>
+                                            <span>
+                                                <span className="text-muted me-1">Published</span>
+                                                <time dateTime={new Date(publishedDate).toISOString()}>
+                                                    {formatDate(publishedDate)}
+                                                </time>
+                                            </span>
+                                        </div>
+                                    )}
+                                    {updatedDate && (
+                                        <div className="d-flex align-items-center flex-shrink-0">
+                                            <i className="fas fa-sync-alt me-2 fs-5"></i>
+                                            <span>
+                                                <span className="text-muted me-1">Updated</span>
+                                                <time dateTime={new Date(updatedDate).toISOString()}>
+                                                    {formatDate(updatedDate)}
+                                                </time>
+                                            </span>
+                                        </div>
+                                    )}
+                                    <div className="flex-shrink-0">
+                                        <BlogViewCounter slug={slug} initialViews={Number(post.views || 0)} />
                                     </div>
-                                )}
-                                <BlogViewCounter slug={slug} initialViews={Number(post.views || 0)} />
+                                </BlogAuthorInfo>
                             </div>
                         </div>
                     </div>
 
-                    {/* Featured Image */}
+                    {/* Featured Image — this is what shifts down when author panel opens */}
                     {post.featured_image && (
                         <div className="row justify-content-center mb-5">
                             <div className="col-lg-10">
