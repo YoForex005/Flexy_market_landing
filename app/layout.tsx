@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   authors: [{ name: BLOG_AUTHOR }],
   publisher: SITE_PUBLISHER,
   title: {
-    default: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
+    default: 'Flexy Markets | Regulated Forex, CFD & Crypto Broker',
     template: '%s | Flexy Markets',
   },
   description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',

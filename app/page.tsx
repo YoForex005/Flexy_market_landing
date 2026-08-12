@@ -32,23 +32,32 @@ const Support = dynamic(() => import('@/components/Support'), {
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
+  title: 'Flexy Markets | Regulated Forex, CFD & Crypto Broker',
   description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
   alternates: {
     canonical: 'https://flexymarkets.com',
   },
   openGraph: {
-    title: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
+    title: 'Flexy Markets | Regulated Forex, CFD & Crypto Broker',
     description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
     url: 'https://flexymarkets.com',
     siteName: 'Flexy Markets',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/hd_logo.webp',
+        width: 1500,
+        height: 696,
+        alt: 'Flexy Markets',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
+    title: 'Flexy Markets | Regulated Forex, CFD & Crypto Broker',
     description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
+    images: ['/hd_logo.webp'],
   },
 };
 
@@ -58,7 +67,7 @@ export default function Home() {
     '@type': 'WebPage',
     '@id': 'https://flexymarkets.com/#webpage',
     url: 'https://flexymarkets.com/',
-    name: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
+    name: 'Flexy Markets | Regulated Forex, CFD & Crypto Broker',
     description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
     isPartOf: {
       '@type': 'WebSite',
