@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, type CSSProperties, type ReactNode } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useMobile } from '@/hooks/useMobile';
@@ -47,6 +47,17 @@ const slides: SlideData[] = [
 ];
 
 const SLIDE_DURATION = 15000;
+
+type HeroHeadingProps = {
+    as: 'h1' | 'h2';
+    className: string;
+    style: CSSProperties;
+    children: ReactNode;
+};
+
+function HeroHeading({ as: Tag, ...props }: HeroHeadingProps) {
+    return <Tag {...props} />;
+}
 
 export default function Hero() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -172,7 +183,8 @@ export default function Hero() {
                                 {slide.badgeText}
                             </span>
                         </div>
-                        <h1
+                        <HeroHeading
+                            as={index === 0 ? 'h1' : 'h2'}
                             className="mb-4 hero-title"
                             style={{
                                 color: "#ffffff",
@@ -187,7 +199,7 @@ export default function Hero() {
                             <span className="text-gradient-premium">
                                 {slide.subtitle}
                             </span>
-                        </h1>
+                        </HeroHeading>
                         <p
                             className="mx-auto mb-4 hero-description"
                             style={{

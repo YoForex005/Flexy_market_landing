@@ -43,10 +43,8 @@ export const metadata: Metadata = {
     siteName: 'Flexy Markets',
     images: [
       {
-        url: '/images/og-image.jpg', // Ensure this exists or use a placeholder
-        width: 1200,
-        height: 630,
-        alt: 'Flexy Markets - Regulated Online Trading',
+        url: '/hd_logo.webp',
+        alt: 'Flexy Markets',
       },
     ],
   },
@@ -84,23 +82,35 @@ export default function RootLayout({
 }) {
   const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: SITE_PUBLISHER,
-    url: 'https://flexymarkets.com',
-    logo: 'https://flexymarkets.com/images/logo.png',
-    sameAs: [
-      'https://www.facebook.com/FlexyMarkets',
-      'https://twitter.com/FlexyMarkets',
-      'https://www.instagram.com/flexymarkets',
-      'https://www.linkedin.com/company/flexy-markets',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': 'https://flexymarkets.com/#organization',
+        name: SITE_PUBLISHER,
+        url: 'https://flexymarkets.com',
+        logo: 'https://flexymarkets.com/hd_logo.webp',
+        sameAs: [
+          'https://www.facebook.com/FlexyMarkets',
+          'https://twitter.com/FlexyMarkets',
+          'https://www.instagram.com/flexymarkets',
+          'https://www.linkedin.com/company/flexy-markets',
+        ],
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+44-3300-271632',
+          contactType: 'customer service',
+          areaServed: 'Global',
+          availableLanguage: ['English', 'Spanish', 'Italian', 'German'],
+        },
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://flexymarkets.com/#website',
+        url: 'https://flexymarkets.com/',
+        name: 'Flexy Markets',
+        publisher: { '@id': 'https://flexymarkets.com/#organization' },
+      },
     ],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+44-3300-271632',
-      contactType: 'customer service',
-      areaServed: 'Global',
-      availableLanguage: ['English', 'Spanish', 'Italian', 'German'],
-    },
   };
 
   return (
@@ -112,21 +122,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossOrigin="anonymous" referrerPolicy="no-referrer" />
-        <Script id="json-ld" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "https://schema.org/Corporation",
-            "name": SITE_PUBLISHER,
-            "url": "https://flexymarkets.com",
-            "logo": "https://flexymarkets.com/images/header_logo_dark.png",
-            "sameAs": [
-              "https://www.facebook.com/flexymarkets/",
-              "https://www.instagram.com/flexy.markets/",
-              "https://flexymarkets.com/",
-              "https://www.linkedin.com/company/flexy-market/"
-            ]
-          })}
-        </Script>
         {/* Google tag (gtag.js) */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q4GCWX9KQP" strategy="afterInteractive" />
         <Script id="google-analytics-g4" strategy="afterInteractive">

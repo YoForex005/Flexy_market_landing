@@ -5,6 +5,7 @@ import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
+import JsonLd from '@/components/JsonLd';
 
 import SectionSkeleton from '@/components/SectionSkeleton';
 
@@ -52,8 +53,27 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://flexymarkets.com/#webpage',
+    url: 'https://flexymarkets.com/',
+    name: 'Flexy Markets | Regulated Online Trading Broker | Forex, Shares & Crypto',
+    description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': 'https://flexymarkets.com/#website',
+      url: 'https://flexymarkets.com/',
+      name: 'Flexy Markets',
+    },
+    about: {
+      '@id': 'https://flexymarkets.com/#organization',
+    },
+  };
+
   return (
     <main>
+      <JsonLd data={webPageSchema} />
       <NavBar />
       <Hero />
 
