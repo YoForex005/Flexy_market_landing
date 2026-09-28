@@ -1,41 +1,12 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import candlestickImg from '../public/images/candlestick-chart-3d.webp';
 import graduationImg from '../public/images/graduation-cap-3d.webp';
-import { useEffect, useState } from 'react';
 import AnimatedBackground from './AnimatedBackground';
 
 export default function Results() {
-    const [count1, setCount1] = useState(0);
-    const [count2, setCount2] = useState(0);
-
-    useEffect(() => {
-        const animateCounter = (setter: (v: number) => void, target: number) => {
-            let current = 0;
-            const duration = 1500;
-            const startTime = performance.now();
-
-            const update = (currentTime: number) => {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                current = progress * target;
-                setter(parseFloat(current.toFixed(2)));
-
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                }
-            };
-
-            requestAnimationFrame(update);
-        };
-
-        setTimeout(() => {
-            animateCounter(setCount1, 2.37);
-            animateCounter(setCount2, 90.1);
-        }, 500);
-    }, []);
-
     return (
         <div className="result py-5 position-relative" style={{ background: '#fcfcfc' }}>
             {/* Premium Financial Aurora Background */}
@@ -44,34 +15,34 @@ export default function Results() {
                 <div className="result_in text-center">
                     <div className="results_proven_in_main mb-4" style={{ marginBottom: '20px', paddingBottom: '50px' }}>
                         <h2 className="display-4 fw-bold mb-3" style={{ color: '#000' }}>
-                            Our Results Are Proven in Numbers
+                            Understand Your Trading Conditions
                         </h2>
-                        <h5 className="text-muted fw-normal" style={{ fontSize: '20px' }}>
-                            Nobody does more to provide you with what you need to maximise your trading potential.
-                        </h5>
+                        <p className="text-muted fw-normal" style={{ fontSize: '20px' }}>
+                            Review account costs, order execution and margin requirements before opening a trading account.
+                        </p>
                     </div>
 
                     <div className="row g-4 mb-5">
                         <div className="col-lg-4">
                             <div className="p-4 p-lg-5 bg-white rounded-5 shadow-sm border h-100">
-                                <div className="fw-bold mb-3 h1" style={{ color: '#0f664a', fontSize: 'clamp(36px, 4vw, 50px)' }}>
-                                    {count1} Billion
-                                </div>
-                                <p className="text-muted mb-0">trades have been executed on flexyMarket.</p>
+                                <h3 className="fw-bold mb-3" style={{ color: '#0f664a', fontSize: 'clamp(36px, 4vw, 50px)' }}>
+                                    Accounts
+                                </h3>
+                                <p className="text-muted mb-0"><Link href="/account">Compare account types</Link>, minimum deposits, spreads and commissions.</p>
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="p-4 p-lg-5 bg-white rounded-5 shadow-sm border h-100 d-flex flex-column justify-content-center">
-                                <div className="fw-bold mb-3 h1" style={{ color: '#0f664a', fontSize: 'clamp(36px, 4vw, 50px)' }}>ZERO</div>
-                                <p className="text-muted mb-0">rejections or requotes on trades.</p>
+                                <h3 className="fw-bold mb-3" style={{ color: '#0f664a', fontSize: 'clamp(36px, 4vw, 50px)' }}>Execution</h3>
+                                <p className="text-muted mb-0">Read the <Link href="/execution-policy">order execution policy</Link> for information about how orders are handled.</p>
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="p-4 p-lg-5 bg-white rounded-5 shadow-sm border h-100">
-                                <div className="fw-bold mb-3 h1" style={{ color: '#0f664a', fontSize: 'clamp(36px, 4vw, 50px)' }}>
-                                    {count2}%
-                                </div>
-                                <p className="text-muted mb-0">of our withdrawals are automatically approved.</p>
+                                <h3 className="fw-bold mb-3" style={{ color: '#0f664a', fontSize: 'clamp(36px, 4vw, 50px)' }}>
+                                    Margin
+                                </h3>
+                                <p className="text-muted mb-0">Review <Link href="/margin-leverage">margin and leverage information</Link> and the conditions that apply to trading.</p>
                             </div>
                         </div>
                     </div>
@@ -85,7 +56,7 @@ export default function Results() {
                             rel="noopener noreferrer"
                             className="btn btn-lg rounded-pill px-5 py-3 d-inline-flex align-items-center gap-2 magic-hover-btn"
                         >
-                            Start Trading Today
+                            Open a Trading Account
                         </a>
                     </div>
 
@@ -126,9 +97,9 @@ export default function Results() {
                                         zIndex: -1
                                     }}></i>
 
-                                    <h2 className="fw-bold mb-3 text-white display-6">Fund Your Account Safely And Securely</h2>
+                                    <h2 className="fw-bold mb-3 text-white display-6">Review the Terms and Trading Risks</h2>
                                     <p className="text-white-50 mb-0 mx-auto" style={{ fontSize: '1.1rem', letterSpacing: '0.5px', lineHeight: '1.6', maxWidth: '800px' }}>
-                                        Trade With Flexy Markets, Where Long-Standing Partnerships Ensure Your Funds Are Always Secure.
+                                        Trading involves significant risk and can result in the loss of your invested capital. Read our <Link href="/legal-documents" className="text-white text-decoration-underline">legal documents and risk disclosure</Link> before funding an account.
                                     </p>
                                 </div>
                             </div>
@@ -140,7 +111,7 @@ export default function Results() {
                 <div className="trader-success-section mt-5 pt-5">
                     <div className="row text-center mb-5">
                         <div className="col-12">
-                            <h2 className="display-5 fw-bold mb-3" style={{ color: '#000' }}>Every Trader Can Succeed</h2>
+                            <h2 className="display-5 fw-bold mb-3" style={{ color: '#000' }}>Trading Education and Platform Features</h2>
                         </div>
                     </div>
 
@@ -158,12 +129,12 @@ export default function Results() {
                             >
                                 <div className="row h-100 align-items-center">
                                     <div className="col-md-7 z-2 text-start">
-                                        <h3 className="h2 fw-bold mb-3 text-white">Tailored<br />Educational<br />Resources</h3>
+                                        <h3 className="h2 fw-bold mb-3 text-white">Forex<br />Educational<br />Resources</h3>
                                         <p className="mb-4 text-white-50" style={{ fontSize: '1.05rem', lineHeight: '1.6' }}>
-                                            Gain access to free educational resources, webinars and expert mentorship to boost your trading knowledge.
+                                            Explore forex guides and trading concepts in the learning centre, including platform use and risk management.
                                         </p>
-                                        <a
-                                            href="https://user.flexymarkets.com/accounts/signUps"
+                                        <Link
+                                            href="/learning-centre"
                                             className="btn fw-bold rounded-pill px-4 py-2 text-white"
                                             style={{
                                                 background: 'transparent',
@@ -171,14 +142,14 @@ export default function Results() {
                                                 transition: 'all 0.3s'
                                             }}
                                         >
-                                            Join Now
-                                        </a>
+                                            Explore Forex Education
+                                        </Link>
                                     </div>
                                     <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center position-relative">
                                         <div className="image-crop-container">
                                             <Image
                                                 src={candlestickImg}
-                                                alt="Educational Resources"
+                                                alt=""
                                                 className="img-fluid drop-shadow-3d zoom-image blend-screen"
                                                 style={{
                                                     maxHeight: '250px',
@@ -206,12 +177,12 @@ export default function Results() {
                             >
                                 <div className="row h-100 align-items-center">
                                     <div className="col-md-7 z-2 text-start">
-                                        <h3 className="h2 fw-bold mb-3" style={{ color: '#0f4941' }}>Cutting-Edge<br />Technology</h3>
+                                        <h3 className="h2 fw-bold mb-3" style={{ color: '#0f4941' }}>RTX 5<br />Trading Platform</h3>
                                         <p className="mb-4" style={{ fontSize: '1.05rem', lineHeight: '1.6', opacity: 0.9, color: '#344054' }}>
-                                            Experience seamless trading with cutting-edge infrastructure and tools designed for superior performance and reliability.
+                                            View the RTX 5 trading interface and explore its charting, market analysis and account tools.
                                         </p>
-                                        <a
-                                            href="https://user.flexymarkets.com/accounts/signUps"
+                                        <Link
+                                            href="/rtx5"
                                             className="btn fw-bold rounded-pill px-4 py-2"
                                             style={{
                                                 background: 'transparent',
@@ -220,14 +191,14 @@ export default function Results() {
                                                 color: '#0f4941'
                                             }}
                                         >
-                                            Learn More
-                                        </a>
+                                            Explore the RTX 5 Platform
+                                        </Link>
                                     </div>
                                     <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center position-relative">
                                         <div className="image-crop-container">
                                             <Image
                                                 src={graduationImg}
-                                                alt="Cutting-Edge Technology"
+                                                alt=""
                                                 className="img-fluid drop-shadow-3d zoom-image"
                                                 style={{
                                                     maxHeight: '220px',

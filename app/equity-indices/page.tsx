@@ -36,24 +36,21 @@ export default function EquityIndicesPage() {
         { title: "No Commission", description: "Trade indices with zero commission on Standard accounts.", iconClass: "fas fa-wallet" },
     ];
 
-    const productSchema = {
+    const serviceSchema = {
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": "Service",
+        "@id": "https://flexymarkets.com/equity-indices#service",
+        "url": "https://flexymarkets.com/equity-indices",
         "name": "Equity Indices Trading",
         "description": "Trade global equity indices like S&P 500 and DAX 40 with leverage.",
-        "brand": {
-            "@type": "Brand",
-            "name": "Flexy Markets"
-        },
         "provider": {
-            "@type": "Organization",
-            "name": "Flexy Markets"
+            "@id": "https://flexymarkets.com/#organization"
         }
     };
 
     return (
         <main>
-            <JsonLd data={productSchema} />
+            <JsonLd data={serviceSchema} />
             <NavBar />
             <UnifiedHero
                 title="Trade Equity Indices"

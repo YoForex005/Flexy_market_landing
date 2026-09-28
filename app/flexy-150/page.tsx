@@ -4,7 +4,7 @@ import ClientPage from './ClientPage';
 
 export const metadata: Metadata = {
     title: 'Flexy150 Bonus | Flexy Markets',
-    description: 'Claim your $150 no-deposit trading bonus. Start trading risk-free with Flexy Markets today.',
+    description: 'Explore the Flexy150 no-deposit trading bonus. Review eligibility, trading requirements, and withdrawal terms before participating.',
     openGraph: {
         title: 'Flexy150 Bonus | Flexy Markets',
         description: 'Claim your $150 no-deposit trading bonus.',

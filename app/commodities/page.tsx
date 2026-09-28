@@ -38,24 +38,21 @@ export default function CommoditiesPage() {
         { title: "No Ownership", description: "Speculate on price movements without the need for physical delivery or storage.", iconClass: "fas fa-box-open" },
     ];
 
-    const productSchema = {
+    const serviceSchema = {
         '@context': 'https://schema.org',
-        '@type': 'Product',
+        '@type': 'Service',
+        '@id': 'https://flexymarkets.com/commodities#service',
+        url: 'https://flexymarkets.com/commodities',
         name: 'Commodities Trading',
         description: 'Trade commodities like Gold, Silver, Oil, and Gas with competitive spreads and leverage.',
-        brand: {
-            '@type': 'Brand',
-            name: 'Flexy Markets'
-        },
         provider: {
-            '@type': 'Organization',
-            name: 'Flexy Markets'
+            '@id': 'https://flexymarkets.com/#organization',
         }
     };
 
     return (
         <main>
-            <JsonLd data={productSchema} />
+            <JsonLd data={serviceSchema} />
             <NavBar />
             <UnifiedHero
                 title="Discover Commodities Trading"

@@ -3,6 +3,7 @@
 
 
 import Image from 'next/image';
+import Link from 'next/link';
 import AnimatedBackground from './AnimatedBackground';
 
 export default function Discover() {
@@ -16,10 +17,10 @@ export default function Discover() {
                 <div className="row text-center mb-5">
                     <div className="col-lg-12">
                         <h2 className="display-4 fw-bold" style={{ color: '#000', fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
-                            Discover Our Traders&apos; <span style={{ color: '#0f664a' }}>Favourites</span>
+                            Discover Our <span style={{ color: '#0f664a' }}>Trading Resources</span>
                         </h2>
                         <p className="lead text-muted mt-3 mx-auto" style={{ fontSize: '1.1rem', maxWidth: '700px' }}>
-                            Explore some of our must-have products that keep everyone trading with us time and again.
+                            Explore the RTX 5 trading platform, market analysis tools and educational resources available from Flexy Markets.
                         </p>
                     </div>
                 </div>
@@ -41,14 +42,12 @@ export default function Discover() {
                             >
                                 <div className="row h-100 align-items-center">
                                     <div className="col-md-7 z-2">
-                                        <h3 className="h2 fw-bold mb-3 text-white">Seamless Trading</h3>
+                                        <h3 className="h2 fw-bold mb-3 text-white">RTX 5 Trading Platform</h3>
                                         <p className="mb-4 text-white-50" style={{ fontSize: '1.05rem', lineHeight: '1.6' }}>
-                                            Get full access to Flexy Market&apos;s top-rated, award-winning trading platforms designed to make your trading journey smooth and profitable.
+                                            Learn about the RTX 5 platform, view its trading interface and compare ways to access your account.
                                         </p>
-                                        <a
-                                            href="https://user.flexymarkets.com/accounts/signUps"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                        <Link
+                                            href="/rtx5"
                                             className="btn fw-bold rounded-pill px-4 py-2 text-white"
                                             style={{
                                                 background: 'transparent',
@@ -56,14 +55,14 @@ export default function Discover() {
                                                 transition: 'all 0.3s'
                                             }}
                                         >
-                                            Join Now
-                                        </a>
+                                            Explore RTX 5
+                                        </Link>
                                     </div>
                                     <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center position-relative">
                                         <div className="image-crop-container">
                                             <Image
                                                 src="/images/gift-box-3d.webp"
-                                                alt="Seamless Trading Gift Box"
+                                                alt=""
                                                 className="img-fluid drop-shadow-3d zoom-image blend-screen"
                                                 width={300}
                                                 height={250}
@@ -92,14 +91,12 @@ export default function Discover() {
                             >
                                 <div className="row h-100 align-items-center">
                                     <div className="col-md-7 z-2">
-                                        <h3 className="h2 fw-bold mb-3" style={{ color: '#0f4941' }}>Maximize<br />Your Returns</h3>
+                                        <h3 className="h2 fw-bold mb-3" style={{ color: '#0f4941' }}>Market<br />Analysis Tools</h3>
                                         <p className="mb-4" style={{ color: '#344054', fontSize: '1.05rem', lineHeight: '1.6' }}>
-                                            Use our extensive range of trading tools to minimize risk, maximize profits, and unlock your true trading potential.
+                                            Explore market analysis tools, the economic calendar and forex calculators to support your trading research.
                                         </p>
-                                        <a
-                                            href="https://user.flexymarkets.com/accounts/signUps"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                        <Link
+                                            href="/analytical-tools"
                                             className="btn fw-bold rounded-pill px-4 py-2"
                                             style={{
                                                 color: '#0f4941',
@@ -108,14 +105,14 @@ export default function Discover() {
                                                 transition: 'all 0.3s'
                                             }}
                                         >
-                                            Join Now
-                                        </a>
+                                            Explore Trading Tools
+                                        </Link>
                                     </div>
                                     <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center position-relative">
                                         <div className="image-crop-container">
                                             <Image
                                                 src="/images/growth-chart-3d.webp"
-                                                alt="Maximize Returns Graph"
+                                                alt=""
                                                 className="img-fluid drop-shadow-3d zoom-image"
                                                 width={300}
                                                 height={280}
@@ -146,14 +143,12 @@ export default function Discover() {
                             >
                                 <div className="row align-items-center">
                                     <div className="col-md-7 z-2">
-                                        <h3 className="h2 fw-bold mb-3 text-white">Empower Your Strategy</h3>
+                                        <h3 className="h2 fw-bold mb-3 text-white">Build Your Trading Knowledge</h3>
                                         <p className="mb-4 text-white-50" style={{ fontSize: '1.05rem', lineHeight: '1.6', maxWidth: '600px' }}>
-                                            Join 10,000+ traders leveraging expert strategies and insights to stay ahead in the game. Start your winning journey today.
+                                            Visit the learning centre to explore forex trading concepts, platform guides and risk management topics at your own pace.
                                         </p>
-                                        <a
-                                            href="https://user.flexymarkets.com/accounts/signUps"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                        <Link
+                                            href="/learning-centre"
                                             className="btn fw-bold rounded-pill px-5 py-3 text-white"
                                             style={{
                                                 background: '#0f664a',
@@ -161,14 +156,14 @@ export default function Discover() {
                                                 boxShadow: '0 4px 15px rgba(15, 102, 74, 0.4)'
                                             }}
                                         >
-                                            Join Now
-                                        </a>
+                                            Visit the Learning Centre
+                                        </Link>
                                     </div>
                                     <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center justify-content-md-end position-relative">
                                         <div className="image-crop-container">
                                             <Image
                                                 src="/images/trophy-new-3d.webp"
-                                                alt="Winning Trophy"
+                                                alt=""
                                                 className="img-fluid zoom-image trophy-rotate blend-screen"
                                                 width={400}
                                                 height={330}

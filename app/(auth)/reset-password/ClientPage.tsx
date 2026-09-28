@@ -90,7 +90,7 @@ export default function ResetPasswordPage() {
                         {/* Footer Link */}
                         <div className="text-center">
                             <p className="small text-muted mb-0">
-                                Remember your password? <Link href="/accounts/signIn" style={{ color: "#0056b3", fontWeight: "bold", textDecoration: "none" }}>Sign in now</Link>
+                                Remember your password? <Link href="/sign-in" style={{ color: "#0056b3", fontWeight: "bold", textDecoration: "none" }}>Sign in now</Link>
                             </p>
                         </div>
                     </form>

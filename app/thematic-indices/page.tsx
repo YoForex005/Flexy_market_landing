@@ -36,24 +36,21 @@ export default function ThematicIndicesPage() {
         { title: "Expertly Curated", description: "Indices designed by market experts to capture sector performance.", iconClass: "fas fa-user-tie" },
     ];
 
-    const productSchema = {
+    const serviceSchema = {
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": "Service",
+        "@id": "https://flexymarkets.com/thematic-indices#service",
+        "url": "https://flexymarkets.com/thematic-indices",
         "name": "Thematic Indices Trading",
         "description": "Trade thematic indices covering AI, EVs, Biotech, Metaverse, and ESG sectors.",
-        "brand": {
-            "@type": "Brand",
-            "name": "Flexy Markets"
-        },
         "provider": {
-            "@type": "Organization",
-            "name": "Flexy Markets"
+            "@id": "https://flexymarkets.com/#organization"
         }
     };
 
     return (
         <main>
-            <JsonLd data={productSchema} />
+            <JsonLd data={serviceSchema} />
             <NavBar />
             <UnifiedHero
                 title="Trade Thematic Indices"

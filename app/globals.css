@@ -7,8 +7,8 @@
   /* ========== TYPOGRAPHY SYSTEM ========== */
 
   /* Font Families - Premium Fintech Stack */
-  --font-primary: var(--font-tomato), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  --font-display: var(--font-tomato), 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-primary: var(--font-tomato-latin), var(--font-tomato), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-display: var(--font-tomato-latin), var(--font-tomato), 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', 'Courier New', monospace;
 
   /* Font Weights - 6-Level System */
@@ -1300,13 +1300,29 @@ a[class*="btn"],
 }
 
 .scroll-fade-section {
-  opacity: 0;
-  transform: translateY(60px);
+  opacity: 1;
+  transform: none;
   transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
               transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.scroll-fade-section.section-visible {
-  opacity: 1;
-  transform: translateY(0);
+.scroll-fade-section.section-pending {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Keep offscreen content in the HTML while deferring its expensive painting.
+   The market section near the hero is always rendered at its natural size. */
+.scroll-fade-section:not(.section-visible) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-fade-section,
+  .scroll-fade-section.section-pending {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

@@ -36,24 +36,21 @@ export default function TurboStocksPage() {
         { title: "Extended Hours", description: "Trade during pre-market and after-hours sessions on select stocks.", iconClass: "fas fa-clock" },
     ];
 
-    const productSchema = {
+    const serviceSchema = {
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": "Service",
+        "@id": "https://flexymarkets.com/turbo-stocks#service",
+        "url": "https://flexymarkets.com/turbo-stocks",
         "name": "Turbo Stocks Trading",
         "description": "Trade high-volatility stocks like Tesla and NVIDIA with leverage.",
-        "brand": {
-            "@type": "Brand",
-            "name": "Flexy Markets"
-        },
         "provider": {
-            "@type": "Organization",
-            "name": "Flexy Markets"
+            "@id": "https://flexymarkets.com/#organization"
         }
     };
 
     return (
         <main>
-            <JsonLd data={productSchema} />
+            <JsonLd data={serviceSchema} />
             <NavBar />
             <UnifiedHero
                 title="Trade Turbo Stocks"

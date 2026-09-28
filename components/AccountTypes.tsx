@@ -1,7 +1,8 @@
 
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import AnimatedBackground from './AnimatedBackground';
 
 interface AccountGroup {
@@ -26,60 +27,72 @@ interface ApiResponse {
 }
 
 export default function AccountTypes() {
+    const sectionRef = useRef<HTMLDivElement>(null);
     const [accounts, setAccounts] = useState<AccountGroup[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch('https://backend.flexymarkets.com/user/mt5/group/list-dashboard?page=1&sizePerPage=50')
-            .then(res => res.json())
-            .then((data: ApiResponse) => {
-                if (data.status && data.data.groupList) {
-                    // Filter only REAL accounts, exclude DEMO
-                    const realAccounts = data.data.groupList.filter(acc => acc.type === 'REAL');
-                    setAccounts(realAccounts);
-                } else {
-                    setError('Failed to load account types');
+        const controller = new AbortController();
+        let active = true;
+        let started = false;
+        let timeoutId: number | undefined;
+
+        const loadAccounts = async () => {
+            if (started || !active) return;
+            started = true;
+            timeoutId = window.setTimeout(() => controller.abort(), 8000);
+
+            try {
+                const response = await fetch('https://backend.flexymarkets.com/user/mt5/group/list-dashboard?page=1&sizePerPage=50', {
+                    signal: controller.signal,
+                });
+                if (!response.ok) throw new Error('Failed to load account types');
+
+                const data: ApiResponse = await response.json();
+                if (!data.status || !Array.isArray(data.data?.groupList)) {
+                    throw new Error('Failed to load account types');
                 }
-                setLoading(false);
-            })
-            .catch(() => {
-                setError('Failed to load account types');
-                setLoading(false);
-            });
+                if (active) {
+                    // Filter only REAL accounts, exclude DEMO.
+                    setAccounts(data.data.groupList.filter(acc => acc.type === 'REAL'));
+                }
+            } catch {
+                if (active) setError('Failed to load account types');
+            } finally {
+                window.clearTimeout(timeoutId);
+                if (active) setLoading(false);
+            }
+        };
+
+        const observer = typeof IntersectionObserver !== 'undefined'
+            ? new IntersectionObserver((entries) => {
+                if (entries.some(entry => entry.isIntersecting)) {
+                    observer?.disconnect();
+                    void loadAccounts();
+                }
+            }, { rootMargin: '500px 0px' })
+            : null;
+
+        if (observer && sectionRef.current) {
+            observer.observe(sectionRef.current);
+        } else {
+            void loadAccounts();
+        }
+
+        return () => {
+            active = false;
+            observer?.disconnect();
+            window.clearTimeout(timeoutId);
+            controller.abort();
+        };
     }, []);
-
-    if (loading) {
-        return (
-            <div className="account-types py-5 position-relative" style={{ background: '#fcfcfc', minHeight: '400px' }}>
-                <div className="container">
-                    <div className="text-center py-5">
-                        <div className="spinner-border text-success" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <div className="account-types py-5 position-relative" style={{ background: '#fcfcfc' }}>
-                <div className="container">
-                    <div className="alert alert-warning text-center" role="alert">
-                        {error}
-                    </div>
-                </div>
-            </div>
-        );
-    }
 
     // Find recommended account (Pro or first with recommendation)
     const recommendedId = accounts.find(acc => acc.name === 'Pro')?.id || accounts[0]?.id;
 
     return (
-        <div className="account-types py-5 position-relative" style={{ background: '#fcfcfc' }}>
+        <div ref={sectionRef} className="account-types py-5 position-relative" style={{ background: '#fcfcfc' }}>
             <AnimatedBackground variant="ribbons" />
 
             <div className="container" style={{ position: 'relative', zIndex: 10 }}>
@@ -87,15 +100,27 @@ export default function AccountTypes() {
                 <div className="row text-center mb-5">
                     <div className="col-12">
                         <h2 className="display-4 fw-bold mb-3" style={{ color: '#000' }}>
-                            Open Your <span style={{ color: '#0f664a' }}>Account</span>
+                            Compare Trading <span style={{ color: '#0f664a' }}>Account Types</span>
                         </h2>
                         <p className="lead text-muted mt-3 mx-auto" style={{ fontSize: '1.1rem', maxWidth: '700px' }}>
-                            Choose the perfect account type for your trading journey. All accounts feature low spreads, fast execution, and powerful leverage.
+                            Compare minimum deposits, spreads, commissions and available leverage. Review the <Link href="/account">Flexy Markets account types</Link> and their conditions before you register.
                         </p>
                     </div>
                 </div>
 
-                {/* Account Cards */}
+                {loading && (
+                    <div className="text-center py-5" role="status">
+                        <div className="spinner-border text-success" aria-hidden="true" />
+                        <p className="text-muted mt-3">Loading current account details.</p>
+                    </div>
+                )}
+                {!loading && (error || accounts.length === 0) && (
+                    <p className="text-muted text-center" role="status">
+                        Current account details are unavailable. <Link href="/contact">Contact our team for account information</Link>.
+                    </p>
+                )}
+
+                {/* Live account details enhance the server-rendered introduction. */}
                 <div className="row g-4">
                     {accounts.map((account) => {
                         const isRecommended = account.id === recommendedId;
@@ -212,7 +237,7 @@ export default function AccountTypes() {
                                             transition: 'all 0.3s ease'
                                         }}
                                     >
-                                        Get Started
+                                        Open {account.name} Account
                                     </a>
                                 </div>
                             </div>

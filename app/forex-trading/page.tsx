@@ -41,24 +41,21 @@ export default function ForexTradingPage() {
         { symbol: "EURCHF#", name: "Euro vs Swiss Franc", avgSpread: "1.8", lowSpread: "1.3", leverage: "400", country: "eu" },
     ].map(item => ({ ...item, icon: `https://flagcdn.com/w40/${item.country}.png` }));
 
-    const productSchema = {
+    const serviceSchema = {
         '@context': 'https://schema.org',
-        '@type': 'Product',
+        '@type': 'Service',
+        '@id': 'https://flexymarkets.com/forex-trading#service',
+        url: 'https://flexymarkets.com/forex-trading',
         name: 'Forex Trading',
         description: 'Trade major, minor, and exotic currency pairs with leverage up to 1:1000 and tight spreads.',
-        brand: {
-            '@type': 'Brand',
-            name: 'Flexy Markets'
-        },
         provider: {
-            '@type': 'Organization',
-            name: 'Flexy Markets'
+            '@id': 'https://flexymarkets.com/#organization',
         }
     };
 
     return (
         <main>
-            <JsonLd data={productSchema} />
+            <JsonLd data={serviceSchema} />
             <NavBar />
             <UnifiedHero
                 title={<>Discover<br />Forex Trading</>}

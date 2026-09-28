@@ -36,24 +36,21 @@ export default function PreciousMetalsPage() {
         { title: "Diversification", description: "Add a new asset class to your portfolio to spread your risk.", iconClass: "fas fa-chart-pie" },
     ];
 
-    const productSchema = {
+    const serviceSchema = {
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": "Service",
+        "@id": "https://flexymarkets.com/precious-metals#service",
+        "url": "https://flexymarkets.com/precious-metals",
         "name": "Precious Metals Trading",
         "description": "Trade Gold, Silver, Platinum and Palladium with competitive spreads and high leverage.",
-        "brand": {
-            "@type": "Brand",
-            "name": "Flexy Markets"
-        },
         "provider": {
-            "@type": "Organization",
-            "name": "Flexy Markets"
+            "@id": "https://flexymarkets.com/#organization"
         }
     };
 
     return (
         <main>
-            <JsonLd data={productSchema} />
+            <JsonLd data={serviceSchema} />
             <NavBar />
             <UnifiedHero
                 title="Trade Precious Metals"

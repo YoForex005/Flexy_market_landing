@@ -54,24 +54,21 @@ export default function StockDerivativesPage() {
         },
     ];
 
-    const productSchema = {
+    const serviceSchema = {
         '@context': 'https://schema.org',
-        '@type': 'Product',
+        '@type': 'Service',
+        '@id': 'https://flexymarkets.com/stock-derivatives#service',
+        url: 'https://flexymarkets.com/stock-derivatives',
         name: 'Stock Derivatives Trading',
         description: 'Trade stock derivatives with leverage and ability to go long or short on major global companies.',
-        brand: {
-            '@type': 'Brand',
-            name: 'Flexy Markets'
-        },
         provider: {
-            '@type': 'Organization',
-            name: 'Flexy Markets'
+            '@id': 'https://flexymarkets.com/#organization',
         }
     };
 
     return (
         <main>
-            <JsonLd data={productSchema} />
+            <JsonLd data={serviceSchema} />
             <NavBar />
             <UnifiedHero
                 title="Discover Stock Derivatives Trading"

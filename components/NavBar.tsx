@@ -7,10 +7,10 @@ import { usePathname } from 'next/navigation';
 import logoImg from '../public/hd_logo.webp';
 
 export default function NavBar() {
-    const [isSticky, setIsSticky] = useState(true);
-    const [openDropdown, setOpenDropdown] = useState<string | null>(null);
     const pathname = usePathname();
     const isHome = pathname === '/';
+    const [isSticky, setIsSticky] = useState(() => !isHome);
+    const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
     const toggleDropdown = (menuName: string) => {
         setOpenDropdown(openDropdown === menuName ? null : menuName);
@@ -37,7 +37,7 @@ export default function NavBar() {
         // Initialize on mount and path change
         handleScroll();
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isHome]);
 
@@ -76,7 +76,8 @@ export default function NavBar() {
                                     <Link href="/">
                                         <Image
                                             src={logoImg}
-                                            alt="Logo"
+                                            alt="Flexy Markets home"
+                                            sizes="100px"
                                             style={{
                                                 height: '45px',
                                                 width: 'auto',
@@ -90,25 +91,26 @@ export default function NavBar() {
                             </div>
                             <div className="col-lg-10">
                                 <div className="header_right d-flex align-items-center justify-content-between">
-                                    <nav className="header_menu flex-grow-1 d-flex justify-content-center">
+                                    <nav className="header_menu flex-grow-1 d-flex justify-content-center" aria-label="Main navigation">
                                         <ul className="header_menu_ul d-flex align-items-center list-unstyled mb-0 list-inline">
                                             <li className="list-inline-item mx-3 position-relative dropdown">
-                                                <a
-                                                    className="dropdown-toggle nav-link fw-bold"
-                                                    href="#"
-                                                    onClick={(e) => { e.preventDefault(); toggleDropdown('trading'); }}
+                                                <button
+                                                    type="button"
+                                                    className="dropdown-toggle nav-link fw-bold border-0 bg-transparent"
+                                                    aria-expanded={openDropdown === 'trading'}
+                                                    onClick={() => toggleDropdown('trading')}
                                                     style={{ color: isSticky ? '#154941' : '#ffffff', cursor: 'pointer' }}
                                                 >
                                                     Trading
-                                                </a>
+                                                </button>
                                                 <div className={`dropdown-menu mega-menu2 menu-trading p-4 animated-dropdown shadow-lg border-0 ${openDropdown === 'trading' ? 'show' : ''}`} style={{ display: openDropdown === 'trading' ? 'block' : 'none' }}>
                                                     <div className="row">
                                                         <div className="col-3">
-                                                            <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Accounts</h6>
+                                                            <p className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Accounts</p>
                                                             <Link className="dropdown-item py-2" href="/account">Account Types</Link>
                                                         </div>
                                                         <div className="col-3">
-                                                            <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Markets</h6>
+                                                            <p className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Markets</p>
                                                             <Link className="dropdown-item py-2" href="/forex-trading">Forex Trading</Link>
                                                             <Link className="dropdown-item py-2" href="/cryptocurrencies">Cryptocurrencies</Link>
                                                             <Link className="dropdown-item py-2" href="/stock-derivatives">Stock Derivatives</Link>
@@ -121,11 +123,11 @@ export default function NavBar() {
                                                             <Link className="dropdown-item py-2" href="/thematic-indices">Thematic Indices</Link>
                                                         </div>
                                                         <div className="col-3">
-                                                            <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Platforms</h6>
+                                                            <p className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Platforms</p>
                                                             <Link className="dropdown-item py-2" href="/rtx5">RTX 5 Platform</Link>
                                                         </div>
                                                         <div className="col-3">
-                                                            <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Our Offerings</h6>
+                                                            <p className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Our Offerings</p>
                                                             <Link className="dropdown-item py-2" href="/flexy-copy-trading">Flexy Copy Trading</Link>
                                                             <Link className="dropdown-item py-2" href="/execution-policy">Execution Policy</Link>
                                                             <Link className="dropdown-item py-2" href="/margin-leverage">Margin and Leverage</Link>
@@ -134,24 +136,25 @@ export default function NavBar() {
                                                 </div>
                                             </li>
                                             <li className="list-inline-item mx-3 position-relative dropdown">
-                                                <a
-                                                    className="dropdown-toggle nav-link fw-bold"
-                                                    href="#"
-                                                    onClick={(e) => { e.preventDefault(); toggleDropdown('discover'); }}
+                                                <button
+                                                    type="button"
+                                                    className="dropdown-toggle nav-link fw-bold border-0 bg-transparent"
+                                                    aria-expanded={openDropdown === 'discover'}
+                                                    onClick={() => toggleDropdown('discover')}
                                                     style={{ color: isSticky ? '#154941' : '#ffffff', cursor: 'pointer' }}
                                                 >
                                                     Discover
-                                                </a>
+                                                </button>
                                                 <div className={`dropdown-menu mega-menu2 menu-discover p-4 animated-dropdown shadow-lg border-0 ${openDropdown === 'discover' ? 'show' : ''}`} style={{ display: openDropdown === 'discover' ? 'block' : 'none' }}>
                                                     <div className="row">
                                                         <div className="col-6">
-                                                            <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Education</h6>
+                                                            <p className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Education</p>
                                                             <Link className="dropdown-item py-2" href="/learning-centre">Learning Centre</Link>
                                                             <Link className="dropdown-item py-2" href="/live-education">Live Education</Link>
                                                             <Link className="dropdown-item py-2" href="/blog">Blogs</Link>
                                                         </div>
                                                         <div className="col-6">
-                                                            <h6 className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Community</h6>
+                                                            <p className="dropdown-header fw-bold text-uppercase" style={{ fontSize: '12px' }}>Community</p>
                                                             <Link className="dropdown-item py-2" href="/news-analysis">News and Analysis</Link>
                                                             <Link className="dropdown-item py-2" href="/analytical-tools">Analytical Tools</Link>
                                                             <Link className="dropdown-item py-2" href="/economic-calendar">Economic Calendar</Link>
@@ -164,18 +167,19 @@ export default function NavBar() {
                                                 <Link href="/promotions" className="nav-link fw-bold" style={{ color: isSticky ? '#154941' : '#ffffff' }}>Promotions</Link>
                                             </li>
                                             <li className="list-inline-item mx-3 position-relative dropdown">
-                                                <a
-                                                    className="dropdown-toggle nav-link fw-bold"
-                                                    href="#"
-                                                    onClick={(e) => { e.preventDefault(); toggleDropdown('company'); }}
+                                                <button
+                                                    type="button"
+                                                    className="dropdown-toggle nav-link fw-bold border-0 bg-transparent"
+                                                    aria-expanded={openDropdown === 'company'}
+                                                    onClick={() => toggleDropdown('company')}
                                                     style={{ color: isSticky ? '#154941' : '#ffffff', cursor: 'pointer' }}
                                                 >
                                                     Company
-                                                </a>
+                                                </button>
                                                 <div className={`dropdown-menu mega-menu2 menu-company p-4 animated-dropdown shadow-lg border-0 ${openDropdown === 'company' ? 'show' : ''}`} style={{ display: openDropdown === 'company' ? 'block' : 'none' }}>
                                                     <div className="row">
                                                         <div className="col-12">
-                                                            <Link className="dropdown-item py-2" href="/about">Who is Flexy Group?</Link>
+                                                            <Link className="dropdown-item py-2" href="/about">Who is Flexy Markets?</Link>
                                                             <Link className="dropdown-item py-2" href="/legal-documents">Legal Documents</Link>
                                                             <Link className="dropdown-item py-2" href="/contact">Contact Us</Link>
                                                         </div>
@@ -214,7 +218,8 @@ export default function NavBar() {
                             <Link href="/">
                                 <Image
                                     src={logoImg}
-                                    alt="Logo"
+                                    alt="Flexy Markets home"
+                                    sizes="100px"
                                     style={{
                                         height: '35px',
                                         width: 'auto'
@@ -228,6 +233,7 @@ export default function NavBar() {
                                 data-bs-toggle="offcanvas"
                                 data-bs-target="#offcanvasNavbar"
                                 aria-controls="offcanvasNavbar"
+                                aria-label="Open navigation menu"
                             >
                                 <i className="fas fa-bars" style={{ fontSize: '24px', color: '#154941' }}></i>
                             </button>
@@ -241,27 +247,28 @@ export default function NavBar() {
                             style={{ width: '85%', maxWidth: '400px', backgroundColor: '#fff', zIndex: 1050 }}
                         >
                             <div className="offcanvas-header border-bottom">
-                                <h5 className="offcanvas-title fw-bold" id="offcanvasNavbarLabel">Menu</h5>
+                                <p className="offcanvas-title h5 fw-bold" id="offcanvasNavbarLabel">Menu</p>
                                 <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div className="offcanvas-body" style={{ backgroundColor: '#fff' }}>
                                 <ul className="list-unstyled mb-4">
                                     <li className="py-2">
-                                        <a
-                                            className="nav-link fw-bold d-flex justify-content-between align-items-center"
-                                            href="#"
-                                            onClick={(e) => { e.preventDefault(); toggleDropdown('mobile-trading'); }}
+                                        <button
+                                            type="button"
+                                            className="nav-link fw-bold d-flex justify-content-between align-items-center w-100 text-start border-0 bg-transparent"
+                                            aria-expanded={openDropdown === 'mobile-trading'}
+                                            onClick={() => toggleDropdown('mobile-trading')}
                                             style={{ cursor: 'pointer', fontSize: '16px', color: '#154941' }}
                                         >
                                             Trading
                                             <i className={`fas fa-caret-${openDropdown === 'mobile-trading' ? 'up' : 'down'}`} style={{ fontSize: '14px' }}></i>
-                                        </a>
+                                        </button>
                                         {openDropdown === 'mobile-trading' && (
                                             <div className="ps-3 pt-3 pb-3 mt-2" style={{ backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #dee2e6' }}>
-                                                <h6 className="text-muted text-uppercase mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Accounts</h6>
+                                                <p className="text-muted text-uppercase mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Accounts</p>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/account" style={{ fontSize: '14px' }}>Account Types</Link>
 
-                                                <h6 className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Markets</h6>
+                                                <p className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Markets</p>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/forex-trading" style={{ fontSize: '14px' }}>Forex Trading</Link>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/cryptocurrencies" style={{ fontSize: '14px' }}>Cryptocurrencies</Link>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/stock-derivatives" style={{ fontSize: '14px' }}>Stock Derivatives</Link>
@@ -273,10 +280,10 @@ export default function NavBar() {
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/shares" style={{ fontSize: '14px' }}>Shares</Link>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/thematic-indices" style={{ fontSize: '14px' }}>Thematic Indices</Link>
 
-                                                <h6 className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Platforms</h6>
+                                                <p className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Platforms</p>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/rtx5" style={{ fontSize: '14px' }}>RTX 5 Platform</Link>
 
-                                                <h6 className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Our Offerings</h6>
+                                                <p className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Our Offerings</p>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/flexy-copy-trading" style={{ fontSize: '14px' }}>Flexy Copy Trading</Link>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/execution-policy" style={{ fontSize: '14px' }}>Execution Policy</Link>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/margin-leverage" style={{ fontSize: '14px' }}>Margin and Leverage</Link>
@@ -284,23 +291,24 @@ export default function NavBar() {
                                         )}
                                     </li>
                                     <li className="py-2">
-                                        <a
-                                            className="nav-link fw-bold d-flex justify-content-between align-items-center"
-                                            href="#"
-                                            onClick={(e) => { e.preventDefault(); toggleDropdown('mobile-discover'); }}
+                                        <button
+                                            type="button"
+                                            className="nav-link fw-bold d-flex justify-content-between align-items-center w-100 text-start border-0 bg-transparent"
+                                            aria-expanded={openDropdown === 'mobile-discover'}
+                                            onClick={() => toggleDropdown('mobile-discover')}
                                             style={{ cursor: 'pointer', fontSize: '16px', color: '#154941' }}
                                         >
                                             Discover
                                             <i className={`fas fa-caret-${openDropdown === 'mobile-discover' ? 'up' : 'down'}`} style={{ fontSize: '14px' }}></i>
-                                        </a>
+                                        </button>
                                         {openDropdown === 'mobile-discover' && (
                                             <div className="ps-3 pt-3 pb-3 mt-2" style={{ backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #dee2e6' }}>
-                                                <h6 className="text-muted text-uppercase mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Education</h6>
+                                                <p className="text-muted text-uppercase mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Education</p>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/learning-centre" style={{ fontSize: '14px' }}>Learning Centre</Link>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/live-education" style={{ fontSize: '14px' }}>Live Education</Link>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/blog" style={{ fontSize: '14px' }}>Blogs</Link>
 
-                                                <h6 className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Community</h6>
+                                                <p className="text-muted text-uppercase mt-3 mb-2" style={{ fontSize: '11px', fontWeight: 700 }}>Community</p>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/news-analysis" style={{ fontSize: '14px' }}>News and Analysis</Link>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/analytical-tools" style={{ fontSize: '14px' }}>Analytical Tools</Link>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/economic-calendar" style={{ fontSize: '14px' }}>Economic Calendar</Link>
@@ -312,18 +320,19 @@ export default function NavBar() {
                                         <Link href="/promotions" className="nav-link fw-bold" style={{ fontSize: '16px', color: '#154941' }}>Promotions</Link>
                                     </li>
                                     <li className="py-2">
-                                        <a
-                                            className="nav-link fw-bold d-flex justify-content-between align-items-center"
-                                            href="#"
-                                            onClick={(e) => { e.preventDefault(); toggleDropdown('mobile-company'); }}
+                                        <button
+                                            type="button"
+                                            className="nav-link fw-bold d-flex justify-content-between align-items-center w-100 text-start border-0 bg-transparent"
+                                            aria-expanded={openDropdown === 'mobile-company'}
+                                            onClick={() => toggleDropdown('mobile-company')}
                                             style={{ cursor: 'pointer', fontSize: '16px', color: '#154941' }}
                                         >
                                             Company
                                             <i className={`fas fa-caret-${openDropdown === 'mobile-company' ? 'up' : 'down'}`} style={{ fontSize: '14px' }}></i>
-                                        </a>
+                                        </button>
                                         {openDropdown === 'mobile-company' && (
                                             <div className="ps-3 pt-3 pb-3 mt-2" style={{ backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #dee2e6' }}>
-                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/about" style={{ fontSize: '14px' }}>Who is Flexy Group?</Link>
+                                                <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/about" style={{ fontSize: '14px' }}>Who is Flexy Markets?</Link>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/legal-documents" style={{ fontSize: '14px' }}>Legal Documents</Link>
                                                 <Link className="d-block py-1 text-decoration-none text-dark fw-bold" href="/contact" style={{ fontSize: '14px' }}>Contact Us</Link>
                                             </div>

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback, type CSSProperties, type ReactNode } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useMobile } from '@/hooks/useMobile';
+import styles from './Hero.module.css';
 
 
 
@@ -25,24 +25,24 @@ const slides: SlideData[] = [
     {
         id: 1,
         type: 'video',
-        videoSrc: "/videos/hero-video.mp4",
+        videoSrc: "/videos/hero-video-optimized.mp4",
         customFilter: "none",
-        badgeText: "Trusted by over Million Traders",
-        title: "Regulated Forex Broker",
-        subtitle: "Optimized for MQL5",
-        description: "We offer a superior trading environment that puts traders in the best position to profit.",
-        ctaText: "Easy Access to 1,400+ Global Assets"
+        badgeText: "Explore Global Markets",
+        title: "Forex & CFD Trading",
+        subtitle: "with Flexy Markets",
+        description: "Explore forex, cryptocurrency, index and commodity CFDs with Flexy Markets. Compare trading accounts, explore RTX 5 and review trading conditions.",
+        ctaText: "Open a Trading Account"
     },
     {
         id: 2,
         type: 'image',
         imageSrc: "/images/girl1.webp",
         customFilter: "none",
-        badgeText: "Premium Trading Experience",
-        title: "Premium Trading Environment",
-        subtitle: "Superior Execution",
-        description: "Experience lightning fast execution, competitive spreads, and 24/7 dedicated support with Flexy Markets.",
-        ctaText: "Start Your Trading Journey Today"
+        badgeText: "RTX 5 Trading Platform",
+        title: "Explore Trading Tools",
+        subtitle: "with RTX 5",
+        description: "Discover the RTX 5 platform, explore our market analysis tools and contact the Flexy Markets team for help with your account.",
+        ctaText: "Open a Trading Account"
     }
 ];
 
@@ -62,29 +62,99 @@ function HeroHeading({ as: Tag, ...props }: HeroHeadingProps) {
 export default function Hero() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [hasTransitioned, setHasTransitioned] = useState(false);
+    const [hasVideoFrame, setHasVideoFrame] = useState(false);
+    const heroRef = useRef<HTMLDivElement>(null);
+    const progressRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
 
 
 
-    const isMobile = useMobile();
-
-    // Network-aware video: disable on very slow connections
+    // Keep the poster and text available immediately; load decorative video only
+    // after a paint and an idle opportunity on suitable desktop connections.
     useEffect(() => {
         const video = videoRef.current;
-        if (!video) return;
+        const videoSource = slides[0].videoSrc;
+        if (!video || !videoSource) return;
 
-        const conn = (navigator as unknown as { connection?: { effectiveType?: string; saveData?: boolean } }).connection;
-        const isSlowNetwork = conn && (
-            conn.effectiveType === '2g' ||
-            conn.effectiveType === 'slow-2g' ||
-            conn.saveData
-        );
+        const media = window.matchMedia('(min-width: 769px) and (prefers-reduced-motion: no-preference)');
+        const connection = (navigator as Navigator & {
+            connection?: EventTarget & { effectiveType?: string; saveData?: boolean };
+        }).connection;
+        let animationFrame = 0;
+        let idleCallback: number | undefined;
+        let fallbackTimer: number | undefined;
+        let inViewport = true;
 
-        if (isSlowNetwork) {
-            video.preload = 'none';
+        const canLoadVideo = () => media.matches && !connection?.saveData &&
+            connection?.effectiveType !== '2g' && connection?.effectiveType !== 'slow-2g';
+
+        const cancelPendingLoad = () => {
+            window.cancelAnimationFrame(animationFrame);
+            if (idleCallback !== undefined) window.cancelIdleCallback(idleCallback);
+            if (fallbackTimer !== undefined) window.clearTimeout(fallbackTimer);
+        };
+
+        const updatePlayback = () => {
+            if (!canLoadVideo()) {
+                video.pause();
+                if (video.hasAttribute('src')) {
+                    video.removeAttribute('src');
+                    video.load();
+                }
+                return;
+            }
+
+            if (currentSlide !== 0 || document.hidden || !inViewport) {
+                video.pause();
+                return;
+            }
+
+            if (!video.hasAttribute('src')) video.src = videoSource;
+            void video.play().catch(() => {
+                // The poster remains visible when browser autoplay is unavailable.
+            });
+        };
+
+        const schedulePlayback = () => {
+            cancelPendingLoad();
+            if (progressRef.current) {
+                progressRef.current.style.animationPlayState = document.hidden || !inViewport ? 'paused' : 'running';
+            }
+            if (!canLoadVideo() || currentSlide !== 0 || document.hidden || !inViewport) {
+                updatePlayback();
+                return;
+            }
+
+            animationFrame = window.requestAnimationFrame(() => {
+                animationFrame = window.requestAnimationFrame(() => {
+                    if (typeof window.requestIdleCallback === 'function') {
+                        idleCallback = window.requestIdleCallback(updatePlayback, { timeout: 1500 });
+                    } else {
+                        fallbackTimer = window.setTimeout(updatePlayback, 1000);
+                    }
+                });
+            });
+        };
+
+        const observer = new IntersectionObserver(([entry]) => {
+            inViewport = entry.isIntersecting;
+            schedulePlayback();
+        });
+        if (heroRef.current) observer.observe(heroRef.current);
+        schedulePlayback();
+        media.addEventListener('change', schedulePlayback);
+        connection?.addEventListener('change', schedulePlayback);
+        document.addEventListener('visibilitychange', schedulePlayback);
+
+        return () => {
+            cancelPendingLoad();
+            observer.disconnect();
             video.pause();
-        }
-    }, [isMobile]);
+            media.removeEventListener('change', schedulePlayback);
+            connection?.removeEventListener('change', schedulePlayback);
+            document.removeEventListener('visibilitychange', schedulePlayback);
+        };
+    }, [currentSlide]);
 
     const nextSlide = useCallback(() => {
         if (!hasTransitioned) setHasTransitioned(true);
@@ -97,43 +167,54 @@ export default function Hero() {
     }, [hasTransitioned]);
 
     return (
-        <div className="index-banner position-relative group">
+        <div ref={heroRef} className={`${styles.hero} index-banner position-relative group`}>
             {slides.map((slide, index) => (
                 <div
                     key={slide.id}
-                    className={`hero-slide ${index === currentSlide ? 'active' : ''} ${!hasTransitioned && index === 0 ? 'instant' : ''}`}
+                    className={`${styles.slide} hero-slide ${index === currentSlide ? 'active' : ''} ${!hasTransitioned && index === 0 ? 'instant' : ''}`}
+                    data-active={index === currentSlide}
+                    aria-hidden={index !== currentSlide}
+                    style={{ visibility: index === currentSlide ? 'visible' : 'hidden' }}
                 >
                     {/* Background Media */}
                     <div className="hero-video-container">
                         {slide.type === 'video' ? (
                             <>
+                                <Image
+                                    src="/images/hero-video-poster.webp"
+                                    alt=""
+                                    fill
+                                    sizes="100vw"
+                                    priority
+                                    className={`${styles.media} hero-video`}
+                                    style={{ objectFit: 'cover', opacity: hasVideoFrame ? 0 : 1 }}
+                                />
                                 <video
                                     ref={videoRef}
-                                    className="hero-video"
+                                    className={`${styles.media} hero-video`}
                                     autoPlay
                                     muted
                                     loop
                                     playsInline
-                                    preload={index === currentSlide ? "auto" : "none"}
+                                    aria-hidden="true"
+                                    preload="none"
+                                    onPlaying={() => setHasVideoFrame(true)}
+                                    onEmptied={() => setHasVideoFrame(false)}
+                                    onError={() => setHasVideoFrame(false)}
                                     style={{
                                         filter: slide.customFilter,
-                                        backgroundColor: '#0f172a' // Dark placeholder to prevent white flash
+                                        opacity: hasVideoFrame ? 1 : 0,
                                     }}
-                                >
-                                    {/* Only render source if it's the current slide or next slide to save bandwidth */}
-                                    {(index === currentSlide || index === (currentSlide + 1) % slides.length) && (
-                                        <source src={slide.videoSrc} type="video/mp4" />
-                                    )}
-                                </video>
+                                />
                                 <div className="hero-overlay"></div>
                             </>
                         ) : (
                             <>
                                 <Image
                                     src={slide.imageSrc || ''} // Fallback for video on mobile
-                                    alt={slide.title}
+                                    alt=""
                                     fill
-                                    className="hero-video"
+                                    className={`${styles.media} hero-video`}
                                     sizes="100vw"
                                     style={{
                                         objectFit: 'cover',
@@ -147,7 +228,7 @@ export default function Hero() {
                     </div>
 
                     <div
-                        className="index-banner-content text-center hero-slide-content container-responsive"
+                        className={`${styles.content} index-banner-content text-center hero-slide-content`}
                         style={{
                             position: 'relative',
                             zIndex: 10,
@@ -201,7 +282,7 @@ export default function Hero() {
                             </span>
                         </HeroHeading>
                         <p
-                            className="mx-auto mb-4 hero-description"
+                            className={`${styles.description} mx-auto mb-4 hero-description`}
                             style={{
                                 color: "#f0f9ff",
                                 fontSize: "19px",
@@ -228,7 +309,7 @@ export default function Hero() {
                                     display: "inline-block"
                                 }}
                             >
-                                Join Now
+                                {slide.ctaText}
                             </Link>
                         </div>
 
@@ -238,17 +319,17 @@ export default function Hero() {
             ))}
 
             {/* Navigation Arrows */}
-            <div className="hero-nav-container d-none d-md-flex">
+            <div className={`${styles.navigation} hero-nav-container d-none d-md-flex`}>
                 <button
                     onClick={prevSlide}
-                    className="hero-nav-btn me-3"
+                    className={`${styles.navigationButton} hero-nav-btn me-3`}
                     aria-label="Previous Slide"
                 >
                     <i className="fas fa-chevron-left"></i>
                 </button>
                 <button
                     onClick={nextSlide}
-                    className="hero-nav-btn"
+                    className={`${styles.navigationButton} hero-nav-btn`}
                     aria-label="Next Slide"
                 >
                     <i className="fas fa-chevron-right"></i>
@@ -259,74 +340,13 @@ export default function Hero() {
             <div className="hero-progress-bar-container">
                 <div
                     key={currentSlide}
-                    className="hero-progress-bar"
+                    ref={progressRef}
+                    className={`${styles.progress} hero-progress-bar`}
                     style={{ animationDuration: `${SLIDE_DURATION}ms` }}
                     onAnimationEnd={nextSlide}
                 />
             </div>
 
-            <style jsx>{`
-                .container-responsive {
-                    max-width: 1200px;
-                    padding-top: 120px;
-                    padding-bottom: 80px;
-                    padding-left: 20px;
-                    padding-right: 20px;
-                }
-                .hero-title {
-                    font-size: clamp(40px, 6vw, 68px);
-                }
-
-                .hero-nav-container {
-                    position: absolute;
-                    bottom: 15%;
-                    right: 10%;
-                    z-index: 20;
-                    display: flex;
-                    align-items: center;
-                }
-
-                .hero-nav-btn {
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.2);
-                    border: 1px solid rgba(255, 255, 255, 0.3);
-                    backdrop-filter: blur(5px);
-                    color: white;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    font-size: 16px;
-                }
-
-                .hero-nav-btn:hover {
-                    background: rgba(255, 255, 255, 0.4);
-                    transform: scale(1.1);
-                }
-
-                @media (max-width: 768px) {
-                    .container-responsive {
-                        padding-top: 80px;
-                        padding-bottom: 40px;
-                        width: 100%;
-                    }
-                    .hero-title {
-                        font-size: clamp(32px, 8vw, 42px);
-                    }
-                    .hero-description {
-                        font-size: 16px !important;
-                        padding: 0 15px;
-                    }
-                    .hero-nav-container {
-                        bottom: 5%;
-                        right: 50%;
-                        transform: translateX(50%);
-                    }
-                }
-            `}</style>
         </div>
     );
 }

@@ -9,6 +9,7 @@ export const revalidate = 3600; // Regenerate every hour
 const BASE_URL = 'https://flexymarkets.com';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    // Omit lastModified until a reliable content revision date exists for static pages.
     const staticRoutes = [
         '',
         '/about',
@@ -35,6 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/news-analysis',
         '/platforms',
         '/precious-metals',
+        '/privacy-policy',
         '/promotions',
         '/shares',
         '/stock-derivatives',
@@ -42,9 +44,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/turbo-stocks',
     ].map((route) => ({
         url: `${BASE_URL}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: route === '' ? 1 : 0.8,
     }));
 
     // Fetch dynamic blog posts with a timeout to prevent build failures
@@ -81,8 +80,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         blogRoutes = res.rows.map((post) => ({
             url: `${BASE_URL}/blog/${post.slug}`,
             ...(post.last_modified ? { lastModified: post.last_modified } : {}),
-            changeFrequency: 'weekly' as const,
-            priority: 0.6,
         }));
     } catch (error) {
         console.error('Failed to generate blog sitemap (continuing with static routes only):', error);

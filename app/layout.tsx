@@ -2,56 +2,67 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import localFont from 'next/font/local';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import './icon-fonts.css';
 import './globals.css';
-import dynamic from 'next/dynamic';
-import Loader from '@/components/Loader';
 import JsonLd from '@/components/JsonLd';
 import { BLOG_AUTHOR, SITE_PUBLISHER } from '@/lib/siteIdentity';
 
 import DynamicWhatsApp from '@/components/DynamicWhatsApp';
+import Analytics from '@/components/Analytics';
+import BootstrapClient from '@/components/BootstrapClient';
 
 const tomato = localFont({
   src: [
     {
-      path: './fonts/TomatoGrotesk-Medium.woff',
+      path: './fonts/TomatoGrotesk-Medium.woff2',
       weight: '400 500',
       style: 'normal',
     },
     {
-      path: './fonts/TomatoGrotesk-SemiBold.woff',
+      path: './fonts/TomatoGrotesk-SemiBold.woff2',
       weight: '600 800',
       style: 'normal',
     },
   ],
   variable: '--font-tomato',
+  preload: false,
+});
+
+const tomatoLatin = localFont({
+  src: [
+    { path: './fonts/TomatoGrotesk-Medium.latin.woff2', weight: '400 500', style: 'normal' },
+    { path: './fonts/TomatoGrotesk-SemiBold.latin.woff2', weight: '600 800', style: 'normal' },
+  ],
+  variable: '--font-tomato-latin',
+  adjustFontFallback: false,
+  declarations: [{ prop: 'unicode-range', value: 'U+0020-00FF, U+2000-206F, U+20A0-20CF, U+2122, U+2190-21FF' }],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://flexymarkets.com'),
   authors: [{ name: BLOG_AUTHOR }],
   publisher: SITE_PUBLISHER,
-  title: {
-    default: 'Flexy Markets | Regulated Forex, CFD & Crypto Broker',
-    template: '%s | Flexy Markets',
-  },
-  description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
-  keywords: ['MQL5', 'Automated Trading', 'Forex Broker', 'Online Trading', 'CFD Trading', 'Flexy Markets', 'Regulated Broker', 'Algo Trading'],
+  // Page titles already include the brand, so a template would duplicate it.
+  title: 'Forex & CFD Trading Platform | Flexy Markets',
+  description: 'Explore forex and CFD trading with Flexy Markets. Compare trading accounts, discover the RTX 5 platform, and access market analysis and educational resources.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://flexymarkets.com',
+    url: './',
     siteName: 'Flexy Markets',
     images: [
       {
-        url: '/hd_logo.webp',
-        alt: 'Flexy Markets',
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Flexy Markets — Forex & CFD Trading',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@FlexyMarkets',
-    creator: '@FlexyMarkets',
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
@@ -87,20 +98,19 @@ export default function RootLayout({
         '@type': 'Organization',
         '@id': 'https://flexymarkets.com/#organization',
         name: SITE_PUBLISHER,
+        legalName: 'Flexy Markets Limited',
         url: 'https://flexymarkets.com',
         logo: 'https://flexymarkets.com/hd_logo.webp',
         sameAs: [
-          'https://www.facebook.com/FlexyMarkets',
-          'https://twitter.com/FlexyMarkets',
-          'https://www.instagram.com/flexymarkets',
-          'https://www.linkedin.com/company/flexy-markets',
+          'https://www.facebook.com/flexymarkets/',
+          'https://www.instagram.com/officialflexymarktes',
+          'https://www.linkedin.com/company/flexy-market/',
         ],
         contactPoint: {
           '@type': 'ContactPoint',
           telephone: '+44-3300-271632',
+          email: 'support@flexymarkets.com',
           contactType: 'customer service',
-          areaServed: 'Global',
-          availableLanguage: ['English', 'Spanish', 'Italian', 'German'],
         },
       },
       {
@@ -108,50 +118,37 @@ export default function RootLayout({
         '@id': 'https://flexymarkets.com/#website',
         url: 'https://flexymarkets.com/',
         name: 'Flexy Markets',
+        inLanguage: 'en',
         publisher: { '@id': 'https://flexymarkets.com/#organization' },
       },
     ],
   };
 
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={tomato.variable}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${tomatoLatin.variable} ${tomato.variable}`}>
       <head>
-        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossOrigin="anonymous" referrerPolicy="no-referrer" />
-        {/* Google tag (gtag.js) */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-Q4GCWX9KQP" strategy="afterInteractive" />
-        <Script id="google-analytics-g4" strategy="afterInteractive">
+        {/* Queue the initial page view immediately; load the library after primary resources. */}
+        <Script id="google-tag-queue" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-Q4GCWX9KQP');
+            window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+            if (!window.__flexyAnalyticsInitialized) {
+              window.__flexyAnalyticsInitialized = true;
+              window.gtag('js', new Date());
+              window.gtag('config', 'G-Q4GCWX9KQP', { page_location: window.location.href });
+              window.gtag('config', 'AW-823862486');
+            }
           `}
         </Script>
       </head>
       <body>
-        <Loader />
         {children}
         <DynamicWhatsApp />
 
-        {/* Font Awesome is now loaded as CSS in the <head> to prevent DOM conflicts with React */}
-
-        {/* Bootstrap JS - lazy loaded since only needed for dropdowns/modals */}
-        <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" strategy="lazyOnload" />
+        <BootstrapClient />
+        <Analytics />
         <JsonLd data={organizationSchema} />
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-823862486');
-          `}
-        </Script>
 
         {/* Suppress harmless iframe warnings from TradingView widgets */}
         <Script id="suppress-iframe-warnings" strategy="lazyOnload">

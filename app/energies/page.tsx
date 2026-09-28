@@ -32,24 +32,21 @@ export default function EnergiesPage() {
         { title: "News Trading", description: "React quickly to geopolitical events that directly impact energy prices.", iconClass: "fas fa-newspaper" },
     ];
 
-    const productSchema = {
+    const serviceSchema = {
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": "Service",
+        "@id": "https://flexymarkets.com/energies#service",
+        "url": "https://flexymarkets.com/energies",
         "name": "Energy Commodities Trading",
         "description": "Trade US Crude Oil, Brent Crude Oil, and Natural Gas with competitive spreads and leverage.",
-        "brand": {
-            "@type": "Brand",
-            "name": "Flexy Markets"
-        },
         "provider": {
-            "@type": "Organization",
-            "name": "Flexy Markets"
+            "@id": "https://flexymarkets.com/#organization"
         }
     };
 
     return (
         <main>
-            <JsonLd data={productSchema} />
+            <JsonLd data={serviceSchema} />
             <NavBar />
             <UnifiedHero
                 title="Energies Trading"

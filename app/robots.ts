@@ -1,6 +1,9 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
+    // Match the legacy route without blocking /promotions or promotion image assets.
+    const disallow = ['/promotion$', '/promotion/'];
+
     return {
         rules: [
             {
@@ -17,12 +20,12 @@ export default function robots(): MetadataRoute.Robots {
                     'Bingbot',
                 ],
                 allow: '/',
-                disallow: ['/promotion'],
+                disallow,
             },
             {
                 userAgent: '*',
                 allow: '/',
-                disallow: ['/promotion'],
+                disallow,
             },
         ],
         sitemap: 'https://flexymarkets.com/sitemap.xml',

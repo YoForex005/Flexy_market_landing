@@ -14,7 +14,7 @@ export default function Footer() {
                         <div className="row align-items-center">
                             <div className="col-lg-5">
                                 <div className="footer_heading">
-                                    <h3 className="display-6 fw-bold" style={{ color: '#0f4941' }}>Feel connected anytime, anywhere.</h3>
+                                    <h2 className="display-6 fw-bold" style={{ color: '#0f4941' }}>Connect with Flexy Markets</h2>
                                 </div>
                             </div>
                             <div className="col-lg-4 offset-lg-3">
@@ -52,7 +52,7 @@ export default function Footer() {
                         <div className="row">
                             {/* Trading Markets */}
                             <div className="col-lg-2 col-md-4 col-6 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>TRADING MARKETS</h6>
+                                <h3 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>TRADING MARKETS</h3>
                                 <Link href="/forex-trading" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Forex Trading</Link>
                                 <Link href="/cryptocurrencies" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Cryptocurrencies</Link>
                                 <Link href="/equity-indices" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Equity Indices</Link>
@@ -67,7 +67,7 @@ export default function Footer() {
 
                             {/* Tools & Resources */}
                             <div className="col-lg-2 col-md-4 col-6 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>TOOLS & RESOURCES</h6>
+                                <h3 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>TOOLS & RESOURCES</h3>
                                 <Link href="/economic-calendar" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Economic Calendar</Link>
                                 <Link href="/forex-calculator" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Forex Calculator</Link>
                                 <Link href="/analytical-tools" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Analytical Tools</Link>
@@ -78,19 +78,19 @@ export default function Footer() {
 
                             {/* Platforms */}
                             <div className="col-lg-2 col-md-4 col-6 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>PLATFORMS</h6>
+                                <h3 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>PLATFORMS</h3>
                                 <Link href="/rtx5" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>RTX 5 Platform</Link>
                             </div>
 
                             {/* Accounts */}
                             <div className="col-lg-2 col-md-4 col-6 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>ACCOUNTS</h6>
+                                <h3 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>ACCOUNTS</h3>
                                 <Link href="/account" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Account Types</Link>
                             </div>
 
                             {/* Our Offering */}
                             <div className="col-lg-2 col-md-4 col-6 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>OUR OFFERING</h6>
+                                <h3 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>OUR OFFERING</h3>
                                 <Link href="/flexy-copy-trading" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Flexy Copy Trading</Link>
                                 <Link href="/promotions" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Promotions</Link>
                                 <Link href="/execution-policy" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Execution Policy</Link>
@@ -99,7 +99,7 @@ export default function Footer() {
 
                             {/* Company */}
                             <div className="col-lg-2 col-md-4 col-6 mb-4">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>COMPANY</h6>
+                                <h3 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>COMPANY</h3>
                                 <Link href="/about" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Who is Flexy Markets?</Link>
                                 <Link href="/legal-documents" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Legal Documents</Link>
                                 <Link href="/contact" className="d-block text-muted mb-2" style={{ fontSize: '0.95rem' }}>Contact Us</Link>
@@ -109,10 +109,10 @@ export default function Footer() {
                         {/* Address Section - Full Width Row */}
                         <div className="row mt-4 pt-4" style={{ borderTop: '1px solid rgba(15, 73, 65, 0.1)' }}>
                             <div className="col-lg-6 mb-4 text-center text-lg-start">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>REGISTERED ADDRESS</h6>
+                                <h3 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>REGISTERED ADDRESS</h3>
                                 <p className="text-muted small mb-1">Flexy Markets Limited (Reg No. - 2024-00752)</p>
                                 <p className="text-muted small mb-1">Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia</p>
-                                <p className="text-muted small mb-1"><strong>Email:</strong> support@flexymarkets.com</p>
+                                <p className="text-muted small mb-1"><strong>Email:</strong> <a href="mailto:support@flexymarkets.com">support@flexymarkets.com</a></p>
                                 <p className="text-muted small mb-0">
                                     <strong>Phone:</strong>{" "}
                                     <a
@@ -127,7 +127,7 @@ export default function Footer() {
                             </div>
 
                             <div className="col-lg-6 mb-4 text-center text-lg-start">
-                                <h6 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>CORRESPONDENCE ADDRESS</h6>
+                                <h3 className="fw-bold text-uppercase mb-3" style={{ color: '#0f4941', fontSize: '0.875rem', letterSpacing: '1px' }}>CORRESPONDENCE ADDRESS</h3>
                                 <p className="text-muted small mb-1">Middle East Office:</p>
                                 <p className="text-muted small mb-0">B2007-127, 33rd floor, Latifa Tower, Trade Center first, Seikh Zayad Road, Dubai-UAE</p>
                             </div>
@@ -138,7 +138,7 @@ export default function Footer() {
                     <div className="legal-footer bg-white rounded-4 p-4 mb-4" style={{ border: '1px solid rgba(15, 73, 65, 0.1)' }}>
                         <div className="row">
                             <div className="col-12 text-center mb-3">
-                                <a href="/pdf/TERM%20AND%20CONDITION.pdf" target="_blank" className="text-muted small px-2">Terms and Conditions</a>
+                                <a href="/pdf/TERM%20AND%20CONDITION.pdf" target="_blank" rel="noopener noreferrer" className="text-muted small px-2">Terms and Conditions</a>
                                 <span className="text-muted">|</span>
                                 <Link href="/privacy-policy" className="text-muted small px-2">Privacy Policy</Link>
                             </div>
@@ -151,7 +151,7 @@ export default function Footer() {
                                 </p>
 
                                 <p className="text-muted small mb-2">
-                                    <strong style={{ color: '#0f4941' }}>Risk Warning:</strong> Our services involve a significant risk and can result in the loss of your invested capital. Please read and ensure you fully understand our Risk Disclosure.
+                                    <strong style={{ color: '#0f4941' }}>Risk Warning:</strong> Our services involve a significant risk and can result in the loss of your invested capital. Please read and ensure you fully understand our <a href="/pdf/Global_Risk_Disclosures_for_Financial_Instruments.pdf" target="_blank" rel="noopener noreferrer">Risk Disclosure</a>.
                                 </p>
 
                                 <p className="text-muted small mb-2">

@@ -18,7 +18,44 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses `next/font` to serve the supplied Tomato Grotesk fonts locally.
+Small Latin subsets load first; complete fonts remain available for other supported characters.
+
+## SEO verification
+
+Build and start the production server before checking SEO:
+
+```bash
+npm run build
+npm run start -- --port 3100
+# In a second terminal:
+npm run verify:seo -- --base-url=http://127.0.0.1:3100
+```
+
+The verifier checks rendered metadata, structured data, internal links, sitemap
+coverage, indexing directives, and content availability without page JavaScript.
+See [the measured SEO validation report](docs/SEO_VALIDATION.md) for Lighthouse
+results, changes, and remaining limitations. Generated local audit artifacts are
+stored in the ignored `.seo-cache/` directory.
+
+## Performance verification
+
+See [the performance validation report](docs/PERFORMANCE_VALIDATION.md) for
+before/after production-build measurements, changes, and testing conditions.
+Run performance audits against a production server, not `next dev`.
+
+Font Awesome is served locally with subsets for icons used in `app/` and
+`components/`. Full local faces remain available for additional icons. To update
+the checked-in font assets after adding icons, run:
+
+```bash
+# Optional maintenance dependencies; normal builds do not need Python.
+python -m pip install "fonttools[woff]"
+python scripts/subset-fonts.py
+```
+
+Keep dynamically constructed icon names in the script's explicit safelist.
+Font Awesome's license is included in `app/fonts/Font-Awesome-LICENSE.txt`.
 
 ## Learn More
 

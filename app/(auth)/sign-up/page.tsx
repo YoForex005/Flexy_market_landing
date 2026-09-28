@@ -5,10 +5,13 @@ import ClientPage from './ClientPage';
 export const metadata: Metadata = {
     title: 'Sign Up | Flexy Markets',
     description: 'Create a Flexy Markets trading account today. Start your journey with regulated trading, tight spreads, and fast execution.',
+    alternates: {
+        canonical: '/sign-up',
+    },
     openGraph: {
         title: 'Sign Up | Flexy Markets',
         description: 'Create a Flexy Markets trading account today.',
-        url: 'https://flexymarkets.com/accounts/signUp',
+        url: 'https://flexymarkets.com/sign-up',
         siteName: 'Flexy Markets',
         locale: 'en_US',
         type: 'website',

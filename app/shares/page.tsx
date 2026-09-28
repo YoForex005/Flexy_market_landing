@@ -38,24 +38,21 @@ export default function SharesPage() {
         { title: "Low Fees", description: "Benefit from our low commission structure.", iconClass: "fas fa-percentage" },
     ];
 
-    const productSchema = {
+    const serviceSchema = {
         '@context': 'https://schema.org',
-        '@type': 'Product',
+        '@type': 'Service',
+        '@id': 'https://flexymarkets.com/shares#service',
+        url: 'https://flexymarkets.com/shares',
         name: 'Share Trading',
         description: 'Trade shares of top global companies like Apple, Tesla, and Amazon with 0% commission on select accounts.',
-        brand: {
-            '@type': 'Brand',
-            name: 'Flexy Markets'
-        },
         provider: {
-            '@type': 'Organization',
-            name: 'Flexy Markets'
+            '@id': 'https://flexymarkets.com/#organization',
         }
     };
 
     return (
         <main>
-            <JsonLd data={productSchema} />
+            <JsonLd data={serviceSchema} />
             <NavBar />
             <UnifiedHero
                 title="Discover Share Trading"

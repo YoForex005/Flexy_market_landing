@@ -36,24 +36,21 @@ export default function CryptoTradingPage() {
         { title: "Secure Wallet", description: "Trade with confidence using our regulated and secure environment.", iconClass: "fas fa-lock" },
     ];
 
-    const productSchema = {
+    const serviceSchema = {
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": "Service",
+        "@id": "https://flexymarkets.com/cryptocurrencies#service",
+        "url": "https://flexymarkets.com/cryptocurrencies",
         "name": "Cryptocurrency Trading",
         "description": "Trade Bitcoin, Ethereum, and other major cryptocurrencies with leverage and deep liquidity.",
-        "brand": {
-            "@type": "Brand",
-            "name": "Flexy Markets"
-        },
         "provider": {
-            "@type": "Organization",
-            "name": "Flexy Markets"
+            "@id": "https://flexymarkets.com/#organization"
         }
     };
 
     return (
         <main>
-            <JsonLd data={productSchema} />
+            <JsonLd data={serviceSchema} />
             <NavBar />
             <UnifiedHero
                 title={<>Discover<br />Crypto Derivatives Trading</>}

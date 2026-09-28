@@ -14,9 +14,9 @@ export default function Features() {
             <div className="row g-0">
                 <section className="every_heading text-center">
                     <div className="my-5 mb-4 px-3">
-                        <h2 className="display-4 fw-bold">Advanced Trading Features</h2>
+                        <h2 className="display-4 fw-bold">RTX 5 Trading Platform Features</h2>
                         <p className="lead text-muted">
-                            Explore our platform with instant features, advanced tools, and more!
+                            View the RTX 5 trading interface, charting tools and market screens.
                         </p>
                     </div>
 
@@ -24,7 +24,7 @@ export default function Features() {
                         <div className={`tab-pane fade ${activeTab === 'trade' ? 'show active' : ''}`}>
                             <Image
                                 src={tradeInstantlyImg}
-                                alt="Trade Instantly Screenshot"
+                                alt="RTX 5 trading platform interface"
                                 placeholder="blur"
                                 className="features-responsive-img"
                                 style={{ width: '95%', height: 'auto', maxWidth: '95%', margin: '0 auto', display: 'block' }}
@@ -33,7 +33,7 @@ export default function Features() {
                         <div className={`tab-pane fade ${activeTab === 'tools' ? 'show active' : ''}`}>
                             <Image
                                 src={advanceToolsImg}
-                                alt="Use Advanced Tools Screenshot"
+                                alt="RTX 5 platform charting and trading tools"
                                 placeholder="blur"
                                 className="features-responsive-img"
                                 style={{ width: '95%', height: 'auto', maxWidth: '95%', margin: '0 auto', display: 'block' }}
@@ -42,7 +42,7 @@ export default function Features() {
                         <div className={`tab-pane fade ${activeTab === 'expand' ? 'show active' : ''}`}>
                             <Image
                                 src={expandOkImg}
-                                alt="Expand Your Opportunities Screenshot"
+                                alt="RTX 5 market overview interface"
                                 placeholder="blur"
                                 className="features-responsive-img"
                                 style={{ width: '95%', height: 'auto', maxWidth: '95%', margin: '0 auto', display: 'block' }}

@@ -34,7 +34,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
                 {/* Tabs */}
                 <div className="d-flex mb-4 border-bottom">
                     <Link
-                        href="/accounts/signIn"
+                        href="/sign-in"
                         className={`flex-fill text-center pb-3 text-decoration-none fw-bold ${!isSignUp ? 'border-dark' : ''}`}
                         style={{
                             color: !isSignUp ? '#0f4941' : '#ccc',
@@ -45,7 +45,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
                         Sign in
                     </Link>
                     <Link
-                        href="/accounts/signUp"
+                        href="/sign-up"
                         className={`flex-fill text-center pb-3 text-decoration-none fw-bold ${isSignUp ? 'border-dark' : ''}`}
                         style={{
                             color: isSignUp ? '#0f4941' : '#ccc',
@@ -370,7 +370,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
                     <div className="mt-4 text-center">
                         <p className="small text-muted mb-0">
                             {isSignUp ? "Already have an account?" : "New here?"}{" "}
-                            <Link href={isSignUp ? "/accounts/signIn" : "/accounts/signUp"} style={{ color: "#0f4941", fontWeight: "bold", textDecoration: "none" }}>
+                            <Link href={isSignUp ? "/sign-in" : "/sign-up"} style={{ color: "#0f4941", fontWeight: "bold", textDecoration: "none" }}>
                                 {isSignUp ? "Sign in" : "Sign up"}
                             </Link>
                         </p>

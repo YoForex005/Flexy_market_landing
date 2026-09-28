@@ -10,10 +10,10 @@ export default function Support() {
                 <div className="row align-items-center">
                     <div className="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
                         <h2 className="display-4 fw-bold mb-3">
-                            Rely on Award-Winning Support
+                            Contact Flexy Markets Support
                         </h2>
                         <p className="lead text-muted mb-4">
-                            Whenever you need us we&apos;re just a few seconds away, 24/7, in extensive language options.
+                            Get help with account access, the trading platform and general enquiries. Find our email, phone and office details on the contact page.
                         </p>
                         <Link
                             href="/contact"
@@ -37,7 +37,7 @@ export default function Support() {
                     </div>
                     <div className="col-lg-6 text-center">
                         <div className="support-icon-wrapper">
-                            <svg width="350" height="350" viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg" className="support-icon">
+                            <svg width="350" height="350" viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg" className="support-icon" aria-hidden="true" focusable="false">
                                 {/* Background circle */}
                                 <circle cx="175" cy="175" r="140" fill="#f0f5f3" opacity="0.5" />
 

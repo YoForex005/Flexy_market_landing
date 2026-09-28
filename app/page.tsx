@@ -1,63 +1,49 @@
 
 
-import dynamic from 'next/dynamic';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
 import JsonLd from '@/components/JsonLd';
 
-import SectionSkeleton from '@/components/SectionSkeleton';
-
-// Dynamic imports - ssr: false skips server render for faster initial HTML
-const TradeView = dynamic(() => import('@/components/TradeView'), {
-  loading: () => <SectionSkeleton height="600px" />
-});
-const Discover = dynamic(() => import('@/components/Discover'), {
-  loading: () => <SectionSkeleton height="500px" />
-});
-const Results = dynamic(() => import('@/components/Results'), {
-  loading: () => <SectionSkeleton height="400px" />
-});
-const AccountTypes = dynamic(() => import('@/components/AccountTypes'), {
-  loading: () => <SectionSkeleton height="800px" />
-});
-const Features = dynamic(() => import('@/components/Features'), {
-  loading: () => <SectionSkeleton height="600px" />
-});
-const Support = dynamic(() => import('@/components/Support'), {
-  loading: () => <SectionSkeleton height="400px" />
-});
+// Render primary content directly: loading boundaries leave hidden streamed
+// sections behind until JavaScript runs, even when server rendering is enabled.
+import TradeView from '@/components/TradeView';
+import Discover from '@/components/Discover';
+import Results from '@/components/Results';
+import AccountTypes from '@/components/AccountTypes';
+import Features from '@/components/Features';
+import Support from '@/components/Support';
 
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Flexy Markets | Regulated Forex, CFD & Crypto Broker',
-  description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
+  title: 'Forex & CFD Trading Platform | Flexy Markets',
+  description: 'Explore forex and CFD trading with Flexy Markets. Compare trading accounts, discover the RTX 5 platform, and access market analysis and educational resources.',
   alternates: {
-    canonical: 'https://flexymarkets.com',
+    canonical: 'https://flexymarkets.com/',
   },
   openGraph: {
-    title: 'Flexy Markets | Regulated Forex, CFD & Crypto Broker',
-    description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
-    url: 'https://flexymarkets.com',
+    title: 'Forex & CFD Trading Platform | Flexy Markets',
+    description: 'Explore forex and CFD trading with Flexy Markets. Compare trading accounts, discover the RTX 5 platform, and access market analysis and educational resources.',
+    url: 'https://flexymarkets.com/',
     siteName: 'Flexy Markets',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: '/hd_logo.webp',
-        width: 1500,
-        height: 696,
-        alt: 'Flexy Markets',
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Flexy Markets — Forex & CFD Trading',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Flexy Markets | Regulated Forex, CFD & Crypto Broker',
-    description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
-    images: ['/hd_logo.webp'],
+    title: 'Forex & CFD Trading Platform | Flexy Markets',
+    description: 'Explore forex and CFD trading with Flexy Markets. Compare trading accounts, discover the RTX 5 platform, and access market analysis and educational resources.',
+    images: ['/opengraph-image'],
   },
 };
 
@@ -67,8 +53,9 @@ export default function Home() {
     '@type': 'WebPage',
     '@id': 'https://flexymarkets.com/#webpage',
     url: 'https://flexymarkets.com/',
-    name: 'Flexy Markets | Regulated Forex, CFD & Crypto Broker',
-    description: 'Trade CFDs on Forex, Shares, Indices & more with a regulated broker optimized for MQL5 and automated trading. Access 1,400+ assets with Flexy Markets.',
+    name: 'Forex & CFD Trading Platform | Flexy Markets',
+    description: 'Explore forex and CFD trading with Flexy Markets. Compare trading accounts, discover the RTX 5 platform, and access market analysis and educational resources.',
+    inLanguage: 'en',
     isPartOf: {
       '@type': 'WebSite',
       '@id': 'https://flexymarkets.com/#website',
@@ -81,9 +68,11 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <>
       <JsonLd data={webPageSchema} />
+      <a href="#main-content" className="visually-hidden-focusable position-absolute p-3 bg-white" style={{ zIndex: 1100 }}>Skip to main content</a>
       <NavBar />
+      <main id="main-content" tabIndex={-1}>
       <Hero />
 
       {/* Gradient Transition Overlay */}
@@ -113,7 +102,8 @@ export default function Home() {
         <Support />
       </ScrollReveal>
 
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

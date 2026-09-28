@@ -21,11 +21,9 @@ export default function BlogAuthorInfo({
     const closeBtnRef = useRef<HTMLButtonElement>(null);
     const triggerRef = useRef<HTMLButtonElement>(null);
 
-    const displayCredentials =
-        credentials?.trim() || "Market Analyst · Flexy Markets";
-    const displayBio =
-        bio?.trim() ||
-        `${name} contributes trading insights, market education, and analysis for Flexy Markets readers.`;
+    const displayCredentials = credentials?.trim();
+    const displayBio = bio?.trim();
+    const hasAuthorDetails = Boolean(displayCredentials || displayBio);
 
     useEffect(() => {
         if (!open) return;
@@ -47,7 +45,7 @@ export default function BlogAuthorInfo({
         <div className="blog-author-info">
             {/* Meta row stays put — panel is a sibling BELOW this row */}
             <div className="blog-author-meta">
-                <button
+                {hasAuthorDetails ? <button
                     ref={triggerRef}
                     type="button"
                     className="blog-author-trigger d-inline-flex align-items-center border-0 bg-transparent p-0"
@@ -57,12 +55,17 @@ export default function BlogAuthorInfo({
                 >
                     <i className="fas fa-user-circle me-2 fs-5" aria-hidden="true" />
                     <span className="fw-medium">{name}</span>
-                </button>
+                </button> : (
+                    <span className="d-inline-flex align-items-center">
+                        <i className="fas fa-user-circle me-2 fs-5" aria-hidden="true" />
+                        <span className="fw-medium">{name}</span>
+                    </span>
+                )}
                 {children}
             </div>
 
             {/* Full-width slot under meta: only this grows, which pushes the image down */}
-            <div
+            {hasAuthorDetails && <div
                 id={panelId}
                 className={`blog-author-panel${open ? " is-open" : ""}`}
                 role="region"
@@ -79,12 +82,12 @@ export default function BlogAuthorInfo({
                                     </span>
                                     <div>
                                         <p className="h5 fw-bold mb-1 text-dark">{name}</p>
-                                        <p className="mb-0 small text-emerald-700 fw-semibold">
+                                        {displayCredentials && <p className="mb-0 small text-emerald-700 fw-semibold">
                                             {displayCredentials}
-                                        </p>
+                                        </p>}
                                     </div>
                                 </div>
-                                <p className="mb-0 text-secondary blog-author-bio">{displayBio}</p>
+                                {displayBio && <p className="mb-0 text-secondary blog-author-bio">{displayBio}</p>}
                             </div>
 
                             <button
@@ -103,7 +106,7 @@ export default function BlogAuthorInfo({
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>}
 
             <style jsx>{`
                 .blog-author-info {

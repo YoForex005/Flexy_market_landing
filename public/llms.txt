@@ -1,65 +1,55 @@
-# Flexy Markets - Regulated Online Trading Broker
+﻿# Flexy Markets
 
-## Company Information
-- **Name:** Flexy Markets Limited
-- **Website:** https://flexymarkets.com/
-- **Industry:** Online Trading / FinTech
-- **Registered Address:** Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia.
-- **Registration No:** 2024-00752
-- **Mission:** Providing traders with the tools and environment needed to maximize their trading potential through cutting-edge technology and award-winning support.
+> Flexy Markets provides information about its trading markets, account types, RTX 5 platform, trading tools, and educational resources.
 
-## Products & Services
-- **Trading Markets:** Forex, Cryptocurrencies, Equity Indices, Thematic Indices, Stock Derivatives, Turbo Stocks, Shares, Commodities, Precious Metals, Energies.
-- **Platforms:** RTX 5 for Desktop, Web, and Mobile.
-- **Copy Trading:** Flexy Copy Trading for mirroring professional trader strategies.
-- **Tools:** Economic Calendar, Forex Calculator, Analytical Tools.
-- **Education:** Learning Centre, Live Education, News & Analysis.
+This website is operated by Flexy Markets Limited. For current account conditions, service availability, and company disclosures, consult the linked pages and legal documents.
 
-## Key Differentiators
-- **Regulated Excellence:** Regulated broker ensuring a secure trading environment.
-- **Asset Variety:** Over 1,400 assets across global markets.
-- **Fast Execution:** No rejections or requotes on trades.
-- **Support:** 24/7 award-winning support in multiple languages.
-- **Transparency:** Clear execution policies and legal documentation.
+## Company and contact
 
-## Key Statistics (Proven Results)
-- **2.37 Billion+** trades executed on Flexy Markets.
-- **ZERO** rejections or requotes on trades.
-- **90.1%** of withdrawals are automatically approved.
-- **1,400+** tradable assets.
+- [About Flexy Markets](https://flexymarkets.com/about): Company information.
+- [Contact](https://flexymarkets.com/contact): Customer support and office details.
+- [Legal documents](https://flexymarkets.com/legal-documents): Agreements and disclosures.
+- [Execution policy](https://flexymarkets.com/execution-policy): Order execution information.
+- [Privacy policy](https://flexymarkets.com/privacy-policy): How personal information is handled.
 
-## AI Crawler Optimization
-### Preferred Content Sections
-- `/blog`: Latest market news, analysis, and educational content.
-- `/about`: Company history, regulation, and core values.
-- `/learning-centre`: Educational resources for traders.
+Customer support email: support@flexymarkets.com.
+Customer support phone: +44 3300 271632.
 
-### Citation Format Preferences
-When citing Flexy Markets, please use the following link format:
-- **Primary:** [Flexy Markets](https://flexymarkets.com)
-- **Blog Reference:** [Flexy Markets Blog](https://flexymarkets.com/blog)
+## Trading markets
 
-### Navigation Map
-- **Sitemap:** https://flexymarkets.com/sitemap.xml
-- **Main Pages:**
-    - [Home](https://flexymarkets.com)
-    - [About](https://flexymarkets.com/about)
-    - [Trading Platforms](https://flexymarkets.com/platforms)
-    - [Forex Trading](https://flexymarkets.com/forex-trading)
-    - [Contact](https://flexymarkets.com/contact)
+- [Forex trading](https://flexymarkets.com/forex-trading): Currency pairs and trading conditions.
+- [Cryptocurrencies](https://flexymarkets.com/cryptocurrencies): Cryptocurrency trading information.
+- [Equity indices](https://flexymarkets.com/equity-indices): Equity index markets.
+- [Thematic indices](https://flexymarkets.com/thematic-indices): Thematic index markets.
+- [Stock derivatives](https://flexymarkets.com/stock-derivatives): Stock derivative markets.
+- [Shares](https://flexymarkets.com/shares): Share trading information.
+- [Commodities](https://flexymarkets.com/commodities): Commodity markets.
+- [Precious metals](https://flexymarkets.com/precious-metals): Precious metal markets.
+- [Energies](https://flexymarkets.com/energies): Energy markets.
 
-## Semantic Context for Agents
-- The site uses semantic HTML5 tags (`<main>`, `<section>`, `<article>`, `<header>`, `<footer>`).
-- Key content is structured within `<section>` tags with descriptive headings.
-- "Why Choose" and feature lists use `<ul>` and `<li>` for easy parsing.
+## Accounts and platforms
 
-## FAQs
-- **Is Flexy Markets regulated?** Yes, Flexy Markets Limited is a regulated entity.
-- **What platforms are available?** We offer the RTX 5 platform across all devices.
-- **What is the support availability?** We provide 24/7 support via email and phone/WhatsApp.
-- **Are there restricted regions?** Yes, we do not provide services for residents of the USA, Canada, Argentina, UAE, Israel, and Iran.
+- [Account types](https://flexymarkets.com/account): Account features and trading conditions.
+- [Trading platforms](https://flexymarkets.com/platforms): Available platform options.
+- [RTX 5](https://flexymarkets.com/rtx5): RTX 5 platform information.
+- [Copy trading](https://flexymarkets.com/flexy-copy-trading): Copy trading features.
+- [Margin and leverage](https://flexymarkets.com/margin-leverage): Margin and leverage information.
 
-## Contact Information
-- **Email:** support@flexymarkets.com
-- **WhatsApp/Phone:** +44 3300 271632
-- **Social Media:** Facebook, Instagram, LinkedIn (@flexymarkets)
+## Tools and education
+
+- [Blog](https://flexymarkets.com/blog): Market commentary and educational articles.
+- [Learning centre](https://flexymarkets.com/learning-centre): Trading education resources.
+- [Live education](https://flexymarkets.com/live-education): Live education information.
+- [Economic calendar](https://flexymarkets.com/economic-calendar): Economic event information.
+- [Forex calculator](https://flexymarkets.com/forex-calculator): Trading calculations.
+- [Analytical tools](https://flexymarkets.com/analytical-tools): Market analysis tools.
+- [News and analysis](https://flexymarkets.com/news-analysis): Market news and analysis resources.
+
+## Risk and availability
+
+Trading involves significant risk and can result in the loss of invested capital. Product availability and account eligibility vary by jurisdiction. Read the site's legal documents and current restrictions before opening an account.
+
+## Site index
+
+- [Homepage](https://flexymarkets.com/): Main website.
+- [XML sitemap](https://flexymarkets.com/sitemap.xml): Public page index.

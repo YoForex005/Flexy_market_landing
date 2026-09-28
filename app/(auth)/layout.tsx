@@ -1,6 +1,18 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import logoImg from '../../public/hd_logo.webp';
+
+export const metadata: Metadata = {
+    robots: {
+        index: false,
+        follow: true,
+        googleBot: {
+            index: false,
+            follow: true,
+        },
+    },
+};
 
 export default function AuthLayout({
     children,

@@ -11,7 +11,7 @@ export default function TradeView() {
     const markets = [
         {
             name: "Forex",
-            description: "Trade 60+ currency pairs with tight spreads",
+            description: "Explore forex currency pairs and trading conditions",
             href: "/forex-trading",
             gradient: "radial-gradient(circle at center, #173334 0%, #326262 100%)",
             image: forexImg,
@@ -24,7 +24,7 @@ export default function TradeView() {
         },
         {
             name: "Crypto",
-            description: "Access popular crypto CFDs 24/7",
+            description: "Explore cryptocurrency CFDs and contract details",
             href: "/cryptocurrencies",
             gradient: "radial-gradient(circle at center, #a0b9b3 0%, #a0b9b3 30%, #deedea 100%)",
             image: cryptoImg,
@@ -70,10 +70,10 @@ export default function TradeView() {
                 <div className="row text-center mb-5">
                     <div className="col-12">
                         <h2 className="display-5 fw-bold mb-3" style={{ color: '#000', fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
-                            Start Trading <span style={{ color: '#0f664a' }}>Today</span>
+                            Explore Our <span style={{ color: '#0f664a' }}>Trading Markets</span>
                         </h2>
                         <p className="lead text-muted" style={{ fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto' }}>
-                            Access over 1,400+ global instruments across multiple asset classes
+                            Compare forex, cryptocurrency, index and commodity markets before choosing what to trade.
                         </p>
                     </div>
                 </div>
@@ -105,15 +105,15 @@ export default function TradeView() {
                                             }}>
                                                 {market.description}
                                             </p>
-                                            <button
+                                            <span
                                                 className="btn fw-bold rounded-pill px-4 py-2"
                                                 style={{
                                                     ...market.buttonStyle,
                                                     transition: 'all 0.3s'
                                                 }}
                                             >
-                                                Trade Now
-                                            </button>
+                                                Explore {market.name}
+                                            </span>
                                         </div>
                                         <div className="col-md-5 z-1 mt-4 mt-md-0 d-flex justify-content-center position-relative">
                                             <div className="image-crop-container" style={{ position: 'relative', height: '250px', width: '100%' }}>

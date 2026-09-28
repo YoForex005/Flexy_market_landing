@@ -9,9 +9,14 @@ import BlogImage from '@/components/BlogImage';
 import BlogViewCounter from '@/components/BlogViewCounter';
 import BlogAuthorInfo from '@/components/BlogAuthorInfo';
 import BlogFaq from '@/components/BlogFaq';
+import JsonLd from '@/components/JsonLd';
 import { normalizeBlogFaq } from '@/lib/blogFaq';
 import { BLOG_AUTHOR, SITE_PUBLISHER } from '@/lib/siteIdentity';
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { cache } from 'react';
+
+const BASE_URL = 'https://flexymarkets.com';
 
 // Helper to format date
 const formatDate = (dateString: Date) => {
@@ -29,37 +34,31 @@ const fixImagePath = (path: string) => {
     return `/images/${path}`;
 };
 
-async function getPost(slug: string) {
-    try {
-        // Fetch blog by slug from seo_meta table joined with blogs table
-        const res = await pool.query(
-            `SELECT b.*
-             FROM blogs b
-             INNER JOIN seo_meta sm ON b.id = sm.post_id
-             WHERE sm.seo_slug = $1
-               AND b.status = 'published'`,
-            [slug]
-        );
+// Share the lookup between metadata and content for this request. Database errors
+// must remain server errors so an outage cannot mark published articles as missing.
+const getPost = cache(async (slug: string) => {
+    const res = await pool.query(
+        `SELECT b.*
+         FROM blogs b
+         INNER JOIN seo_meta sm ON b.id = sm.post_id
+         WHERE sm.seo_slug = $1
+           AND b.status = 'published'`,
+        [slug]
+    );
 
-        return res.rows[0];
-
-    } catch (error) {
-        console.error('Error fetching post:', error);
-        return null;
-    }
-}
+    return res.rows[0];
+});
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
     const post = await getPost(slug);
 
     if (!post) {
-        return {
-            title: 'Post Not Found | Flexy Markets',
-        };
+        notFound();
     }
 
-    const authorName = post.author || BLOG_AUTHOR;
+    const canonicalUrl = `${BASE_URL}/blog/${encodeURIComponent(slug)}`;
+    const authorName = post.author?.trim() || BLOG_AUTHOR;
     const publishedDate = post.published_at || post.created_at;
     const updatedDate = post.updated_at || publishedDate;
 
@@ -68,11 +67,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         description: post.excerpt || `Read ${post.title} on Flexy Markets Blog.`,
         authors: [{ name: authorName }],
         publisher: SITE_PUBLISHER,
+        alternates: { canonical: canonicalUrl },
         openGraph: {
             title: post.title,
             description: post.excerpt || `Read ${post.title} on Flexy Markets Blog.`,
             images: post.featured_image ? [fixImagePath(post.featured_image)] : [],
             type: 'article',
+            url: canonicalUrl,
             publishedTime: publishedDate ? new Date(publishedDate).toISOString() : undefined,
             modifiedTime: updatedDate ? new Date(updatedDate).toISOString() : undefined,
             authors: [authorName],
@@ -91,19 +92,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     const post = await getPost(slug);
 
     if (!post) {
-        return (
-            <main className="min-h-screen flex flex-col items-center justify-center">
-                <NavBar />
-                <div className="container text-center pt-5 mt-5">
-                    <h1 className="display-4 fw-bold mb-4">Post Not Found</h1>
-                    <p className="lead mb-4">The article you are looking for does not exist or has been moved.</p>
-                    <Link href="/blog" className="btn btn-primary rounded-pill px-4">
-                        Back to Blog
-                    </Link>
-                </div>
-                <Footer />
-            </main>
-        );
+        notFound();
     }
 
     // Process content to fix inline images if necessary (assuming they might be relative)
@@ -122,12 +111,40 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
     const tags = post.tags ? post.tags.split(',').map((t: string) => t.trim()) : [];
     const faqItems = normalizeBlogFaq(post.faq_json);
-    const authorName = post.author || BLOG_AUTHOR;
+    const authorName = post.author?.trim() || BLOG_AUTHOR;
     const publishedDate = post.published_at || post.created_at;
     const updatedDate = post.updated_at || null;
+    const canonicalUrl = `${BASE_URL}/blog/${encodeURIComponent(slug)}`;
+    const articleSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        '@id': `${canonicalUrl}#article`,
+        url: canonicalUrl,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+        headline: post.title,
+        ...(post.excerpt ? { description: post.excerpt } : {}),
+        ...(post.featured_image ? {
+            image: new URL(fixImagePath(post.featured_image), BASE_URL).href,
+        } : {}),
+        ...(publishedDate ? { datePublished: new Date(publishedDate).toISOString() } : {}),
+        ...(updatedDate ? { dateModified: new Date(updatedDate).toISOString() } : {}),
+        author: {
+            '@type': authorName === BLOG_AUTHOR || authorName === SITE_PUBLISHER ? 'Organization' : 'Person',
+            name: authorName,
+        },
+        publisher: {
+            '@type': 'Organization',
+            '@id': `${BASE_URL}/#organization`,
+            name: SITE_PUBLISHER,
+            url: BASE_URL,
+            logo: { '@type': 'ImageObject', url: `${BASE_URL}/hd_logo.webp` },
+        },
+        inLanguage: 'en',
+    };
 
     return (
         <main className="position-relative bg-white" style={{ minHeight: "100vh" }}>
+            <JsonLd data={articleSchema} />
             <div className="position-fixed top-0 start-0 w-100 h-100" style={{ zIndex: 0 }}>
                 <AnimatedBackground variant="aurora" />
             </div>

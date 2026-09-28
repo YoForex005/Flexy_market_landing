@@ -1,0 +1,73 @@
+.background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  contain: paint;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient {
+  position: absolute;
+  inset: -6%;
+}
+
+/* Broad gradients provide the soft edges without large blur-filter surfaces. */
+.ribbons {
+  background: linear-gradient(135deg, #fce7f3 0%, #dbeafe 50%, #f3e8ff 100%);
+  opacity: 0.7;
+}
+
+.ribbons .ambient {
+  background:
+    radial-gradient(ellipse at 15% 15%, rgb(236 72 153 / 28%), transparent 48%),
+    radial-gradient(ellipse at 85% 15%, rgb(6 182 212 / 28%), transparent 48%),
+    radial-gradient(ellipse at 55% 55%, rgb(168 85 247 / 20%), transparent 42%),
+    radial-gradient(ellipse at 45% 90%, rgb(251 191 36 / 28%), transparent 42%),
+    radial-gradient(ellipse at 90% 90%, rgb(16 185 129 / 28%), transparent 48%);
+}
+
+.waves {
+  background: linear-gradient(to bottom, #f8fafc 0%, #e8f5f0 100%);
+  opacity: 0.8;
+}
+
+.waves .ambient {
+  background:
+    linear-gradient(120deg, transparent 20%, rgb(16 185 129 / 25%) 50%, transparent 80%),
+    linear-gradient(240deg, transparent 30%, rgb(6 182 212 / 30%) 55%, transparent 75%),
+    linear-gradient(60deg, transparent 25%, rgb(251 191 36 / 20%) 60%, transparent 85%);
+}
+
+.aurora {
+  background: linear-gradient(135deg, #f9fafb 0%, #f0fdf4 100%);
+  opacity: 0.75;
+}
+
+.aurora .ambient {
+  background:
+    radial-gradient(ellipse at 20% 30%, rgb(16 185 129 / 23%), transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgb(251 191 36 / 18%), transparent 50%),
+    radial-gradient(ellipse at 95% 80%, rgb(20 184 166 / 20%), transparent 55%);
+}
+
+/* The same composition stays static on touch screens and with reduced motion. */
+@media (min-width: 768px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .ambient {
+    animation: ambientDrift 26s ease-in-out infinite alternate;
+    animation-play-state: paused;
+  }
+
+  .background[data-animate='true'] .ambient {
+    animation-play-state: running;
+  }
+}
+
+@keyframes ambientDrift {
+  from {
+    transform: translate(-2%, -1%);
+  }
+  to {
+    transform: translate(2%, 1%);
+  }
+}
