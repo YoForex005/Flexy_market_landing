@@ -190,14 +190,14 @@ export default function NavBar() {
                                     </nav>
                                     <div className="header_button d-flex align-items-center gap-3">
                                         <a
-                                            href="https://user.flexymarkets.com/accounts/signIns"
+                                            href="/sign-in"
                                             className="btn fw-bold text-decoration-none p-0"
                                             style={{ color: isSticky ? '#154941' : '#ffffff', border: '1px solid transparent' }}
                                         >
                                             Login
                                         </a>
                                         <a
-                                            href="https://user.flexymarkets.com/accounts/signUps"
+                                            href="/sign-up"
                                             className="btn btn-primary fw-bold px-4 py-2"
                                         >
                                             Get Started
@@ -347,14 +347,14 @@ export default function NavBar() {
 
                                 <div className="d-flex align-items-center">
                                     <a
-                                        href="https://user.flexymarkets.com/accounts/signIns"
+                                        href="/sign-in"
                                         className="btn fw-bold me-3 text-dark"
                                         style={{ fontSize: "15px" }}
                                     >
                                         Login
                                     </a>
                                     <a
-                                        href="https://user.flexymarkets.com/accounts/signUps"
+                                        href="/sign-up"
                                         className="btn btn-primary fw-bold"
                                         style={{
                                             padding: "10px 24px",

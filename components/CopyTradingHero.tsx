@@ -67,7 +67,7 @@ export default function CopyTradingHero({ paddingTop = "120px", paddingBottom = 
                         {/* CTA Buttons */}
                         <div className="d-flex justify-content-center gap-3 flex-wrap mb-5">
                             <a
-                                href="https://user.flexymarkets.com/accounts/signIns"
+                                href="/sign-in"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn btn-primary px-5 py-3 fw-bold rounded-pill shadow-lg hover-lift"

@@ -38,7 +38,7 @@ export default function Flexy150Page() {
                                 <p className={`${styles['text-2xl']} ${styles['sm-text-3xl']} ${styles['text-gray-900']} ${styles['font-semibold']} ${styles['mb-10']}`}>
                                     Receive $150 Free Trading Credit from Flexy Markets!
                                 </p>
-                                <a href="https://user.flexymarkets.com/accounts/signUp"
+                                <a href="/sign-up"
                                     className={`${styles['bg-green-primary']} ${styles['hover-bg-green-dark']} ${styles['text-white']} ${styles['hover-text-white']} ${styles['font-bold']} ${styles['px-12']} ${styles['py-4']} ${styles['rounded-full']} ${styles['text-lg']} ${styles['transition-all']} ${styles['duration-300']} ${styles['transform']} ${styles['hover-scale-105']} ${styles['shadow-xl']} ${styles['hover-shadow-xl']} inline-block`}>
                                     Begin Trading Free
                                 </a>
@@ -178,7 +178,7 @@ export default function Flexy150Page() {
                     </div>
 
                     <div className={`${styles['flex']} ${styles['justify-center']}`}>
-                        <a href="https://user.flexymarkets.com/accounts/signUp"
+                        <a href="/sign-up"
                             className={`${styles['bg-green-primary']} ${styles['hover-bg-green-dark']} ${styles['text-white']} ${styles['hover-text-white']} ${styles['font-bold']} ${styles['px-12']} ${styles['py-4']} ${styles['rounded-full']} ${styles['text-lg']} ${styles['shadow-xl']} ${styles['hover-shadow-xl']} ${styles['transition-all']} ${styles['duration-300']} ${styles['transform']} ${styles['hover-scale-105']}`}>
                             Activate Flexy150
                         </a>
@@ -256,7 +256,7 @@ export default function Flexy150Page() {
                 </div>
 
                 <div className={`${styles['text-center']} ${styles['flex']} ${styles['justify-center']} ${styles['gap-4']} ${styles['px-4']} ${styles['bg-gradient-gray']}`}>
-                    <a href="legal_documents/TermsandConditionsfortheFlexy150Plan.pdf" className={`${styles['bg-green-primary']} ${styles['hover-bg-green-dark']} ${styles['text-white']} ${styles['hover-text-white']} ${styles['font-bold']} ${styles['px-10']} ${styles['py-4']} ${styles['rounded-full']} ${styles['text-lg']} ${styles['shadow-xl']} ${styles['hover-shadow-xl']} ${styles['transition-all']} ${styles['duration-300']} ${styles['transform']} ${styles['hover-scale-105']}`}>
+                    <a href="/pdf/TERM%20AND%20CONDITION.pdf" target="_blank" rel="noopener noreferrer" className={`${styles['bg-green-primary']} ${styles['hover-bg-green-dark']} ${styles['text-white']} ${styles['hover-text-white']} ${styles['font-bold']} ${styles['px-10']} ${styles['py-4']} ${styles['rounded-full']} ${styles['text-lg']} ${styles['shadow-xl']} ${styles['hover-shadow-xl']} ${styles['transition-all']} ${styles['duration-300']} ${styles['transform']} ${styles['hover-scale-105']}`}>
                         View Terms and Conditions
                     </a>
                 </div>

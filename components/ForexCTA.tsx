@@ -12,7 +12,7 @@ export default function ForexCTA() {
                 <p className="mx-auto mb-5" style={{ color: "#0f4941", maxWidth: "700px" }}>
                     Join a truly global and regulated broker to explore your forex trading potential. Open an account within seconds.
                 </p>
-                <a href="https://user.flexymarkets.com/accounts/signUps" style={{ textDecoration: 'none' }}>
+                <a href="/sign-up" style={{ textDecoration: 'none' }}>
                     <button
                         className="btn btn-primary fw-bold px-5 py-3"
                         style={{

@@ -68,7 +68,7 @@ export default function CopyTradingCTA() {
                         {/* CTA Buttons */}
                         <div className="d-flex gap-3 justify-content-center flex-wrap">
                             <a
-                                href="https://user.flexymarkets.com/accounts/signIns"
+                                href="/sign-in"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn btn-light px-5 py-3 fw-bold"

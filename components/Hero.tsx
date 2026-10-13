@@ -296,7 +296,7 @@ export default function Hero() {
 
                         <div className="mt-4">
                             <Link
-                                href="https://user.flexymarkets.com/accounts/signUps"
+                                href="/sign-up"
                                 className="btn btn-primary fw-bold"
                                 style={{
                                     textDecoration: 'none',

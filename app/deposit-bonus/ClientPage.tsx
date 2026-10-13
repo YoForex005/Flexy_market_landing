@@ -82,7 +82,7 @@ export default function DepositBonusPage() {
                         </div>
 
                         <div className={`${styles['flex']} ${styles['flex-col']} ${styles['sm-flex-row']} ${styles['gap-6']} ${styles['justify-center']} ${styles['animate-fadeInUp']} ${styles['delay-400']}`}>
-                            <a href="https://user.flexymarkets.com/accounts/signUp" className={styles['hero-btn-primary']}>
+                            <a href="/sign-up" className={styles['hero-btn-primary']}>
                                 Claim Your Bonus Now
                             </a>
                             <button onClick={() => scrollToSection('how-it-works')}
@@ -212,7 +212,7 @@ export default function DepositBonusPage() {
                         </div>
 
                         <div className={`${styles['text-center']} ${styles['mt-12']}`}>
-                            <a href="https://user.flexymarkets.com/accounts/signUp"
+                            <a href="/sign-up"
                                 className={styles['hero-btn-primary']}>
                                 Get Your 25% Bonus Now
                             </a>
@@ -276,7 +276,7 @@ export default function DepositBonusPage() {
                             Get 25% bonus on every deposit and maximize your trading potential
                         </p>
 
-                        <a href="https://user.flexymarkets.com/accounts/signUp" className={`${styles['btn-cta']}`}>
+                        <a href="/sign-up" className={`${styles['btn-cta']}`}>
                             Claim Your 25% Bonus Now
                         </a>
 

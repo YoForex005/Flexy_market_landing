@@ -31,7 +31,7 @@ export default function LiveEducationContent() {
                     </h1>
                     <div className="mb-5">
                         <a
-                            href="https://user.flexymarkets.com/accounts/signUps"
+                            href="/sign-up"
                             className="btn fw-bold px-5 py-3 text-white"
                             style={{
                                 textDecoration: 'none',
@@ -151,7 +151,7 @@ export default function LiveEducationContent() {
                         </div>
                     </div>
 
-                    <a href="https://user.flexymarkets.com/accounts/signUps" style={{ textDecoration: 'none' }}>
+                    <a href="/sign-up" style={{ textDecoration: 'none' }}>
                         <button
                             type="button"
                             className="btn fw-bold px-5 py-3 text-white"

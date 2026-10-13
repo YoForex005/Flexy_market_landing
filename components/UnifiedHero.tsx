@@ -38,7 +38,7 @@ export default function UnifiedHero({
     paddingBottom = "100px",
     stickers = [],
     ctaText = "Start Trading Forex",
-    ctaLink = "https://user.flexymarkets.com/accounts/signUps"
+    ctaLink = "/sign-up"
 }: UnifiedHeroProps) {
     return (
         <section className="position-relative overflow-hidden"

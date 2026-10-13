@@ -38,7 +38,7 @@ export default function MarginLeverageContent() {
                     </p>
 
                     <div>
-                        <a href="https://user.flexymarkets.com/accounts/signUps"
+                        <a href="/sign-up"
                             className="btn rounded-pill fw-bold px-5 py-3 text-white shadow-lg hover-lift"
                             style={{
                                 backgroundColor: "#0f4941",
@@ -162,7 +162,7 @@ export default function MarginLeverageContent() {
                     <div className="bg-white rounded-5 p-5 shadow-sm">
                         <h2 className="fw-bold mb-3" style={{ color: "#0f2a24" }}>Trade Over 1,400 Assets</h2>
                         <p className="text-muted mb-4">Build your portfolio with Forex, Stocks, Precious Metals, Energies, and Indices.</p>
-                        <a href="https://user.flexymarkets.com/accounts/signUps"
+                        <a href="/sign-up"
                             className="btn rounded-pill fw-bold px-5 py-3 text-white shadow-lg hover-scale"
                             style={{
                                 backgroundColor: "#0f664a",

@@ -121,7 +121,7 @@ export default function PlatformCards() {
                                     Trade directly from any browser without installation. Instant access to global markets.
                                 </p>
 
-                                <a href="https://user.flexymarkets.com/accounts/signIns"
+                                <a href="/sign-in"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn btn-primary-soft w-100 rounded-pill py-3 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm lift-hover"

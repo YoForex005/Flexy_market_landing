@@ -84,7 +84,7 @@ export default function EconomicCalendarContent() {
                     </p>
                     {/* Optional CTA if needed in hero */}
                     <div className="mb-5">
-                        <a href="https://user.flexymarkets.com/accounts/signUps" className="btn btn-primary rounded-pill fw-bold px-4 py-2"
+                        <a href="/sign-up" className="btn btn-primary rounded-pill fw-bold px-4 py-2"
                             style={{ backgroundColor: "#0f664a", border: "1px solid #0f664a", color: "white" }}>
                             Start Trading Forex
                         </a>

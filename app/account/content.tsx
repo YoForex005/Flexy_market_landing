@@ -34,7 +34,7 @@ export default function AccountContent() {
                         Open an account today to access fair conditions and get everything you need to achieve your trading goals.
                     </p>
                     <div className="d-flex justify-content-center">
-                        <a href="https://user.flexymarkets.com/accounts/signUps"
+                        <a href="/sign-up"
                             className="btn btn-primary rounded-pill px-5 py-3 fw-bold border-0 shadow-lg text-white text-decoration-none"
                             style={{ backgroundColor: "#0f4941", transition: "all 0.3s", fontSize: '18px' }}
                             onMouseOver={(e) => {
@@ -83,7 +83,7 @@ export default function AccountContent() {
                                 </div>
                             </div>
 
-                            <a href="https://user.flexymarkets.com/accounts/signUps"
+                            <a href="/sign-up"
                                 className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto text-decoration-none"
                                 style={{ backgroundColor: "#0f664a" }}>
                                 Select Plan
@@ -119,7 +119,7 @@ export default function AccountContent() {
                                 </div>
                             </div>
 
-                            <a href="https://user.flexymarkets.com/accounts/signUps"
+                            <a href="/sign-up"
                                 className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto text-decoration-none"
                                 style={{ backgroundColor: "#0f664a" }}>
                                 Select Plan
@@ -155,7 +155,7 @@ export default function AccountContent() {
                                 </div>
                             </div>
 
-                            <a href="https://user.flexymarkets.com/accounts/signUps"
+                            <a href="/sign-up"
                                 className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto text-decoration-none"
                                 style={{ backgroundColor: "#0f664a" }}>
                                 Select Plan
@@ -187,7 +187,7 @@ export default function AccountContent() {
                                 </div>
                             </div>
 
-                            <a href="https://user.flexymarkets.com/accounts/signUps"
+                            <a href="/sign-up"
                                 className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto text-decoration-none"
                                 style={{ backgroundColor: "#0f664a" }}>
                                 Select Plan
@@ -223,7 +223,7 @@ export default function AccountContent() {
                                 </div>
                             </div>
 
-                            <a href="https://user.flexymarkets.com/accounts/signUps"
+                            <a href="/sign-up"
                                 className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto text-decoration-none"
                                 style={{ backgroundColor: "#0f664a" }}>
                                 Select Plan
@@ -259,7 +259,7 @@ export default function AccountContent() {
                                 </div>
                             </div>
 
-                            <a href="https://user.flexymarkets.com/accounts/signUps"
+                            <a href="/sign-up"
                                 className="btn w-100 rounded-pill py-3 fw-bold text-white border-0 mt-auto text-decoration-none"
                                 style={{ backgroundColor: "#0f664a" }}>
                                 Select Plan
@@ -282,7 +282,7 @@ export default function AccountContent() {
                         Use your Demo Account and test your trading strategies risk-free with virtual funds in a simulated environment. Then switch to a Real Account when you are ready.
                     </p>
 
-                    <a href="https://user.flexymarkets.com/accounts/signUps"
+                    <a href="/sign-up"
                         className="btn rounded-pill px-5 py-3 fw-bold text-white shadow-lg text-decoration-none"
                         style={{ backgroundColor: "#0f4941", transition: "all 0.3s" }}>
                         Get Started

@@ -116,7 +116,7 @@ export default function Footer() {
                                 <p className="text-muted small mb-0">
                                     <strong>Phone:</strong>{" "}
                                     <a
-                                        href="https://wa.me/443300271632"
+                                        href="https://web.whatsapp.com/send?phone=443300271632"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         style={{ color: '#0f4941', textDecoration: 'none' }}

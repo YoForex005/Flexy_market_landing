@@ -41,7 +41,7 @@ export default function NewsAnalysisContent() {
                         </p>
                         <div className="mb-5">
                             <a
-                                href="https://user.flexymarkets.com/accounts/signUps"
+                                href="/sign-up"
                                 className="btn fw-bold px-5 py-3 text-white"
                                 style={{
                                     textDecoration: 'none',
@@ -191,7 +191,7 @@ export default function NewsAnalysisContent() {
                                     <span className="fw-bold text-dark">Daily Technical Levels Support/Resistance</span>
                                 </li>
                             </ul>
-                            <a href="https://user.flexymarkets.com/accounts/signUps" className="btn btn-dark rounded-pill fw-bold px-5 py-3 shadow-lg">
+                            <a href="/sign-up" className="btn btn-dark rounded-pill fw-bold px-5 py-3 shadow-lg">
                                 Try Analytics Tools
                             </a>
                         </div>

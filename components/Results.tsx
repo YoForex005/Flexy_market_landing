@@ -51,7 +51,7 @@ export default function Results() {
                     <div className="mt-5">
 
                         <a
-                            href="https://user.flexymarkets.com/accounts/signUps"
+                            href="/sign-up"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-lg rounded-pill px-5 py-3 d-inline-flex align-items-center gap-2 magic-hover-btn"

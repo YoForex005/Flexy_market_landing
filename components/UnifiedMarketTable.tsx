@@ -117,7 +117,7 @@ export default function UnifiedMarketTable({
                 {/* See More */}
                 <div className="text-center p-4 mt-4" style={{ backgroundColor: "#fff" }}>
                     <p className="fw-bold mb-3 text-dark">Ready to discover more instruments?</p>
-                    <a href="https://user.flexymarkets.com/accounts/signUps" style={{ textDecoration: 'none' }}>
+                    <a href="/sign-up" style={{ textDecoration: 'none' }}>
                         <button
                             className="btn btn-primary fw-bold px-4 py-2"
                         >

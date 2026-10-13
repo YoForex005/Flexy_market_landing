@@ -43,7 +43,7 @@ export default function AnalyticalToolsContent() {
                         </p>
                         <br /><br />
 
-                        <a href="https://user.flexymarkets.com/accounts/signUps" style={{ textDecoration: 'none' }}>
+                        <a href="/sign-up" style={{ textDecoration: 'none' }}>
                             <button
                                 type="button"
                                 className="btn fw-bold px-5 py-3 text-white"

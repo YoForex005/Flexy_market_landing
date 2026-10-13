@@ -39,7 +39,7 @@ export default function ExecutionPolicyContent() {
                     </h1>
 
                     <div className="mt-5">
-                        <a href="https://user.flexymarkets.com/accounts/signUps"
+                        <a href="/sign-up"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn rounded-pill fw-bold px-5 py-3 text-white shadow-lg hover-lift"
@@ -178,7 +178,7 @@ export default function ExecutionPolicyContent() {
                     </div>
 
                     <div className="text-center mt-5">
-                        <a href="https://user.flexymarkets.com/accounts/signUps"
+                        <a href="/sign-up"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn rounded-3 fw-bold px-5 py-3 text-white shadow-lg"

@@ -241,7 +241,7 @@ export default function LegalDocumentsContent() {
 
                             {/* Buttons */}
                             <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-4">
-                                <a href="https://user.flexymarkets.com/accounts/signUps"
+                                <a href="/sign-up"
                                     className="btn btn-light btn-lg rounded-pill fw-bold px-5 py-3 shadow-lg position-relative overflow-hidden"
                                     style={{
                                         color: "#0f4941",

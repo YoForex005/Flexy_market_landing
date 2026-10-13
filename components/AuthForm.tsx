@@ -352,7 +352,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
                     {/* Forgot Password (SignIn Only) */}
                     {!isSignUp && (
                         <div className="text-center mt-3">
-                            <a href="https://user.flexymarkets.com/accounts/resetPassword" style={{ color: "#0056b3", textDecoration: "none", fontSize: "14px" }}>
+                            <a href="/reset-password" style={{ color: "#0056b3", textDecoration: "none", fontSize: "14px" }}>
                                 I forgot my password
                             </a>
                         </div>

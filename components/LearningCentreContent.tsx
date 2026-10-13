@@ -31,7 +31,7 @@ export default function LearningCentreContent() {
                     </p>
                     <div className="mb-5">
                         <a
-                            href="https://user.flexymarkets.com/accounts/signUps"
+                            href="/sign-up"
                             className="btn fw-bold px-5 py-3 text-white"
                             style={{
                                 textDecoration: 'none',
@@ -70,7 +70,7 @@ export default function LearningCentreContent() {
                                 <p className="text-white-50 mb-4 lh-lg">
                                     Learn 7 days a week from 77 instructors in 23 languages. Join thousands of traders who benefit from our free, interactive webinars taught by industry experts.
                                 </p>
-                                <a href="https://user.flexymarkets.com/accounts/signUps" className="btn btn-light fw-bold px-4 py-2 rounded-pill">
+                                <a href="/sign-up" className="btn btn-light fw-bold px-4 py-2 rounded-pill">
                                     Register Now
                                 </a>
                             </div>
@@ -90,7 +90,7 @@ export default function LearningCentreContent() {
                                 <p className="text-white-50 mb-4 lh-lg">
                                     Master the markets with live shows and expert analysis. Watch daily sessions on Forex, stocks, indices, and commodities with our trading experts.
                                 </p>
-                                <a href="https://user.flexymarkets.com/accounts/signUps" className="btn btn-light fw-bold px-4 py-2 rounded-pill">
+                                <a href="/sign-up" className="btn btn-light fw-bold px-4 py-2 rounded-pill">
                                     Watch Live
                                 </a>
                             </div>
@@ -114,7 +114,7 @@ export default function LearningCentreContent() {
                                 <p className="text-secondary mb-4 lh-lg">
                                     Learn to use professional trading tools and technical indicators. Master Moving Averages, RSI, MACD, and other essential tools for successful trading.
                                 </p>
-                                <a href="https://user.flexymarkets.com/accounts/signUps" className="btn fw-bold px-4 py-2 rounded-pill text-white" style={{ backgroundColor: '#000' }}>
+                                <a href="/sign-up" className="btn fw-bold px-4 py-2 rounded-pill text-white" style={{ backgroundColor: '#000' }}>
                                     Learn More
                                 </a>
                             </div>
@@ -143,7 +143,7 @@ export default function LearningCentreContent() {
                                 <p className="text-secondary mb-4 lh-lg">
                                     Understand economic events and how they impact your trading. Get live coverage of economic releases and macroeconomic events that influence markets.
                                 </p>
-                                <a href="https://user.flexymarkets.com/accounts/signUps" className="btn fw-bold px-4 py-2 rounded-pill text-white" style={{ backgroundColor: '#000' }}>
+                                <a href="/sign-up" className="btn fw-bold px-4 py-2 rounded-pill text-white" style={{ backgroundColor: '#000' }}>
                                     Start Learning
                                 </a>
                             </div>

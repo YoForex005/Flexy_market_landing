@@ -73,7 +73,7 @@ export default function PromotionsContent() {
                             </p>
                         </div>
                         <div className={`${styles['animate-fadeInUp']} ${styles['delay-300']}`}>
-                            <a href="https://user.flexymarkets.com/accounts/signUp">
+                            <a href="/sign-up">
                                 <button className={`${styles['btn-yellow']} ${styles['animate-pulse-custom']}`}>
                                     Start Trading Forex
                                 </button>
@@ -178,7 +178,7 @@ export default function PromotionsContent() {
                                     <div className="p-4">
                                         <h3 className={`h5 ${styles['font-bold']} ${styles['text-dark-green']} mb-2`}>Loyalty Program</h3>
                                         <p className={`${styles['text-gray-600']} small mb-4`}>Trade and earn points that can be redeemed for credit bonus rewards.</p>
-                                        <a href="https://user.flexymarkets.com/accounts/signUp" className={`${styles['text-dark-green']} fw-bold text-decoration-none d-inline-flex align-items-center gap-1`}>
+                                        <a href="/sign-up" className={`${styles['text-dark-green']} fw-bold text-decoration-none d-inline-flex align-items-center gap-1`}>
                                             Join Now
                                         </a>
                                     </div>
@@ -194,7 +194,7 @@ export default function PromotionsContent() {
                                     <div className="p-4">
                                         <h3 className={`h5 ${styles['font-bold']} ${styles['text-dark-green']} mb-2`}>Refer a Friend</h3>
                                         <p className={`${styles['text-gray-600']} small mb-4`}>The more people you invite, the more you earn with every successful referral.</p>
-                                        <a href="https://user.flexymarkets.com/accounts/signUp" className={`${styles['text-dark-green']} fw-bold text-decoration-none d-inline-flex align-items-center gap-1`}>
+                                        <a href="/sign-up" className={`${styles['text-dark-green']} fw-bold text-decoration-none d-inline-flex align-items-center gap-1`}>
                                             Start Earning Now
                                         </a>
                                     </div>
@@ -210,7 +210,7 @@ export default function PromotionsContent() {
                                     <div className="p-4">
                                         <h3 className={`h5 ${styles['font-bold']} ${styles['text-dark-green']} mb-2`}>Free VPS Service</h3>
                                         <p className={`${styles['text-gray-600']} small mb-4`}>Increase the speed of your trades and eliminate downtime.</p>
-                                        <a href="https://user.flexymarkets.com/accounts/signUp" className={`${styles['text-dark-green']} fw-bold text-decoration-none d-inline-flex align-items-center gap-1`}>
+                                        <a href="/sign-up" className={`${styles['text-dark-green']} fw-bold text-decoration-none d-inline-flex align-items-center gap-1`}>
                                             Claim Now
                                         </a>
                                     </div>
@@ -226,7 +226,7 @@ export default function PromotionsContent() {
                                     <div className="p-4">
                                         <h3 className={`h5 ${styles['font-bold']} ${styles['text-dark-green']} mb-2`}>Zero Fees</h3>
                                         <p className={`${styles['text-gray-600']} small mb-4`}>No hidden fees. Your money is for trading, not paying for the service.</p>
-                                        <a href="https://user.flexymarkets.com/accounts/signUp" className={`${styles['text-dark-green']} fw-bold text-decoration-none d-inline-flex align-items-center gap-1`}>
+                                        <a href="/sign-up" className={`${styles['text-dark-green']} fw-bold text-decoration-none d-inline-flex align-items-center gap-1`}>
                                             Create Account
                                         </a>
                                     </div>
@@ -254,7 +254,7 @@ export default function PromotionsContent() {
                         <p className={`${styles['text-xl']} ${styles['text-white-90']} ${styles['mb-10']}`}>
                             Claim rewards and benefits when you trade with Flexy. Open your account today.
                         </p>
-                        <a href="https://user.flexymarkets.com/accounts/signUp">
+                        <a href="/sign-up">
                             <button className={`${styles['btn-yellow']} ${styles['animate-pulse-custom']}`}>
                                 Start Trading Now
                             </button>
