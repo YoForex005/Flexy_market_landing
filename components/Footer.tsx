@@ -9,44 +9,6 @@ export default function Footer() {
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, #0f4941 0%, #0f664a 50%, #0f4941 100%)' }}></div>
 
                 <div className="container">
-                    {/* Header Section with Social Icons */}
-                    <div className="foorer_1 py-5" style={{ borderBottom: '1px solid rgba(15, 73, 65, 0.1)' }}>
-                        <div className="row align-items-center">
-                            <div className="col-lg-5">
-                                <div className="footer_heading">
-                                    <h2 className="display-6 fw-bold" style={{ color: '#0f4941' }}>Connect with Flexy Markets</h2>
-                                </div>
-                            </div>
-                            <div className="col-lg-4 offset-lg-3">
-                                <div className="footer_1_right">
-                                    <ul className="d-flex gap-3 justify-content-lg-end justify-content-center list-unstyled mb-0">
-                                        <li>
-                                            <a href="https://www.facebook.com/flexymarkets/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"
-                                                className="d-flex align-items-center justify-content-center rounded-circle bg-white shadow-sm"
-                                                style={{ width: '50px', height: '50px', transition: 'all 0.3s' }}>
-                                                <i className="fab fa-facebook" style={{ fontSize: '24px', color: '#1877F2' }}></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.instagram.com/officialflexymarktes" aria-label="Instagram" target="_blank" rel="noopener noreferrer"
-                                                className="d-flex align-items-center justify-content-center rounded-circle bg-white shadow-sm"
-                                                style={{ width: '50px', height: '50px', transition: 'all 0.3s' }}>
-                                                <i className="fab fa-instagram" style={{ fontSize: '24px', color: '#E4405F' }}></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.linkedin.com/company/flexy-market/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"
-                                                className="d-flex align-items-center justify-content-center rounded-circle bg-white shadow-sm"
-                                                style={{ width: '50px', height: '50px', transition: 'all 0.3s' }}>
-                                                <i className="fab fa-linkedin" style={{ fontSize: '24px', color: '#0A66C2' }}></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     {/* Links Section */}
                     <div className="footer_2 py-5">
                         <div className="row">

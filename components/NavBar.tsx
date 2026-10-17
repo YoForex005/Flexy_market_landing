@@ -84,7 +84,7 @@ export default function NavBar() {
                                                 transition: 'all .3s',
                                                 filter: isSticky ? 'none' : 'brightness(0) invert(1)'
                                             }}
-                                            priority
+                                            loading="eager"
                                         />
                                     </Link>
                                 </div>
@@ -224,7 +224,7 @@ export default function NavBar() {
                                         height: '35px',
                                         width: 'auto'
                                     }}
-                                    priority
+                                    loading="eager"
                                 />
                             </Link>
                             <button

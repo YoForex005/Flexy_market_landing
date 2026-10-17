@@ -102,9 +102,6 @@ export default function RootLayout({
         url: 'https://flexymarkets.com',
         logo: 'https://flexymarkets.com/hd_logo.webp',
         sameAs: [
-          'https://www.facebook.com/flexymarkets/',
-          'https://www.instagram.com/officialflexymarktes',
-          'https://www.linkedin.com/company/flexy-market/',
           'https://t.me/yoforexrobot',
         ],
         contactPoint: {

@@ -28,9 +28,8 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 
-  // Tree-shake and optimize imports
+  // Tree-shake package imports.
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['bootstrap', '@emailjs/browser'],
   },
   allowedDevOrigins: ['100.89.159.98'],
