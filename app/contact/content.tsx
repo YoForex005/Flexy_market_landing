@@ -108,7 +108,7 @@ export default function ContactContent() {
                                     </div>
                                     <div>
                                         <h5 className="fw-bold mb-1">Phone Support</h5>
-                                        <p className="text-secondary mb-0">+44 20 1234 5678</p>
+                                        <p className="text-secondary mb-0">+44 7451 256432</p>
                                     </div>
                                 </div>
 

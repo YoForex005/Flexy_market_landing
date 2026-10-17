@@ -2,10 +2,10 @@
 
 import dynamic from 'next/dynamic';
 
-const WhatsAppWidget = dynamic(() => import('./WhatsAppWidget'), {
+const TelegramWidget = dynamic(() => import('./WhatsAppWidget'), {
     ssr: false,
 });
 
 export default function DynamicWhatsApp() {
-    return <WhatsAppWidget />;
+    return <TelegramWidget />;
 }

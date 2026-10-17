@@ -108,7 +108,7 @@ export default function RootLayout({
         ],
         contactPoint: {
           '@type': 'ContactPoint',
-          telephone: '+44-3300-271632',
+          telephone: '+44-7451-256432',
           email: 'support@flexymarkets.com',
           contactType: 'customer service',
         },

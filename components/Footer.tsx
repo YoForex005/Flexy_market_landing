@@ -116,10 +116,10 @@ export default function Footer() {
                                 <p className="text-muted small mb-0">
                                     <strong>Phone:</strong>{" "}
                                     <a
-                                        href="tel:+443300271632"
+                                        href="tel:+447451256432"
                                         style={{ color: '#0f4941', textDecoration: 'none' }}
                                     >
-                                        +44 3300 271632
+                                        +44 7451 256432
                                     </a>
                                 </p>
                             </div>

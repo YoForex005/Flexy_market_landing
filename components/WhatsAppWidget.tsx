@@ -1,21 +1,26 @@
-
 "use client";
 
 import { useState } from 'react';
 
-export default function WhatsAppWidget() {
+/** A Telegram support launcher. The filename is retained to avoid breaking existing imports. */
+export default function TelegramWidget() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
-            {/* Floating WhatsApp Chat Widget */}
             {isOpen && (
-                <div className="whatsapp-widget-container">
-                    <div className="whatsapp-widget">
-                        {/* Header */}
-                        <div className="whatsapp-header">
+                <div className="telegram-widget-container">
+                    <section
+                        className="telegram-widget"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label="Chat with Flexy Markets on Telegram"
+                    >
+                        <div className="telegram-header">
                             <div className="d-flex align-items-center">
-                                <i className="fab fa-whatsapp me-2" style={{ fontSize: '24px' }}></i>
+                                <span className="telegram-icon-wrap me-2" aria-hidden="true">
+                                    <i className="fab fa-telegram-plane"></i>
+                                </span>
                                 <div>
                                     <div className="fw-bold">Flexy Markets</div>
                                     <div style={{ fontSize: '12px', opacity: 0.9 }}>Typically replies instantly</div>
@@ -24,56 +29,53 @@ export default function WhatsAppWidget() {
                             <button
                                 className="close-btn"
                                 onClick={() => setIsOpen(false)}
-                                aria-label="Close chat"
+                                aria-label="Close Telegram chat"
                             >
-                                <i className="fas fa-times"></i>
+                                <i className="fas fa-times" aria-hidden="true"></i>
                             </button>
                         </div>
 
-                        {/* Body */}
-                        <div className="whatsapp-body">
+                        <div className="telegram-body">
                             <div className="message-bubble">
                                 <div className="fw-semibold mb-1">Flexy Markets</div>
                                 <p className="mb-2">
-                                    Hi there! 👋<br />
+                                    Hi there! <span role="img" aria-label="waving hand">👋</span><br />
                                     How can we help you today?
                                 </p>
                                 <div style={{ fontSize: '11px', opacity: 0.7 }}>Just now</div>
                             </div>
                         </div>
 
-                        {/* Footer */}
-                        <div className="whatsapp-footer">
+                        <div className="telegram-footer">
                             <a
-                                href="https://web.whatsapp.com/send?phone=443300271632&text=Hello%2C%20I%20have%20a%20question%20about%20Flexy%20Markets"
+                                href="https://t.me/yoforexrobot"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="whatsapp-link"
+                                className="telegram-link"
                             >
-                                <i className="fab fa-whatsapp me-2"></i>
-                                Start Chat
+                                <i className="fab fa-telegram-plane me-2" aria-hidden="true"></i>
+                                Start on Telegram
                             </a>
                         </div>
-                    </div>
+                    </section>
                 </div>
             )}
 
-            {/* Toggle Button */}
             <button
-                className="whatsapp-toggle-btn"
+                className="telegram-toggle-btn"
                 onClick={() => setIsOpen(!isOpen)}
-                aria-label="Open WhatsApp chat"
+                aria-label={isOpen ? 'Close Telegram chat' : 'Open Telegram chat'}
+                aria-expanded={isOpen}
             >
                 {isOpen ? (
-                    <i className="fas fa-times" style={{ fontSize: '28px' }}></i>
+                    <i className="fas fa-times" style={{ fontSize: '28px' }} aria-hidden="true"></i>
                 ) : (
-                    <i className="fab fa-whatsapp" style={{ fontSize: '32px' }}></i>
+                    <i className="fab fa-telegram-plane" style={{ fontSize: '30px', marginLeft: '-2px' }} aria-hidden="true"></i>
                 )}
             </button>
 
-            {/* Styles */}
             <style jsx>{`
-                .whatsapp-widget-container {
+                .telegram-widget-container {
                     position: fixed;
                     bottom: 92px;
                     right: 24px;
@@ -82,138 +84,126 @@ export default function WhatsAppWidget() {
                 }
 
                 @keyframes slideUp {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
                 }
 
-                .whatsapp-widget {
+                .telegram-widget {
                     width: 320px;
+                    overflow: hidden;
                     background: #fff;
                     border-radius: 16px;
-                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-                    overflow: hidden;
+                    box-shadow: 0 16px 40px rgba(27, 77, 104, 0.24);
                 }
 
-                .whatsapp-header {
-                    background: linear-gradient(135deg, #0f664a 0%, #0d5a40 100%);
-                    color: #fff;
-                    padding: 16px;
+                .telegram-header {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    padding: 16px;
+                    color: #fff;
+                    background: linear-gradient(135deg, #229ed9 0%, #168ac2 100%);
+                }
+
+                .telegram-icon-wrap {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 30px;
+                    height: 30px;
+                    border: 1px solid rgba(255, 255, 255, 0.65);
+                    border-radius: 50%;
+                    font-size: 17px;
                 }
 
                 .close-btn {
-                    background: transparent;
-                    border: none;
-                    color: #fff;
-                    font-size: 20px;
-                    cursor: pointer;
-                    padding: 4px;
-                    width: 32px;
-                    height: 32px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    width: 32px;
+                    height: 32px;
+                    padding: 4px;
+                    color: #fff;
+                    font-size: 20px;
+                    background: transparent;
+                    border: none;
                     border-radius: 50%;
+                    cursor: pointer;
                     transition: background 0.2s;
                 }
 
-                .close-btn:hover {
-                    background: rgba(255, 255, 255, 0.2);
-                }
+                .close-btn:hover { background: rgba(255, 255, 255, 0.2); }
 
-                .whatsapp-body {
-                    padding: 20px;
-                    background: #e5ddd5;
+                .telegram-body {
                     min-height: 160px;
+                    padding: 20px;
+                    background: linear-gradient(135deg, #eef7fb 0%, #e3f0f6 100%);
                 }
 
                 .message-bubble {
-                    background: #fff;
-                    padding: 12px;
-                    border-radius: 8px;
-                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
                     max-width: 85%;
-                }
-
-                .whatsapp-footer {
                     padding: 12px;
-                    background: #f0f0f0;
-                    border-top: 1px solid #e0e0e0;
+                    background: #fff;
+                    border-radius: 12px 12px 12px 4px;
+                    box-shadow: 0 2px 8px rgba(24, 73, 99, 0.12);
                 }
 
-                .whatsapp-link {
+                .telegram-footer {
+                    padding: 12px;
+                    background: #f8fbfd;
+                    border-top: 1px solid #dcebf2;
+                }
+
+                .telegram-link {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    background: linear-gradient(135deg, #0f664a 0%, #0d5a40 100%);
-                    color: #fff !important;
                     padding: 12px 24px;
-                    border-radius: 8px;
-                    text-decoration: none;
-                    font-weight: 600;
+                    color: #fff !important;
                     font-size: 15px;
+                    font-weight: 600;
+                    text-decoration: none;
+                    background: linear-gradient(135deg, #229ed9 0%, #168ac2 100%);
+                    border-radius: 10px;
                     transition: all 0.2s;
                 }
 
-                .whatsapp-link:hover {
-                    background: linear-gradient(135deg, #0d5a40 0%, #0b4d35 100%);
+                .telegram-link:hover {
+                    background: linear-gradient(135deg, #168ac2 0%, #0e78ad 100%);
+                    box-shadow: 0 6px 14px rgba(34, 158, 217, 0.3);
                     transform: translateY(-1px);
-                    box-shadow: 0 4px 12px rgba(15, 102, 74, 0.3);
                 }
 
-                .whatsapp-toggle-btn {
+                .telegram-toggle-btn {
                     position: fixed;
-                    bottom: 24px;
                     right: 24px;
-                    width: 60px;
-                    height: 60px;
-                    background: linear-gradient(135deg, #0f664a 0%, #0d5a40 100%);
-                    color: #fff;
-                    border: none;
-                    border-radius: 50%;
-                    box-shadow: 0 4px 16px rgba(15, 102, 74, 0.4);
-                    cursor: pointer;
+                    bottom: 24px;
+                    z-index: 9998;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    z-index: 9998;
+                    width: 60px;
+                    height: 60px;
+                    color: #fff;
+                    background: linear-gradient(135deg, #229ed9 0%, #168ac2 100%);
+                    border: none;
+                    border-radius: 50%;
+                    box-shadow: 0 7px 20px rgba(34, 158, 217, 0.42);
+                    cursor: pointer;
                     transition: all 0.3s ease;
                 }
 
-                .whatsapp-toggle-btn:hover {
+                .telegram-toggle-btn:hover {
+                    box-shadow: 0 10px 26px rgba(34, 158, 217, 0.52);
                     transform: scale(1.1);
-                    box-shadow: 0 6px 24px rgba(15, 102, 74, 0.5);
                 }
 
-                .whatsapp-toggle-btn:active {
-                    transform: scale(0.95);
-                }
+                .telegram-toggle-btn:active { transform: scale(0.95); }
 
                 @media (max-width: 480px) {
-                    .whatsapp-widget-container {
-                        right: 16px;
-                        bottom: 84px;
-                    }
-
-                    .whatsapp-widget {
-                        width: calc(100vw - 32px);
-                        max-width: 320px;
-                    }
-
-                    .whatsapp-toggle-btn {
-                        right: 16px;
-                        bottom: 16px;
-                        width: 56px;
-                        height: 56px;
-                    }
+                    .telegram-widget-container { right: 16px; bottom: 84px; }
+                    .telegram-widget { width: calc(100vw - 32px); max-width: 320px; }
+                    .telegram-toggle-btn { right: 16px; bottom: 16px; width: 56px; height: 56px; }
                 }
             `}</style>
         </>

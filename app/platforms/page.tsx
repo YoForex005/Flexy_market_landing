@@ -4,7 +4,6 @@ import PlatformCards from '@/components/PlatformCards';
 import Features from '@/components/Features';
 import Support from '@/components/Support';
 import Footer from '@/components/Footer';
-import WhatsAppWidget from '@/components/WhatsAppWidget';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -21,7 +20,6 @@ export default function PlatformsPage() {
             <Features />
             <Support />
             <Footer />
-            <WhatsAppWidget />
         </main>
     );
 }
