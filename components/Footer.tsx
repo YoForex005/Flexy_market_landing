@@ -114,12 +114,14 @@ export default function Footer() {
                                 <p className="text-muted small mb-1">Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia</p>
                                 <p className="text-muted small mb-1"><strong>Email:</strong> <a href="mailto:support@flexymarkets.com">support@flexymarkets.com</a></p>
                                 <p className="text-muted small mb-0">
-                                    <strong>Phone:</strong>{" "}
+                                    <strong>Telegram:</strong>{" "}
                                     <a
-                                        href="tel:+447451256432"
-                                        style={{ color: '#0f4941', textDecoration: 'none' }}
+                                        href="https://t.me/yoforexrobot"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{ color: '#168ac2', textDecoration: 'none' }}
                                     >
-                                        +44 7451 256432
+                                        @yoforexrobot
                                     </a>
                                 </p>
                             </div>

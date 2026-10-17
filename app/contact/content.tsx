@@ -75,7 +75,7 @@ export default function ContactContent() {
                     </h1>
                     <p className="fs-5 text-secondary mb-5 mx-auto lh-lg" style={{ maxWidth: '750px' }}>
                         Have questions? Our dedicated support team is available around the clock to assist you.
-                        Reach out to us via phone, email, or live chat.
+                        Reach out to us via email or Telegram.
                     </p>
                 </div>
             </section>
@@ -103,12 +103,14 @@ export default function ContactContent() {
                                 </div>
 
                                 <div className="d-flex align-items-start mb-4">
-                                    <div className="bg-white p-3 rounded-circle shadow-sm text-success me-3">
-                                        <i className="fas fa-phone-alt fa-lg"></i>
+                                    <div className="bg-white p-3 rounded-circle shadow-sm me-3" style={{ color: '#229ed9' }}>
+                                        <i className="fab fa-telegram-plane fa-lg"></i>
                                     </div>
                                     <div>
-                                        <h5 className="fw-bold mb-1">Phone Support</h5>
-                                        <p className="text-secondary mb-0">+44 7451 256432</p>
+                                        <h5 className="fw-bold mb-1">Telegram Support</h5>
+                                        <a href="https://t.me/yoforexrobot" target="_blank" rel="noopener noreferrer" className="text-decoration-none" style={{ color: '#168ac2' }}>
+                                            Message us on Telegram
+                                        </a>
                                     </div>
                                 </div>
 

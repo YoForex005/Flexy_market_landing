@@ -13,7 +13,7 @@ export default function Support() {
                             Contact Flexy Markets Support
                         </h2>
                         <p className="lead text-muted mb-4">
-                            Get help with account access, the trading platform and general enquiries. Find our email, phone and office details on the contact page.
+                            Get help with account access, the trading platform and general enquiries. Find our email, Telegram and office details on the contact page.
                         </p>
                         <Link
                             href="/contact"

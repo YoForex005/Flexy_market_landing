@@ -713,25 +713,6 @@ ul {
   transform: scale(1.05);
 }
 
-.whatsapp-btn {
-  width: 60px;
-  height: 60px;
-  background: #25d366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--bg-primary);
-  font-size: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: transform var(--transition-normal);
-}
-
-.whatsapp-btn:hover {
-  transform: scale(1.1);
-}
-
 .close-chat {
   width: 24px;
   height: 24px;

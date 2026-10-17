@@ -105,10 +105,10 @@ export default function RootLayout({
           'https://www.facebook.com/flexymarkets/',
           'https://www.instagram.com/officialflexymarktes',
           'https://www.linkedin.com/company/flexy-market/',
+          'https://t.me/yoforexrobot',
         ],
         contactPoint: {
           '@type': 'ContactPoint',
-          telephone: '+44-7451-256432',
           email: 'support@flexymarkets.com',
           contactType: 'customer service',
         },
