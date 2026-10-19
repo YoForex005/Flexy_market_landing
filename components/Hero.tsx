@@ -63,36 +63,28 @@ export default function Hero() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [hasTransitioned, setHasTransitioned] = useState(false);
     const [hasVideoFrame, setHasVideoFrame] = useState(false);
+    const [videoEnabled, setVideoEnabled] = useState(false);
     const heroRef = useRef<HTMLDivElement>(null);
     const progressRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
 
 
 
-    // Keep the poster and text available immediately; load decorative video only
-    // after a paint and an idle opportunity on suitable desktop connections.
+    // The poster is the LCP asset. The 3.6 MB decorative video starts only after
+    // a visitor engages with the hero, never during the critical loading window.
     useEffect(() => {
         const video = videoRef.current;
         const videoSource = slides[0].videoSrc;
-        if (!video || !videoSource) return;
+        if (!video || !videoSource || !videoEnabled) return;
 
         const media = window.matchMedia('(min-width: 769px) and (prefers-reduced-motion: no-preference)');
         const connection = (navigator as Navigator & {
             connection?: EventTarget & { effectiveType?: string; saveData?: boolean };
         }).connection;
-        let animationFrame = 0;
-        let idleCallback: number | undefined;
-        let fallbackTimer: number | undefined;
         let inViewport = true;
 
         const canLoadVideo = () => media.matches && !connection?.saveData &&
             connection?.effectiveType !== '2g' && connection?.effectiveType !== 'slow-2g';
-
-        const cancelPendingLoad = () => {
-            window.cancelAnimationFrame(animationFrame);
-            if (idleCallback !== undefined) window.cancelIdleCallback(idleCallback);
-            if (fallbackTimer !== undefined) window.clearTimeout(fallbackTimer);
-        };
 
         const updatePlayback = () => {
             if (!canLoadVideo()) {
@@ -116,24 +108,10 @@ export default function Hero() {
         };
 
         const schedulePlayback = () => {
-            cancelPendingLoad();
             if (progressRef.current) {
                 progressRef.current.style.animationPlayState = document.hidden || !inViewport ? 'paused' : 'running';
             }
-            if (!canLoadVideo() || currentSlide !== 0 || document.hidden || !inViewport) {
-                updatePlayback();
-                return;
-            }
-
-            animationFrame = window.requestAnimationFrame(() => {
-                animationFrame = window.requestAnimationFrame(() => {
-                    if (typeof window.requestIdleCallback === 'function') {
-                        idleCallback = window.requestIdleCallback(updatePlayback, { timeout: 1500 });
-                    } else {
-                        fallbackTimer = window.setTimeout(updatePlayback, 1000);
-                    }
-                });
-            });
+            updatePlayback();
         };
 
         const observer = new IntersectionObserver(([entry]) => {
@@ -147,14 +125,13 @@ export default function Hero() {
         document.addEventListener('visibilitychange', schedulePlayback);
 
         return () => {
-            cancelPendingLoad();
             observer.disconnect();
             video.pause();
             media.removeEventListener('change', schedulePlayback);
             connection?.removeEventListener('change', schedulePlayback);
             document.removeEventListener('visibilitychange', schedulePlayback);
         };
-    }, [currentSlide]);
+    }, [currentSlide, videoEnabled]);
 
     const nextSlide = useCallback(() => {
         if (!hasTransitioned) setHasTransitioned(true);
@@ -167,7 +144,12 @@ export default function Hero() {
     }, [hasTransitioned]);
 
     return (
-        <div ref={heroRef} className={`${styles.hero} index-banner position-relative group`}>
+        <div
+            ref={heroRef}
+            className={`${styles.hero} index-banner position-relative group`}
+            onPointerEnter={() => setVideoEnabled(true)}
+            onFocusCapture={() => setVideoEnabled(true)}
+        >
             {slides.map((slide, index) => (
                 <div
                     key={slide.id}

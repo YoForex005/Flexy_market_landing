@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import localFont from 'next/font/local';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import './icon-fonts.css';
 import './globals.css';
 import JsonLd from '@/components/JsonLd';
@@ -125,19 +124,6 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth" className={`${tomatoLatin.variable} ${tomato.variable}`}>
       <head>
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        {/* Queue the initial page view immediately; load the library after primary resources. */}
-        <Script id="google-tag-queue" strategy="beforeInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
-            if (!window.__flexyAnalyticsInitialized) {
-              window.__flexyAnalyticsInitialized = true;
-              window.gtag('js', new Date());
-              window.gtag('config', 'G-Q4GCWX9KQP', { page_location: window.location.href });
-              window.gtag('config', 'AW-823862486');
-            }
-          `}
-        </Script>
       </head>
       <body>
         {children}
